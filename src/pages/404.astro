@@ -1,12 +1,27 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { defaultLang, localizePath } from '@i18n/index';
+import Button from '@components/ui/Button.astro';
+import { defaultLang, localizePath, useTranslations } from '@i18n/index';
+
+const t = useTranslations(defaultLang);
+const en = useTranslations('en');
 ---
 
-<BaseLayout lang={defaultLang} title="404">
-  <section class="container" style="padding-block: 4rem">
-    <h1>404</h1>
-    <p>Página no encontrada · Page not found</p>
-    <a href={localizePath(defaultLang)}>← Inicio / Home</a>
+<BaseLayout lang={defaultLang} title="404" standalone>
+  <section class="blueprint">
+    <div class="container notfound">
+      <div class="eyebrow">404</div>
+      <h1 class="page-title">{t('notfound.title')}</h1>
+      <p class="lead">{t('notfound.body')} <span lang="en">{en('notfound.body')}</span></p>
+      <div class="notfound__ctas">
+        <Button href={localizePath(defaultLang)}>{t('notfound.back')}</Button>
+        <Button variant="secondary" href={localizePath('en')}>{en('notfound.back')}</Button>
+      </div>
+    </div>
   </section>
 </BaseLayout>
+
+<style>
+  .notfound { padding-block: 112px 96px; display: flex; flex-direction: column; gap: 20px; }
+  .notfound__ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+</style>

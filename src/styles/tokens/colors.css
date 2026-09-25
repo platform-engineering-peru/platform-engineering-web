@@ -1,0 +1,49 @@
+/* Tokens de color — Platform Engineering Perú Design System (tokens/colors.css). */
+:root{
+  /* Ink — deep navy from the logo wordmark */
+  --pe-ink-950:#0B0820; --pe-ink-900:#130F2E; --pe-ink-850:#1A1540; --pe-ink-800:#221C4F;
+  --pe-ink-700:#322B66; --pe-ink-600:#4B4580; --pe-ink-500:#6C67A0; --pe-ink-400:#918DB8;
+  --pe-ink-300:#B9B6D4; --pe-ink-200:#D8D6E8; --pe-ink-100:#ECEBF5; --pe-ink-50:#F7F6FB; --pe-white:#FFFFFF;
+  /* Violet — platform layers */
+  --pe-violet-100:#ECE8FF; --pe-violet-200:#D2C9FF; --pe-violet-300:#B3A6FF; --pe-violet-400:#9483FF;
+  --pe-violet-500:#7B61FF; --pe-violet-600:#6246EA; --pe-violet-700:#4B33C2; --pe-violet-800:#35238C;
+  /* Green — the golden path layer */
+  --pe-green-100:#DDFBEC; --pe-green-200:#AFF5D2; --pe-green-300:#7CEDB5; --pe-green-400:#3FE095;
+  --pe-green-500:#12CC7A; --pe-green-600:#0AA362; --pe-green-700:#067A49;
+  /* Rojo Perú — flag accent */
+  --pe-red-100:#FDE3E6; --pe-red-300:#F58793; --pe-red-400:#F04B5A; --pe-red-500:#D91E36; --pe-red-600:#B3142A; --pe-red-700:#8A0F20;
+  /* Amber — warnings only */
+  --pe-amber-400:#FFC24D; --pe-amber-500:#FFB020; --pe-amber-700:#9A6200;
+
+  /* Semantic — default theme is DARK (site canvas) */
+  --bg-canvas:var(--pe-ink-950); --bg-raised:var(--pe-ink-900); --bg-card:var(--pe-ink-850);
+  --bg-card-hover:var(--pe-ink-800); --bg-inverse:var(--pe-white); --bg-light:var(--pe-ink-50);
+  --fg-1:var(--pe-white); --fg-2:var(--pe-ink-300); --fg-3:var(--pe-ink-400); --fg-inverse:var(--pe-ink-950);
+  --fg-on-light-1:var(--pe-ink-950); --fg-on-light-2:var(--pe-ink-600);
+  --border-subtle:rgba(185,182,212,.14); --border-default:rgba(185,182,212,.24); --border-strong:rgba(185,182,212,.42);
+  --accent:var(--pe-violet-500); --accent-hover:var(--pe-violet-400); --accent-press:var(--pe-violet-600); --accent-fg:var(--pe-white);
+  --accent-2:var(--pe-green-500); --accent-2-hover:var(--pe-green-400); --accent-2-fg:var(--pe-ink-950);
+  --accent-peru:var(--pe-red-500);
+  --link:var(--pe-violet-300); --link-hover:var(--pe-green-300);
+  --success:var(--pe-green-500); --warning:var(--pe-amber-500); --danger:var(--pe-red-400); --info:var(--pe-violet-400);
+  --focus-ring:var(--pe-green-400);
+  /* Accent text (readable on current canvas) */
+  --fg-accent:var(--pe-violet-300); --fg-accent-2:var(--pe-green-400); --fg-peru:var(--pe-red-300); --fg-warning:var(--pe-amber-400);
+  --hover-wash:rgba(255,255,255,.06);
+}
+/* Light theme — data-theme="light" en <html> o en un contenedor.
+   `:root[...]` sube la especificidad para ganarle a effects.css (--grid-line, --shadow-*). */
+:root[data-theme="light"],[data-theme="light"]{
+  --bg-canvas:var(--pe-ink-50); --bg-raised:var(--pe-white); --bg-card:var(--pe-white); --bg-card-hover:var(--pe-ink-100);
+  --bg-inverse:var(--pe-ink-950);
+  --fg-1:var(--pe-ink-950); --fg-2:var(--pe-ink-600); --fg-3:#5A5590; --fg-inverse:var(--pe-white);
+  --border-subtle:rgba(19,15,46,.10); --border-default:rgba(19,15,46,.18); --border-strong:rgba(19,15,46,.32);
+  --accent-hover:var(--pe-violet-600); --accent-press:var(--pe-violet-700);
+  --accent-2-hover:var(--pe-green-600);
+  --link:var(--pe-violet-600); --link-hover:var(--pe-green-700);
+  --danger:var(--pe-red-500); --focus-ring:var(--pe-green-600);
+  --fg-accent:var(--pe-violet-600); --fg-accent-2:var(--pe-green-700); --fg-peru:var(--pe-red-600); --fg-warning:var(--pe-amber-700);
+  --hover-wash:rgba(19,15,46,.05);
+  --grid-line:rgba(19,15,46,.06);
+  --shadow-sm:0 1px 2px rgba(19,15,46,.08); --shadow-md:0 8px 24px rgba(19,15,46,.10); --shadow-lg:0 24px 60px rgba(19,15,46,.16);
+}

@@ -1,0 +1,39 @@
+---
+import Button from '@components/ui/Button.astro';
+import { useTranslations, type Lang } from '@i18n/index';
+import { communityLinks } from '@data/site';
+
+interface Props { lang: Lang }
+
+const t = useTranslations(Astro.props.lang);
+const cfp = communityLinks.cfp;
+---
+
+<section class="container section">
+  <div class="cfp">
+    <div class="cfp__text">
+      <h2 class="cfp__title">{t('home.cfp.title')}</h2>
+      <p>{t('home.cfp.body')}</p>
+    </div>
+    {cfp ? (
+      <Button size="lg" variant="inverse" href={cfp} external>{t('home.cfp.cta')}</Button>
+    ) : (
+      <Button size="lg" variant="inverse" data-join-open>{t('home.cfp.cta')}</Button>
+    )}
+  </div>
+</section>
+
+<style>
+  /* Banda violeta sólida: único bloque de alto énfasis por página. */
+  .cfp {
+    border-radius: var(--radius-lg); padding: 56px 48px; background: var(--pe-violet-500); color: #fff;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  }
+  .cfp__text { display: flex; flex-direction: column; gap: 8px; max-width: 640px; }
+  .cfp__title {
+    color: #fff; font-size: clamp(28px, 3.6vw, 36px); font-weight: 900;
+    letter-spacing: -0.02em; line-height: 1.12;
+  }
+  .cfp p { font-size: 17px; }
+  @media (max-width: 640px) { .cfp { padding: 36px 24px; } }
+</style>

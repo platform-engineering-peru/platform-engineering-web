@@ -1,0 +1,122 @@
+---
+import Button from '@components/ui/Button.astro';
+import Icon from '@components/ui/Icon.astro';
+import LayerStripe from '@components/ui/LayerStripe.astro';
+import type { IconName } from '@components/ui/icons';
+import { localizePath, useTranslations, type Lang, type TranslationKey } from '@i18n/index';
+import { communityLinks, globalLinks } from '@data/site';
+
+interface Props { lang: Lang }
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+type Way = {
+  icon: IconName;
+  title: TranslationKey;
+  body: TranslationKey;
+  cta: TranslationKey;
+  /** Enlace interno, externo, o `null` → abre el diálogo "Únete". */
+  href: string | null;
+  external?: boolean;
+};
+
+const ways: Way[] = [
+  { icon: 'calendar', title: 'community.attend.title', body: 'community.attend.body', cta: 'community.attend.cta', href: localizePath(lang, '/events') },
+  { icon: 'mic', title: 'community.speak.title', body: 'community.speak.body', cta: 'community.speak.cta', href: communityLinks.cfp, external: true },
+  { icon: 'users', title: 'community.host.title', body: 'community.host.body', cta: 'community.host.cta', href: communityLinks.sponsor, external: true },
+];
+---
+
+<section class="blueprint">
+  <div class="container intro">
+    <div class="eyebrow">{t('community.eyebrow')}</div>
+    <h1 class="page-title intro__title">{t('community.title')}</h1>
+    <p class="lead">{t('community.lead')}</p>
+  </div>
+</section>
+
+<section class="container section">
+  <LayerStripe />
+  <h2 class="h2">{t('community.participate.title')}</h2>
+  <div class="grid-auto">
+    {ways.map((w) => (
+      <article class="way">
+        <span class="way__icon"><Icon name={w.icon} size={20} /></span>
+        <h3 class="way__title">{t(w.title)}</h3>
+        <p class="way__body">{t(w.body)}</p>
+        {w.href ? (
+          <a class="way__cta" href={w.href} {...(w.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{t(w.cta)}</a>
+        ) : (
+          <button type="button" class="way__cta way__cta--button" data-join-open>{t(w.cta)}</button>
+        )}
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="container section">
+  <div class="global">
+    <div class="global__text">
+      <div class="eyebrow">{t('community.global.eyebrow')}</div>
+      <h2 class="h2">{t('community.global.title')}</h2>
+      <p class="muted">{t('community.global.body')}</p>
+    </div>
+    <div class="global__ctas">
+      <Button variant="secondary" href={globalLinks.home} external>
+        {t('community.global.site')}
+        <Icon slot="icon-right" name="arrow-up-right" size={16} />
+      </Button>
+      <Button variant="ghost" href={globalLinks.platformcon} external>
+        {t('community.global.platformcon')}
+        <Icon slot="icon-right" name="arrow-up-right" size={16} />
+      </Button>
+    </div>
+  </div>
+</section>
+
+<section class="container section" id="code-of-conduct">
+  <div class="coc">
+    <h2 class="h2">{t('community.coc.title')}</h2>
+    <p>{t('community.coc.body')}</p>
+  </div>
+</section>
+
+<style>
+  .intro { padding-block: 96px 80px; display: flex; flex-direction: column; gap: 20px; }
+  .intro__title { max-width: 900px; }
+
+  .way {
+    display: flex; flex-direction: column; gap: 12px; padding: 24px;
+    border-radius: var(--radius-md); background: var(--bg-card); border: 1px solid var(--border-subtle);
+  }
+  .way__icon {
+    width: 40px; height: 40px; display: grid; place-items: center;
+    border-radius: var(--radius-sm); background: rgba(123, 97, 255, .16); color: var(--fg-accent);
+  }
+  .way__title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+  .way__body { color: var(--fg-2); font-size: 15px; }
+  .way__cta { margin-top: auto; padding-top: 8px; font-weight: 600; align-self: flex-start; }
+  .way__cta--button {
+    background: none; border: none; padding: 8px 0 0; cursor: pointer;
+    font: inherit; font-weight: 600; color: var(--link);
+  }
+  .way__cta--button:hover { color: var(--link-hover); }
+
+  .global { display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: 32px; align-items: end; }
+  .global__text { display: flex; flex-direction: column; gap: 12px; }
+  .global__ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .coc {
+    padding: 32px; border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 12px;
+    background: rgba(18, 204, 122, .08); border: 1px solid rgba(18, 204, 122, .3);
+  }
+  .coc p { max-width: 72ch; color: var(--fg-2); }
+
+  @media (max-width: 860px) {
+    .global { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .intro { padding-block: 64px 56px; }
+  }
+</style>

@@ -1,0 +1,8 @@
+---
+/** Separador de sección derivado del isotipo. Úsalo sobre títulos, no como fondo. */
+interface Props { width?: number }
+
+const { width = 120 } = Astro.props;
+---
+
+<div class="layer-stripe" style={`width:${width}px`} aria-hidden="true"><span /><span /><span /></div>

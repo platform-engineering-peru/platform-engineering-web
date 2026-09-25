@@ -1,0 +1,93 @@
+---
+/**
+ * Lista de eventos con pestañas Próximos/Pasados. Ambas listas se renderizan
+ * en el HTML; el script solo alterna cuál se ve (funciona sin JS: se ven ambas).
+ */
+import Button from '@components/ui/Button.astro';
+import EventCard from '@components/ui/EventCard.astro';
+import Icon from '@components/ui/Icon.astro';
+import { useTranslations, type Lang } from '@i18n/index';
+import { pastEvents, upcomingEvents } from '@data/events';
+import { eventCardProps, eventPath } from './view';
+
+interface Props { lang: Lang }
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const upcoming = upcomingEvents();
+const past = pastEvents();
+---
+
+<section class="container events">
+  <div class="eyebrow">{t('events.eyebrow')}</div>
+  <h1 class="page-title">{t('events.title')}</h1>
+  <p class="lead">{t('events.lead')}</p>
+
+  <div class="tabs" role="tablist" aria-label={t('events.tabs.label')} data-tabs>
+    <button type="button" role="tab" id="tab-upcoming" aria-controls="panel-upcoming" aria-selected="true">{t('events.tab.upcoming')}</button>
+    <button type="button" role="tab" id="tab-past" aria-controls="panel-past" aria-selected="false" tabindex="-1">{t('events.tab.past')}</button>
+  </div>
+
+  <div id="panel-upcoming" role="tabpanel" aria-labelledby="tab-upcoming" class="events__list">
+    {upcoming.length ? upcoming.map((e) => (
+      <EventCard {...eventCardProps(e, lang)}>
+        <Button slot="cta" size="sm" variant="secondary" href={eventPath(e, lang)}>{t('events.detail')}</Button>
+      </EventCard>
+    )) : <p class="muted">{t('events.empty.upcoming')}</p>}
+  </div>
+
+  <div id="panel-past" role="tabpanel" aria-labelledby="tab-past" class="events__list">
+    {past.length ? past.map((e) => (
+      <EventCard {...eventCardProps(e, lang)}>
+        {e.recording && (
+          <Button slot="cta" size="sm" variant="ghost" href={e.recording} external>
+            <Icon slot="icon-left" name="play" size={14} />
+            {t('events.recording')}
+          </Button>
+        )}
+      </EventCard>
+    )) : <p class="muted">{t('events.empty.past')}</p>}
+  </div>
+</section>
+
+<script>
+  const tablist = document.querySelector<HTMLElement>('[data-tabs]');
+  if (tablist) {
+    const tabs = [...tablist.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const select = (tab: HTMLButtonElement, focus = false) => {
+      for (const t of tabs) {
+        const on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')!)!.hidden = !on;
+      }
+      if (focus) tab.focus();
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('keydown', (e) => {
+        const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (dir) select(tabs[(i + dir + tabs.length) % tabs.length], true);
+      });
+    });
+    const initial = location.hash === '#past' ? tabs[1] : tabs[0];
+    select(initial);
+  }
+</script>
+
+<style>
+  .events { padding-top: 72px; display: flex; flex-direction: column; gap: 24px; }
+  .events__list { display: flex; flex-direction: column; gap: 12px; }
+
+  .tabs {
+    display: inline-flex; align-self: flex-start; gap: 4px; padding: 4px;
+    border-radius: var(--radius-pill); background: var(--bg-raised); border: 1px solid var(--border-subtle);
+  }
+  .tabs button {
+    height: 36px; padding: 0 16px; border-radius: var(--radius-pill); border: none; cursor: pointer;
+    font-family: var(--font-body); font-size: 14px; font-weight: 600;
+    background: transparent; color: var(--fg-2); transition: all var(--dur-base) var(--ease-out);
+  }
+  .tabs button:hover { color: var(--fg-1); }
+  .tabs button[aria-selected='true'] { background: var(--pe-violet-500); color: #fff; }
+</style>

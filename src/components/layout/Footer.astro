@@ -1,22 +1,83 @@
 ---
-import { useTranslations, type Lang } from '@i18n/index';
+import Logo from '@components/ui/Logo.astro';
+import CommunityLink from '@components/ui/CommunityLink.astro';
+import { useTranslations, localizePath, type Lang } from '@i18n/index';
+import { communityLinks, globalLinks } from '@data/site';
 
 interface Props { lang: Lang }
 
-const t = useTranslations(Astro.props.lang);
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 const year = new Date().getFullYear();
+
+const internal = [
+  { label: t('nav.events'), href: localizePath(lang, '/events') },
+  { label: t('nav.community'), href: localizePath(lang, '/community') },
+  { label: t('footer.coc'), href: `${localizePath(lang, '/community')}#code-of-conduct` },
+];
+const resources = [
+  { label: t('footer.guides'), href: localizePath(lang, '/resources') },
+  { label: t('footer.blog'), href: globalLinks.blog, external: true },
+  { label: t('footer.newsletter'), href: globalLinks.platformWeekly, external: true },
+];
+const social = [
+  { label: 'WhatsApp', href: communityLinks.whatsapp },
+  { label: 'LinkedIn', href: communityLinks.linkedin },
+  { label: 'Meetup', href: communityLinks.meetup },
+  { label: 'YouTube', href: communityLinks.youtube },
+];
 ---
 
 <footer class="footer">
-  <div class="container">
-    <small>© {year} {t('site.title')}. {t('footer.rights')}</small>
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <Logo height={56} alt={t('site.title')} />
+      <p>{t('footer.tagline')}</p>
+    </div>
+    <div class="footer__col">
+      <div class="footer__heading">{t('footer.community')}</div>
+      {internal.map((l) => <a href={l.href}>{l.label}</a>)}
+    </div>
+    <div class="footer__col">
+      <div class="footer__heading">{t('footer.resources')}</div>
+      {resources.map((l) => (
+        <a href={l.href} {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{l.label}</a>
+      ))}
+    </div>
+    <div class="footer__col">
+      <div class="footer__heading">{t('footer.follow')}</div>
+      {social.map((l) => <CommunityLink href={l.href} lang={lang} class="footer__link">{l.label}</CommunityLink>)}
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© {year} {t('site.title')}</span>
+    <span>{t('footer.made')}</span>
   </div>
 </footer>
 
 <style>
-  .footer {
-    border-top: 1px solid var(--color-border);
-    padding-block: 1.5rem;
-    color: var(--color-muted);
+  .footer { border-top: 1px solid var(--border-subtle); margin-top: var(--space-24); }
+  .footer__grid {
+    padding-block: 56px;
+    display: grid; grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); gap: 32px;
+  }
+  .footer__brand { display: flex; flex-direction: column; gap: 16px; }
+  .footer__brand :global(img) { height: 56px; width: auto; align-self: flex-start; }
+  .footer__brand p { color: var(--fg-3); font-size: 14px; max-width: 320px; }
+  .footer__col { display: flex; flex-direction: column; gap: 10px; }
+  .footer__heading { font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--fg-3); }
+  .footer__col a, .footer__col :global(.footer__link) { color: var(--fg-2); font-size: 15px; }
+  .footer__col a:hover { color: var(--link-hover); }
+  .footer__bottom {
+    padding-block: 20px; border-top: 1px solid var(--border-subtle);
+    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    font-size: 13px; color: var(--fg-3); font-family: var(--font-mono);
+  }
+  @media (max-width: 800px) {
+    .footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .footer__brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 480px) {
+    .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 </style>

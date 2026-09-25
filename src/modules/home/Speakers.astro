@@ -1,0 +1,42 @@
+---
+/**
+ * Speakers del evento más cercano (el próximo o, si no hay, el último realizado),
+ * con enlace a su página.
+ */
+import SpeakerCard from '@components/ui/SpeakerCard.astro';
+import { pick, useTranslations, type Lang } from '@i18n/index';
+import { pastEvents, upcomingEvents } from '@data/events';
+import { speakerProps, speakersByName } from '@data/speakers';
+import { eventPath } from '@modules/events/view';
+
+interface Props { lang: Lang }
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const event = [...upcomingEvents(), ...pastEvents()].find((e) => e.speakers.length > 0);
+const speakers = event ? speakersByName(event.speakers) : [];
+---
+
+{event && speakers.length > 0 && (
+  <section class="container section">
+    <div class="section-head">
+      <div class="section-head__text">
+        <div class="eyebrow">{t('home.speakers.eyebrow')}</div>
+        <h2 class="h2">{pick(event.title, lang)}</h2>
+      </div>
+      <a href={eventPath(event, lang)} class="speakers__link">{t('home.speakers.cta')}</a>
+    </div>
+    <div class="speakers">
+      {speakers.map((s) => <SpeakerCard {...speakerProps(s, lang)} />)}
+    </div>
+  </section>
+)}
+
+<style>
+  .speakers__link { font-weight: 600; }
+  /* auto-fill: pocas personas no se estiran a todo el ancho. */
+  .speakers { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+  @media (max-width: 480px) {
+    .speakers { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  }
+</style>

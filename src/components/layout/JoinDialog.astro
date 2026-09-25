@@ -1,0 +1,106 @@
+---
+/**
+ * Diálogo "Únete": lista los canales de la comunidad. Se abre desde cualquier
+ * elemento con `data-join-open`. Los canales sin URL configurada aparecen como
+ * "Próximamente" (ver `src/data/site.ts`).
+ */
+import Icon from '@components/ui/Icon.astro';
+import type { IconName } from '@components/ui/icons';
+import LayerStripe from '@components/ui/LayerStripe.astro';
+import { useTranslations, type Lang, type TranslationKey } from '@i18n/index';
+import { communityLinks } from '@data/site';
+
+interface Props { lang: Lang }
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const channels: { icon: IconName; title: TranslationKey; body: TranslationKey; href: string | null }[] = [
+  { icon: 'message-circle', title: 'join.whatsapp.title', body: 'join.whatsapp.body', href: communityLinks.whatsapp },
+  { icon: 'calendar', title: 'join.meetup.title', body: 'join.meetup.body', href: communityLinks.meetup },
+  { icon: 'users', title: 'join.linkedin.title', body: 'join.linkedin.body', href: communityLinks.linkedin },
+];
+---
+
+<dialog class="join" data-join-dialog aria-labelledby="join-title">
+  <div class="join__head">
+    <LayerStripe width={72} />
+    <button type="button" class="join__close" data-join-close aria-label={t('join.close')}>
+      <Icon name="x" size={16} />
+    </button>
+  </div>
+  <h2 id="join-title" class="join__title">{t('join.title')}</h2>
+  <p class="join__body">{t('join.body')}</p>
+  <ul class="join__list">
+    {channels.map((c) => {
+      const inner = (
+        <>
+          <span class="join__icon"><Icon name={c.icon} size={18} /></span>
+          <span class="join__text">
+            <span class="join__name">{t(c.title)}</span>
+            <span class="join__desc">{c.href ? t(c.body) : t('link.soon')}</span>
+          </span>
+        </>
+      );
+      return (
+        <li>
+          {c.href ? (
+            <a class="join__item" href={c.href} target="_blank" rel="noopener noreferrer">{inner}</a>
+          ) : (
+            <span class="join__item is-soon" aria-disabled="true">{inner}</span>
+          )}
+        </li>
+      );
+    })}
+  </ul>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-join-dialog]');
+  if (dialog) {
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('[data-join-open]')) {
+        e.preventDefault();
+        dialog.showModal();
+      } else if (target.closest('[data-join-close]') || target === dialog) {
+        // Clic en el botón de cerrar o en el fondo (el propio <dialog>).
+        dialog.close();
+      }
+    });
+  }
+</script>
+
+<style>
+  .join {
+    width: min(460px, calc(100% - 32px)); padding: 32px; margin: auto;
+    border-radius: var(--radius-lg); background: var(--bg-raised); color: var(--fg-1);
+    border: 1px solid var(--border-default); box-shadow: var(--shadow-lg);
+  }
+  .join[open] { display: flex; flex-direction: column; gap: 16px; }
+  .join::backdrop { background: rgba(11, 8, 32, .7); backdrop-filter: blur(6px); }
+  .join__head { display: flex; justify-content: space-between; align-items: flex-start; }
+  .join__close {
+    width: 36px; height: 36px; display: inline-grid; place-items: center;
+    border-radius: var(--radius-pill); border: 1px solid var(--border-default);
+    background: transparent; color: var(--fg-1); cursor: pointer;
+  }
+  .join__close:hover { background: var(--hover-wash); }
+  .join__title { font-size: 30px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+  .join__body { color: var(--fg-2); }
+  .join__list { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .join__item {
+    display: flex; align-items: center; gap: 14px; padding: 14px 16px;
+    border-radius: var(--radius-md); background: var(--bg-card); border: 1px solid var(--border-subtle);
+    color: var(--fg-1); transition: all var(--dur-base) var(--ease-out);
+  }
+  a.join__item:hover { background: var(--bg-card-hover); border-color: var(--border-strong); color: var(--fg-1); }
+  .join__item.is-soon { opacity: .55; cursor: not-allowed; }
+  .join__icon {
+    width: 36px; height: 36px; flex: none; display: grid; place-items: center;
+    border-radius: var(--radius-sm); background: rgba(18, 204, 122, .14); color: var(--fg-accent-2);
+  }
+  .join__text { display: flex; flex-direction: column; min-width: 0; }
+  .join__name { font-weight: 700; }
+  .join__desc { font-size: 14px; color: var(--fg-3); }
+</style>

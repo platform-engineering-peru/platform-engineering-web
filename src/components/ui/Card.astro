@@ -1,21 +1,45 @@
 ---
-interface Props { title: string }
+/**
+ * Tarjeta de contenido. `featured` = borde + brillo violeta (máximo una por fila).
+ * Con `href` toda la tarjeta es un enlace.
+ */
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  href?: string;
+  external?: boolean;
+  featured?: boolean;
+  class?: string;
+}
 
-const { title } = Astro.props;
+const { eyebrow, title, href, external, featured, class: className } = Astro.props;
+const Tag = href ? 'a' : 'article';
+const linkAttrs = href && external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 ---
 
-<article class="card">
-  <h3>{title}</h3>
-  <slot />
-</article>
+<Tag class:list={['card', featured && 'card--featured', href && 'card--link', className]} href={href} {...linkAttrs}>
+  {eyebrow && <div class="card__eyebrow">{eyebrow}</div>}
+  {title && <h3 class="card__title">{title}</h3>}
+  {Astro.slots.has('default') && <div class="card__body"><slot /></div>}
+  {Astro.slots.has('footer') && <div class="card__footer"><slot name="footer" /></div>}
+</Tag>
 
 <style>
   .card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    padding: 1.25rem;
+    display: flex; flex-direction: column; gap: 12px; padding: 24px;
+    border-radius: var(--radius-md); background: var(--bg-card); border: 1px solid var(--border-subtle);
+    color: var(--fg-1); text-decoration: none;
+    transition: all var(--dur-base) var(--ease-out);
   }
-  .card h3 { margin-top: 0; }
-  .card :global(p) { margin-bottom: 0; color: var(--color-muted); }
+  .card:hover { background: var(--bg-card-hover); border-color: var(--border-strong); transform: translateY(-2px); color: var(--fg-1); }
+  .card--featured, .card--featured:hover { border-color: rgba(123, 97, 255, .55); box-shadow: var(--glow-violet); }
+  .card__eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--fg-accent-2); }
+  .card__title {
+    font-family: var(--font-display); font-size: 22px; font-weight: 800; line-height: 1.15;
+    letter-spacing: -0.02em; text-wrap: pretty;
+  }
+  .card__body { font-size: 15px; line-height: 1.6; color: var(--fg-2); }
+  .card__footer { margin-top: auto; padding-top: 8px; }
+  .card--link .card__footer { color: var(--link); font-weight: 600; }
+  .card--link:hover .card__footer { color: var(--link-hover); }
 </style>

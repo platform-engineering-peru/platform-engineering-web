@@ -1,0 +1,38 @@
+---
+import Icon from './Icon.astro';
+import { useTranslations, type Lang } from '@i18n/index';
+
+interface Props { lang: Lang }
+
+const t = useTranslations(Astro.props.lang);
+---
+
+<button type="button" class="theme-toggle" data-theme-toggle aria-label={t('theme.toggle')} title={t('theme.toggle')}>
+  <Icon name="sun" class="theme-toggle__sun" />
+  <Icon name="moon" class="theme-toggle__moon" />
+</button>
+
+<script>
+  // El tema inicial lo fija el script inline de BaseLayout (sin parpadeo).
+  document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('pe-theme', next); } catch {}
+    });
+  });
+</script>
+
+<style>
+  .theme-toggle {
+    width: 36px; height: 36px; display: inline-grid; place-items: center; flex: none;
+    border-radius: var(--radius-pill); border: 1px solid var(--border-default);
+    background: transparent; color: var(--fg-1); cursor: pointer;
+    transition: background var(--dur-base) var(--ease-out);
+  }
+  .theme-toggle:hover { background: var(--hover-wash); }
+  /* En oscuro se ofrece pasar a claro (sol) y viceversa. */
+  :global(:root[data-theme='light']) .theme-toggle :global(.theme-toggle__sun),
+  :global(:root:not([data-theme='light'])) .theme-toggle :global(.theme-toggle__moon) { display: none; }
+</style>

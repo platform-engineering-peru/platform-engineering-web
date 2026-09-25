@@ -1,0 +1,16 @@
+---
+/** Logo completo; alterna la versión para fondo oscuro/claro según el tema. */
+import { asset } from '@lib/assets';
+
+interface Props {
+  height?: number;
+  alt?: string;
+}
+
+const { height = 44, alt = 'Platform Engineering Perú' } = Astro.props;
+// Proporción de los PNG del sistema de diseño (1190×470).
+const width = Math.round((height * 1190) / 470);
+---
+
+<img class="logo-on-dark" src={asset('brand/logo-full-dark.png')} alt={alt} width={width} height={height} />
+<img class="logo-on-light" src={asset('brand/logo-full.png')} alt={alt} width={width} height={height} />

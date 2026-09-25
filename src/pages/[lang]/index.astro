@@ -1,14 +1,21 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { Hero, Features } from '@modules/home';
-import { getLangPaths, type Lang } from '@i18n/index';
+import { Hero, NextMeetup, Pillars, WhatIs, University, Speakers, CfpBand } from '@modules/home';
+import { getLangPaths, localizePath, type Lang } from '@i18n/index';
+import { organizationLd } from '@lib/structured-data';
 
 export const getStaticPaths = getLangPaths;
 
 const lang = Astro.params.lang as Lang;
+const jsonLd = organizationLd(lang, Astro.site!, new URL(localizePath(lang), Astro.site).href);
 ---
 
-<BaseLayout lang={lang}>
+<BaseLayout lang={lang} jsonLd={jsonLd}>
   <Hero lang={lang} />
-  <Features lang={lang} />
+  <NextMeetup lang={lang} />
+  <Pillars lang={lang} />
+  <WhatIs lang={lang} />
+  <University lang={lang} />
+  <Speakers lang={lang} />
+  <CfpBand lang={lang} />
 </BaseLayout>

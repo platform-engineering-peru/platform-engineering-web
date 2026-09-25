@@ -1,0 +1,24 @@
+---
+/** Chip de filtro. Se usa como `<button>`; `selected` refleja el filtro activo. */
+interface Props {
+  selected?: boolean;
+  value?: string;
+}
+
+const { selected, value } = Astro.props;
+---
+
+<button type="button" class="tag" aria-pressed={selected ? 'true' : 'false'} data-value={value}>
+  <slot />
+</button>
+
+<style>
+  .tag {
+    height: 34px; padding: 0 14px; border-radius: var(--radius-pill);
+    font-family: var(--font-body); font-size: 14px; font-weight: 500; cursor: pointer;
+    background: transparent; color: var(--fg-2); border: 1px solid var(--border-default);
+    transition: all var(--dur-base) var(--ease-out);
+  }
+  .tag:hover { background: var(--hover-wash); color: var(--fg-1); }
+  .tag[aria-pressed='true'] { background: var(--fg-1); color: var(--bg-canvas); border-color: transparent; }
+</style>

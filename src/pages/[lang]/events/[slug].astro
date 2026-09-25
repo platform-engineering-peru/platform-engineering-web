@@ -1,0 +1,22 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { EventDetail } from '@modules/events';
+import { locales, pick } from '@i18n/index';
+import { events, type CommunityEvent } from '@data/events';
+import type { Lang } from '@i18n/index';
+import { eventLd } from '@lib/structured-data';
+
+export function getStaticPaths() {
+  return locales.flatMap((lang) =>
+    events.map((event) => ({ params: { lang, slug: event.slug }, props: { event } })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const { event } = Astro.props as { event: CommunityEvent };
+const jsonLd = eventLd(event, lang, Astro.site!, new URL(Astro.url.pathname, Astro.site).href);
+---
+
+<BaseLayout lang={lang} title={pick(event.title, lang)} description={pick(event.description, lang)} jsonLd={jsonLd}>
+  <EventDetail event={event} lang={lang} />
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { EventsList } from '@modules/events';
+import { getLangPaths, useTranslations, type Lang } from '@i18n/index';
+
+export const getStaticPaths = getLangPaths;
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+---
+
+<BaseLayout lang={lang} title={t('events.title')} description={t('events.lead')}>
+  <EventsList lang={lang} />
+</BaseLayout>

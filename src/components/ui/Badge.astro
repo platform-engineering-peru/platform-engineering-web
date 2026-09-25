@@ -1,0 +1,30 @@
+---
+/** Etiqueta de estado. `red` solo para identidad ("Capítulo Perú") o agotado. */
+type Tone = 'violet' | 'green' | 'red' | 'neutral' | 'amber';
+
+interface Props {
+  tone?: Tone;
+  dot?: boolean;
+}
+
+const { tone = 'violet', dot } = Astro.props;
+---
+
+<span class:list={['badge', `badge--${tone}`]}>
+  {dot && <span class="badge__dot" />}
+  <slot />
+</span>
+
+<style>
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 10px;
+    border-radius: var(--radius-pill); font-family: var(--font-body);
+    font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+  }
+  .badge__dot { width: 6px; height: 6px; border-radius: 99px; background: currentColor; }
+  .badge--violet { background: rgba(123, 97, 255, .16); color: var(--fg-accent); }
+  .badge--green { background: rgba(18, 204, 122, .14); color: var(--fg-accent-2); }
+  .badge--red { background: rgba(217, 30, 54, .16); color: var(--fg-peru); }
+  .badge--neutral { background: rgba(185, 182, 212, .12); color: var(--fg-2); }
+  .badge--amber { background: rgba(255, 176, 32, .14); color: var(--fg-warning); }
+</style>

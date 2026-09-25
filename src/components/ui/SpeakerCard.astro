@@ -1,0 +1,46 @@
+---
+/** Speaker: foto cuadrada redondeada (o iniciales), nombre, rol · empresa y charla. */
+interface Props {
+  name: string;
+  role?: string;
+  company?: string;
+  photo?: string;
+  talk?: string;
+  url?: string;
+}
+
+const { name, role, company, photo, talk, url } = Astro.props;
+const initials = name.split(' ').filter((w) => /^\p{Lu}/u.test(w)).map((w) => w[0]).slice(0, 2).join('');
+---
+
+<div class="speaker">
+  <div class="speaker__photo">
+    {photo ? <img src={photo} alt={name} loading="lazy" width="294" height="294" /> : <span aria-hidden="true">{initials}</span>}
+  </div>
+  <div>
+    <div class="speaker__name">
+      {url ? <a href={url} target="_blank" rel="noopener noreferrer">{name}</a> : name}
+    </div>
+    {(role || company) && (
+      <div class="speaker__role">{role}{role && company && ' · '}{company && <span class="speaker__company">{company}</span>}</div>
+    )}
+    {talk && <div class="speaker__talk">“{talk}”</div>}
+  </div>
+</div>
+
+<style>
+  .speaker { display: flex; flex-direction: column; gap: 14px; }
+  .speaker__photo {
+    aspect-ratio: 1 / 1; border-radius: var(--radius-md); overflow: hidden;
+    background: linear-gradient(160deg, var(--pe-violet-700), var(--pe-ink-850));
+    display: grid; place-items: center; border: 1px solid var(--border-subtle);
+  }
+  .speaker__photo img { width: 100%; height: 100%; object-fit: cover; }
+  .speaker__photo span { font-family: var(--font-display); font-weight: 900; font-size: 48px; color: rgba(255, 255, 255, .85); }
+  .speaker__name { font-family: var(--font-display); font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+  .speaker__name a { color: var(--fg-1); }
+  .speaker__name a:hover { color: var(--link-hover); }
+  .speaker__role { font-size: 14px; color: var(--fg-3); }
+  .speaker__company { color: var(--fg-accent-2); }
+  .speaker__talk { font-size: 14px; color: var(--fg-2); margin-top: 6px; }
+</style>

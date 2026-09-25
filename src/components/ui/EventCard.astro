@@ -1,0 +1,60 @@
+---
+/** Fila de evento: bloque de fecha violeta, estado, título y metadatos en mono. */
+import Badge from './Badge.astro';
+import type { StatusTone } from '@data/events';
+
+interface Props {
+  day: string;
+  month: string;
+  title: string;
+  meta: string[];
+  status?: string;
+  statusTone?: StatusTone;
+  href?: string;
+}
+
+const { day, month, title, meta, status, statusTone = 'green', href } = Astro.props;
+---
+
+<article class="event">
+  <div class="event__date" aria-hidden="true">
+    <div class="event__day">{day}</div>
+    <div class="event__month">{month}</div>
+  </div>
+  <div class="event__info">
+    {status && <div><Badge tone={statusTone} dot>{status}</Badge></div>}
+    <h3 class="event__title">
+      {href ? <a href={href} class="event__link">{title}</a> : title}
+    </h3>
+    <div class="event__meta">{meta.filter(Boolean).join(' · ')}</div>
+  </div>
+  {Astro.slots.has('cta') && <div class="event__cta"><slot name="cta" /></div>}
+</article>
+
+<style>
+  .event {
+    position: relative;
+    display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 20px; align-items: center;
+    padding: 20px; border-radius: var(--radius-md);
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    transition: all var(--dur-base) var(--ease-out);
+  }
+  .event:hover { background: var(--bg-card-hover); border-color: var(--border-strong); }
+  .event__date { text-align: center; border-radius: var(--radius-sm); background: var(--pe-violet-500); color: #fff; padding: 10px 0; }
+  .event__day { font-family: var(--font-display); font-size: 30px; font-weight: 900; line-height: 1; }
+  .event__month { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; margin-top: 4px; }
+  .event__info { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .event__title { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+  .event__link { color: var(--fg-1); }
+  /* Toda la tarjeta es clicable; el CTA queda por encima. */
+  .event__link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+  .event__link:hover { color: var(--fg-1); }
+  .event__meta { font-size: 14px; color: var(--fg-3); font-family: var(--font-mono); }
+  .event__cta { position: relative; z-index: 1; }
+
+  @media (max-width: 640px) {
+    .event { grid-template-columns: 64px minmax(0, 1fr); gap: 16px; padding: 16px; }
+    .event__cta { grid-column: 1 / -1; }
+    .event__cta :global(.btn) { width: 100%; }
+  }
+</style>

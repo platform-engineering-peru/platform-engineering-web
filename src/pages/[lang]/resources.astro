@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { AboutContent } from '@modules/about';
+import { ResourcesGrid } from '@modules/resources';
 import { getLangPaths, useTranslations, type Lang } from '@i18n/index';
 
 export const getStaticPaths = getLangPaths;
@@ -9,6 +9,6 @@ const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
 ---
 
-<BaseLayout lang={lang} title={t('about.title')}>
-  <AboutContent lang={lang} />
+<BaseLayout lang={lang} title={t('resources.title')} description={t('resources.lead')}>
+  <ResourcesGrid lang={lang} />
 </BaseLayout>

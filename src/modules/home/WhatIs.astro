@@ -1,0 +1,59 @@
+---
+import Button from '@components/ui/Button.astro';
+import Icon from '@components/ui/Icon.astro';
+import { useTranslations, type Lang, type TranslationKey } from '@i18n/index';
+import { globalLinks } from '@data/site';
+
+interface Props { lang: Lang }
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const concepts: [TranslationKey, TranslationKey][] = [
+  ['home.what.idp.title', 'home.what.idp.body'],
+  ['home.what.golden.title', 'home.what.golden.body'],
+  ['home.what.product.title', 'home.what.product.body'],
+  ['home.what.devops.title', 'home.what.devops.body'],
+];
+---
+
+<section class="container section">
+  <div class="what">
+    <div class="what__intro">
+      <div class="eyebrow">{t('home.what.eyebrow')}</div>
+      <h2 class="h2">{t('home.what.title')}</h2>
+      <p class="muted">{t('home.what.body')}</p>
+      <div>
+        <Button variant="secondary" href={globalLinks.whatIs} external>
+          {t('home.what.cta')}
+          <Icon slot="icon-right" name="arrow-up-right" size={16} />
+        </Button>
+      </div>
+    </div>
+    <ol class="what__list">
+      {concepts.map(([title, body], i) => (
+        <li>
+          <span class="what__num mono">{String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <h3>{t(title)}</h3>
+            <p>{t(body)}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .what { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 48px; align-items: start; }
+  .what__intro { display: flex; flex-direction: column; gap: 16px; position: sticky; top: calc(var(--nav-h) + 32px); }
+  .what__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border-subtle); }
+  .what__list li { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 16px; padding: 24px 0; border-bottom: 1px solid var(--border-subtle); }
+  .what__num { color: var(--fg-accent); font-size: 14px; font-weight: 500; padding-top: 4px; }
+  .what__list h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 6px; }
+  .what__list p { color: var(--fg-2); font-size: 15px; }
+  @media (max-width: 860px) {
+    .what { grid-template-columns: 1fr; gap: 32px; }
+    .what__intro { position: static; }
+  }
+</style>

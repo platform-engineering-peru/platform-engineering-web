@@ -1,5 +1,9 @@
 ---
+import Logo from '@components/ui/Logo.astro';
+import Button from '@components/ui/Button.astro';
+import Icon from '@components/ui/Icon.astro';
 import LanguagePicker from '@components/ui/LanguagePicker.astro';
+import ThemeToggle from '@components/ui/ThemeToggle.astro';
 import { useTranslations, localizePath, type Lang } from '@i18n/index';
 import { navigation } from './navigation';
 
@@ -8,36 +12,94 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const current = Astro.url.pathname;
+const home = localizePath(lang);
+// Una sección queda activa también en sus subpáginas (p. ej. detalle de evento).
+const isActive = (href: string) => (href === home ? current === href : current.startsWith(href));
 ---
 
-<header class="header">
+<header class="header" data-header>
   <div class="container header__inner">
-    <a class="header__brand" href={localizePath(lang)}>{t('site.title')}</a>
-    <nav aria-label="Main">
-      <ul class="header__nav">
-        {navigation.map((item) => {
-          const href = localizePath(lang, item.path);
-          return (
-            <li>
-              <a href={href} aria-current={current === href ? 'page' : undefined}>{t(item.label)}</a>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
-    <LanguagePicker lang={lang} />
+    <a class="header__brand" href={home} aria-label={t('site.title')}>
+      <Logo height={44} alt={t('site.title')} />
+    </a>
+
+    <button type="button" class="header__menu" data-menu-toggle aria-expanded="false" aria-controls="site-nav" aria-label={t('nav.menu')}>
+      <Icon name="menu" size={20} />
+    </button>
+
+    <div class="header__panel" id="site-nav">
+      <nav aria-label={t('nav.label')}>
+        <ul class="header__nav">
+          {navigation.map((item) => {
+            const href = localizePath(lang, item.path);
+            return (
+              <li>
+                <a href={href} aria-current={isActive(href) ? 'page' : undefined}>{t(item.label)}</a>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <LanguagePicker lang={lang} />
+        <ThemeToggle lang={lang} />
+        <Button size="sm" variant="green" data-join-open>{t('nav.join')}</Button>
+      </div>
+    </div>
   </div>
 </header>
 
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const toggle = header?.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    header!.classList.toggle('is-open', open);
+  });
+</script>
+
 <style>
-  .header { border-bottom: 1px solid var(--color-border); }
-  .header__inner {
-    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
-    padding-block: 1rem;
+  .header {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg-canvas) 78%, transparent);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-subtle);
   }
-  .header__brand { font-weight: 700; text-decoration: none; color: var(--color-text); }
-  nav { flex: 1; }
-  .header__nav { display: flex; gap: 1rem; list-style: none; margin: 0; padding: 0; }
-  .header__nav a { color: var(--color-muted); text-decoration: none; }
-  .header__nav a[aria-current='page'], .header__nav a:hover { color: var(--color-primary); }
+  .header__inner { height: var(--nav-h); display: flex; align-items: center; gap: 32px; }
+  .header__brand { display: flex; flex: none; }
+  .header__brand :global(img) { height: 44px; width: auto; }
+
+  .header__panel { flex: 1; display: flex; align-items: center; gap: 16px; }
+  .header__panel nav { margin-left: auto; }
+  .header__nav { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+  .header__nav a {
+    display: block; padding: 8px 14px; border-radius: 99px;
+    font-size: 15px; font-weight: 600; color: var(--fg-2);
+  }
+  .header__nav a:hover { color: var(--fg-1); background: var(--hover-wash); }
+  .header__nav a[aria-current='page'] { color: var(--fg-1); background: var(--hover-wash); }
+  .header__actions { display: flex; align-items: center; gap: 10px; }
+
+  .header__menu {
+    display: none; margin-left: auto; width: 40px; height: 40px; place-items: center;
+    border-radius: var(--radius-pill); border: 1px solid var(--border-default);
+    background: transparent; color: var(--fg-1); cursor: pointer;
+  }
+
+  @media (max-width: 960px) {
+    .header__menu { display: inline-grid; }
+    .header__panel {
+      display: none; position: absolute; inset: var(--nav-h) 0 auto 0;
+      flex-direction: column; align-items: stretch; gap: 20px;
+      padding: 16px var(--container-pad) 24px;
+      background: var(--bg-raised); border-bottom: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-md);
+    }
+    .header.is-open .header__panel { display: flex; }
+    .header__panel nav { margin-left: 0; }
+    .header__nav { flex-direction: column; }
+    .header__nav a { padding: 12px 14px; border-radius: var(--radius-sm); font-size: 17px; }
+    .header__actions { justify-content: space-between; }
+  }
 </style>

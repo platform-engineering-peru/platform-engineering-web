@@ -1,0 +1,46 @@
+---
+import Button from '@components/ui/Button.astro';
+import Icon from '@components/ui/Icon.astro';
+import { useTranslations, type Lang } from '@i18n/index';
+import { globalLinks } from '@data/site';
+
+interface Props { lang: Lang }
+
+const t = useTranslations(Astro.props.lang);
+---
+
+<section class="container section">
+  <div class="uni">
+    <div class="uni__icon"><Icon name="graduation-cap" size={28} /></div>
+    <div class="uni__text">
+      <div class="eyebrow">{t('home.university.eyebrow')}</div>
+      <h2 class="h2">{t('home.university.title')}</h2>
+      <p class="muted">{t('home.university.body')}</p>
+    </div>
+    <div class="uni__ctas">
+      <Button variant="green" href={globalLinks.introCourse} external>{t('home.university.cta')}</Button>
+      <Button variant="ghost" href={globalLinks.university} external>
+        {t('home.university.secondary')}
+        <Icon slot="icon-right" name="arrow-up-right" size={16} />
+      </Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .uni {
+    display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 28px; align-items: center;
+    padding: 40px; border-radius: var(--radius-lg);
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+  }
+  .uni__icon {
+    width: 64px; height: 64px; display: grid; place-items: center; align-self: start;
+    border-radius: var(--radius-md); background: rgba(18, 204, 122, .14); color: var(--fg-accent-2);
+  }
+  .uni__text { display: flex; flex-direction: column; gap: 10px; max-width: 640px; }
+  .uni__ctas { display: flex; flex-direction: column; gap: 8px; }
+  @media (max-width: 860px) {
+    .uni { grid-template-columns: 1fr; padding: 28px; }
+    .uni__ctas { flex-direction: row; flex-wrap: wrap; }
+  }
+</style>

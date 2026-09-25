@@ -1,12 +1,12 @@
 import { defaultLang, languages, type Lang } from './config';
-import es from './locales/es.json';
+import esPe from './locales/es-pe.json';
 import en from './locales/en.json';
 
-// `es` es el diccionario de referencia: sus claves definen el contrato
+// `es-pe` es el diccionario de referencia: sus claves definen el contrato
 // que deben cumplir los demás idiomas (lo valida el tipo `Record`).
-export type TranslationKey = keyof typeof es;
+export type TranslationKey = keyof typeof esPe;
 
-const dictionaries: Record<Lang, Record<TranslationKey, string>> = { es, en };
+const dictionaries: Record<Lang, Record<TranslationKey, string>> = { 'es-pe': esPe, en };
 
 export function isLang(value: string | undefined): value is Lang {
   return !!value && value in languages;
@@ -39,6 +39,16 @@ export function switchLangPath(url: URL, target: Lang): string {
   const base = import.meta.env.BASE_URL;
   const path = url.pathname.startsWith(base) ? url.pathname.slice(base.length) : url.pathname;
   const segments = path.replace(/^\/+/, '').split('/').filter(Boolean);
-  if (isLang(segments[0])) segments.shift();
+  // Páginas fuera de `[lang]` (p. ej. 404) no tienen equivalente: se va al inicio.
+  if (!isLang(segments[0])) return localizePath(target);
+  segments.shift();
   return localizePath(target, segments.join('/'));
+}
+
+/** Texto con una variante por idioma, para datos (eventos, recursos…). */
+export type Localized<T = string> = Record<Lang, T>;
+
+/** Resuelve un valor `Localized` al idioma actual. */
+export function pick<T>(value: Localized<T>, lang: Lang): T {
+  return value[lang] ?? value[defaultLang];
 }

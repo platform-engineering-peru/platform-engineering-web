@@ -1,0 +1,26 @@
+---
+/**
+ * Enlace a un canal de la comunidad. Si la URL aún no está configurada
+ * (`null` en `src/data/site.ts`) se muestra deshabilitado con "Próximamente".
+ */
+import { useTranslations, type Lang } from '@i18n/index';
+
+interface Props {
+  href: string | null;
+  lang: Lang;
+  class?: string;
+}
+
+const { href, lang, class: className } = Astro.props;
+const t = useTranslations(lang);
+---
+
+{href ? (
+  <a class={className} href={href} target="_blank" rel="noopener noreferrer"><slot /></a>
+) : (
+  <span class:list={[className, 'is-soon']} aria-disabled="true" title={t('link.soon')}><slot /></span>
+)}
+
+<style>
+  .is-soon { opacity: .55; cursor: not-allowed; }
+</style>

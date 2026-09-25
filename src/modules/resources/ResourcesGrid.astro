@@ -1,0 +1,82 @@
+---
+/** Recursos curados con filtro por tema (progresivo: sin JS se ven todos). */
+import Badge from '@components/ui/Badge.astro';
+import Button from '@components/ui/Button.astro';
+import Card from '@components/ui/Card.astro';
+import Tag from '@components/ui/Tag.astro';
+import { pick, useTranslations, type Lang } from '@i18n/index';
+import { resources, topics } from '@data/resources';
+import { globalLinks } from '@data/site';
+
+interface Props { lang: Lang }
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const topicLabel = (id: string) => pick(topics.find((tp) => tp.id === id)!.label, lang);
+---
+
+<section class="container res">
+  <div class="eyebrow">{t('resources.eyebrow')}</div>
+  <h1 class="page-title">{t('resources.title')}</h1>
+  <p class="lead">{t('resources.lead')}</p>
+
+  <div class="res__filters" role="group" aria-label={t('resources.filter')} data-filters>
+    <Tag value="all" selected>{t('resources.all')}</Tag>
+    {topics.map((tp) => <Tag value={tp.id}>{pick(tp.label, lang)}</Tag>)}
+  </div>
+
+  <div class="grid-auto res__grid" style="--min: 300px">
+    {resources.map((r) => (
+      <div class="res__item" data-topic={r.topic}>
+        <Card title={pick(r.title, lang)} href={r.href} external>
+          {pick(r.description, lang)}
+          <div slot="footer" class="res__meta">
+            <Badge tone={r.type === 'course' ? 'green' : 'violet'}>{t(`resources.type.${r.type}` as const)}</Badge>
+            <Badge tone="neutral">{topicLabel(r.topic)}</Badge>
+            {lang !== 'en' && r.contentLang === 'en' && <span class="res__lang">{t('resources.inEnglish')}</span>}
+          </div>
+        </Card>
+      </div>
+    ))}
+  </div>
+
+  <div class="res__more">
+    <div>
+      <h2 class="res__more-title">{t('resources.more.title')}</h2>
+      <p class="muted">{t('resources.more.body')}</p>
+    </div>
+    <div class="res__more-ctas">
+      <Button variant="secondary" href={globalLinks.blog} external>{t('resources.more.blog')}</Button>
+      <Button variant="green" href={globalLinks.platformWeekly} external>{t('resources.more.newsletter')}</Button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const group = document.querySelector<HTMLElement>('[data-filters]');
+  group?.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-value]');
+    if (!btn) return;
+    const value = btn.dataset.value;
+    group.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    document.querySelectorAll<HTMLElement>('[data-topic]').forEach((item) => {
+      item.hidden = value !== 'all' && item.dataset.topic !== value;
+    });
+  });
+</script>
+
+<style>
+  .res { padding-top: 72px; display: flex; flex-direction: column; gap: 24px; }
+  .res__filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .res__item { display: flex; }
+  .res__item > :global(*) { flex: 1; }
+  .res__meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .res__lang { font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); }
+  .res__more {
+    margin-top: 48px; padding: 32px; border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle); background: var(--bg-raised);
+    display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .res__more-title { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .res__more-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+</style>

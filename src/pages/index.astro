@@ -1,23 +1,23 @@
 ---
 // GitHub Pages no permite redirecciones de servidor: se detecta el idioma
 // del navegador en cliente y se redirige, con fallback al idioma por defecto.
-import { defaultLang, locales, localizePath } from '@i18n/index';
+// Cualquier variante de español (es, es-PE, es-419…) va a `es-pe`.
+import { defaultLang, localizePath } from '@i18n/index';
 
 const fallback = localizePath(defaultLang);
-const targets = Object.fromEntries(locales.map((l) => [l, localizePath(l)]));
+const english = localizePath('en');
 ---
 
 <!doctype html>
-<html lang={defaultLang}>
+<html lang="es-PE">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="refresh" content={`0; url=${fallback}`} />
     <link rel="canonical" href={fallback} />
-    <script is:inline define:vars={{ targets, fallback }}>
-      const preferred = (navigator.languages || [navigator.language])
-        .map((l) => l.slice(0, 2).toLowerCase())
-        .find((l) => l in targets);
-      location.replace(preferred ? targets[preferred] : fallback);
+    <script is:inline define:vars={{ fallback, english }}>
+      const langs = (navigator.languages || [navigator.language]).map((l) => l.toLowerCase());
+      const firstKnown = langs.find((l) => l.startsWith('es') || l.startsWith('en'));
+      location.replace(firstKnown && firstKnown.startsWith('en') ? english : fallback);
     </script>
   </head>
   <body>

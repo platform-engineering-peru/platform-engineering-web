@@ -1,0 +1,58 @@
+---
+/**
+ * Botón pill del sistema de diseño. Con `href` se renderiza como enlace.
+ * Variantes: primary (violeta) · green (registro) · secondary · ghost · inverse.
+ */
+import type { HTMLAttributes } from 'astro/types';
+
+type Variant = 'primary' | 'green' | 'secondary' | 'ghost' | 'inverse';
+type Size = 'sm' | 'md' | 'lg';
+
+type Props = {
+  variant?: Variant;
+  size?: Size;
+  href?: string;
+  fullWidth?: boolean;
+  external?: boolean;
+  class?: string;
+} & Omit<HTMLAttributes<'button'>, 'class'> & Omit<HTMLAttributes<'a'>, 'class'>;
+
+const { variant = 'primary', size = 'md', href, fullWidth, external, class: className, ...rest } = Astro.props;
+const classes = ['btn', `btn--${variant}`, `btn--${size}`, fullWidth && 'btn--full', className];
+const Tag = href ? 'a' : 'button';
+const linkAttrs = href && external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+<Tag class:list={classes} href={href} type={href ? undefined : (rest.type ?? 'button')} {...linkAttrs} {...rest}>
+  <slot name="icon-left" />
+  <slot />
+  <slot name="icon-right" />
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: var(--font-body); font-weight: var(--fw-bold); letter-spacing: -0.005em;
+    border-radius: var(--radius-pill); border: 1px solid transparent; cursor: pointer;
+    white-space: nowrap; text-decoration: none;
+    transition: background var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+  }
+  .btn:active:not(:disabled) { transform: translateY(1px) scale(.98); }
+  .btn:disabled { opacity: .4; cursor: not-allowed; }
+
+  .btn--sm { height: 36px; padding: 0 14px; font-size: 14px; }
+  .btn--md { height: 44px; padding: 0 20px; font-size: 15px; }
+  .btn--lg { height: 54px; padding: 0 28px; font-size: 17px; }
+  .btn--full { width: 100%; }
+
+  .btn--primary { background: var(--accent); color: var(--accent-fg); }
+  .btn--primary:hover:not(:disabled) { background: var(--accent-hover); color: var(--accent-fg); }
+  .btn--green { background: var(--accent-2); color: var(--accent-2-fg); }
+  .btn--green:hover:not(:disabled) { background: var(--accent-2-hover); color: var(--accent-2-fg); }
+  .btn--secondary { background: transparent; color: var(--fg-1); border-color: var(--border-strong); }
+  .btn--secondary:hover:not(:disabled) { background: var(--hover-wash); color: var(--fg-1); }
+  .btn--ghost { background: transparent; color: var(--fg-2); }
+  .btn--ghost:hover:not(:disabled) { background: var(--hover-wash); color: var(--fg-1); }
+  .btn--inverse { background: var(--pe-white); color: var(--pe-ink-950); }
+  .btn--inverse:hover:not(:disabled) { background: var(--pe-ink-100); color: var(--pe-ink-950); }
+</style>

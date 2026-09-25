@@ -1,0 +1,35 @@
+---
+import Card from '@components/ui/Card.astro';
+import LayerStripe from '@components/ui/LayerStripe.astro';
+import { useTranslations, localizePath, type Lang } from '@i18n/index';
+
+interface Props { lang: Lang }
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="container section">
+  <LayerStripe />
+  <h2 class="h2 pillars__title">{t('home.pillars.title')}</h2>
+  <div class="grid-auto">
+    <Card eyebrow={t('home.pillars.meetups.eyebrow')} title={t('home.pillars.meetups.title')}>
+      {t('home.pillars.meetups.body')}
+    </Card>
+    <Card featured eyebrow={t('home.pillars.workshops.eyebrow')} title={t('home.pillars.workshops.title')}>
+      {t('home.pillars.workshops.body')}
+    </Card>
+    <Card
+      eyebrow={t('home.pillars.resources.eyebrow')}
+      title={t('home.pillars.resources.title')}
+      href={localizePath(lang, '/resources')}
+    >
+      {t('home.pillars.resources.body')}
+      <span slot="footer">{t('home.pillars.resources.cta')}</span>
+    </Card>
+  </div>
+</section>
+
+<style>
+  .pillars__title { max-width: 640px; }
+</style>

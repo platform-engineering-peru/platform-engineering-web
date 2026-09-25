@@ -1,5 +1,9 @@
 ---
+import Badge from '@components/ui/Badge.astro';
+import Button from '@components/ui/Button.astro';
+import Icon from '@components/ui/Icon.astro';
 import { useTranslations, localizePath, type Lang } from '@i18n/index';
+import { asset } from '@lib/assets';
 
 interface Props { lang: Lang }
 
@@ -7,20 +11,54 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section class="hero">
-  <div class="container">
-    <h1>{t('home.hero.title')}</h1>
-    <p>{t('home.hero.subtitle')}</p>
-    <a class="hero__cta" href={localizePath(lang, '/about')}>{t('home.hero.cta')}</a>
+<section class="hero blueprint">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <div><Badge tone="red">{t('chapter.badge')}</Badge></div>
+      <h1 class="display hero__title">
+        {t('home.hero.pre')}<span class="hl-violet">platform</span> <span class="hl-green">engineering</span>{t('home.hero.post')}
+      </h1>
+      <p class="lead">{t('home.hero.subtitle')}</p>
+      <div class="hero__ctas">
+        <Button size="lg" data-join-open>
+          {t('home.hero.join')}
+          <Icon slot="icon-right" name="arrow-right" />
+        </Button>
+        <Button size="lg" variant="secondary" href={localizePath(lang, '/events')}>{t('home.hero.events')}</Button>
+      </div>
+    </div>
+    <img
+      class="hero__art"
+      src={asset('brand/hero-560.webp')}
+      srcset={`${asset('brand/hero-560.webp')} 560w, ${asset('brand/hero-1120.webp')} 1120w`}
+      sizes="(max-width: 960px) 80vw, 520px"
+      width="560"
+      height="560"
+      alt={t('home.hero.imageAlt')}
+      fetchpriority="high"
+    />
   </div>
 </section>
 
 <style>
-  .hero { padding-block: 5rem 3rem; }
-  .hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.1; margin: 0 0 1rem; }
-  .hero p { font-size: 1.2rem; color: var(--color-muted); max-width: 60ch; }
-  .hero__cta {
-    display: inline-block; margin-top: 1rem; padding: 0.75rem 1.25rem;
-    background: var(--color-primary); color: #fff; border-radius: 8px; text-decoration: none;
+  .hero__inner {
+    padding-block: 96px 80px;
+    display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; align-items: center;
+  }
+  .hero__text { display: flex; flex-direction: column; gap: 28px; }
+  /* Algo menor que Display XL para convivir con la ilustración. */
+  .hero__title { font-size: clamp(44px, 5.4vw, 76px); }
+  .hero__art {
+    width: 100%; max-width: 560px; height: auto; justify-self: end;
+    /* Halo violeta del sistema de diseño detrás de la isla. */
+    filter: drop-shadow(0 30px 60px rgba(123, 97, 255, .35));
+  }
+  @media (max-width: 960px) {
+    .hero__inner { grid-template-columns: 1fr; }
+    .hero__art { justify-self: center; max-width: min(420px, 90%); }
+  }
+  .hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  @media (max-width: 640px) {
+    .hero__inner { padding-block: 64px 56px; }
   }
 </style>

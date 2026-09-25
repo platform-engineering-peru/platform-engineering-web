@@ -1,5 +1,5 @@
 ---
-import { languages, locales, switchLangPath, useTranslations, type Lang } from '@i18n/index';
+import { languages, locales, langCode, switchLangPath, useTranslations, type Lang } from '@i18n/index';
 
 interface Props { lang: Lang }
 
@@ -8,27 +8,30 @@ const t = useTranslations(lang);
 ---
 
 <nav class="lang" aria-label={t('lang.label')}>
-  <ul>
-    {locales.map((l) => (
-      <li>
-        <a
-          href={switchLangPath(Astro.url, l)}
-          hreflang={l}
-          lang={l}
-          aria-current={l === lang ? 'true' : undefined}
-        >
-          {languages[l]}
-        </a>
-      </li>
-    ))}
-  </ul>
+  {locales.map((l) => (
+    <a
+      href={switchLangPath(Astro.url, l)}
+      hreflang={langCode(l)}
+      lang={langCode(l)}
+      title={languages[l].label}
+      aria-current={l === lang ? 'true' : undefined}
+    >
+      <span aria-hidden="true">{languages[l].short}</span>
+      <span class="visually-hidden">{languages[l].label}</span>
+    </a>
+  ))}
 </nav>
 
 <style>
-  .lang ul { display: flex; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
-  .lang a {
-    font-size: 0.875rem; text-decoration: none; color: var(--color-muted);
-    padding: 0.25rem 0.5rem; border-radius: 6px; border: 1px solid transparent;
+  .lang {
+    display: inline-flex; gap: 2px; padding: 3px; border-radius: var(--radius-pill);
+    background: var(--bg-raised); border: 1px solid var(--border-subtle);
   }
-  .lang a[aria-current='true'] { color: var(--color-primary); border-color: var(--color-border); }
+  .lang a {
+    display: inline-grid; place-items: center; height: 30px; min-width: 36px; padding: 0 10px;
+    border-radius: var(--radius-pill); font-size: 13px; font-weight: 700; letter-spacing: .04em;
+    color: var(--fg-2);
+  }
+  .lang a:hover { color: var(--fg-1); background: var(--hover-wash); }
+  .lang a[aria-current='true'] { background: var(--pe-violet-500); color: #fff; }
 </style>
