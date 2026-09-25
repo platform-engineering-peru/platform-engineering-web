@@ -1,0 +1,35 @@
+---
+import Card from '@components/ui/Card.astro';
+import { useTranslations, type Lang, type TranslationKey } from '@i18n/index';
+
+interface Props { lang: Lang }
+
+const t = useTranslations(Astro.props.lang);
+
+const features: { title: TranslationKey; body: TranslationKey }[] = [
+  { title: 'home.features.selfservice.title', body: 'home.features.selfservice.body' },
+  { title: 'home.features.golden.title', body: 'home.features.golden.body' },
+  { title: 'home.features.observability.title', body: 'home.features.observability.body' },
+];
+---
+
+<section class="features">
+  <div class="container">
+    <h2>{t('home.features.title')}</h2>
+    <div class="features__grid">
+      {features.map((f) => (
+        <Card title={t(f.title)}>
+          <p>{t(f.body)}</p>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features { padding-block: 2rem 4rem; }
+  .features__grid {
+    display: grid; gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+</style>

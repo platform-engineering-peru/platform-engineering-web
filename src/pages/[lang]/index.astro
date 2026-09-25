@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Hero, Features } from '@modules/home';
+import { getLangPaths, type Lang } from '@i18n/index';
+
+export const getStaticPaths = getLangPaths;
+
+const lang = Astro.params.lang as Lang;
+---
+
+<BaseLayout lang={lang}>
+  <Hero lang={lang} />
+  <Features lang={lang} />
+</BaseLayout>

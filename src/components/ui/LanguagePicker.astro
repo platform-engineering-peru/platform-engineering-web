@@ -1,0 +1,34 @@
+---
+import { languages, locales, switchLangPath, useTranslations, type Lang } from '@i18n/index';
+
+interface Props { lang: Lang }
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<nav class="lang" aria-label={t('lang.label')}>
+  <ul>
+    {locales.map((l) => (
+      <li>
+        <a
+          href={switchLangPath(Astro.url, l)}
+          hreflang={l}
+          lang={l}
+          aria-current={l === lang ? 'true' : undefined}
+        >
+          {languages[l]}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .lang ul { display: flex; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
+  .lang a {
+    font-size: 0.875rem; text-decoration: none; color: var(--color-muted);
+    padding: 0.25rem 0.5rem; border-radius: 6px; border: 1px solid transparent;
+  }
+  .lang a[aria-current='true'] { color: var(--color-primary); border-color: var(--color-border); }
+</style>

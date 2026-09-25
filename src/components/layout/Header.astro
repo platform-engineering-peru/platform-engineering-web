@@ -1,0 +1,43 @@
+---
+import LanguagePicker from '@components/ui/LanguagePicker.astro';
+import { useTranslations, localizePath, type Lang } from '@i18n/index';
+import { navigation } from './navigation';
+
+interface Props { lang: Lang }
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const current = Astro.url.pathname;
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="header__brand" href={localizePath(lang)}>{t('site.title')}</a>
+    <nav aria-label="Main">
+      <ul class="header__nav">
+        {navigation.map((item) => {
+          const href = localizePath(lang, item.path);
+          return (
+            <li>
+              <a href={href} aria-current={current === href ? 'page' : undefined}>{t(item.label)}</a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+    <LanguagePicker lang={lang} />
+  </div>
+</header>
+
+<style>
+  .header { border-bottom: 1px solid var(--color-border); }
+  .header__inner {
+    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    padding-block: 1rem;
+  }
+  .header__brand { font-weight: 700; text-decoration: none; color: var(--color-text); }
+  nav { flex: 1; }
+  .header__nav { display: flex; gap: 1rem; list-style: none; margin: 0; padding: 0; }
+  .header__nav a { color: var(--color-muted); text-decoration: none; }
+  .header__nav a[aria-current='page'], .header__nav a:hover { color: var(--color-primary); }
+</style>

@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { defaultLang, localizePath } from '@i18n/index';
+---
+
+<BaseLayout lang={defaultLang} title="404">
+  <section class="container" style="padding-block: 4rem">
+    <h1>404</h1>
+    <p>Página no encontrada · Page not found</p>
+    <a href={localizePath(defaultLang)}>← Inicio / Home</a>
+  </section>
+</BaseLayout>

@@ -1,0 +1,20 @@
+{
+  "site.title": "Platform Engineering",
+  "site.description": "Tools, practices and an internal platform for development teams.",
+  "nav.home": "Home",
+  "nav.about": "About",
+  "lang.label": "Language",
+  "home.hero.title": "A platform to build faster",
+  "home.hero.subtitle": "Golden paths, self-service and automation so teams can focus on their product.",
+  "home.hero.cta": "Learn more",
+  "home.features.title": "What we offer",
+  "home.features.selfservice.title": "Self-service",
+  "home.features.selfservice.body": "Create services and environments without tickets or waiting.",
+  "home.features.golden.title": "Golden paths",
+  "home.features.golden.body": "Proven templates and standards ready to use.",
+  "home.features.observability.title": "Observability",
+  "home.features.observability.body": "Metrics, logs and traces built in from day one.",
+  "about.title": "About",
+  "about.body": "This site is the baseline for the Platform Engineering portal. Each section lives in its own module and all copy is translated from locale files.",
+  "footer.rights": "All rights reserved."
+}
