@@ -6,7 +6,7 @@
  * de apuntar a un sitio falso.
  */
 export const communityLinks = {
-  whatsapp: 'https://chat.whatsapp.com/LVhaYKsvOf5DcUiDfGREVO?mode=gi_t' as string | null,
+  whatsapp: null as string | null,
   meetup: null as string | null,
   linkedin: 'https://www.linkedin.com/company/platformengineeringperu' as string | null,
   youtube: null as string | null,

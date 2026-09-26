@@ -58,7 +58,7 @@ URLs resultantes: `/<base>/es-pe/`, `/<base>/en/events/`, `/<base>/es-pe/events/
 
 ## Contenido
 
-- **Enlaces de la comunidad** (`src/data/site.ts`): WhatsApp y LinkedIn están configurados. Meetup, YouTube, el formulario de call for papers y el de sponsors siguen en `null` y se muestran como "Próximamente"; mientras no haya formulario, "Proponer charla" y "Sé sede o sponsor" abren el diálogo "Únete".
+- **Enlaces de la comunidad** (`src/data/site.ts`): LinkedIn está configurado. WhatsApp, Meetup, YouTube, el formulario de call for papers y el de sponsors siguen en `null` y se muestran como "Próximamente"; mientras no haya formulario, "Proponer charla" y "Sé sede o sponsor" abren el diálogo "Únete".
 - **Eventos** (`src/data/events.ts`): KubeFest #02 (datos de su página en Eventbrite). No hay contenido de ejemplo.
 - **Speakers** (`src/data/speakers.ts`): los de KubeFest #02; sus fotos se cargan desde el CDN de Eventbrite, así que dejarán de verse si el organizador las cambia.
 - **Recursos** (`src/data/resources.ts`): enlaces verificados a platformengineering.org, con resumen propio en español.
