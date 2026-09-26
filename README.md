@@ -96,3 +96,5 @@ Los eventos se clasifican en próximos/pasados **al compilar**, así que hay que
 3. Cada push a `main` ejecuta `.github/workflows/deploy.yml`, que obtiene `SITE` y `BASE_PATH`
    automáticamente con `actions/configure-pages`, por lo que funciona tanto en
    `usuario.github.io/<repo>/` como con dominio propio.
+
+**Dominio propio (platformengineering.pe)**: la ruta base se toma de la configuración de Pages *en el momento del build*. Si se agrega o cambia el dominio, hay que volver a desplegar (**Actions → Deploy to GitHub Pages → Run workflow**); si no, el sitio sigue compilado para `/<repo>/` y no carga. Como el dominio pasa por Cloudflare y "Enforce HTTPS" está desactivado, GitHub informa `http://`; `astro.config.mjs` lo cambia a `https://` para canonical, sitemap y robots.txt.

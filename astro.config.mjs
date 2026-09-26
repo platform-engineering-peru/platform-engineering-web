@@ -5,7 +5,10 @@ import sitemap from '@astrojs/sitemap';
 
 // En GitHub Actions, SITE y BASE_PATH se inyectan desde el workflow.
 // Localmente se usa la raíz para que `npm run dev` funcione sin configuración.
-const site = process.env.SITE ?? 'http://localhost:4321';
+// GitHub Pages informa `http://` para dominios propios sin "Enforce HTTPS" (p. ej. detrás
+// de Cloudflare), pero el sitio siempre se sirve por HTTPS: se fuerza para canonical,
+// sitemap, robots.txt y Open Graph.
+const site = (process.env.SITE ?? 'http://localhost:4321').replace(/^http:\/\/(?!localhost\b)/, 'https://');
 const base = process.env.BASE_PATH ?? '/';
 
 // Páginas que no deben indexarse: la raíz (solo redirige al idioma) y la 404.
