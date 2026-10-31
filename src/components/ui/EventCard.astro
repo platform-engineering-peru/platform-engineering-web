@@ -26,7 +26,7 @@ const { day, month, title, meta, status, statusTone = 'green', href } = Astro.pr
     <h3 class="event__title">
       {href ? <a href={href} class="event__link">{title}</a> : title}
     </h3>
-    <div class="event__meta">{meta.filter(Boolean).join(' · ')}</div>
+    <div class="event__meta">{meta.filter(Boolean).join(' - ')}</div>
   </div>
   {Astro.slots.has('cta') && <div class="event__cta"><slot name="cta" /></div>}
 </article>

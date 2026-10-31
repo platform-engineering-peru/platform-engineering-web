@@ -1,5 +1,5 @@
 ---
-/** Speaker: foto cuadrada redondeada (o iniciales), nombre, rol · empresa y charla. */
+/** Speaker: foto cuadrada redondeada (o iniciales), nombre, rol - empresa y charla. */
 interface Props {
   name: string;
   role?: string;
@@ -22,7 +22,7 @@ const initials = name.split(' ').filter((w) => /^\p{Lu}/u.test(w)).map((w) => w[
       {url ? <a href={url} target="_blank" rel="noopener noreferrer">{name}</a> : name}
     </div>
     {(role || company) && (
-      <div class="speaker__role">{role}{role && company && ' · '}{company && <span class="speaker__company">{company}</span>}</div>
+      <div class="speaker__role">{role}{role && company && ' - '}{company && <span class="speaker__company">{company}</span>}</div>
     )}
     {talk && <div class="speaker__talk">“{talk}”</div>}
   </div>

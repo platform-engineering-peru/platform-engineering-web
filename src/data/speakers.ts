@@ -33,7 +33,7 @@ export const speakers: Speaker[] = [
   },
   {
     name: 'Bianca Torres',
-    role: 'DevOps Engineer · AWS Community Builder',
+    role: 'DevOps Engineer - AWS Community Builder',
     company: same('Paramo Technologies'),
     talk: {
       'es-pe': 'Escala sin pagar de más: nodos justo a tiempo con Karpenter',
@@ -44,7 +44,7 @@ export const speakers: Speaker[] = [
   },
   {
     name: 'Michelle Luna',
-    role: 'Cloud & DevOps Engineer · AWS Instructor',
+    role: 'Cloud & DevOps Engineer - AWS Instructor',
     company: same('Whitestack'),
     talk: {
       'es-pe': 'Git como fuente de verdad: despliegues en piloto automático con ArgoCD',
@@ -67,7 +67,7 @@ export const speakers: Speaker[] = [
   // KubeFest #02 — lineup y agenda publicados en Eventbrite.
   {
     name: 'Carlos Ortiz',
-    role: 'Community leader CNCF · Cloud Engineer',
+    role: 'Community leader CNCF - Cloud Engineer',
     talk: same('Comunidades Cloud Native en Perú'),
     photo: eventbrite('1190512544%2F442849417140%2F1%2Foriginal.20260807-012037', 'rect=0%2C0%2C200%2C200&s=3c61061f626ec46a8300efc6962aed83'),
     url: 'https://www.linkedin.com/in/carlos-ortiz-alberca/',
@@ -128,7 +128,7 @@ export const speakers: Speaker[] = [
   },
   {
     name: 'Gerson Escarcena',
-    role: 'AI Engineer · Cloud / DevOps',
+    role: 'AI Engineer - Cloud / DevOps',
     talk: {
       'es-pe': 'Zero Trust en Kubernetes: del caos al control',
       en: 'Zero Trust on Kubernetes: from chaos to control',
