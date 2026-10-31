@@ -2,9 +2,11 @@
 import Button from '@components/ui/Button.astro';
 import Icon from '@components/ui/Icon.astro';
 import LayerStripe from '@components/ui/LayerStripe.astro';
+import SpeakerCard from '@components/ui/SpeakerCard.astro';
 import type { IconName } from '@components/ui/icons';
-import { localizePath, useTranslations, type Lang, type TranslationKey } from '@i18n/index';
-import { communityLinks, globalLinks } from '@data/site';
+import { localizePath, pick, useTranslations, type Lang, type TranslationKey } from '@i18n/index';
+import { communityLinks, contactEmail, globalLinks } from '@data/site';
+import { organizers } from '@data/organizers';
 
 interface Props { lang: Lang }
 
@@ -74,6 +76,21 @@ const ways: Way[] = [
   </div>
 </section>
 
+<section class="container section" id="team">
+  <div class="section-head">
+    <div class="section-head__text">
+      <div class="eyebrow">{t('community.team.eyebrow')}</div>
+      <h2 class="h2">{t('community.team.title')}</h2>
+    </div>
+    <a href={`mailto:${contactEmail}`} class="team__link">{t('community.team.body')}</a>
+  </div>
+  <div class="team">
+    {organizers.map((o) => (
+      <SpeakerCard name={o.name} role={o.role} company={o.company && pick(o.company, lang)} photo={o.photo} url={o.url} />
+    ))}
+  </div>
+</section>
+
 <section class="container section" id="code-of-conduct">
   <div class="coc">
     <h2 class="h2">{t('community.coc.title')}</h2>
@@ -105,6 +122,11 @@ const ways: Way[] = [
   .global { display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: 32px; align-items: end; }
   .global__text { display: flex; flex-direction: column; gap: 12px; }
   .global__ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .team__link { max-width: 360px; font-size: 15px; color: var(--fg-2); }
+  .team__link:hover { color: var(--link-hover); }
+  .team { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+  @media (max-width: 480px) { .team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
 
   .coc {
     padding: 32px; border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 12px;

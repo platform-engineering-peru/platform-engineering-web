@@ -32,6 +32,7 @@ src/
 │   ├── site.ts           # Enlaces de la comunidad (WhatsApp, LinkedIn…) y de platformengineering.org
 │   ├── events.ts         # Eventos (próximos/pasados se calculan al compilar)
 │   ├── speakers.ts       # Speakers (fotos, cargo, charla, LinkedIn)
+│   ├── organizers.ts     # Equipo organizador (sección "Quiénes organizamos" en Comunidad)
 │   └── resources.ts      # Recursos curados y temas del filtro
 ├── lib/                  # asset() para rutas con base y datos estructurados (JSON-LD)
 ├── layouts/              # Estructura HTML común (head/SEO, header, footer, diálogo Únete)
@@ -60,7 +61,8 @@ URLs resultantes: `/<base>/es-pe/`, `/<base>/en/events/`, `/<base>/es-pe/events/
 
 - **Enlaces de la comunidad** (`src/data/site.ts`): LinkedIn y el call for speakers (Sessionize) están configurados; la banda "¿Quieres dar una charla?" (inicio y lista de eventos), la nota en el detalle de cada evento próximo y la tarjeta "Da una charla" de Comunidad enlazan a él. "Sé sede o sponsor" enlaza al correo de contacto (`contactEmail`, info@platformengineering.pe). WhatsApp, Meetup y YouTube siguen en `null` y se muestran como "Próximamente".
 - **Eventos** (`src/data/events.ts`): KubeFest #1 (datos de CNCF Community Groups), KubeFest #02 (datos de su página en Eventbrite) y KubeFest #3 (datos de su página en Luma). No hay contenido de ejemplo.
-- **Speakers** (`src/data/speakers.ts`): los de KubeFest #1, #02 y #3. Las fotos de KubeFest #02 se cargan desde el CDN de Eventbrite, así que dejarán de verse si el organizador las cambia; las demás están en `public/speakers/` (294×294, tomadas de LinkedIn y CNCF Community Groups). Quien no tiene foto muestra sus iniciales.
+- **Speakers** (`src/data/speakers.ts`): los de KubeFest #1, #02 y #3. Las fotos de KubeFest #02 se cargan desde el CDN de Eventbrite, así que dejarán de verse si el organizador las cambia; las demás están en `public/speakers/` (294×294, tomadas de LinkedIn). Quien no tiene foto muestra sus iniciales.
+- **Organizadores** (`src/data/organizers.ts`): Josua Castro y Ronald Requena, con fotos en `public/team/` (294×294, de LinkedIn).
 - **Recursos** (`src/data/resources.ts`): enlaces verificados a platformengineering.org, con resumen propio en español.
 
 Los eventos se clasifican en próximos/pasados **al compilar**. El workflow de despliegue corre también cada día a las 00:10 de Lima (`schedule` en `deploy.yml`), así que el sitio se actualiza solo la madrugada siguiente a cada evento; si se necesita antes, basta un push o *Run workflow* en GitHub Actions.
