@@ -65,7 +65,7 @@ export const events: CommunityEvent[] = [
       'es-pe': 'Tecnologías cloud native que están transformando el mundo: una mañana de charlas prácticas y networking para profesionales, estudiantes y entusiastas de Cloud Native y Kubernetes. Comunidades cloud native en el Perú, IA generativa con LLMs y RAG desde cero, Zero Trust en Kubernetes y Platform Engineering con Crossplane para infraestructura self-service.',
       en: 'Cloud native technologies transforming the world: a morning of hands-on talks and networking for Cloud Native and Kubernetes professionals, students and enthusiasts. Cloud native communities in Peru, generative AI with LLMs and RAG from scratch, Zero Trust on Kubernetes and Platform Engineering with Crossplane for self-service infrastructure.',
     },
-    speakers: ['Carlos Ortiz', 'Anthony Mogrovejo', 'Paul Escarcena & Gerson Escarcena', 'Josua Castro'],
+    speakers: ['Carlos Ortiz', 'Anthony Mogrovejo', 'Paul Escarcena', 'Gerson Escarcena', 'Josua Castro'],
   },
   {
     slug: 'kubefest-02',

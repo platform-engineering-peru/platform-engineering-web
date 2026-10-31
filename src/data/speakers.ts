@@ -106,19 +106,35 @@ export const speakers: Speaker[] = [
   {
     name: 'Anthony Mogrovejo',
     role: 'Team Lead Chapter Cloud Networking',
+    company: same('Banco de Crédito del Perú'),
     talk: {
       'es-pe': 'IA generativa, LLMs y RAG desde cero',
       en: 'Generative AI, LLMs and RAG from scratch',
     },
+    photo: asset('speakers/anthony-mogrovejo.jpg'),
+    url: 'https://www.linkedin.com/in/amogrovejo/',
   },
+  // Paul y Gerson dieron la charla de Zero Trust juntos.
   {
-    // La agenda los presenta juntos.
-    name: 'Paul Escarcena & Gerson Escarcena',
-    role: 'Technology Engineers',
+    name: 'Paul Escarcena',
+    role: 'Cloud, DevOps & Full-Stack Engineer',
+    company: same('Banco de Crédito del Perú'),
     talk: {
       'es-pe': 'Zero Trust en Kubernetes: del caos al control',
       en: 'Zero Trust on Kubernetes: from chaos to control',
     },
+    photo: asset('speakers/paul-escarcena.jpg'),
+    url: 'https://www.linkedin.com/in/pescarcena/',
+  },
+  {
+    name: 'Gerson Escarcena',
+    role: 'AI Engineer · Cloud / DevOps',
+    talk: {
+      'es-pe': 'Zero Trust en Kubernetes: del caos al control',
+      en: 'Zero Trust on Kubernetes: from chaos to control',
+    },
+    photo: asset('speakers/gerson-escarcena.jpg'),
+    url: 'https://www.linkedin.com/in/gerson-e-88148b32a/',
   },
   {
     name: 'Josua Castro',
