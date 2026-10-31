@@ -16,15 +16,14 @@ type Way = {
   title: TranslationKey;
   body: TranslationKey;
   cta: TranslationKey;
-  /** Enlace interno, externo, o `null` → abre el diálogo "Únete". */
+  /** Enlace interno, externo (http o mailto), o `null` → abre el diálogo "Únete". */
   href: string | null;
-  external?: boolean;
 };
 
 const ways: Way[] = [
   { icon: 'calendar', title: 'community.attend.title', body: 'community.attend.body', cta: 'community.attend.cta', href: localizePath(lang, '/events') },
-  { icon: 'mic', title: 'community.speak.title', body: 'community.speak.body', cta: 'community.speak.cta', href: communityLinks.cfp, external: true },
-  { icon: 'users', title: 'community.host.title', body: 'community.host.body', cta: 'community.host.cta', href: communityLinks.sponsor, external: true },
+  { icon: 'mic', title: 'community.speak.title', body: 'community.speak.body', cta: 'community.speak.cta', href: communityLinks.cfp },
+  { icon: 'users', title: 'community.host.title', body: 'community.host.body', cta: 'community.host.cta', href: communityLinks.sponsor },
 ];
 ---
 
@@ -46,7 +45,7 @@ const ways: Way[] = [
         <h3 class="way__title">{t(w.title)}</h3>
         <p class="way__body">{t(w.body)}</p>
         {w.href ? (
-          <a class="way__cta" href={w.href} {...(w.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{t(w.cta)}</a>
+          <a class="way__cta" href={w.href} {...(w.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{t(w.cta)}</a>
         ) : (
           <button type="button" class="way__cta way__cta--button" data-join-open>{t(w.cta)}</button>
         )}

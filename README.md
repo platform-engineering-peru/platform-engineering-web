@@ -36,10 +36,10 @@ src/
 ├── lib/                  # asset() para rutas con base y datos estructurados (JSON-LD)
 ├── layouts/              # Estructura HTML común (head/SEO, header, footer, diálogo Únete)
 ├── components/
-│   ├── layout/           # Header, Footer, JoinDialog, navigation.ts (menú)
+│   ├── layout/           # Header, Footer, JoinDialog, CfpBand (call for speakers), navigation.ts (menú)
 │   └── ui/               # Componentes del sistema de diseño (Button, Badge, Card, EventCard…)
 ├── modules/              # Secciones por funcionalidad, cada una autocontenida
-│   ├── home/             # Hero, NextMeetup, Pillars, WhatIs, University, Speakers, CfpBand
+│   ├── home/             # Hero, NextMeetup, Pillars, WhatIs, University, Speakers
 │   │                     # (Speakers muestra los del evento más cercano)
 │   ├── events/           # Lista con pestañas y detalle de evento
 │   ├── resources/        # Recursos curados con filtro por tema
@@ -58,12 +58,12 @@ URLs resultantes: `/<base>/es-pe/`, `/<base>/en/events/`, `/<base>/es-pe/events/
 
 ## Contenido
 
-- **Enlaces de la comunidad** (`src/data/site.ts`): LinkedIn está configurado. WhatsApp, Meetup, YouTube, el formulario de call for papers y el de sponsors siguen en `null` y se muestran como "Próximamente"; mientras no haya formulario, "Proponer charla" y "Sé sede o sponsor" abren el diálogo "Únete".
-- **Eventos** (`src/data/events.ts`): KubeFest #02 (datos de su página en Eventbrite). No hay contenido de ejemplo.
-- **Speakers** (`src/data/speakers.ts`): los de KubeFest #02; sus fotos se cargan desde el CDN de Eventbrite, así que dejarán de verse si el organizador las cambia.
+- **Enlaces de la comunidad** (`src/data/site.ts`): LinkedIn y el call for speakers (Sessionize) están configurados; la banda "¿Quieres dar una charla?" (inicio y lista de eventos), la nota en el detalle de cada evento próximo y la tarjeta "Da una charla" de Comunidad enlazan a él. "Sé sede o sponsor" enlaza al correo de contacto (`contactEmail`, info@platformengineering.pe). WhatsApp, Meetup y YouTube siguen en `null` y se muestran como "Próximamente".
+- **Eventos** (`src/data/events.ts`): KubeFest #1 (datos de CNCF Community Groups), KubeFest #02 (datos de su página en Eventbrite) y KubeFest #3 (datos de su página en Luma). No hay contenido de ejemplo.
+- **Speakers** (`src/data/speakers.ts`): los de KubeFest #1, #02 y #3. Las fotos de KubeFest #02 se cargan desde el CDN de Eventbrite, así que dejarán de verse si el organizador las cambia; las demás están en `public/speakers/` (294×294, tomadas de LinkedIn y CNCF Community Groups). Quien no tiene foto muestra sus iniciales.
 - **Recursos** (`src/data/resources.ts`): enlaces verificados a platformengineering.org, con resumen propio en español.
 
-Los eventos se clasifican en próximos/pasados **al compilar**, así que hay que volver a desplegar después de cada evento (por ejemplo, un push o *Run workflow* en GitHub Actions).
+Los eventos se clasifican en próximos/pasados **al compilar**. El workflow de despliegue corre también cada día a las 00:10 de Lima (`schedule` en `deploy.yml`), así que el sitio se actualiza solo la madrugada siguiente a cada evento; si se necesita antes, basta un push o *Run workflow* en GitHub Actions.
 
 ## SEO
 

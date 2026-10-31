@@ -33,6 +33,41 @@ export interface CommunityEvent {
 /** Eventos de la comunidad; próximos y pasados se separan por fecha al compilar. */
 export const events: CommunityEvent[] = [
   {
+    slug: 'kubefest-03',
+    date: '2026-10-24',
+    time: '14:00',
+    endTime: '17:00',
+    city: { 'es-pe': 'Lima', en: 'Lima' },
+    venue: 'Auditorio de la Facultad de Ciencias e Ingeniería, PUCP',
+    address: 'Av. Universitaria 1801, San Miguel',
+    status: 'free',
+    registerUrl: 'https://luma.com/cctyrftv',
+    title: { 'es-pe': 'KubeFest #3', en: 'KubeFest #3' },
+    description: {
+      'es-pe': 'Cuatro voces, cuatro perspectivas y un mismo ecosistema: Cloud Native. Una tarde organizada por la comunidad para aprender, compartir experiencias y seguir impulsando la participación de más mujeres en tecnología, con charlas sobre operación inteligente de clústers con IA, escalado justo a tiempo con Karpenter, GitOps con ArgoCD y los primeros pasos del contenedor al clúster.',
+      en: 'Four voices, four perspectives and one ecosystem: Cloud Native. A community-run afternoon to learn, share experiences and keep encouraging more women in tech, with talks on AI-driven cluster operations, just-in-time scaling with Karpenter, GitOps with ArgoCD and the first steps from a container to your first cluster.',
+    },
+    speakers: ['Danielle Nascimento', 'Bianca Torres', 'Michelle Luna', 'Grecia Vargas'],
+  },
+  {
+    slug: 'kubefest-01',
+    date: '2026-06-13',
+    time: '09:00',
+    endTime: '13:00',
+    city: { 'es-pe': 'Lima', en: 'Lima' },
+    venue: 'Universidad Ricardo Palma',
+    address: 'Av. Alfredo Benavides 5540, Santiago de Surco',
+    status: 'soldout',
+    organizer: 'Cloud Native Lima',
+    registerUrl: 'https://ocgroups.dev/cncf/group/nmmzkrs/event/tu52ja4',
+    title: { 'es-pe': 'KubeFest #1', en: 'KubeFest #1' },
+    description: {
+      'es-pe': 'Tecnologías cloud native que están transformando el mundo: una mañana de charlas prácticas y networking para profesionales, estudiantes y entusiastas de Cloud Native y Kubernetes. Comunidades cloud native en el Perú, IA generativa con LLMs y RAG desde cero, Zero Trust en Kubernetes y Platform Engineering con Crossplane para infraestructura self-service.',
+      en: 'Cloud native technologies transforming the world: a morning of hands-on talks and networking for Cloud Native and Kubernetes professionals, students and enthusiasts. Cloud native communities in Peru, generative AI with LLMs and RAG from scratch, Zero Trust on Kubernetes and Platform Engineering with Crossplane for self-service infrastructure.',
+    },
+    speakers: ['Carlos Ortiz', 'Anthony Mogrovejo', 'Paul Escarcena & Gerson Escarcena', 'Josua Castro'],
+  },
+  {
     slug: 'kubefest-02',
     date: '2026-09-26',
     time: '09:00',

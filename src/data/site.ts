@@ -5,15 +5,18 @@
  * publicar. Mientras un enlace sea `null`, el sitio lo muestra deshabilitado en lugar
  * de apuntar a un sitio falso.
  */
+/** Correo de contacto del capítulo. */
+export const contactEmail = 'info@platformengineering.pe';
+
 export const communityLinks = {
   whatsapp: null as string | null,
   meetup: null as string | null,
   linkedin: 'https://www.linkedin.com/company/platformengineeringperu' as string | null,
   youtube: null as string | null,
-  /** Formulario del call for papers. */
-  cfp: null as string | null,
-  /** Formulario de voluntariado / sponsors. */
-  sponsor: null as string | null,
+  /** Call for speakers (Sessionize), abierto todo el año. */
+  cfp: 'https://sessionize.com/platform-engineering-peru' as string | null,
+  /** Contacto para sedes y sponsors. */
+  sponsor: `mailto:${contactEmail}` as string | null,
 };
 
 /** Recursos de la comunidad global (platformengineering.org), verificados. */

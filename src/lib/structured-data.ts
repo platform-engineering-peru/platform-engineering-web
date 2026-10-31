@@ -3,8 +3,8 @@
  * https://developers.google.com/search/docs/appearance/structured-data
  */
 import { langCode, pick, useTranslations, type Lang } from '@i18n/index';
-import { communityLinks } from '@data/site';
-import type { CommunityEvent } from '@data/events';
+import { communityLinks, contactEmail } from '@data/site';
+import { isUpcoming, type CommunityEvent } from '@data/events';
 import { speakersByName } from '@data/speakers';
 import { asset } from './assets';
 
@@ -24,6 +24,7 @@ export function organizationLd(lang: Lang, site: URL, homeUrl: string): JsonLd[]
       url: homeUrl,
       logo: abs(asset('brand/logo-mark-dark.png'), site),
       description: t('site.description'),
+      email: contactEmail,
       sameAs,
     },
     {
@@ -77,7 +78,8 @@ export function eventLd(event: CommunityEvent, lang: Lang, site: URL, pageUrl: s
       ? { '@type': 'Organization', name: event.organizer }
       : { '@type': 'Organization', name: t('site.title'), url: abs(asset(''), site) },
     ...(performers.length ? { performer: performers } : {}),
-    ...(event.registerUrl
+    // Las entradas solo se ofrecen mientras el evento no haya pasado.
+    ...(event.registerUrl && isUpcoming(event)
       ? {
           offers: {
             '@type': 'Offer',

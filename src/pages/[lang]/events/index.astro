@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import CfpBand from '@components/layout/CfpBand.astro';
 import { EventsList } from '@modules/events';
 import { getLangPaths, useTranslations, type Lang } from '@i18n/index';
 
@@ -11,4 +12,5 @@ const t = useTranslations(lang);
 
 <BaseLayout lang={lang} title={t('events.title')} description={t('events.lead')}>
   <EventsList lang={lang} />
+  <CfpBand lang={lang} />
 </BaseLayout>

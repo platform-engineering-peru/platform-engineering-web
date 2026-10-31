@@ -1,4 +1,8 @@
 ---
+/**
+ * Banda del call for speakers (Sessionize). Se muestra en el inicio, en la lista de
+ * eventos y, como nota, en el detalle de los eventos próximos.
+ */
 import Button from '@components/ui/Button.astro';
 import { useTranslations, type Lang } from '@i18n/index';
 import { communityLinks } from '@data/site';
@@ -9,16 +13,21 @@ const t = useTranslations(Astro.props.lang);
 const cfp = communityLinks.cfp;
 ---
 
-<section class="container section">
+<section class="container section" id="call-for-speakers">
   <div class="cfp">
     <div class="cfp__text">
-      <h2 class="cfp__title">{t('home.cfp.title')}</h2>
-      <p>{t('home.cfp.body')}</p>
+      <h2 class="cfp__title">{t('cfp.title')}</h2>
+      <p>{t('cfp.body')}</p>
+      <ul class="cfp__points">
+        {(['cfp.point1', 'cfp.point2', 'cfp.point3'] as const).map((k) => (
+          <li>{t(k)}</li>
+        ))}
+      </ul>
     </div>
     {cfp ? (
-      <Button size="lg" variant="inverse" href={cfp} external>{t('home.cfp.cta')}</Button>
+      <Button size="lg" variant="inverse" href={cfp} external>{t('cfp.cta')}</Button>
     ) : (
-      <Button size="lg" variant="inverse" data-join-open>{t('home.cfp.cta')}</Button>
+      <Button size="lg" variant="inverse" data-join-open>{t('cfp.cta')}</Button>
     )}
   </div>
 </section>
@@ -35,5 +44,7 @@ const cfp = communityLinks.cfp;
     letter-spacing: -0.02em; line-height: 1.12;
   }
   .cfp p { font-size: 17px; }
+  .cfp__points { margin: 8px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
+  .cfp__points li::marker { color: rgba(255, 255, 255, .7); }
   @media (max-width: 640px) { .cfp { padding: 36px 24px; } }
 </style>

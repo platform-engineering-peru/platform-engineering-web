@@ -7,6 +7,7 @@ import SpeakerCard from '@components/ui/SpeakerCard.astro';
 import { localizePath, pick, useTranslations, type Lang } from '@i18n/index';
 import { eventTone, isUpcoming, longDate, type CommunityEvent } from '@data/events';
 import { speakerProps, speakersByName } from '@data/speakers';
+import { communityLinks } from '@data/site';
 
 interface Props {
   event: CommunityEvent;
@@ -68,6 +69,12 @@ const facts: { icon: IconName; text: string; detail?: string }[] = [
           <Button size="lg" variant="green" fullWidth data-join-open>{t('event.register')}</Button>
         )}
         {event.status === 'soldout' && <span class="detail__note">{t('event.soldout.note')}</span>}
+        {communityLinks.cfp && (
+          <a class="detail__cfp" href={communityLinks.cfp} target="_blank" rel="noopener noreferrer">
+            <Icon name="mic" size={16} class="detail__cfp-icon" />
+            <span>{t('event.cfp')}</span>
+          </a>
+        )}
       </>
     ) : (
       <>
@@ -103,6 +110,11 @@ const facts: { icon: IconName; text: string; detail?: string }[] = [
   .detail__organizer { font-size: 14px; color: var(--fg-2); padding-top: 14px; border-top: 1px solid var(--border-subtle); }
   .detail__fact :global(.detail__fact-icon) { color: var(--fg-accent-2); margin-top: 2px; }
   .detail__note { font-size: 13px; color: var(--fg-3); }
+  .detail__cfp {
+    display: flex; gap: 10px; align-items: flex-start; padding-top: 14px; border-top: 1px solid var(--border-subtle);
+    font-size: 14px; font-weight: 600;
+  }
+  .detail__cfp :global(.detail__cfp-icon) { color: var(--fg-accent-2); margin-top: 2px; flex-shrink: 0; }
   @media (max-width: 860px) {
     .detail { grid-template-columns: 1fr; }
     .detail__aside { position: static; }

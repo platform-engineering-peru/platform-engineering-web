@@ -60,9 +60,12 @@
   "home.speakers.eyebrow": "Speakers recientes",
   "home.speakers.cta": "Ver el evento →",
 
-  "home.cfp.title": "¿Quieres dar una charla?",
-  "home.cfp.body": "El call for papers está abierto todo el año. Buscamos historias reales, no demos de producto.",
-  "home.cfp.cta": "Proponer charla",
+  "cfp.title": "¿Quieres dar una charla?",
+  "cfp.body": "Nuestro call for speakers está abierto todo el año en Sessionize. Buscamos historias reales de plataformas internas, no demos de producto.",
+  "cfp.point1": "Charlas de 25 a 30 minutos o lightning talks de 10 minutos, en español o inglés.",
+  "cfp.point2": "Todos los niveles son bienvenidos. Si es tu primera charla, te ayudamos a prepararla.",
+  "cfp.point3": "Revisamos las propuestas de forma continua y las programamos en las próximas ediciones en Lima.",
+  "cfp.cta": "Postular en Sessionize",
 
   "events.eyebrow": "Eventos",
   "events.title": "Meetups y talleres",
@@ -87,6 +90,7 @@
   "event.soldout.note": "Entradas agotadas. Revisa la página del evento por si se liberan cupos.",
   "event.organizer": "Organiza",
   "event.past.note": "Este evento ya pasó.",
+  "event.cfp": "¿Quieres dar una charla en un próximo evento? Postula en Sessionize →",
   "event.hours": "h",
 
   "resources.eyebrow": "Recursos",
@@ -117,7 +121,7 @@
   "community.speak.cta": "Proponer charla →",
   "community.host.title": "Sé sede o sponsor",
   "community.host.body": "Presta tu oficina para un meetup o apoya los talleres en regiones.",
-  "community.host.cta": "Escríbenos →",
+  "community.host.cta": "Escríbenos a info@platformengineering.pe →",
   "community.global.eyebrow": "Parte de algo más grande",
   "community.global.title": "Conectados con la comunidad global",
   "community.global.body": "Somos parte de la comunidad global de platformengineering.org: cientos de miles de practicantes, PlatformCon y una universidad con cursos gratuitos. Traemos ese conocimiento al contexto peruano.",
