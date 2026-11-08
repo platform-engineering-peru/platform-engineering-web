@@ -1,0 +1,529 @@
+---
+import type { Lang } from "@i18n/config";
+import { localizePath, pick } from "@i18n/utils";
+import { upcomingEvents, pastEvents, longDate } from "@data/events";
+import { speakersByName, speakerProps } from "@data/speakers";
+import { resources } from "@data/resources";
+import { communityLinks, globalLinks } from "@data/site";
+import SpeakerCard from "@components/ui/SpeakerCard.astro";
+import Icon from "@components/ui/Icon.astro";
+import EventPoster from "@components/ui/EventPoster.astro";
+import PlatformHero from "./PlatformHero.astro";
+import UkukuPeek from "./UkukuPeek.astro";
+import { editorialCopy } from "./editorial-copy";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = editorialCopy(lang);
+const upcoming = upcomingEvents()[0];
+const latest = pastEvents()[0];
+const featured = upcoming ?? latest;
+const featuredPeople = latest ? speakersByName(latest.speakers) : [];
+const selectedResources = resources
+  .filter((r) => ["fundamentals", "idp", "teams"].includes(r.topic))
+  .slice(0, 5);
+const paths = {
+  events: localizePath(lang, "/events"),
+  resources: localizePath(lang, "/resources"),
+};
+const pillars = [
+  { title: c.p1Title, body: c.p1Body, link: c.p1Link, href: paths.events },
+  {
+    title: c.p2Title,
+    body: c.p2Body,
+    link: c.p2Link,
+    href: communityLinks.cfp,
+  },
+  { title: c.p3Title, body: c.p3Body, link: c.p3Link, href: paths.resources },
+];
+const types =
+  lang === "en"
+    ? {
+        guide: "Guide",
+        course: "Course",
+        article: "Article",
+        report: "Report",
+        tool: "Tool",
+      }
+    : {
+        guide: "Guía",
+        course: "Curso",
+        article: "Artículo",
+        report: "Reporte",
+        tool: "Herramienta",
+      };
+---
+
+<div class="editorial-home">
+  <PlatformHero lang={lang} />
+
+  <div class="ed-values">
+    <div class="ed-wrap">
+      <span>{c.strip1}</span>
+      <span class="ed-asterisk" aria-hidden="true">
+        ✳
+      </span>
+      <span>{c.strip2}</span>
+      <span class="ed-asterisk" aria-hidden="true">
+        ✳
+      </span>
+      <span>{c.strip3}</span>
+    </div>
+  </div>
+
+  <section
+    id="encounters"
+    class="ed-wrap ed-section"
+    aria-labelledby="encounter-title"
+  >
+    <div class="ed-section-head" data-reveal>
+      <div>
+        <p class="ed-kicker">{c.eventsLabel}</p>
+        <h2 id="encounter-title">{c.eventsTitle}</h2>
+      </div>
+      <p class="ed-section-intro">{c.eventsBody}</p>
+    </div>
+    {featured && (
+      <article class="ed-event" data-reveal data-tilt>
+        <EventPoster event={featured} lang={lang} />
+        <div class="ed-event__info">
+          <p class="ed-kicker">
+            <span class="ed-dot"></span>
+            {upcoming ? c.next : c.recent}
+          </p>
+          <h3>{pick(featured.title, lang)}</h3>
+          <p class="ed-event__date">{longDate(featured.date, lang)}</p>
+          <p class="ed-event__venue">{featured.venue}</p>
+          <p class="ed-event__description">
+            {pick(featured.description, lang)}
+          </p>
+          <a
+            class="ed-button ed-button--ink"
+            href={localizePath(lang, `/events/${featured.slug}`)}
+          >
+            {c.detail}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </article>
+    )}
+    <div class="ed-event-note">
+      <div>
+        {!upcoming && (
+          <>
+            <strong>{c.empty}</strong>
+            <p>{c.emptyBody}</p>
+          </>
+        )}
+      </div>
+      <a class="ed-text-link" href={paths.events}>
+        {c.allEvents}
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <UkukuPeek variant={0} />
+
+  <section
+    class="ed-wrap ed-section ed-participate"
+    aria-labelledby="participate-title"
+  >
+    <div class="ed-section-head" data-reveal>
+      <div>
+        <p class="ed-kicker">{c.pillarsLabel}</p>
+        <h2 id="participate-title">{c.pillarsTitle}</h2>
+      </div>
+      <span class="ed-spark" aria-hidden="true">
+        ↗
+      </span>
+    </div>
+    <div>
+      {pillars.map((pillar, i) => (
+        <article class="ed-pillar" data-reveal>
+          <span class="ed-pillar__number">0{i + 1}</span>
+          <h3>{pillar.title}</h3>
+          <p>{pillar.body}</p>
+          {pillar.href && (
+            <a
+              href={pillar.href}
+              aria-label={pillar.link}
+              {...(pillar.href.startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              class="ed-circle-link"
+            >
+              <span aria-hidden="true">↗</span>
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <UkukuPeek variant={1} />
+
+  <section class="ed-explainer" aria-labelledby="explainer-title">
+    <div class="ed-wrap ed-section">
+      <div class="ed-section-head" data-reveal>
+        <div>
+          <p class="ed-kicker">{c.whatLabel}</p>
+          <h2 id="explainer-title">{c.whatTitle}</h2>
+        </div>
+        <p class="ed-section-intro">{c.whatBody}</p>
+      </div>
+      <ol class="ed-path" data-reveal>
+        {[c.step1, c.step2, c.step3, c.step4].map((step, i) => (
+          <li>
+            <div class:list={["ed-path__symbol", `ed-path__symbol--${i}`]}>
+              <Icon
+                name={(["users", "arrow-right", "layers", "cloud"] as const)[i]}
+                size={32}
+              />
+            </div>
+            <span class="ed-path__index">0{i + 1}</span>
+            <h3>{step}</h3>
+          </li>
+        ))}
+      </ol>
+      <div class="ed-explainer__foot">
+        <p>{c.whatFoot}</p>
+        <a
+          class="ed-text-link"
+          href={globalLinks.whatIs}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {c.guide}
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {featuredPeople.length > 0 && (
+    <section
+      class="ed-wrap ed-section ed-people"
+      aria-labelledby="people-title"
+    >
+      <div class="ed-section-head" data-reveal>
+        <div>
+          <p class="ed-kicker">{c.peopleLabel}</p>
+          <h2 id="people-title">{c.peopleTitle}</h2>
+        </div>
+        <p class="ed-section-intro">{c.peopleBody}</p>
+      </div>
+      <div class="ed-people__grid">
+        {featuredPeople.map((speaker) => (
+          <div data-reveal>
+            <SpeakerCard {...speakerProps(speaker, lang)} />
+          </div>
+        ))}
+      </div>
+      {latest && (
+        <a
+          class="ed-text-link ed-people__event"
+          href={localizePath(lang, `/events/${latest.slug}`)}
+        >
+          {pick(latest.title, lang)}
+          <span aria-hidden="true">↗</span>
+        </a>
+      )}
+    </section>
+  )}
+
+  <UkukuPeek variant={2} />
+
+  <section class="ed-resources" aria-labelledby="resource-title">
+    <div class="ed-wrap ed-section">
+      <div class="ed-section-head" data-reveal>
+        <div>
+          <p class="ed-kicker">{c.resourcesLabel}</p>
+          <h2 id="resource-title">{c.resourcesTitle}</h2>
+        </div>
+        <p class="ed-section-intro">{c.resourcesBody}</p>
+      </div>
+      <div
+        class="ed-filters"
+        role="group"
+        aria-label={lang === "en" ? "Filter resources" : "Filtrar recursos"}
+        data-home-filters
+      >
+        {[
+          ["all", c.all],
+          ["fundamentals", c.fundamentals],
+          ["idp", c.platform],
+          ["teams", c.teams],
+        ].map(([value, label]) => (
+          <button
+            type="button"
+            data-resource-filter={value}
+            aria-pressed={value === "all"}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      <p class="visually-hidden" aria-live="polite" data-resource-count></p>
+      <div class="ed-resource-list">
+        {selectedResources.map((resource, i) => (
+          <a
+            href={resource.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ed-resource"
+            data-home-topic={resource.topic}
+          >
+            <span class="ed-resource__number">0{i + 1}</span>
+            <div>
+              <span class="ed-resource__type">{types[resource.type]}</span>
+              <h3>{pick(resource.title, lang)}</h3>
+              <p>{pick(resource.description, lang)}</p>
+            </div>
+            <span class="ed-resource__arrow" aria-hidden="true">
+              ↗
+            </span>
+          </a>
+        ))}
+      </div>
+      <a class="ed-text-link ed-resources__more" href={paths.resources}>
+        {c.more}
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <UkukuPeek variant={3} />
+
+  <section
+    class="ed-wrap ed-section ed-university"
+    aria-labelledby="university-title"
+  >
+    <div class="ed-university__mark" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <path
+          d="m24 65 76-38 76 38-76 38Z"
+          stroke="currentColor"
+          stroke-width="3"
+        />
+        <path
+          d="M50 80v62q50 38 100 0V80M176 65v80"
+          stroke="currentColor"
+          stroke-width="3"
+        />
+        <circle cx="176" cy="155" r="7" fill="currentColor" />
+        <path
+          d="m24 165 26 13m76-142 26 13"
+          stroke="currentColor"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+    <div data-reveal>
+      <p class="ed-kicker">{c.universityLabel}</p>
+      <h2 id="university-title">{c.universityTitle}</h2>
+      <p>{c.universityBody}</p>
+      <a
+        class="ed-text-link"
+        href={globalLinks.introCourse}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {c.course}
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+</div>
+<section
+  class="ed-wrap next-chapters"
+  aria-label={lang === "en" ? "Keep exploring" : "Sigue explorando"}
+>
+  {[
+    [
+      "/memories",
+      "01 / MEMORIES",
+      lang === "en" ? "What we take with us." : "Lo que nos llevamos.",
+      lang === "en"
+        ? "Explore the collective archive"
+        : "Explora el archivo colectivo",
+      "ribbon",
+    ],
+    [
+      "/opportunities",
+      "02 / NEXT CHAPTER",
+      lang === "en" ? "Your next golden path." : "Tu próximo golden path.",
+      lang === "en" ? "Discover opportunities" : "Descubre oportunidades",
+      "career",
+    ],
+    [
+      "/mascot",
+      "03 / UKUKU",
+      lang === "en" ? "An engineer by nature." : "Ingeniero por naturaleza.",
+      lang === "en" ? "Meet our mascot" : "Conoce a nuestra mascota",
+      "bear",
+    ],
+  ].map(([path, kicker, title, link, kind]) => (
+    <a
+      href={localizePath(lang, path)}
+      class={`next-chapter next-chapter--${kind}`}
+    >
+      <small>{kicker}</small>
+      <h2>{title}</h2>
+      <div class="next-chapter__art" aria-hidden="true">
+        {kind === "bear" ? (
+          <img
+            src={`${import.meta.env.BASE_URL}illustrations/ukuku-flight.webp`}
+            width="240"
+            height="240"
+            loading="lazy"
+            alt=""
+          />
+        ) : (
+          <>
+            <i></i>
+            <i></i>
+            <i></i>
+          </>
+        )}
+      </div>
+      <span>{link} ↗</span>
+    </a>
+  ))}
+</section>
+<style>
+  .next-chapters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    padding-block: 45px 65px;
+  }
+  .next-chapter {
+    --fg-1: #f0ecf8;
+    position: relative;
+    overflow: hidden;
+    min-height: 315px;
+    padding: 25px;
+    background: #15131e;
+    color: #f0ecf8;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .next-chapter small {
+    font: 9px monospace;
+    letter-spacing: 0.12em;
+    color: #a39aad;
+  }
+  .next-chapter h2 {
+    font-size: 29px;
+    letter-spacing: -0.055em;
+    line-height: 1.15;
+    margin: 15px 0;
+    max-width: 240px;
+  }
+  .next-chapter > span {
+    font-size: 12px;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+  }
+  .next-chapter__art {
+    height: 130px;
+    position: relative;
+  }
+  .next-chapter__art i {
+    position: absolute;
+    width: 105px;
+    height: 70px;
+    border-radius: 7px;
+    background: #a59acb;
+    left: 22%;
+    top: 20px;
+    transform: rotate(-18deg);
+    border: 1px solid #d6c7ff;
+  }
+  .next-chapter__art i:nth-child(2) {
+    left: 38%;
+    transform: rotate(8deg);
+    background: #becfc1;
+  }
+  .next-chapter__art i:nth-child(3) {
+    left: 54%;
+    transform: rotate(23deg);
+    background: #d1b7a8;
+  }
+  .next-chapter--career .next-chapter__art i {
+    transform: rotate(-20deg) translateY(20px);
+  }
+  .next-chapter--career .next-chapter__art i:nth-child(2) {
+    transform: rotate(-5deg);
+  }
+  .next-chapter--career .next-chapter__art i:nth-child(3) {
+    transform: rotate(10deg) translateY(-20px);
+  }
+  .next-chapter--bear {
+    --fg-1: #34253f;
+    background: #dfd6eb;
+    color: #34253f;
+  }
+  .next-chapter--bear small {
+    color: #61516d;
+  }
+  .next-chapter__art img {
+    position: absolute;
+    right: -15px;
+    top: -55px;
+    width: 175px;
+    height: 200px;
+    object-fit: contain;
+  }
+  .next-chapter:focus-visible {
+    outline: 2px solid #8468bc;
+    outline-offset: 4px;
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .next-chapter__art {
+      transition: transform 250ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .next-chapter:hover .next-chapter__art {
+      transform: translateY(-8px);
+    }
+  }
+  @media (max-width: 700px) {
+    .next-chapters {
+      grid-template-columns: 1fr;
+    }
+    .next-chapter {
+      min-height: 270px;
+    }
+  }
+</style>
+<script>
+  const home = document.querySelector<HTMLElement>(".editorial-home");
+  if (home) {
+    const filters = home.querySelectorAll<HTMLButtonElement>(
+      "[data-resource-filter]",
+    );
+    const items = home.querySelectorAll<HTMLElement>("[data-home-topic]");
+    filters.forEach((filter) =>
+      filter.addEventListener("click", () => {
+        const value = filter.dataset.resourceFilter;
+        filters.forEach((b) =>
+          b.setAttribute("aria-pressed", String(b === filter)),
+        );
+        let count = 0;
+        items.forEach((item) => {
+          item.hidden = value !== "all" && item.dataset.homeTopic !== value;
+          if (!item.hidden) count++;
+        });
+        home.querySelector("[data-resource-count]")!.textContent =
+          document.documentElement.lang === "en"
+            ? `${count} resources`
+            : `${count} recursos`;
+      }),
+    );
+  }
+</script>

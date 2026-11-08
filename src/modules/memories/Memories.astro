@@ -1,0 +1,140 @@
+---
+import type { Lang } from "@i18n/index";
+import "./memories.css";
+interface Props {
+  lang: Lang;
+}
+const en = Astro.props.lang === "en";
+const colors = [
+  "#aa9ae9",
+  "#f1b493",
+  "#9dcbbd",
+  "#a2bde5",
+  "#dba9c3",
+  "#cfce93",
+  "#a2c7cd",
+  "#c3b6de",
+];
+---
+
+<section class="memories" data-memories>
+  <header class="memories-heading ed-wrap">
+    <p>PE / COLLECTIVE MEMORY</p>
+    <h1>
+      {en ? "We build platforms." : "Construimos plataformas."}
+      <br />
+      <em>{en ? "We keep moments." : "Nos llevamos momentos."}</em>
+    </h1>
+    <div>
+      <span>
+        {en
+          ? "The archive of everything we share."
+          : "El archivo de todo lo que compartimos."}
+      </span>
+      <small>
+        {en
+          ? "Demo gallery · sample content"
+          : "Galería de muestra · contenido provisional"}
+      </small>
+    </div>
+  </header>
+  <div
+    class="memory-stage"
+    data-memory-stage
+    tabindex="0"
+    role="region"
+    aria-label={
+      en
+        ? "Memories ribbon. Use arrow keys to browse."
+        : "Cinta de memories. Usa las flechas para explorar."
+    }
+  >
+    <div class="memory-canvas" data-memory-canvas aria-hidden="true"></div>
+    <div class="memory-fallback" data-memory-fallback>
+      {colors.map((color, i) => (
+        <button
+          class="memory-tile"
+          data-memory-tile={i}
+          style={`--memory-color:${color}`}
+        >
+          <span class="memory-art" aria-hidden="true">
+            <i></i>
+            <i></i>
+            <i></i>
+            <b>{String(i + 1).padStart(2, "0")}</b>
+          </span>
+          <span class="memory-tile__caption">
+            <strong>Lorem ipsum / {String(i + 1).padStart(2, "0")}</strong>
+            <span>↗</span>
+          </span>
+        </button>
+      ))}
+    </div>
+  </div>
+  <div class="memory-controls ed-wrap">
+    <div>
+      <span class="memory-live-dot"></span>
+      <span>
+        {en ? "A community in motion" : "Una comunidad en movimiento"}
+      </span>
+    </div>
+    <div>
+      <button
+        data-memory-prev
+        aria-label={en ? "Previous memory" : "Memory anterior"}
+      >
+        ←
+      </button>
+      <span data-memory-count aria-live="polite">
+        01 / 08
+      </span>
+      <button
+        data-memory-next
+        aria-label={en ? "Next memory" : "Siguiente memory"}
+      >
+        →
+      </button>
+      <button data-memory-open>{en ? "Open" : "Abrir"} ↗</button>
+    </div>
+  </div>
+  <p class="memory-instruction">
+    {en
+      ? "Drag horizontally. Follow the thread."
+      : "Arrastra horizontalmente. Sigue el hilo."}
+  </p>
+  <dialog
+    class="memory-dialog"
+    data-memory-dialog
+    aria-labelledby="memory-dialog-title"
+  >
+    <button
+      data-memory-close
+      aria-label={en ? "Close memory" : "Cerrar memory"}
+    >
+      ×
+    </button>
+    <p>
+      PE / MEMORIES / <span data-memory-id>01</span>
+    </p>
+    <div class="memory-dialog__art" data-memory-art aria-hidden="true">
+      <span>
+        together
+        <br />
+        we build.
+      </span>
+    </div>
+    <h2 id="memory-dialog-title">Lorem ipsum dolor sit amet.</h2>
+    <p>
+      Consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud
+      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+    <small>
+      {en
+        ? "Sample artwork and text. Replace with community photos and videos."
+        : "Arte y texto de muestra. Se reemplazarán con fotos y videos de la comunidad."}
+    </small>
+  </dialog>
+</section>
+<script>
+  import "./memories";
+</script>

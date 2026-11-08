@@ -1,0 +1,2 @@
+Built-in ImageGen lighting-only edit. Target: ukuku-seated-slide.png. Lighting reference: ukuku-flight.webp.
+Preserve the seated pose, silhouette, proportions, face and cream markings. Add natural lavender-white rim lighting to individual fur hairs around ears, head, arms, body and feet, matching the flying mascot. Crisp plush fur; no solid cartoon outline or broad halo. Transparent background.

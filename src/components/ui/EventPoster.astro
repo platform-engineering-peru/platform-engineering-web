@@ -1,0 +1,49 @@
+---
+import { pick, type Lang } from "@i18n/index";
+import { dateBlock, type CommunityEvent } from "@data/events";
+interface Props {
+  event: CommunityEvent;
+  lang: Lang;
+  large?: boolean;
+}
+const { event, lang, large = false } = Astro.props;
+const edition = event.slug.endsWith("03")
+  ? "03"
+  : event.slug.endsWith("02")
+    ? "02"
+    : "01";
+const date = dateBlock(event.date, lang);
+---
+
+<div
+  class:list={[
+    "event-poster",
+    "tilt-surface",
+    `event-poster--${edition}`,
+    { "event-poster--large": large },
+  ]}
+  aria-hidden="true"
+>
+  <div class="event-poster__top">
+    <span>COMMUNITY / CLOUD NATIVE</span>
+    <span>{event.date.slice(0, 4)}</span>
+  </div>
+  <div class="event-poster__title">
+    Kube<span>Fest</span>
+    <b>#{edition}</b>
+  </div>
+  <div class="event-poster__sculpture">
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+  </div>
+  <div class="event-poster__bottom">
+    <span>
+      {date.day} / {date.month.toUpperCase()}
+    </span>
+    <span>{pick(event.city, lang).toUpperCase()}, PERÚ ↗</span>
+  </div>
+</div>

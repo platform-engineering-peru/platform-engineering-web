@@ -1,0 +1,44 @@
+---
+import {asset} from '@lib/assets';
+import {peekVariants,peekFrame} from './peek-variants';
+interface Props { variant: 0 | 1 | 2 | 3 }
+const {variant}=Astro.props;
+const {side,size,frame}=peekVariants[variant];
+const sprite=peekFrame(frame);
+---
+<div class:list={["ukuku-peek", `ukuku-peek--${side}`]} style={`--peek-size:${size}px;--sprite-x:${sprite.x}%;--sprite-y:${sprite.y}%`} data-peek-variant={variant} data-ukuku-peek aria-hidden="true">
+ <div class="ukuku-peek__mask"><div class="ukuku-peek__traveler">
+  <div class="ukuku-peek__face">
+   <img src={asset('illustrations/ukuku-peek-atlas.webp')} alt="" width="2048" height="2048" loading="lazy" />
+  </div>
+ </div>
+ </div>
+</div>
+<style>
+/* Each appearance has its own safe gutter so paws never obscure content. */
+.ukuku-peek{--peek-p:0;--tilt:-8deg;--visible-size:var(--peek-size);position:relative;height:calc(var(--visible-size)*.92);pointer-events:none;z-index:2}
+.ukuku-peek__mask{position:absolute;left:0;right:0;top:0;height:100%;overflow:hidden;pointer-events:none}
+.ukuku-peek__traveler{position:absolute;width:var(--visible-size);height:var(--visible-size);top:0;will-change:transform}
+.ukuku-peek__face{position:absolute;inset:0;overflow:hidden}
+.ukuku-peek img{display:block;position:absolute;width:200%;height:200%;max-width:none;left:var(--sprite-x);top:var(--sprite-y);object-fit:fill}
+
+.ukuku-peek--left{--tilt:70deg}
+.ukuku-peek--right{--tilt:-70deg}
+.ukuku-peek--left .ukuku-peek__traveler{left:calc(var(--visible-size)*-.08);transform:translateX(calc(var(--peek-p)*-100%)) rotate(var(--tilt))}
+.ukuku-peek--right .ukuku-peek__traveler{right:calc(var(--visible-size)*-.08);transform:translateX(calc(var(--peek-p)*100%)) rotate(var(--tilt))}
+/* The section edge conceals the body while the face and paws remain visible. */
+.ukuku-peek--bottom{height:calc(var(--visible-size)*.84);border-bottom:1px solid var(--ed-line,rgba(132,116,165,.2))}
+.ukuku-peek--bottom .ukuku-peek__mask{top:0;height:100%}
+.ukuku-peek--bottom .ukuku-peek__traveler{right:10%;transform:translateY(calc(var(--peek-p)*100%)) rotate(-5deg)}
+@media(max-width:700px){.ukuku-peek{--visible-size:calc(var(--peek-size)*.55)}.ukuku-peek--left .ukuku-peek__traveler{left:calc(var(--visible-size)*-.08)}.ukuku-peek--right .ukuku-peek__traveler{right:calc(var(--visible-size)*-.08)}.ukuku-peek--bottom .ukuku-peek__traveler{right:8%}}
+@media(prefers-reduced-motion:reduce){.ukuku-peek__traveler{will-change:auto}}
+</style>
+<script>
+import {peekProgress} from './peek-motion';
+const roots=document.querySelectorAll<HTMLElement>('[data-ukuku-peek]');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');let frame=0;
+const update=()=>{frame=0;for(const root of roots){const p=peekProgress(root.getBoundingClientRect().top,innerHeight,reduced.matches);root.style.setProperty('--peek-p',String(p));}};
+const schedule=()=>{if(!frame)frame=requestAnimationFrame(update)};
+window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule);reduced.addEventListener('change',schedule);update();
+document.addEventListener('astro:before-swap',()=>{cancelAnimationFrame(frame);window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule);reduced.removeEventListener('change',schedule)},{once:true});
+</script>

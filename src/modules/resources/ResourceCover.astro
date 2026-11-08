@@ -1,0 +1,51 @@
+---
+import { pick, useTranslations, type Lang } from "@i18n/index";
+import type { Resource } from "@data/resources";
+interface Props {
+  resource: Resource;
+  index: number;
+  lang: Lang;
+}
+const { resource, index, lang } = Astro.props;
+const t = useTranslations(lang);
+const palette = [
+  ["#d9d7ee", "#37346b"],
+  ["#c6d7bc", "#253e31"],
+  ["#e8b5a0", "#602e28"],
+  ["#d6dfdf", "#244952"],
+][index % 4];
+---
+
+<div
+  class="resource-cover"
+  style={`--cover-paper:${palette[0]};--cover-ink:${palette[1]}`}
+>
+  <div class="resource-cover__top">
+    <span>PE / FIELDNOTES</span>
+    <span>VOL. {String(index + 1).padStart(2, "0")}</span>
+  </div>
+  <h3>{pick(resource.title, lang)}</h3>
+  <svg
+    class="resource-cover__art"
+    viewBox="0 0 240 210"
+    aria-hidden="true"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.4"
+  >
+    {[0, 1, 2, 3, 4].map((i) => (
+      <path
+        d={`M25 ${60 + i * 25} 120 ${20 + i * 25} 215 ${60 + i * 25} 120 ${100 + i * 25}Z`}
+      />
+    ))}
+    <path d="M25 60v100m190-100v100M120 20v180" stroke-dasharray="2 5" />
+    <path
+      d="m84 83-17 10 17 10m72-20 17 10-17 10m-45 7 18-38"
+      stroke-width="4"
+    />
+  </svg>
+  <div class="resource-cover__bottom">
+    <span>{t(`resources.type.${resource.type}` as const)}</span>
+    <span>{resource.contentLang.toUpperCase()} ↗</span>
+  </div>
+</div>

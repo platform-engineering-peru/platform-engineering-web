@@ -5,7 +5,7 @@
  * "Próximamente" (ver `src/data/site.ts`).
  */
 import Icon from '@components/ui/Icon.astro';
-import type { IconName } from '@components/ui/icons';
+import BrandIcon from '@components/ui/BrandIcon.astro';
 import LayerStripe from '@components/ui/LayerStripe.astro';
 import { useTranslations, type Lang, type TranslationKey } from '@i18n/index';
 import { communityLinks } from '@data/site';
@@ -15,10 +15,10 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const channels: { icon: IconName; title: TranslationKey; body: TranslationKey; href: string | null }[] = [
-  { icon: 'message-circle', title: 'join.whatsapp.title', body: 'join.whatsapp.body', href: communityLinks.whatsapp },
-  { icon: 'calendar', title: 'join.meetup.title', body: 'join.meetup.body', href: communityLinks.meetup },
-  { icon: 'users', title: 'join.linkedin.title', body: 'join.linkedin.body', href: communityLinks.linkedin },
+const channels: { icon: 'whatsapp' | 'meetup' | 'linkedin'; title: TranslationKey; body: TranslationKey; href: string | null }[] = [
+  { icon: 'whatsapp', title: 'join.whatsapp.title', body: 'join.whatsapp.body', href: communityLinks.whatsapp },
+  { icon: 'meetup', title: 'join.meetup.title', body: 'join.meetup.body', href: communityLinks.meetup },
+  { icon: 'linkedin', title: 'join.linkedin.title', body: 'join.linkedin.body', href: communityLinks.linkedin },
 ];
 ---
 
@@ -35,7 +35,7 @@ const channels: { icon: IconName; title: TranslationKey; body: TranslationKey; h
     {channels.map((c) => {
       const inner = (
         <>
-          <span class="join__icon"><Icon name={c.icon} size={18} /></span>
+          <span class="join__icon"><BrandIcon name={c.icon} /></span>
           <span class="join__text">
             <span class="join__name">{t(c.title)}</span>
             <span class="join__desc">{c.href ? t(c.body) : t('link.soon')}</span>
@@ -95,10 +95,10 @@ const channels: { icon: IconName; title: TranslationKey; body: TranslationKey; h
     color: var(--fg-1); transition: all var(--dur-base) var(--ease-out);
   }
   a.join__item:hover { background: var(--bg-card-hover); border-color: var(--border-strong); color: var(--fg-1); }
-  .join__item.is-soon { opacity: .55; cursor: not-allowed; }
+  .join__item.is-soon { cursor: not-allowed; }
   .join__icon {
     width: 36px; height: 36px; flex: none; display: grid; place-items: center;
-    border-radius: var(--radius-sm); background: rgba(18, 204, 122, .14); color: var(--fg-accent-2);
+    border-radius: var(--radius-sm); background: #fff; color: var(--fg-accent-2);
   }
   .join__text { display: flex; flex-direction: column; min-width: 0; }
   .join__name { font-weight: 700; }

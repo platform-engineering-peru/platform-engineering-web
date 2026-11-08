@@ -1,1 +1,1 @@
-export { default as ResourcesGrid } from './ResourcesGrid.astro';
+export { default as ResourcesGrid } from "./ResourcesGrid.astro";

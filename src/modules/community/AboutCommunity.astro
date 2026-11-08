@@ -1,0 +1,56 @@
+---
+import {asset} from '@lib/assets';
+import './about-community.css';
+import {type Lang} from '@i18n/index';
+interface Props{lang:Lang}
+const en=Astro.props.lang==='en';
+const challenges=en?[
+ 'Learning platform engineering alone, without a place to ask questions.',
+ 'Choosing tools without hearing how they work in real teams.',
+ 'Repeating manual processes and facing the same technical barriers.',
+ 'Keeping lessons learned inside one team.'
+]:[
+ 'Aprender Platform Engineering por tu cuenta, sin un espacio para resolver dudas.',
+ 'Elegir herramientas sin conocer cómo funcionan en equipos reales.',
+ 'Repetir tareas manuales y encontrarte con las mismas barreras técnicas.',
+ 'Dejar lo aprendido dentro de un solo equipo.'
+];
+const contributions=en?[
+ ['Learn with peers','Technical talks and conversations with people facing similar challenges.'],
+ ['Share real experience','Cases, trade-offs and lessons from building and operating platforms.'],
+ ['Put ideas into practice','Workshops and resources on IDPs, Kubernetes, automation and DevEx.'],
+ ['Build connections','A meeting point for developers, platform engineers, DevOps, SREs and cloud specialists.']
+]:[
+ ['Aprende con otras personas','Charlas técnicas y conversaciones con quienes enfrentan desafíos similares.'],
+ ['Comparte experiencias reales','Casos, decisiones y aprendizajes al construir y operar plataformas.'],
+ ['Lleva las ideas a la práctica','Workshops y recursos sobre IDPs, Kubernetes, automatización y DevEx.'],
+ ['Conecta con la comunidad','Un punto de encuentro para desarrollo, Platform Engineering, DevOps, SRE y especialistas Cloud.']
+];
+---
+<section class="about-community" data-about>
+  <section class="community-value ed-wrap" aria-labelledby="community-value-title">
+    <header class="community-value-heading">
+      <span class="community-value-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg>{en?'Why we come together':'Por qué nos reunimos'}</span>
+      <h1 id="community-value-title">{en?'Building platforms brings challenges.':'Construir plataformas trae desafíos.'}<br/><span>{en?'Let’s learn to solve them together.':'Aprendamos a resolverlos juntos.'}</span></h1>
+      <p>{en?'We are Platform Engineering Perú: a community for sharing knowledge, trying ideas and improving developer experience.':'Somos Platform Engineering Perú: una comunidad para compartir conocimiento, probar ideas y mejorar la experiencia de quienes desarrollan software.'}</p>
+    </header>
+    <div class="community-value-grid">
+      <div class="community-challenges"><h2>{en?'Challenges we share':'Desafíos que compartimos'}</h2><ul>{challenges.map(text=><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8 8 8m0-8-8 8"/></svg><p>{text}</p></li>)}</ul></div>
+      <div class="community-constellation" data-community-constellation>
+        <div class="community-constellation-scene" role="img" aria-label={en?'A living network of people sharing knowledge around Platform Engineering Perú':'Una red viva de personas que comparten conocimiento alrededor de Platform Engineering Perú'}>
+          <canvas data-network-canvas aria-hidden="true"></canvas>
+          <div class="network-brand"><img src={asset('brand/official/mark.svg')} alt=""/></div>
+          <span class="network-scene-label">PE / COLLECTIVE</span>
+        </div>
+        <p class="network-caption">{en?'People connected. Knowledge in motion.':'Personas conectadas. Conocimiento en movimiento.'}</p>
+      </div>
+      <div class="community-contributions"><h2>{en?'What you’ll find here':'Lo que encontrarás aquí'}</h2><ul>{contributions.map(([title,body])=><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12 4 4 8-8"/></svg><div><h3>{title}</h3><p>{body}</p></div></li>)}</ul></div>
+    </div>
+    <div class="community-value-actions"><button data-join-open>{en?'Join the community':'Únete a la comunidad'} <span>↗</span></button><a href="#team">{en?'Meet the organizers':'Conoce al equipo organizador'} ↗</a></div>
+  </section>
+</section>
+
+<script>
+ import {initCommunityNetwork} from './community-network';
+ initCommunityNetwork();
+</script>

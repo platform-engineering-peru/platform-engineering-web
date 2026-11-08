@@ -1,0 +1,261 @@
+.organizer-section {
+  padding-block: 38px 55px;
+}
+.organizer-section .studio-toolbar {
+  margin-bottom: 25px;
+}
+.people-carousel {
+  --fg-1: #24222c;
+  background: var(--people-color);
+  color: #24222c;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  transition: background-color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.people-carousel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.7' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.people-carousel__top {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 32px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  position: relative;
+  z-index: 4;
+}
+.people-carousel__stage {
+  height: 410px;
+  position: relative;
+  touch-action: pan-y;
+}
+.people-carousel__ghost {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  top: 40px;
+  font-family: var(--font-display);
+  font-size: clamp(90px, 15vw, 210px);
+  letter-spacing: -0.08em;
+  font-weight: 850;
+  line-height: 1;
+  color: #fff9;
+  pointer-events: none;
+}
+.people-carousel__floor {
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  right: 15%;
+  height: 65px;
+  background: radial-gradient(ellipse, #32264e30, transparent 65%);
+}
+.people-carousel__figure {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 280px;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transform-origin: 50% 100%;
+  transition:
+    transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.people-carousel__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  pointer-events: none;
+  filter: drop-shadow(0 15px 13px #28203220);
+}
+.people-carousel__figure[data-role="center"] {
+  transform: translateX(-50%) scale(1.04);
+  filter: none;
+  z-index: 3;
+}
+.people-carousel__figure[data-role="left"] {
+  transform: translateX(calc(-50% - 280px)) scale(0.58);
+  filter: blur(1px) saturate(0.8);
+  z-index: 1;
+}
+.people-carousel__figure[data-role="right"] {
+  transform: translateX(calc(-50% + 280px)) scale(0.58);
+  filter: blur(1px) saturate(0.8);
+  z-index: 1;
+}
+.people-carousel__figure:focus-visible {
+  outline: 2px solid #393051;
+  outline-offset: 5px;
+  border-radius: 12px;
+}
+.people-carousel__bottom {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  padding: 25px 36px 30px;
+  border-top: 1px solid #24222c24;
+  background: #ffffff22;
+}
+.people-carousel__profiles {
+  min-height: 142px;
+}
+.people-carousel__profiles h3 {
+  font-size: clamp(27px, 3vw, 39px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.055em;
+  margin: 7px 0 10px;
+}
+.people-carousel__profiles p:not(.people-carousel__label) {
+  font-size: 13px;
+  max-width: 450px;
+  line-height: 1.5;
+}
+.people-carousel__profiles small {
+  font-size: 11px;
+  display: block;
+  margin-top: 3px;
+}
+.people-carousel__label {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+.people-carousel__profiles a {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #332b4a;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.people-carousel__controls {
+  max-width: 230px;
+  text-align: right;
+}
+.people-carousel__controls > p {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+.people-carousel__controls > div {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+}
+.people-carousel__controls button {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #24222c70;
+  border-radius: 50%;
+  background: transparent;
+  color: #24222c;
+  font-size: 25px;
+  cursor: pointer;
+  transition:
+    transform 0.16s,
+    background 0.16s;
+}
+.people-carousel__controls button:active {
+  transform: scale(0.94);
+}
+.people-carousel.is-instant,
+.people-carousel.is-instant * {
+  transition: none !important;
+}
+@media (hover: hover) and (pointer: fine) {
+  .people-carousel__controls button:hover {
+    background: #ffffff40;
+  }
+  .people-carousel__figure[data-role="left"]:hover,
+  .people-carousel__figure[data-role="right"]:hover {
+    filter: none;
+  }
+}
+@media (max-width: 1000px) {
+  .people-carousel__figure[data-role="left"] {
+    transform: translateX(calc(-50% - 210px)) scale(0.54);
+  }
+  .people-carousel__figure[data-role="right"] {
+    transform: translateX(calc(-50% + 210px)) scale(0.54);
+  }
+}
+@media (max-width: 640px) {
+  .organizer-section {
+    padding-block: 25px 40px;
+  }
+  .people-carousel__top {
+    padding: 20px;
+    font-size: 8px;
+  }
+  .people-carousel__stage {
+    height: 340px;
+  }
+  .people-carousel__ghost {
+    font-size: 23vw;
+    top: 30px;
+  }
+  .people-carousel__figure {
+    width: 220px;
+  }
+  .people-carousel__figure[data-role="center"] {
+    transform: translateX(-50%) scale(0.98);
+  }
+  .people-carousel__figure[data-role="left"] {
+    transform: translateX(calc(-50% - 118px)) scale(0.46);
+  }
+  .people-carousel__figure[data-role="right"] {
+    transform: translateX(calc(-50% + 118px)) scale(0.46);
+  }
+  .people-carousel__bottom {
+    padding: 22px 20px;
+    align-items: start;
+    gap: 12px;
+  }
+  .people-carousel__profiles {
+    min-height: 177px;
+    flex: 1;
+    min-width: 0;
+  }
+  .people-carousel__profiles h3 {
+    font-size: 27px;
+  }
+  .people-carousel__profiles p:not(.people-carousel__label) {
+    font-size: 12px;
+  }
+  .people-carousel__controls > p {
+    display: none;
+  }
+  .people-carousel__controls > div {
+    flex-direction: column;
+  }
+  .people-carousel__controls button {
+    width: 44px;
+    height: 44px;
+  }
+  .people-carousel__label {
+    font-size: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .people-carousel,
+  .people-carousel * {
+    transition: none !important;
+  }
+}
+
+.people-carousel__profiles .person-extra-link { margin-left: 18px; }

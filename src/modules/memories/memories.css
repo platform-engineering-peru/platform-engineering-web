@@ -1,0 +1,310 @@
+.memories {
+  background: var(--ed-paper);
+  color: var(--ed-ink);
+  padding: 50px 0 45px;
+  overflow: hidden;
+}
+.memories-heading > p {
+  font: 10px monospace;
+  color: var(--ed-muted);
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+}
+.memories-heading h1 {
+  font-size: clamp(34px, 4.5vw, 65px);
+  font-weight: 450;
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+}
+.memories-heading h1 em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  color: var(--ed-violet);
+}
+.memories-heading > div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  color: var(--ed-muted);
+  gap: 20px;
+  align-items: center;
+}
+.memories-heading > div > span {
+  font-size: 14px;
+}
+.memories-heading small {
+  font: 10px monospace;
+  color: var(--ed-muted);
+}
+.memory-stage {
+  height: 470px;
+  position: relative;
+  touch-action: pan-y;
+  margin: 18px 0 0;
+  cursor: grab;
+}
+.memory-stage:active {
+  cursor: grabbing;
+}
+.memory-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.memory-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.memory-fallback {
+  scrollbar-width: none;
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 50px max(25px, 5vw);
+  scroll-snap-type: x mandatory;
+  height: 100%;
+  align-items: center;
+}
+.memory-fallback::-webkit-scrollbar {
+  display: none;
+}
+.memory-tile {
+  width: 350px;
+  flex: none;
+  scroll-snap-align: center;
+  border: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 0;
+  background: var(--memory-color);
+  color: #16121d;
+  text-align: left;
+  cursor: pointer;
+}
+.memory-art {
+  height: 245px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, #ffffff88, transparent), var(--memory-color);
+}
+.memory-art i {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  left: 90px;
+  top: 35px;
+  border: 1px solid #1d123155;
+  transform: rotate(30deg) skew(-15deg);
+  border-radius: 25px;
+}
+.memory-art i:nth-child(2) {
+  transform: translate(-30px, 25px) rotate(30deg) skew(-15deg);
+}
+.memory-art i:nth-child(3) {
+  transform: translate(30px, -25px) rotate(30deg) skew(-15deg);
+}
+.memory-art b {
+  position: absolute;
+  bottom: -30px;
+  left: 10px;
+  font-size: 140px;
+  color: #ffffff55;
+  font-weight: 450;
+  letter-spacing: -0.09em;
+}
+.memory-tile__caption {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px;
+  font-size: 13px;
+  border-top: 1px solid #17112120;
+}
+.memory-tile__caption strong {
+  font-weight: 500;
+}
+.memories.is-webgl .memory-fallback {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  padding: 0;
+}
+.memory-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.memory-controls > div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.memory-controls span {
+  font: 11px monospace;
+  color: var(--ed-muted);
+}
+.memory-live-dot {
+  width: 6px;
+  height: 6px;
+  background: #b3d8a9;
+  border-radius: 50%;
+}
+.memory-controls button {
+  border: 1px solid #ffffff30;
+  border-radius: 25px;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 15px;
+  background: transparent;
+  color: var(--ed-ink);
+  cursor: pointer;
+}
+.memory-controls button:hover {
+  background: #ffffff10;
+}
+.memory-instruction {
+  text-align: center;
+  font: 10px monospace;
+  color: var(--ed-muted);
+  margin-top: 30px;
+}
+.memory-dialog {
+  margin: auto;
+  width: min(800px, calc(100% - 30px));
+  max-height: 90dvh;
+  background: #14131c;
+  color: #eae5f3;
+  border: 1px solid #ffffff30;
+  border-radius: 14px;
+  padding: 30px;
+}
+.memory-dialog::backdrop {
+  background: #000b;
+  backdrop-filter: blur(10px);
+}
+.memory-dialog > button {
+  float: right;
+  border: 1px solid #ffffff30;
+  border-radius: 50%;
+  background: none;
+  color: #fff;
+  width: 42px;
+  height: 42px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.memory-dialog > p:first-of-type {
+  font: 10px monospace;
+  margin: 14px 0 30px;
+  letter-spacing: 0.12em;
+}
+.memory-dialog__art {
+  height: 300px;
+  border-radius: 9px;
+  background:
+    linear-gradient(135deg, #fff8, transparent), var(--memory-color, #b1a1db);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #23182d;
+}
+.memory-dialog__art span {
+  font-size: clamp(55px, 8vw, 100px);
+  font-weight: 650;
+  letter-spacing: -0.09em;
+  line-height: 0.9;
+  transform: rotate(-6deg);
+}
+.memory-dialog h2 {
+  font-size: 30px;
+  letter-spacing: -0.05em;
+  margin: 25px 0 15px;
+}
+.memory-dialog > p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #c0b8ce;
+}
+.memory-dialog small {
+  display: block;
+  font-size: 11px;
+  color: #93899f;
+  margin-top: 20px;
+}
+.memories :focus-visible {
+  outline: 2px solid #c0aef5;
+  outline-offset: 5px;
+}
+@media (max-width: 650px) {
+  .memories {
+    padding-top: 35px;
+  }
+  .memories-heading > div {
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+  }
+  .memories-heading > div > span {
+    font-size: 13px;
+  }
+  .memory-stage {
+    height: 365px;
+  }
+  .memory-fallback {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 14px;
+  }
+  .memory-tile {
+    width: 280px;
+  }
+  .memory-art {
+    height: 225px;
+  }
+  .memory-art i {
+    left: 55px;
+  }
+  .memory-controls {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .memory-dialog {
+    padding: 22px;
+  }
+  .memory-dialog__art {
+    height: 220px;
+  }
+  .memory-dialog h2 {
+    font-size: 26px;
+  }
+}
+
+.site-editorial .memories h1,
+.site-editorial .memories .jobs-controls h2,
+.site-editorial .memories .memory-dialog h2 {
+  color: var(--ed-ink);
+}
+
+.memory-stage::before {
+  content: "";
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  bottom: -40px;
+  height: 220px;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#c0a4e614 1px, transparent 1px),
+    linear-gradient(90deg, #c0a4e614 1px, transparent 1px);
+  background-size: 45px 45px;
+  transform: perspective(400px) rotateX(63deg);
+  mask-image: linear-gradient(transparent, #0008, transparent);
+}
+
+.memory-dialog { --ed-ink: #f2eef9; --fg-1: #f2eef9; }

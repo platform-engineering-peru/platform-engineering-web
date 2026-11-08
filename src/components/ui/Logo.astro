@@ -8,9 +8,9 @@ interface Props {
 }
 
 const { height = 44, alt = 'Platform Engineering Perú' } = Astro.props;
-// Proporción de los PNG del sistema de diseño (1190×470).
-const width = Math.round((height * 1190) / 470);
+// Proporción de los PNG del sistema de diseño (1200×400).
+const width = Math.round(height * 3);
 ---
 
-<img class="logo-on-dark" src={asset('brand/logo-full-dark.png')} alt={alt} width={width} height={height} />
-<img class="logo-on-light" src={asset('brand/logo-full.png')} alt={alt} width={width} height={height} />
+<img class="logo-on-dark" src={asset('brand/official/logo-web-dark.svg')} alt={alt} width={width} height={height} />
+<img class="logo-on-light" src={asset('brand/official/logo-web-light.svg')} alt={alt} width={width} height={height} />

@@ -1,0 +1,10 @@
+{
+  "reference": "public/illustrations/oso-platform.webp",
+  "output": "public/illustrations/ukuku-builder.webp",
+  "prompt": "Preserve Ukuku spectacled-bear identity and tactile 3D fur. New standing three-quarter pose, mint engineer hardhat, laptop and violet platform workbench, one paw placing a translucent infrastructure cube. Full body, transparent background, no text. Distinct from the seated cloud-hugging footer pose.",
+  "usage": [
+    "Work in progress pages",
+    "Mascot page"
+  ],
+  "motion": "Small whole-character breathing/tilt; pause control on WIP, reduced-motion support."
+}

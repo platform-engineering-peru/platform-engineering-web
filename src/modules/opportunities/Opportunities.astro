@@ -1,0 +1,242 @@
+---
+import { opportunities } from "@data/opportunities";
+import type { Lang } from "@i18n/index";
+import "./opportunities.css";
+interface Props {
+  lang: Lang;
+}
+const en = Astro.props.lang === "en";
+---
+
+<section class="jobs" data-jobs>
+  <header class="jobs-heading ed-wrap">
+    <div>
+      <p class="jobs-kicker">PE / NEXT CHAPTER</p>
+      <h1>
+        {en ? "Build what" : "Construye lo que"}
+        <br />
+        <em>{en ? "comes next." : "viene después."}</em>
+      </h1>
+    </div>
+    <div>
+      <p>
+        {en
+          ? "Your next golden path could start with a new team."
+          : "Tu próximo golden path puede empezar con un nuevo equipo."}
+      </p>
+      <span class="jobs-demo">
+        {en
+          ? "Demo collection · not active vacancies"
+          : "Colección de muestra · no son vacantes activas"}
+      </span>
+    </div>
+  </header>
+  <div class="jobs-toolbar ed-wrap">
+    <div
+      role="group"
+      aria-label={en ? "Work arrangement" : "Modalidad de trabajo"}
+    >
+      {[
+        ["all", en ? "All" : "Todas"],
+        ["remote", en ? "Remote" : "Remoto"],
+        ["hybrid", en ? "Hybrid" : "Híbrido"],
+      ].map(([v, l]) => (
+        <button data-job-filter={v} aria-pressed={v === "all"}>
+          {l}
+        </button>
+      ))}
+    </div>
+    <button type="button" class="jobs-motion" data-job-motion aria-pressed="false" aria-label={en ? "Pause automatic movement" : "Pausar movimiento automático"}>
+      <span aria-hidden="true">Ⅱ</span> {en ? "Pause" : "Pausar"}
+    </button>
+    <span data-job-count aria-live="polite">
+      05 / {en ? "OPPORTUNITIES" : "OPORTUNIDADES"}
+    </span>
+  </div>
+  <div
+    class="jobs-cylinder"
+    data-job-stage
+    tabindex="0"
+    role="region"
+    aria-label={
+      en
+        ? "Opportunity carousel. Use left and right arrows."
+        : "Carrusel de oportunidades. Usa las flechas izquierda y derecha."
+    }
+  >
+    <div class="jobs-orbit" aria-hidden="true"></div>
+    {opportunities.map((job, i) => (
+      <button
+        class="job-card"
+        data-job={i}
+        data-mode={job.mode}
+        style={`--job-color:${job.color}`}
+        aria-label={`${en ? "View example" : "Ver ejemplo"}: ${job.title}`}
+      >
+        <span class="job-card__edge" aria-hidden="true"></span>
+        <span class="job-card__front">
+          <span class="job-card__top">
+            <span>PE / TALENT — {String(i + 1).padStart(2, "0")}</span>
+            <span>↗</span>
+          </span>
+          <span class="job-card__company">{job.company}</span>
+          <strong>{job.title}</strong>
+          <span class="job-card__tags">
+            {job.tags.map((t) => (
+              <span>{t}</span>
+            ))}
+          </span>
+          <span class="job-card__bottom">
+            <span>
+              {job.mode === "remote"
+                ? en
+                  ? "Remote · LATAM"
+                  : "Remoto · LATAM"
+                : en
+                  ? "Hybrid · Lima"
+                  : "Híbrido · Lima"}
+            </span>
+            <span>{job.id} / 05</span>
+          </span>
+        </span>
+        <span class="job-card__back" aria-hidden="true">
+          <span>
+            THE NEXT
+            <br />
+            GOLDEN
+            <br />
+            PATH.
+          </span>
+          <small>
+            {job.company} / {job.level}
+          </small>
+        </span>
+      </button>
+    ))}
+  </div>
+  <div class="jobs-controls ed-wrap">
+    <button
+      data-job-prev
+      aria-label={en ? "Previous opportunity" : "Oportunidad anterior"}
+    >
+      ←
+    </button>
+    <div aria-live="polite">
+      <span data-job-position>01 / 05</span>
+      <h2 data-job-title>{opportunities[0].title}</h2>
+      <button class="job-open" data-job-open>
+        {en ? "Explore role" : "Explorar el rol"} ↗
+      </button>
+    </div>
+    <button
+      data-job-next
+      aria-label={en ? "Next opportunity" : "Siguiente oportunidad"}
+    >
+      →
+    </button>
+  </div>
+  <p class="jobs-hint">
+    {en
+      ? "Drag to explore · Arrow keys to navigate"
+      : "Scroll o arrastra para explorar · Flechas para navegar"}
+  </p>
+  <details class="jobs-list ed-wrap">
+    <summary>
+      {en ? "View accessible list" : "Ver oportunidades en lista"}
+    </summary>
+    {opportunities.map((j, i) => (
+      <button data-job-list={i}>
+        <span>{j.company}</span>
+        <strong>{j.title}</strong>
+        <span>{j.level} ↗</span>
+      </button>
+    ))}
+  </details>
+  <dialog class="job-detail" data-job-dialog aria-labelledby="job-detail-title">
+    <div class="job-detail__bar">
+      <span>PE / OPPORTUNITIES</span>
+      <button data-job-close aria-label={en ? "Close role" : "Cerrar oferta"}>
+        ×
+      </button>
+    </div>
+    <div data-job-content></div>
+  </dialog>
+  {opportunities.map((j, i) => (
+    <template data-job-template={i}>
+      <div class="job-detail__hero" style={`--job-color:${j.color}`}>
+        <p>
+          {j.company} / {en ? "EXAMPLE" : "EJEMPLO"}
+        </p>
+        <h2 id="job-detail-title">{j.title}</h2>
+        <div>
+          <span>{j.level}</span>
+          <span>
+            {j.mode === "remote"
+              ? en
+                ? "Remote · LATAM"
+                : "Remoto · LATAM"
+              : en
+                ? "Hybrid · Lima"
+                : "Híbrido · Lima"}
+          </span>
+          <span>{en ? "Full time" : "Tiempo completo"}</span>
+        </div>
+      </div>
+      <div class="job-detail__body">
+        <aside>
+          <small>
+            {en ? "ILLUSTRATIVE MONTHLY RANGE" : "RANGO MENSUAL ILUSTRATIVO"}
+          </small>
+          <strong>{j.salary}</strong>
+          <p>
+            {en
+              ? "Example only. Company, compensation and vacancy are fictional."
+              : "Solo un ejemplo. Empresa, remuneración y vacante son ficticias."}
+          </p>
+          <div>
+            {j.tags.map((t) => (
+              <span>{t}</span>
+            ))}
+          </div>
+          <button disabled>
+            {en
+              ? "Applications unavailable in demo"
+              : "Postulación no disponible en demo"}
+          </button>
+        </aside>
+        <div>
+          <h3>{en ? "The challenge" : "El reto"}</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <h3>{en ? "What you will build" : "Lo que construirás"}</h3>
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+            <li>Ut enim ad minim veniam, quis nostrud exercitation.</li>
+            <li>Duis aute irure dolor in reprehenderit in voluptate.</li>
+          </ul>
+          <h3>{en ? "What you bring" : "Lo que aportarás"}</h3>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Nemo
+            enim ipsam voluptatem quia voluptas sit aspernatur.
+          </p>
+          <h3>{en ? "The selection process" : "El proceso de selección"}</h3>
+          <ol>
+            <li>{en ? "Introductory conversation" : "Conversación inicial"}</li>
+            <li>{en ? "Technical conversation" : "Conversación técnica"}</li>
+            <li>{en ? "Meet the team" : "Conoce al equipo"}</li>
+          </ol>
+          <p class="job-detail__note">
+            {en
+              ? "All details on this page are sample content for design review."
+              : "Todos los detalles de esta ficha son contenido de muestra para revisar el diseño."}
+          </p>
+        </div>
+      </div>
+    </template>
+  ))}
+</section>
+<script>
+  import "./opportunities";
+</script>

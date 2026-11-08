@@ -1,93 +1,159 @@
 ---
-/**
- * Lista de eventos con pestañas Próximos/Pasados. Ambas listas se renderizan
- * en el HTML; el script solo alterna cuál se ve (funciona sin JS: se ven ambas).
- */
-import Button from '@components/ui/Button.astro';
-import EventCard from '@components/ui/EventCard.astro';
-import Icon from '@components/ui/Icon.astro';
-import { useTranslations, type Lang } from '@i18n/index';
-import { pastEvents, upcomingEvents } from '@data/events';
-import { eventCardProps, eventPath } from './view';
-
-interface Props { lang: Lang }
-
+import EventPoster from "@components/ui/EventPoster.astro";
+import { useTranslations, pick, type Lang } from "@i18n/index";
+import { pastEvents, upcomingEvents, longDate } from "@data/events";
+import { eventPath } from "./view";
+interface Props {
+  lang: Lang;
+}
 const { lang } = Astro.props;
+const en = lang === "en";
 const t = useTranslations(lang);
-const upcoming = upcomingEvents();
-const past = pastEvents();
+const upcoming = upcomingEvents(),
+  past = pastEvents();
 ---
 
-<section class="container events">
-  <div class="eyebrow">{t('events.eyebrow')}</div>
-  <h1 class="page-title">{t('events.title')}</h1>
-  <p class="lead">{t('events.lead')}</p>
-
-  <div class="tabs" role="tablist" aria-label={t('events.tabs.label')} data-tabs>
-    <button type="button" role="tab" id="tab-upcoming" aria-controls="panel-upcoming" aria-selected="true">{t('events.tab.upcoming')}</button>
-    <button type="button" role="tab" id="tab-past" aria-controls="panel-past" aria-selected="false" tabindex="-1">{t('events.tab.past')}</button>
-  </div>
-
-  <div id="panel-upcoming" role="tabpanel" aria-labelledby="tab-upcoming" class="events__list">
-    {upcoming.length ? upcoming.map((e) => (
-      <EventCard {...eventCardProps(e, lang)}>
-        <Button slot="cta" size="sm" variant="secondary" href={eventPath(e, lang)}>{t('events.detail')}</Button>
-      </EventCard>
-    )) : <p class="muted">{t('events.empty.upcoming')}</p>}
-  </div>
-
-  <div id="panel-past" role="tabpanel" aria-labelledby="tab-past" class="events__list">
-    {past.length ? past.map((e) => (
-      <EventCard {...eventCardProps(e, lang)}>
-        {e.recording && (
-          <Button slot="cta" size="sm" variant="ghost" href={e.recording} external>
-            <Icon slot="icon-left" name="play" size={14} />
-            {t('events.recording')}
-          </Button>
+<div class="studio-page events-page">
+  <section class="studio-hero ed-wrap">
+    <p class="ed-kicker">
+      <span class="ed-dot"></span>
+      {en
+        ? "OFFLINE CONNECTIONS. REAL IDEAS."
+        : "CONEXIONES REALES. IDEAS QUE SE COMPARTEN."}
+    </p>
+    <div class="studio-hero__row">
+      <h1>
+        {en ? "See you" : "Nos vemos"}
+        <br />
+        <em>{en ? "out there." : "ahí afuera."}</em>
+      </h1>
+      <div class="hero-ticket" aria-hidden="true">
+        <span>PE / COMMUNITY</span>
+        <b>
+          LET’S
+          <br />
+          MEET.
+        </b>
+        <span>LIMA, PERÚ ↗</span>
+      </div>
+    </div>
+    <div class="studio-hero__bottom">
+      <p>{t("events.lead")}</p>
+      <span class="studio-index">01 — {en ? "GATHERINGS" : "ENCUENTROS"}</span>
+    </div>
+  </section>
+  <section class="ed-wrap event-archive">
+    <div class="studio-toolbar">
+      <h2>{en ? "The gathering place." : "Nuestro punto de encuentro."}</h2>
+      <div
+        class="studio-tabs"
+        role="tablist"
+        aria-label={t("events.tabs.label")}
+        data-event-tabs
+      >
+        <button
+          role="tab"
+          id="tab-upcoming"
+          aria-controls="panel-upcoming"
+          aria-selected={upcoming.length > 0}
+          tabindex={upcoming.length ? 0 : -1}
+        >
+          {t("events.tab.upcoming")} <span>{upcoming.length}</span>
+        </button>
+        <button
+          role="tab"
+          id="tab-past"
+          aria-controls="panel-past"
+          aria-selected={!upcoming.length}
+          tabindex={upcoming.length ? -1 : 0}
+        >
+          {t("events.tab.past")} <span>{past.length}</span>
+        </button>
+      </div>
+    </div>
+    {[
+      { id: "upcoming", items: upcoming },
+      { id: "past", items: past },
+    ].map((group) => (
+      <div
+        id={`panel-${group.id}`}
+        role="tabpanel"
+        aria-labelledby={`tab-${group.id}`}
+        class="poster-grid"
+      >
+        {group.items.length ? (
+          group.items.map((event) => (
+            <a class="event-tile" href={eventPath(event, lang)} data-tilt>
+              <EventPoster event={event} lang={lang} />
+              <div class="event-tile__info">
+                <span>{longDate(event.date, lang)}</span>
+                <h3>
+                  {pick(event.title, lang)}
+                  <span aria-hidden="true">↗</span>
+                </h3>
+                <p>{event.venue}</p>
+              </div>
+            </a>
+          ))
+        ) : (
+          <div class="studio-empty">
+            <span aria-hidden="true">↗</span>
+            <h3>
+              {en
+                ? "Something good is coming."
+                : "Algo bueno se está preparando."}
+            </h3>
+            <p>
+              {t(
+                group.id === "upcoming"
+                  ? "events.empty.upcoming"
+                  : "events.empty.past",
+              )}
+            </p>
+            <button class="ed-button ed-button--primary" data-join-open>
+              {en ? "Keep me in the loop" : "Quiero enterarme"} ↗
+            </button>
+          </div>
         )}
-      </EventCard>
-    )) : <p class="muted">{t('events.empty.past')}</p>}
-  </div>
-</section>
-
+      </div>
+    ))}
+  </section>
+</div>
 <script>
-  const tablist = document.querySelector<HTMLElement>('[data-tabs]');
-  if (tablist) {
-    const tabs = [...tablist.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+  const list = document.querySelector("[data-event-tabs]");
+  if (list) {
+    const tabs = [...list.querySelectorAll<HTMLButtonElement>("[role=tab]")];
     const select = (tab: HTMLButtonElement, focus = false) => {
-      for (const t of tabs) {
+      tabs.forEach((t) => {
         const on = t === tab;
-        t.setAttribute('aria-selected', String(on));
+        t.setAttribute("aria-selected", String(on));
         t.tabIndex = on ? 0 : -1;
-        document.getElementById(t.getAttribute('aria-controls')!)!.hidden = !on;
-      }
+        document.getElementById(t.getAttribute("aria-controls")!)!.hidden = !on;
+      });
       if (focus) tab.focus();
     };
     tabs.forEach((tab, i) => {
-      tab.addEventListener('click', () => select(tab));
-      tab.addEventListener('keydown', (e) => {
-        const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-        if (dir) select(tabs[(i + dir + tabs.length) % tabs.length], true);
+      tab.addEventListener("click", () => select(tab));
+      tab.addEventListener("keydown", (e) => {
+        if (["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key)) {
+          e.preventDefault();
+          const index =
+            e.key === "Home"
+              ? 0
+              : e.key === "End"
+                ? tabs.length - 1
+                : (i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) %
+                  tabs.length;
+          select(tabs[index], true);
+        }
       });
     });
-    const initial = location.hash === '#past' ? tabs[1] : tabs[0];
-    select(initial);
+    select(
+      location.hash === "#past"
+        ? tabs[1]
+        : location.hash === "#upcoming"
+          ? tabs[0]
+          : tabs.find((t) => t.getAttribute("aria-selected") === "true")!,
+    );
   }
 </script>
-
-<style>
-  .events { padding-top: 72px; display: flex; flex-direction: column; gap: 24px; }
-  .events__list { display: flex; flex-direction: column; gap: 12px; }
-
-  .tabs {
-    display: inline-flex; align-self: flex-start; gap: 4px; padding: 4px;
-    border-radius: var(--radius-pill); background: var(--bg-raised); border: 1px solid var(--border-subtle);
-  }
-  .tabs button {
-    height: 36px; padding: 0 16px; border-radius: var(--radius-pill); border: none; cursor: pointer;
-    font-family: var(--font-body); font-size: 14px; font-weight: 600;
-    background: transparent; color: var(--fg-2); transition: all var(--dur-base) var(--ease-out);
-  }
-  .tabs button:hover { color: var(--fg-1); }
-  .tabs button[aria-selected='true'] { background: var(--pe-violet-500); color: #fff; }
-</style>

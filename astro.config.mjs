@@ -17,6 +17,7 @@ const rootUrl = new URL(base, site).href;
 const excluded = (page) => page === rootUrl || /\/404\/?$/.test(page);
 
 export default defineConfig({
+  devToolbar: { enabled: false },
   site,
   base,
   trailingSlash: 'always',

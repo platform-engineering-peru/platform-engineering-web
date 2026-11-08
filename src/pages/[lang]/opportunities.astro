@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Opportunities from "@modules/opportunities/Opportunities.astro";
+import { getLangPaths, type Lang } from "@i18n/index";
+export const getStaticPaths = getLangPaths;
+const lang = Astro.params.lang as Lang;
+---
+
+<BaseLayout
+  lang={lang}
+  title={lang === "en" ? "Opportunities" : "Oportunidades"}
+  description={
+    lang === "en"
+      ? "Explore your next professional chapter. Demo collection."
+      : "Explora tu próximo capítulo profesional. Colección de muestra."
+  }
+>
+  <main id="main-content">
+    <Opportunities lang={lang} />
+  </main>
+</BaseLayout>

@@ -1,0 +1,43 @@
+---
+import './global-network.css';
+interface Props { lang: string }
+const en = Astro.props.lang === 'en';
+---
+<div class="global-network" data-global-network aria-label={en ? "Peru connected to the global community" : "Perú conectado con la comunidad global"}>
+  <div class="global-network__top"><span><i></i> COMMUNITY / ONLINE</span><span>PE ↗ WORLD</span></div>
+  <svg viewBox="0 0 520 420" fill="none" aria-hidden="true">
+    <defs>
+      <radialGradient id="globe-light"><stop stop-color="#a594eb" stop-opacity=".25"/><stop offset="1" stop-color="#7563ac" stop-opacity="0"/></radialGradient>
+      <linearGradient id="globe-route"><stop stop-color="#b8a0ff"/><stop offset="1" stop-color="#7ee4cd"/></linearGradient>
+      <clipPath id="globe-clip"><circle cx="260" cy="205" r="151"/></clipPath>
+    </defs>
+    <circle cx="260" cy="205" r="200" fill="url(#globe-light)"/>
+    <g class="globe-grid" clip-path="url(#globe-clip)" stroke="currentColor" stroke-opacity=".24">
+      <circle cx="260" cy="205" r="150"/>
+      {[35,75,115,150].map(r=><ellipse cx="260" cy="205" rx={r} ry="150"/>)}
+      {[-110,-65,0,65,110].map(d=><ellipse cx="260" cy={205+d} rx={Math.sqrt(22500-d*d)} ry={28}/>) }
+      <path d="M158 107l28-12 36 14 5 32-23 16-5 32-25-13-18-31Zm48 100 29 9 25 42-18 50-17 30-10-47-24-36Zm79-96 30-13 37 13 18 23 40 12-14 37-37-12-22 28-28-6-16-28-19-19Zm1 89 34 8 14 39-27 43-21-31-11-35Z" fill="currentColor" fill-opacity=".16" stroke-opacity=".5"/>
+    </g>
+    <g class="globe-routes" stroke="url(#globe-route)" stroke-width="1.5">
+      <path id="global-route-a" d="M218 252Q170 65 324 125"/>
+      <path id="global-route-b" d="M218 252Q305 60 391 187"/>
+      <path id="global-route-c" d="M218 252Q140 175 170 137"/>
+      <path class="globe-packets" d="M218 252Q170 65 324 125M218 252Q305 60 391 187M218 252Q140 175 170 137" stroke-width="3" stroke-dasharray="3 110"/>
+    </g>
+    {[ [218,252],[324,125],[391,187],[170,137] ].map(([cx,cy],i)=><g><circle cx={cx} cy={cy} r={i===0?13:8} fill="#8ee5cf" fill-opacity=".12"/><circle cx={cx} cy={cy} r={i===0?4:3} fill={i===0?'#8ee5cf':'#c4b2ff'}/></g>)}
+    <path d="M218 252h-55l-16 16" stroke="#8ee5cf" stroke-opacity=".6"/>
+    <text x="105" y="289" fill="#b3f1de" font-size="12" font-family="monospace">LIMA, PE</text>
+    <text x="105" y="306" fill="#b5aecb" font-size="9" font-family="monospace">12.04° S · 77.03° W</text>
+  </svg>
+  <div class="global-network__bottom"><span>{en ? "Local roots." : "Raíces locales."}<br/><strong>{en ? "Connections without borders." : "Conexiones sin fronteras."}</strong></span><span class="global-network__signal">● ● ●</span></div>
+</div>
+<script>
+  const globe = document.querySelector<HTMLElement>('[data-global-network]');
+  if (globe) {
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    let pending = false;
+    const draw = () => { pending = false; if (motion.matches) return; const r = globe.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return; globe.style.setProperty('--globe-turn', `${Math.max(-9, Math.min(9, (r.top + r.height / 2 - innerHeight / 2) / 45))}deg`); };
+    addEventListener('scroll', () => { if (!pending) { pending = true; requestAnimationFrame(draw); } }, {passive:true});
+    new IntersectionObserver(([entry]) => globe.classList.toggle('is-visible', entry.isIntersecting)).observe(globe);
+  }
+</script>

@@ -1,0 +1,55 @@
+<script>
+  const reduced = matchMedia("(prefers-reduced-motion:reduce)");
+  const fine = matchMedia("(hover:hover) and (pointer:fine)");
+  const reveals = document.querySelectorAll<HTMLElement>("[data-reveal]");
+  const observer = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      }),
+    { threshold: 0.08 },
+  );
+  if (!reduced.matches)
+    reveals.forEach((el) => {
+      el.classList.add("will-reveal");
+      observer.observe(el);
+    });
+  reduced.addEventListener("change", () => {
+    if (reduced.matches) {
+      observer.disconnect();
+      reveals.forEach((el) => el.classList.remove("will-reveal"));
+    }
+  });
+  document.querySelectorAll<HTMLElement>("[data-tilt]").forEach((card) => {
+    const surface = card.querySelector<HTMLElement>(".tilt-surface") ?? card;
+    let frame = 0,
+      x = 0,
+      y = 0;
+    card.addEventListener(
+      "pointermove",
+      (event) => {
+        if (reduced.matches || !fine.matches) return;
+        const r = card.getBoundingClientRect();
+        x = (event.clientX - r.left) / r.width - 0.5;
+        y = (event.clientY - r.top) / r.height - 0.5;
+        if (!frame)
+          frame = requestAnimationFrame(() => {
+            surface.style.transform = `perspective(1000px) rotateX(${-y * 12}deg) rotateY(${x * 14}deg) translateY(-4px)`;
+            frame = 0;
+          });
+      },
+      { passive: true },
+    );
+    const reset = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      surface.style.transform = "";
+    };
+    card.addEventListener("pointerleave", reset);
+    reduced.addEventListener("change", reset);
+    fine.addEventListener("change", reset);
+  });
+</script>

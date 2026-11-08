@@ -1,83 +1,87 @@
 ---
-import Logo from '@components/ui/Logo.astro';
-import CommunityLink from '@components/ui/CommunityLink.astro';
-import { useTranslations, localizePath, type Lang } from '@i18n/index';
-import { communityLinks, globalLinks } from '@data/site';
-
-interface Props { lang: Lang }
-
+import { localizePath, type Lang } from "@i18n/index";
+import Logo from "@components/ui/Logo.astro";
+import BrandIcon from "@components/ui/BrandIcon.astro";
+import { communityLinks, contactEmail } from "@data/site";
+import BearMascot from "@components/motion/BearMascot.astro";
+interface Props {
+  lang: Lang;
+}
 const { lang } = Astro.props;
-const t = useTranslations(lang);
-const year = new Date().getFullYear();
-
-const internal = [
-  { label: t('nav.events'), href: localizePath(lang, '/events') },
-  { label: t('nav.community'), href: localizePath(lang, '/community') },
-  { label: t('footer.coc'), href: `${localizePath(lang, '/community')}#code-of-conduct` },
-];
-const resources = [
-  { label: t('footer.guides'), href: localizePath(lang, '/resources') },
-  { label: t('footer.blog'), href: globalLinks.blog, external: true },
-  { label: t('footer.newsletter'), href: globalLinks.platformWeekly, external: true },
-];
-const social = [
-  { label: 'WhatsApp', href: communityLinks.whatsapp },
-  { label: 'LinkedIn', href: communityLinks.linkedin },
-  { label: 'Meetup', href: communityLinks.meetup },
-  { label: 'YouTube', href: communityLinks.youtube },
-];
+const en = lang === "en";
 ---
 
-<footer class="footer">
-  <div class="container footer__grid">
-    <div class="footer__brand">
-      <Logo height={56} alt={t('site.title')} />
-      <p>{t('footer.tagline')}</p>
-    </div>
-    <div class="footer__col">
-      <div class="footer__heading">{t('footer.community')}</div>
-      {internal.map((l) => <a href={l.href}>{l.label}</a>)}
-    </div>
-    <div class="footer__col">
-      <div class="footer__heading">{t('footer.resources')}</div>
-      {resources.map((l) => (
-        <a href={l.href} {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{l.label}</a>
-      ))}
-    </div>
-    <div class="footer__col">
-      <div class="footer__heading">{t('footer.follow')}</div>
-      {social.map((l) => <CommunityLink href={l.href} lang={lang} class="footer__link">{l.label}</CommunityLink>)}
-    </div>
+<footer
+  class="living-footer"
+  aria-label={en ? "Community footer" : "Pie de página de la comunidad"}
+>
+  <BearMascot lang={lang} class="living-footer__bear" />
+  <div class="living-footer__left">
+    <span class="studio-pill">
+      {en ? "Have something to share?" : "¿Algo que compartir?"}
+    </span>
+    <h2>
+      {en ? "Great platforms." : "Grandes plataformas."}
+      <br />
+      {en ? "Even better people." : "Mejores personas."}
+    </h2>
+    <nav aria-label={en ? "Footer navigation" : "Navegación del pie"}>
+      <a href={localizePath(lang)}>{en ? "Home" : "Inicio"}</a>
+      <a href={localizePath(lang, "/events")}>
+        {en ? "Gatherings" : "Encuentros"}
+      </a>
+      <a href={localizePath(lang, "/resources")}>
+        {en ? "Resources" : "Recursos"}
+      </a>
+      <a href={localizePath(lang, "/community")}>
+        {en ? "Community" : "Comunidad"}
+      </a>
+      <a href={localizePath(lang, "/memories")}>Memories</a>
+      <a href={localizePath(lang, "/opportunities")}>{en?"Opportunities":"Oportunidades"}</a>
+      <a href={localizePath(lang, "/mascot")}>{en?"Meet Ukuku":"Conoce a Ukuku"}</a>
+      <a href={localizePath(lang, "/branding")}>Branding</a>
+    </nav>
   </div>
-  <div class="container footer__bottom">
-    <span>© {year} {t('site.title')}</span>
-    <span>{t('footer.made')}</span>
+  <a class="living-footer__logo" href={localizePath(lang)} data-tilt>
+    <span class="tilt-surface"><Logo height={94} /></span>
+  </a>
+  <div class="living-footer__right">
+    <span class="studio-pill">
+      {en ? "Let’s build together" : "Hagamos comunidad"}
+    </span>
+    <h2>
+      {en ? "Your next idea" : "Tu próxima idea"}
+      <br />
+      {en ? "starts with a hello." : "empieza con un hola."}
+    </h2>
+    <button type="button" class="living-footer__cta" data-join-open>
+      {en ? "Join the community" : "Únete a la comunidad"}{" "}
+      <span aria-hidden="true">↗</span>
+    </button>
+    <a href={`mailto:${contactEmail}`} class="living-footer__email">
+      {contactEmail}
+    </a>
+    {communityLinks.linkedin && (
+      <a
+        href={communityLinks.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="living-footer__social"
+        aria-label="LinkedIn"
+      >
+        <BrandIcon name="linkedin" />
+      </a>
+    )}
+  </div>
+  <div class="living-footer__base">
+    <span>© {new Date().getFullYear()} Platform Engineering Perú</span>
+    <a href={`${localizePath(lang, "/community")}#code-of-conduct`}>
+      {en ? "Code of conduct" : "Código de conducta"}
+    </a>
+    <span>
+      {en
+        ? "Made of people. Made in Peru."
+        : "Hecho de personas. Hecho en Perú."}
+    </span>
   </div>
 </footer>
-
-<style>
-  .footer { border-top: 1px solid var(--border-subtle); margin-top: var(--space-24); }
-  .footer__grid {
-    padding-block: 56px;
-    display: grid; grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); gap: 32px;
-  }
-  .footer__brand { display: flex; flex-direction: column; gap: 16px; }
-  .footer__brand :global(img) { height: 56px; width: auto; align-self: flex-start; }
-  .footer__brand p { color: var(--fg-3); font-size: 14px; max-width: 320px; }
-  .footer__col { display: flex; flex-direction: column; gap: 10px; }
-  .footer__heading { font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--fg-3); }
-  .footer__col a, .footer__col :global(.footer__link) { color: var(--fg-2); font-size: 15px; }
-  .footer__col a:hover { color: var(--link-hover); }
-  .footer__bottom {
-    padding-block: 20px; border-top: 1px solid var(--border-subtle);
-    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-    font-size: 13px; color: var(--fg-3); font-family: var(--font-mono);
-  }
-  @media (max-width: 800px) {
-    .footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .footer__brand { grid-column: 1 / -1; }
-  }
-  @media (max-width: 480px) {
-    .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-</style>
