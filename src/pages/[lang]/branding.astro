@@ -1,0 +1,8 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Branding from '@modules/branding/Branding.astro';
+import {getLangPaths,type Lang} from '@i18n/index';
+export const getStaticPaths=getLangPaths;
+const lang=Astro.params.lang as Lang;
+---
+<BaseLayout lang={lang} title="Branding" description={lang==='en'?'Platform Engineering Perú brand assets, colors and Ukuku.':'Identidad visual, colores, logos y Ukuku de Platform Engineering Perú.'}><Branding lang={lang}/></BaseLayout>

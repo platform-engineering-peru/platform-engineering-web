@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Memories from "@modules/memories/Memories.astro";
+import { getLangPaths, type Lang } from "@i18n/index";
+export const getStaticPaths = getLangPaths;
+const lang = Astro.params.lang as Lang;
+---
+
+<BaseLayout
+  lang={lang}
+  title="Memories"
+  description={
+    lang === "en" ? "A community in motion." : "Una comunidad en movimiento."
+  }
+>
+  <main id="main-content">
+    <Memories lang={lang} />
+  </main>
+</BaseLayout>

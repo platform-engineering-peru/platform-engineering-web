@@ -21,7 +21,7 @@
   --fg-1:var(--pe-white); --fg-2:var(--pe-ink-300); --fg-3:var(--pe-ink-400); --fg-inverse:var(--pe-ink-950);
   --fg-on-light-1:var(--pe-ink-950); --fg-on-light-2:var(--pe-ink-600);
   --border-subtle:rgba(185,182,212,.14); --border-default:rgba(185,182,212,.24); --border-strong:rgba(185,182,212,.42);
-  --accent:var(--pe-violet-500); --accent-hover:var(--pe-violet-400); --accent-press:var(--pe-violet-600); --accent-fg:var(--pe-white);
+  --accent:var(--pe-violet-600); --accent-hover:var(--pe-violet-400); --accent-press:var(--pe-violet-600); --accent-fg:var(--pe-white);
   --accent-2:var(--pe-green-500); --accent-2-hover:var(--pe-green-400); --accent-2-fg:var(--pe-ink-950);
   --accent-peru:var(--pe-red-500);
   --link:var(--pe-violet-300); --link-hover:var(--pe-green-300);

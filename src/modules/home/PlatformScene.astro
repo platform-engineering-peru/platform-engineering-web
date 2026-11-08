@@ -1,0 +1,215 @@
+---
+import type { Lang } from "@i18n/index";
+interface Props {
+  lang: Lang;
+}
+const en = Astro.props.lang === "en";
+const layers = en
+  ? [
+      ["People", "It starts with the people building software."],
+      ["Self-service", "A clear path from an idea to a running service."],
+      ["Platform", "Shared capabilities, designed as a product."],
+      ["Infrastructure", "A reliable foundation that makes it all possible."],
+    ]
+  : [
+      ["Personas", "Todo empieza con quienes construyen software."],
+      ["Autoservicio", "Un camino claro de la idea al servicio en producción."],
+      ["Plataforma", "Capacidades compartidas, diseñadas como un producto."],
+      ["Infraestructura", "Una base confiable que hace posible lo demás."],
+    ];
+---
+
+<div class="platform-scene" data-platform-scene>
+  <div class="platform-scene__stage" aria-hidden="true">
+    <svg viewBox="0 0 640 580" fill="none" class="platform-scene__art">
+      <defs>
+        <pattern
+          id="scene-grid"
+          width="40"
+          height="24"
+          patternUnits="userSpaceOnUse"
+          patternTransform="matrix(1 .5 -1 .5 320 20)"
+        >
+          <path d="M40 0H0V24" stroke="currentColor" stroke-opacity=".1" />
+        </pattern>
+      </defs>
+      <ellipse
+        cx="320"
+        cy="477"
+        rx="220"
+        ry="36"
+        fill="currentColor"
+        opacity=".045"
+      />
+      <path
+        d="M20 190 320 40 620 190V430L320 580 20 430Z"
+        fill="url(#scene-grid)"
+      />
+      <g class="scene-layer" data-scene-layer="3">
+        <path d="m77 352 243-122 243 122-243 122Z" fill="#B5A0F1" />
+        <path d="m77 352 243 122v34L77 386Z" fill="#7860B8" />
+        <path d="m320 474 243-122v34L320 508Z" fill="#9278D0" />
+        <path d="m100 353 220-110 220 110-220 110Z" stroke="#D8C9FF" />
+        <path
+          d="m158 358 162 81 163-81M222 326l99 50 98-50"
+          stroke="#7860B8"
+          stroke-width="2"
+        />
+      </g>
+      <g class="scene-layer" data-scene-layer="2">
+        <path d="m102 278 218-109 218 109-218 109Z" fill="#A8D9B4" />
+        <path d="m102 278 218 109v27L102 305Z" fill="#4F9770" />
+        <path d="m320 387 218-109v27L320 414Z" fill="#72B38D" />
+        <path d="m129 279 191-96 191 96-191 95Z" stroke="#D8F2D9" />
+        <path
+          d="m209 278 111 56 111-56-111-55Z"
+          stroke="#4F9770"
+          stroke-width="2"
+          stroke-dasharray="5 5"
+        />
+      </g>
+      <g class="scene-layer" data-scene-layer="1">
+        <path d="m128 203 192-96 192 96-192 96Z" fill="#D2C2F7" />
+        <path d="m128 203 192 96v25l-192-96Z" fill="#9A80CE" />
+        <path d="m320 299 192-96v25l-192 96Z" fill="#B49BE3" />
+        <path d="m151 203 169-85 169 85-169 85Z" stroke="#F4ECFF" />
+        <path
+          d="m223 201 98 49 98-49"
+          stroke="#9A80CE"
+          stroke-width="2"
+          stroke-dasharray="5 5"
+        />
+        <g class="scene-service">
+          <path d="m207 169 47-24 47 24-47 24Z" fill="#F2ECFC" />
+          <path d="m207 169 47 24v40l-47-24Z" fill="#B69BE1" />
+          <path d="m254 193 47-24v40l-47 24Z" fill="#DCCAF5" />
+          <path
+            d="m225 187 16 8m-16 3 16 8"
+            stroke="#74549D"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+        </g>
+        <g class="scene-service">
+          <path d="m339 179 47-24 47 24-47 24Z" fill="#F2ECFC" />
+          <path d="m339 179 47 24v40l-47-24Z" fill="#B69BE1" />
+          <path d="m386 203 47-24v40l-47 24Z" fill="#DCCAF5" />
+          <path
+            d="m356 197 16 8m-16 3 16 8"
+            stroke="#74549D"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+        </g>
+      </g>
+      <g class="scene-layer" data-scene-layer="0">
+        <path d="m270 105 50-25 50 25-50 25Z" fill="#ECE2FF" />
+        <path d="m270 105 50 25v36l-50-25Z" fill="#A88CD2" />
+        <path d="m320 130 50-25v36l-50 25Z" fill="#CBB4E8" />
+        <path d="M320 81V22" stroke="#302444" stroke-width="3" />
+        <path d="M322 23h46v27h-46Z" fill="#FAFAF7" />
+        <path d="M322 23h14v27h-14Zm32 0h14v27h-14Z" fill="#D64857" />
+      </g>
+      <path
+        d="M105 407v35m-10-18h20M538 118v23m-11-11h22"
+        stroke="currentColor"
+        stroke-opacity=".35"
+      />
+      <circle cx="507" cy="420" r="5" fill="#12CC7A" />
+    </svg>
+    <span class="scene-coordinate scene-coordinate--top">
+      12°02′ S &nbsp; 77°01′ W
+    </span>
+    <span class="scene-coordinate scene-coordinate--bottom">
+      PE / {en ? "BUILT TOGETHER" : "CONSTRUIDO EN COMUNIDAD"}
+    </span>
+  </div>
+  <div
+    class="platform-scene__controls"
+    role="group"
+    aria-label={
+      en ? "Explore the platform layers" : "Explora las capas de una plataforma"
+    }
+  >
+    {layers.map(([label], i) => (
+      <button
+        type="button"
+        data-layer={i}
+        aria-pressed={i === 0}
+        aria-controls="platform-description"
+      >
+        <span>0{i + 1}</span>
+        {label}
+      </button>
+    ))}
+  </div>
+  <p
+    class="platform-scene__description"
+    id="platform-description"
+    aria-live="polite"
+  >
+    {layers[0][1]}
+  </p>
+  <script
+    type="application/json"
+    data-layer-copy
+    set:html={JSON.stringify(layers.map(([, description]) => description))}
+  />
+</div>
+<script>
+  document
+    .querySelectorAll<HTMLElement>("[data-platform-scene]")
+    .forEach((scene) => {
+      const copy: string[] = JSON.parse(
+        scene.querySelector("[data-layer-copy]")!.textContent!,
+      );
+      const buttons = scene.querySelectorAll<HTMLButtonElement>("[data-layer]");
+      const layers = scene.querySelectorAll<SVGGElement>("[data-scene-layer]");
+      buttons.forEach((button) =>
+        button.addEventListener("click", (event) => {
+          scene.toggleAttribute("data-instant", event.detail === 0);
+          const index = Number(button.dataset.layer);
+          buttons.forEach((b) =>
+            b.setAttribute("aria-pressed", String(b === button)),
+          );
+          layers.forEach((layer) =>
+            layer.classList.toggle(
+              "is-selected",
+              Number(layer.dataset.sceneLayer) === index,
+            ),
+          );
+          scene.querySelector("[aria-live]")!.textContent = copy[index];
+        }),
+      );
+      const stage = scene.querySelector<HTMLElement>(".platform-scene__stage")!;
+      const art = scene.querySelector<SVGSVGElement>(".platform-scene__art")!;
+      const motion = matchMedia("(prefers-reduced-motion: reduce)");
+      const fine = matchMedia("(hover: hover) and (pointer: fine)");
+      let frame = 0;
+      let x = 0,
+        y = 0;
+      stage.addEventListener(
+        "pointermove",
+        (event) => {
+          if (motion.matches || !fine.matches) return;
+          const rect = stage.getBoundingClientRect();
+          x = (event.clientX - rect.left) / rect.width - 0.5;
+          y = (event.clientY - rect.top) / rect.height - 0.5;
+          if (!frame)
+            frame = requestAnimationFrame(() => {
+              art.style.transform = `perspective(900px) rotateX(${-y * 5}deg) rotateY(${x * 7}deg)`;
+              frame = 0;
+            });
+        },
+        { passive: true },
+      );
+      const reset = () => {
+        cancelAnimationFrame(frame);
+        frame = 0;
+        art.style.transform = "";
+      };
+      stage.addEventListener("pointerleave", reset);
+      motion.addEventListener("change", reset);
+      fine.addEventListener("change", reset);
+    });
+</script>

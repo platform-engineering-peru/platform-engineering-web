@@ -1,0 +1,69 @@
+---
+import type { Lang } from "@i18n/config";
+import DiscoveryScene from "./DiscoveryScene.astro";
+import "./platform-hero.css";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const en = lang === "en";
+---
+
+<section class="platform-hero" aria-labelledby="hero-title">
+  <div class="platform-hero__grid ed-wrap">
+    <div class="platform-hero__copy">
+      <p class="platform-hero__eyebrow">
+        <span></span>PLATFORM ENGINEERING / PERÚ
+      </p>
+      <h1 id="hero-title">
+        {en ? "Build better" : "Construimos"}
+        <br />
+        <span>{en ? "platforms." : "plataformas."}</span>
+        <br />
+        {en ? "Together." : "Conectamos"}
+        <br class:list={{ "only-spanish": en }} />
+        {!en && <em>personas.</em>}
+      </h1>
+      <p class="platform-hero__intro">
+        {en
+          ? "Behind every great platform, there is a community. Meet the people building the next developer experience."
+          : "Detrás de una gran plataforma hay una comunidad. Conoce a quienes construyen la próxima experiencia de desarrollo."}
+      </p>
+      <div class="platform-hero__actions">
+        <button type="button" data-join-open>
+          {en ? "Find your community" : "Encuentra tu comunidad"}{" "}
+          <span aria-hidden="true">↗</span>
+        </button>
+        <a href="#encounters">
+          {en ? "Explore gatherings" : "Explora los encuentros"}{" "}
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+      <div class="platform-hero__signature">
+        <span aria-hidden="true">✳</span>
+        <p>
+          {en ? "People first." : "Primero las personas."}
+          <br />
+          <b>
+            {en ? "The possibilities follow." : "Después, todo lo posible."}
+          </b>
+        </p>
+      </div>
+    </div>
+    <DiscoveryScene lang={lang} />
+    <div class="platform-hero__foot">
+      <span>
+        <i class="ed-peru" aria-hidden="true"></i>
+        {en
+          ? "FROM PERU. FOR EVERY BUILDER."
+          : "DESDE PERÚ. PARA QUIENES CONSTRUYEN."}
+      </span>
+      <span>
+        {en
+          ? "Move your cursor. Discover what’s inside."
+          : "Mueve el cursor. Descubre lo que hay dentro."}{" "}
+        <b aria-hidden="true">⌖</b>
+      </span>
+    </div>
+  </div>
+</section>

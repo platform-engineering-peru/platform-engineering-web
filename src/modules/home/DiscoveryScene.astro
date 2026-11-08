@@ -1,0 +1,146 @@
+---
+import { asset } from "@lib/assets";
+import type { Lang } from "@i18n/config";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const en = lang === "en";
+---
+
+<div class="discovery" data-discovery>
+  <div class="discovery__stage" data-scan-stage>
+    <div class="discovery__object" data-scan-object>
+      <img class="discovery__light" src={asset("illustrations/platform-stack-light.webp")} width="1024" height="1024" alt="" aria-hidden="true" />
+      <img
+        class="discovery__base"
+        src={asset("illustrations/platform-stack.webp")}
+        width="1254"
+        height="1254"
+        fetchpriority="high"
+        alt={
+          en
+            ? "Four floating glass layers representing a developer platform, orchestration, data and infrastructure."
+            : "Cuatro capas flotantes de vidrio que representan una plataforma de desarrollo, orquestación, datos e infraestructura."
+        }
+      />
+      <div class="discovery__reveal" data-scan-reveal aria-hidden="true">
+        <img
+          src={asset("illustrations/platform-scan.webp")}
+          width="1254"
+          height="1254"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="discovery__reticle" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <b>DISCOVERY SCAN</b>
+    </div>
+    <div
+      class="discovery__callout discovery__callout--portal"
+      aria-hidden="true"
+    >
+      <i>⌘</i>
+      <span>
+        DEVELOPER PORTAL
+        <strong>
+          {en
+            ? "One place. More possibilities."
+            : "Un lugar. Más posibilidades."}
+        </strong>
+      </span>
+    </div>
+    <div
+      class="discovery__callout discovery__callout--infra"
+      aria-hidden="true"
+    >
+      <i>◈</i>
+      <span>
+        BUILT FOR DEVELOPERS
+        <strong>
+          {en ? "Complexity, under control." : "Complejidad, bajo control."}
+        </strong>
+      </span>
+    </div>
+    <span class="discovery__coordinate" aria-hidden="true">
+      PE / ARCHITECTURE — 001
+    </span>
+  </div>
+
+</div>
+<script>
+  import {
+    easePoint,
+    localPointer,
+    type Point,
+  } from "@components/motion/pointer";
+  document.querySelectorAll<HTMLElement>("[data-discovery]").forEach((root) => {
+    const stage = root.querySelector<HTMLElement>("[data-scan-stage]")!;
+    const object = root.querySelector<HTMLElement>("[data-scan-object]")!;
+    const reduced = matchMedia("(prefers-reduced-motion:reduce)");
+    let current: Point = { x: 0, y: 0 },
+      target: Point = { x: 0, y: 0 },
+      frame = 0,
+      active = false;
+    const draw = () => {
+      frame = 0;
+      current = reduced.matches ? { ...target } : easePoint(current, target);
+      stage.style.setProperty("--scan-x", `${current.x}px`);
+      stage.style.setProperty("--scan-y", `${current.y}px`);
+      if (Math.hypot(target.x - current.x, target.y - current.y) > 0.1)
+        frame = requestAnimationFrame(draw);
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(draw);
+    };
+    stage.addEventListener(
+      "pointermove",
+      (event) => {
+        const rect = stage.getBoundingClientRect();
+        target = localPointer(event.clientX, event.clientY, rect);
+        if (!active) {
+          current = { ...target };
+          active = true;
+          stage.classList.add("is-scanning");
+        }
+        if (!reduced.matches && event.pointerType === "mouse") {
+          object.style.setProperty(
+            "--rx",
+            `${-(target.y / rect.height - 0.5) * 5}deg`,
+          );
+          object.style.setProperty(
+            "--ry",
+            `${(target.x / rect.width - 0.5) * 7}deg`,
+          );
+        }
+        schedule();
+      },
+      { passive: true },
+    );
+    const reset = () => {
+      active = false;
+      stage.classList.remove("is-scanning");
+      object.style.setProperty("--rx", "0deg");
+      object.style.setProperty("--ry", "0deg");
+      cancelAnimationFrame(frame);
+      frame = 0;
+    };
+    stage.addEventListener("pointerleave", reset);
+    reduced.addEventListener("change", reset);
+    window.addEventListener("resize", reset, { passive: true });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) reset();
+    });
+    document.addEventListener(
+      "astro:before-swap",
+      () => {
+        cancelAnimationFrame(frame);
+      },
+      { once: true },
+    );
+  });
+</script>

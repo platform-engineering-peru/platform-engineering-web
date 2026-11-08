@@ -1,0 +1,164 @@
+---
+import { asset } from "@lib/assets";
+import { localizePath, type Lang } from "@i18n/index";
+import "./mascot.css";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const en = lang === "en";
+const chapters = en
+  ? [
+      [
+        "01",
+        "Golden paths",
+        "Make room for others.",
+        "Andean bears disperse seeds and contribute to forest regeneration.",
+        "Our metaphor: a platform team opens clear, reusable paths through technical complexity, helping the whole developer ecosystem thrive.",
+        "PATH / OPEN",
+      ],
+      [
+        "02",
+        "Observability",
+        "A clearer view.",
+        "The pale markings around the eyes give the spectacled bear its name.",
+        "For our community, these spectacles stand for visibility: telemetry, useful signals and less cognitive load. A platform that helps you understand what happens underneath.",
+        "SIGNAL / CLEAR",
+      ],
+      [
+        "03",
+        "Cloud native",
+        "At home in the cloud.",
+        "Cloud forests are among the habitats of the Andean bear, the only bear species native to South America.",
+        "We see a playful parallel with platforms that move across infrastructure layers. Cloud native by inspiration; reliability by design.",
+        "CLOUD / NATIVE",
+      ],
+      [
+        "04",
+        "Dev + Ops",
+        "Connect two worlds.",
+        "Ukuku evokes Andean traditions. At Qoyllurit’i, pablitos take on roles of service, order and connection with the sacred.",
+        "Our mascot takes inspiration from the idea of a bridge: development and operations working together, supported by reliability and care for the community.",
+        "BRIDGE / READY",
+      ],
+    ]
+  : [
+      [
+        "01",
+        "Golden paths",
+        "Abrir camino para otros.",
+        "El oso andino dispersa semillas y contribuye a la regeneración del bosque.",
+        "Nuestra metáfora: un equipo de plataforma abre caminos claros y reutilizables en medio de la complejidad técnica, para que todo el ecosistema de desarrollo prospere.",
+        "PATH / OPEN",
+      ],
+      [
+        "02",
+        "Observabilidad",
+        "Ver con más claridad.",
+        "Las manchas claras alrededor de sus ojos le dan el nombre de oso de anteojos.",
+        "Para nuestra comunidad, esos anteojos representan visibilidad: telemetría, señales útiles y menor carga cognitiva. Una plataforma que ayuda a entender lo que ocurre bajo el capó.",
+        "SIGNAL / CLEAR",
+      ],
+      [
+        "03",
+        "Cloud native",
+        "En casa, en la nube.",
+        "Los bosques de niebla son parte del hábitat del oso andino, la única especie de oso nativa de Sudamérica.",
+        "Vemos un paralelo con las plataformas que conectan capas de infraestructura. Cloud native por inspiración; confiables por diseño.",
+        "CLOUD / NATIVE",
+      ],
+      [
+        "04",
+        "Dev + Ops",
+        "Conectar dos mundos.",
+        "Ukuku evoca tradiciones andinas. En Qoyllurit’i, los pablitos cumplen funciones de servicio, orden y vínculo con lo sagrado.",
+        "Nuestra mascota se inspira en la idea de un puente: desarrollo y operaciones trabajando juntos, con confiabilidad y cuidado por la comunidad.",
+        "BRIDGE / READY",
+      ],
+    ];
+---
+
+<section class="ukuku" data-ukuku>
+  <div class="ukuku-journey" data-journey>
+    <div class="ukuku-stage" aria-hidden="true">
+      <div class="ukuku-aura"></div>
+      <div class="ukuku-orbit orbit-one"></div><div class="ukuku-orbit orbit-two"></div>
+      <svg class="ukuku-terrain" viewBox="0 0 1440 700" preserveAspectRatio="none"><defs><linearGradient id="land" x2="0" y2="1"><stop stop-color="#9383bd" stop-opacity=".24"/><stop offset="1" stop-color="#9383bd" stop-opacity="0"/></linearGradient></defs><path fill="url(#land)" d="M0 470Q170 180 370 440T750 390T1100 350T1440 420V700H0Z"/><g fill="none" stroke="currentColor" opacity=".18"><path d="M-100 660Q300 150 650 540T1550 320"/><path d="M-100 690Q300 180 650 570T1550 350"/><path d="M-100 720Q300 210 650 600T1550 380"/><path d="M-100 750Q300 240 650 630T1550 410"/></g></svg>
+      <div class="ukuku-traveler"><div class="ukuku-halo"></div><div class="ukuku-track"></div><img class="ukuku-sliding" src={asset("illustrations/ukuku-seated-slide-rim.webp")} width="1280" height="1280" alt="" fetchpriority="high"/><img class="ukuku-seated" src={asset("illustrations/ukuku-seated-greeting.webp")} width="1254" height="1254" alt=""/></div>
+      <span class="ukuku-coordinate">PERÚ · CLOUD FOREST<br/>12° S / 76° W</span>
+    </div>
+    <header class="ukuku-opening ukuku-scene" data-scene>
+      <p class="ukuku-kicker">{en ? "MEET OUR ECOSYSTEM ENGINEER" : "CONOCE A NUESTRO INGENIERO DE ECOSISTEMAS"}</p>
+      <h1>{en ? "A little bear." : "Un pequeño oso."}<br/><em>{en ? "A world to build." : "Un mundo por construir."}</em></h1>
+      <div class="ukuku-opening-copy"><span class="ukuku-signature">{en ? "Hello, I’m Ukuku." : "Hola, soy Ukuku."}</span><p>{en ? "From the Andean cloud forest to the platforms we build together. Every great ecosystem starts by making room for others." : "Del bosque de niebla a las plataformas que construimos juntos. Todo gran ecosistema empieza abriendo camino para otros."}</p><a href="#ukuku-story">{en ? "Follow my path" : "Sigue mi camino"} <span>↓</span></a></div>
+      <span class="ukuku-opening-index">{en ? "A STORY IN 4 CHAPTERS / 00—04" : "UNA HISTORIA EN 4 CAPÍTULOS / 00—04"}</span>
+    </header>
+    {chapters.map(([n, topic, title, fact, metaphor, status], i) => (
+      <section class:list={["ukuku-scene", "ukuku-chapter", {"is-right": i % 2 === 0}]} id={i === 0 ? "ukuku-story" : `ukuku-${n}`} data-scene>
+        <div class="ukuku-chapter-copy">
+          <div class="ukuku-chapter-label"><span>{n} / 04</span><span>{topic}</span></div>
+          <h2>{title}</h2><p class="ukuku-fact">{fact}</p><p class="ukuku-metaphor">{metaphor}</p>
+          <span class="ukuku-status"><i></i>{status}</span>
+        </div>
+        <span class="ukuku-large-number" aria-hidden="true">{n}</span>
+      </section>
+    ))}
+    <div class="ukuku-progress"><span data-chapter-label>00 / UKUKU</span><div><i data-progress></i></div><button type="button" data-motion aria-pressed="false" aria-label={en ? "Pause animation" : "Pausar animación"}>Ⅱ</button></div>
+  </div>
+  <div class="ukuku-note ed-wrap">
+    <div>
+      <p class="ukuku-kicker">
+        {en
+          ? "ROOTED IN PERU. OPEN TO EVERYONE."
+          : "RAÍCES EN PERÚ. PUERTAS ABIERTAS."}
+      </p>
+      <h2>
+        {en
+          ? "Better ecosystems begin with care."
+          : "Los mejores ecosistemas empiezan por el cuidado."}
+      </h2>
+    </div>
+    <div>
+      <p>
+        {en
+          ? "Our Ukuku is a contemporary community character, not a representation of a ritual figure. The technical connections above are our own metaphors."
+          : "Nuestro Ukuku es un personaje contemporáneo de la comunidad, no una representación de una figura ritual. Las conexiones tecnológicas son metáforas propias."}
+      </p>
+      <a href={localizePath(lang, "/community")}>
+        {en ? "Meet the community" : "Conoce a la comunidad"} ↗
+      </a>
+    </div>
+  </div>
+  <details class="ukuku-sources ed-wrap">
+    <summary>
+      {en ? "Learn about the inspiration" : "Conoce las fuentes de inspiración"}
+    </summary>
+    <a
+      href="https://science.sandiegozoo.org/science-blog/finding-my-way-andean-bears"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      San Diego Zoo Wildlife Alliance —{" "}
+      {en ? "Seed dispersal" : "Dispersión de semillas"} ↗
+    </a>
+    <a
+      href="https://www.nationalzoo.si.edu/animals/andean-bear"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Smithsonian — {en ? "Andean bear" : "Oso andino"} ↗
+    </a>
+    <a
+      href="https://ich.unesco.org/es/RL/la-peregrinacion-al-santuario-del-senor-de-qoyllurit-i-00567"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      UNESCO — Qoyllurit’i ↗
+    </a>
+  </details>
+</section>
+
+<script>
+  import { initUkuku } from "./mascot-motion";
+  initUkuku();
+</script>

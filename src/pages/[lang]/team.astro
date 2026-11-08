@@ -1,0 +1,7 @@
+---
+import WorkInProgress from '@modules/work-in-progress/WorkInProgress.astro';
+import {getLangPaths, type Lang} from '@i18n/index';
+export const getStaticPaths=getLangPaths;
+const lang=Astro.params.lang as Lang;
+---
+<WorkInProgress lang={lang} title={lang==='en'?'The team':'El equipo'} />

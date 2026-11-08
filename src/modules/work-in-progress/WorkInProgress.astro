@@ -1,0 +1,48 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import {asset} from '@lib/assets';
+import {localizePath,type Lang} from '@i18n/index';
+interface Props {lang:Lang; title:string}
+const {lang,title}=Astro.props;
+const en=lang==='en';
+---
+<BaseLayout lang={lang} title={title}>
+<section class="worksite ed-wrap" data-worksite>
+  <div class="worksite-heading"><span>{title}</span><span>PE / WORK IN PROGRESS</span></div>
+  <div class="worksite-grid">
+    <div class="worksite-copy">
+      <p class="worksite-status"><i></i>{en?'IN THE WORKSHOP':'EN EL TALLER'}</p>
+      <h1>{en?'Good things':'Las buenas ideas'}<br/><em>{en?'take shape.':'toman forma.'}</em></h1>
+      <p class="worksite-description">{en?'We are building this part of the community. Ukuku is taking care of the details; we’ll share it when it’s ready.':'Estamos construyendo este espacio de la comunidad. Ukuku está afinando los detalles; lo compartiremos cuando esté listo.'}</p>
+      <a class="worksite-link" href={localizePath(lang,'/community')}>{en?'Meanwhile, meet your community':'Mientras tanto, conoce a tu comunidad'} <span>↗</span></a>
+    </div>
+    <div class="worksite-scene">
+      <span class="worksite-word" aria-hidden="true">build.</span>
+      <div class="worksite-character"><img src={asset('illustrations/ukuku-builder.webp')} width="900" height="979" alt={en?'Ukuku assembling a developer platform':'Ukuku ensamblando una plataforma de desarrollo'}/></div>
+      <div class="worksite-caption"><span>UKUKU / PLATFORM BUILDER</span><button data-work-pause aria-pressed="false">{en?'Pause motion':'Pausar movimiento'}</button></div>
+    </div>
+  </div>
+  <div class="worksite-bottom"><span>{en?'Built with care. Built together.':'Hecho con cuidado. Hecho en comunidad.'}</span><span>{en?'This section is under construction.':'Esta sección está en construcción.'}</span></div>
+</section>
+</BaseLayout>
+<script>
+const root=document.querySelector<HTMLElement>('[data-worksite]');
+if(root){const button=root.querySelector<HTMLButtonElement>('[data-work-pause]')!;const reduced=matchMedia('(prefers-reduced-motion: reduce)');let paused=reduced.matches;const sync=()=>{root.classList.toggle('is-paused',paused||document.hidden);button.setAttribute('aria-pressed',String(paused));button.textContent=document.documentElement.lang.startsWith('en')?(paused?'Resume motion':'Pause motion'):(paused?'Reanudar movimiento':'Pausar movimiento');};button.addEventListener('click',()=>{paused=!paused;sync()});reduced.addEventListener('change',()=>{paused=reduced.matches;sync()});document.addEventListener('visibilitychange',sync);sync();}
+</script>
+<style>
+.worksite{padding-top:26px;padding-bottom:24px;min-height:calc(100svh - 82px);display:flex;flex-direction:column;justify-content:space-between;}
+.worksite-heading,.worksite-bottom{display:flex;justify-content:space-between;gap:20px;color:var(--ed-muted);font-size:12px;}
+.worksite-heading{border-bottom:1px solid var(--ed-line);padding-bottom:22px;}.worksite-heading span:last-child{font:10px monospace;letter-spacing:.12em;}
+.worksite-grid{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:6%;padding:32px 0;}
+.worksite-status{font:10px monospace;letter-spacing:.13em;color:var(--ed-violet);display:flex;align-items:center;gap:9px;}.worksite-status i{width:6px;height:6px;border-radius:50%;background:var(--fg-accent-2);}
+.worksite h1{font-size:clamp(40px,5.2vw,72px);line-height:1.12;letter-spacing:-.065em;font-weight:550;margin:27px 0;}.worksite h1 em{font-family:Georgia,serif;color:var(--ed-violet);font-weight:400;}
+.worksite-description{color:var(--ed-muted);font-size:17px;line-height:1.8;max-width:430px;}
+.worksite-link{display:inline-flex;align-items:center;gap:24px;padding:14px 0;border-bottom:1px solid var(--ed-line);margin-top:22px;color:var(--ed-ink);font-size:13px;}.worksite-link span{font-size:24px;}
+.worksite-scene{position:relative;isolation:isolate;min-width:0;}.worksite-word{position:absolute;top:0;left:0;font-size:clamp(90px,12vw,180px);font-weight:650;letter-spacing:-.09em;color:var(--ed-lilac);z-index:-1;}
+.worksite-character{height:clamp(320px,43vw,490px);animation:work-breathe 5s cubic-bezier(.45,0,.55,1) infinite;transform-origin:center bottom;}.worksite-character img{height:100%;width:100%;object-fit:contain;}
+.worksite-caption{display:flex;align-items:center;justify-content:space-between;gap:15px;font:9px monospace;letter-spacing:.07em;color:var(--ed-muted);border-top:1px solid var(--ed-line);padding-top:12px;}.worksite-caption button{font:inherit;background:none;border:0;color:var(--ed-violet);cursor:pointer;min-height:44px;}
+.worksite-bottom{border-top:1px solid var(--ed-line);padding-top:18px;font-size:11px;}.is-paused .worksite-character{animation-play-state:paused;}
+@keyframes work-breathe{50%{transform:translateY(-6px) rotate(.7deg)}}
+@media(max-width:700px){.worksite-grid{grid-template-columns:1fr;gap:25px}.worksite h1{font-size:46px}.worksite-description{font-size:16px}.worksite-character{height:340px}.worksite-word{font-size:120px}.worksite-bottom{flex-direction:column;gap:8px}.worksite-heading span:last-child{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.worksite-character{animation:none}}
+</style>

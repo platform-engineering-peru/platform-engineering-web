@@ -1,0 +1,4 @@
+Tool: built-in image generation, edit mode, transparent background.
+Input: official/mark-original.png (approved transparent source, retained unchanged).
+Request: Restore definition and antialiasing of the existing three-layer logo. Preserve the bear linework topology, expression, three slab proportions, perspective, violet/green/lavender palette and red-white-red flag. Transparent background, no new objects, text or redesign. Same framing. Clean edges and smooth materials.
+Output: official/mark.png, 1254 x 1254 RGBA. SVG compatibility files embed the raster master, not editable vector paths. Favicons are tightly framed downsampled derivatives.

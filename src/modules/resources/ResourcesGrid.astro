@@ -1,82 +1,279 @@
 ---
-/** Recursos curados con filtro por tema (progresivo: sin JS se ven todos). */
-import Badge from '@components/ui/Badge.astro';
-import Button from '@components/ui/Button.astro';
-import Card from '@components/ui/Card.astro';
-import Tag from '@components/ui/Tag.astro';
-import { pick, useTranslations, type Lang } from '@i18n/index';
-import { resources, topics } from '@data/resources';
-import { globalLinks } from '@data/site';
-
-interface Props { lang: Lang }
-
+import { pick, useTranslations, type Lang } from "@i18n/index";
+import { resources, topics } from "@data/resources";
+import { globalLinks } from "@data/site";
+import ResourceCover from "./ResourceCover.astro";
+import "./archive.css";
+interface Props {
+  lang: Lang;
+}
 const { lang } = Astro.props;
+const en = lang === "en";
 const t = useTranslations(lang);
-const topicLabel = (id: string) => pick(topics.find((tp) => tp.id === id)!.label, lang);
+const topicLabel = (id: string) =>
+  pick(topics.find((topic) => topic.id === id)!.label, lang);
 ---
 
-<section class="container res">
-  <div class="eyebrow">{t('resources.eyebrow')}</div>
-  <h1 class="page-title">{t('resources.title')}</h1>
-  <p class="lead">{t('resources.lead')}</p>
-
-  <div class="res__filters" role="group" aria-label={t('resources.filter')} data-filters>
-    <Tag value="all" selected>{t('resources.all')}</Tag>
-    {topics.map((tp) => <Tag value={tp.id}>{pick(tp.label, lang)}</Tag>)}
-  </div>
-
-  <div class="grid-auto res__grid" style="--min: 300px">
-    {resources.map((r) => (
-      <div class="res__item" data-topic={r.topic}>
-        <Card title={pick(r.title, lang)} href={r.href} external>
-          {pick(r.description, lang)}
-          <div slot="footer" class="res__meta">
-            <Badge tone={r.type === 'course' ? 'green' : 'violet'}>{t(`resources.type.${r.type}` as const)}</Badge>
-            <Badge tone="neutral">{topicLabel(r.topic)}</Badge>
-            {lang !== 'en' && r.contentLang === 'en' && <span class="res__lang">{t('resources.inEnglish')}</span>}
-          </div>
-        </Card>
-      </div>
-    ))}
-  </div>
-
-  <div class="res__more">
+<div class="resource-archive" data-resource-archive>
+  <header class="archive-heading ed-wrap">
     <div>
-      <h2 class="res__more-title">{t('resources.more.title')}</h2>
-      <p class="muted">{t('resources.more.body')}</p>
+      <p class="ed-kicker">
+        PE / {en ? "THE KNOWLEDGE ARCHIVE" : "ARCHIVO DE CONOCIMIENTO"}
+      </p>
+      <h1>
+        {en ? "Good ideas." : "Buenas ideas."}
+        <em>{en ? "Within reach." : "A tu alcance."}</em>
+      </h1>
     </div>
-    <div class="res__more-ctas">
-      <Button variant="secondary" href={globalLinks.blog} external>{t('resources.more.blog')}</Button>
-      <Button variant="green" href={globalLinks.platformWeekly} external>{t('resources.more.newsletter')}</Button>
+    <div class="archive-heading__side">
+      <p>
+        {en
+          ? "A curated collection for people building platforms. Pick a spine. Open a new perspective."
+          : "Una selección para quienes construyen plataformas. Elige un lomo. Abre una nueva perspectiva."}
+      </p>
+      <label class="archive-search">
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <circle cx="10.5" cy="10.5" r="6.5" />
+          <path d="m16 16 5 5" />
+        </svg>
+        <span class="visually-hidden">
+          {en ? "Search the archive" : "Buscar en el archivo"}
+        </span>
+        <input
+          type="search"
+          data-archive-search
+          placeholder={en ? "Search the archive…" : "Buscar en el archivo…"}
+          autocomplete="off"
+        />
+        <kbd>/</kbd>
+      </label>
+    </div>
+  </header>
+  <div class="archive-toolbar ed-wrap">
+    <div
+      class="archive-filters"
+      data-archive-filters
+      role="group"
+      aria-label={t("resources.filter")}
+    >
+      <button type="button" data-topic="all" aria-pressed="true">
+        {t("resources.all")}
+      </button>
+      {topics.map((topic) => (
+        <button type="button" data-topic={topic.id} aria-pressed="false">
+          {pick(topic.label, lang)}
+        </button>
+      ))}
+    </div>
+    <span
+      class="archive-count"
+      data-archive-count
+      aria-live="polite"
+      data-label={en ? "resources" : "recursos"}
+    >
+      {resources.length} {en ? "resources" : "recursos"}
+    </span>
+  </div>
+  <section
+    class="archive-experience"
+    aria-label={en ? "Curved resource shelf" : "Estantería curva de recursos"}
+  >
+    <div class="archive-watermark" aria-hidden="true">
+      <span>OPEN</span>
+      <span>IDEAS</span>
+    </div>
+    <div
+      class="archive-shelf"
+      data-archive-shelf
+      tabindex="0"
+      role="region"
+      aria-roledescription={en ? "carousel" : "carrusel"}
+      aria-label={
+        en
+          ? "Resource shelf. Use left and right arrows to browse, Enter to open."
+          : "Estantería de recursos. Usa las flechas para explorar y Enter para abrir."
+      }
+    >
+      <div class="archive-floor" aria-hidden="true"></div>
+      {resources.map((r, i) => (
+        <button
+          type="button"
+          class="archive-tape"
+          data-tape={i}
+          data-topic={r.topic}
+          data-title={pick(r.title, lang)}
+          data-text={pick(r.description, lang)}
+          data-meta={`${t(`resources.type.${r.type}` as const)} / ${topicLabel(r.topic)} / ${r.contentLang.toUpperCase()}`}
+          aria-label={pick(r.title, lang)}
+        >
+          <span
+            class={`archive-spine archive-spine--${i % 4}`}
+            aria-hidden="true"
+          >
+            <span>PE</span>
+            <strong>{pick(r.title, lang)}</strong>
+            <small>{String(i + 1).padStart(2, "0")}</small>
+          </span>
+          <div class="archive-front">
+            <ResourceCover resource={r} index={i} lang={lang} />
+          </div>
+        </button>
+      ))}
+    </div>
+    <div class="archive-caption ed-wrap" data-archive-caption>
+      <button
+        type="button"
+        data-archive-prev
+        aria-label={en ? "Previous resource" : "Recurso anterior"}
+      >
+        ←
+      </button>
+      <div aria-live="polite" aria-atomic="true">
+        <span class="archive-caption__index" data-active-number>
+          01 / 12
+        </span>
+        <h2 data-active-title>{pick(resources[0].title, lang)}</h2>
+        <p data-active-meta>
+          {t("resources.type.guide")} / {topicLabel("fundamentals")} / EN
+        </p>
+        <button type="button" class="archive-open" data-archive-open>
+          {en ? "Open this resource" : "Abrir este recurso"} ↗
+        </button>
+      </div>
+      <button
+        type="button"
+        data-archive-next
+        aria-label={en ? "Next resource" : "Siguiente recurso"}
+      >
+        →
+      </button>
+    </div>
+    <div class="archive-empty ed-wrap" data-archive-empty hidden>
+      <h2>
+        {en
+          ? "No matches on this shelf."
+          : "Sin coincidencias en esta estantería."}
+      </h2>
+      <p>
+        {en
+          ? "Try another search or reset the filters."
+          : "Prueba otra búsqueda o restablece los filtros."}
+      </p>
+      <button type="button" data-archive-reset>
+        {en ? "Show all resources" : "Mostrar todos los recursos"} ↗
+      </button>
+    </div>
+  </section>
+  <div class="archive-ruler ed-wrap" data-archive-ruler>
+    <label>
+      <span>{en ? "EXPLORE THE COLLECTION" : "EXPLORA LA COLECCIÓN"}</span>
+      <span data-ruler-caption>01 — 12</span>
+      <input
+        type="range"
+        min="1"
+        max={resources.length}
+        value="1"
+        step="1"
+        data-archive-range
+        aria-label={en ? "Select resource" : "Seleccionar recurso"}
+        aria-valuetext={pick(resources[0].title, lang)}
+      />
+    </label>
+    <div class="archive-ruler__ticks" aria-hidden="true">
+      {resources.map((_, i) => (
+        <span>{String(i + 1).padStart(2, "0")}</span>
+      ))}
     </div>
   </div>
-</section>
-
+  <div class="archive-end ed-wrap">
+    <span>
+      {en
+        ? "CURATED BY PEOPLE, FOR PEOPLE."
+        : "CURADO POR PERSONAS, PARA PERSONAS."}
+    </span>
+    <a href={globalLinks.blog} target="_blank" rel="noopener noreferrer">
+      {t("resources.more.blog")} ↗
+    </a>
+    <a
+      href={globalLinks.platformWeekly}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {t("resources.more.newsletter")} ↗
+    </a>
+  </div>
+  <details class="archive-list ed-wrap">
+    <summary>
+      {en
+        ? "Prefer a list? View all resources"
+        : "¿Prefieres una lista? Ver todos los recursos"}
+    </summary>
+    <div>
+      {resources.map((r) => (
+        <a href={r.href} target="_blank" rel="noopener noreferrer">
+          <span>{pick(r.title, lang)}</span>
+          <small>{topicLabel(r.topic)} ↗</small>
+        </a>
+      ))}
+    </div>
+  </details>
+  <dialog
+    class="archive-detail"
+    data-archive-detail
+    aria-label={en ? "Resource details" : "Detalle del recurso"}
+  >
+    <div class="archive-detail__bar">
+      <span>PE / FIELDNOTES</span>
+      <button type="button" data-archive-close>
+        {en ? "Close" : "Cerrar"} <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div data-archive-detail-body></div>
+  </dialog>
+  {resources.map((r, i) => (
+    <template data-resource-detail={i}>
+      <article class="archive-detail__grid">
+        <div class="archive-detail__copy">
+          <p class="ed-kicker">
+            {t(`resources.type.${r.type}` as const)} / {topicLabel(r.topic)}
+          </p>
+          <h2>{pick(r.title, lang)}</h2>
+          <p class="archive-detail__description">{pick(r.description, lang)}</p>
+          <p class="archive-detail__source">
+            {en ? "Original content in" : "Contenido original en"}{" "}
+            {r.contentLang === "en" ? "English" : "español"} ·{" "}
+            {new URL(r.href).hostname}
+          </p>
+          <a
+            class="archive-detail__visit"
+            href={r.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {en
+              ? "Explore the original resource"
+              : "Explorar el recurso original"}{" "}
+            ↗
+          </a>
+          <small>
+            {en
+              ? "Selected by Platform Engineering Perú."
+              : "Seleccionado por Platform Engineering Perú."}
+          </small>
+        </div>
+        <div class="archive-detail__poster">
+          <ResourceCover resource={r} index={i} lang={lang} />
+        </div>
+      </article>
+    </template>
+  ))}
+</div>
 <script>
-  const group = document.querySelector<HTMLElement>('[data-filters]');
-  group?.addEventListener('click', (e) => {
-    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-value]');
-    if (!btn) return;
-    const value = btn.dataset.value;
-    group.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
-    document.querySelectorAll<HTMLElement>('[data-topic]').forEach((item) => {
-      item.hidden = value !== 'all' && item.dataset.topic !== value;
-    });
-  });
+  import "./archive-controller";
 </script>
-
-<style>
-  .res { padding-top: 72px; display: flex; flex-direction: column; gap: 24px; }
-  .res__filters { display: flex; gap: 8px; flex-wrap: wrap; }
-  .res__item { display: flex; }
-  .res__item > :global(*) { flex: 1; }
-  .res__meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-  .res__lang { font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); }
-  .res__more {
-    margin-top: 48px; padding: 32px; border-radius: var(--radius-lg);
-    border: 1px solid var(--border-subtle); background: var(--bg-raised);
-    display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
-  }
-  .res__more-title { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
-  .res__more-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-</style>

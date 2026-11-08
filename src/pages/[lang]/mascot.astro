@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Mascot from "@modules/mascot/Mascot.astro";
+import { getLangPaths, type Lang } from "@i18n/index";
+export const getStaticPaths = getLangPaths;
+const lang = Astro.params.lang as Lang;
+---
+
+<BaseLayout
+  lang={lang}
+  title="Ukuku"
+  description={
+    lang === "en"
+      ? "Our ecosystem engineer. Meet Ukuku."
+      : "Nuestro ingeniero de ecosistemas. Conoce a Ukuku."
+  }
+>
+  <Mascot lang={lang} />
+</BaseLayout>

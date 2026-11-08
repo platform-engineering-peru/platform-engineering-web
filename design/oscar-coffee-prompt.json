@@ -1,0 +1,13 @@
+{
+  "tool": "built-in image_gen",
+  "source": "public/team/oscar-3d.webp",
+  "output": "public/team/oscar-coffee.webp",
+  "prompt": "Identity-preserve edit of Oscar’s full-body 3D figurine. Change only the arm pose so both hands hold a warm brown ceramic coffee mug in front of the abdomen. Keep face, clean-shaven appearance, swept dark hair, burgundy shirt, white undershirt, cargo pants, sneakers, smartwatch, Kubernetes backpack, proportions, materials and lighting. Full body, transparent background, no added text or scenery.",
+  "profileSource": "https://0vas.com",
+  "profileLinks": [
+    "https://www.linkedin.com/in/oscarlobatons/",
+    "https://github.com/0vas"
+  ],
+  "revision": "Remove entire backpack, all shoulder straps, buckles and Kubernetes symbol. Reconstruct burgundy shirt naturally. Preserve face, hair, expression, proportions, clothing, smartwatch, coffee mug, pose, lighting, full body framing and transparent alpha background.",
+  "revisionMaster": "exec-9df73624-96d8-4935-b978-11b8a7cba8b1.png"
+}

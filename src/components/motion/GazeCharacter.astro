@@ -1,0 +1,146 @@
+---
+import { asset } from "@lib/assets";
+interface Props {
+  priority?: boolean;
+  class?: string;
+}
+const { priority = false, class: className } = Astro.props;
+---
+
+<div
+  class:list={["gaze-character", className]}
+  data-gaze-character
+  data-priority={priority}
+  aria-hidden="true"
+>
+  <video
+    muted
+    playsinline
+    preload={priority ? "auto" : "none"}
+    data-desktop-src={asset("motion/community-gaze.mp4")}
+    data-mobile-src={asset("motion/community-loop.mp4")}
+  ></video>
+</div>
+<script>
+  import { timeForAngle, angleFromPointer } from "./gaze";
+  document
+    .querySelectorAll<HTMLElement>("[data-gaze-character]")
+    .forEach((root) => {
+      const video = root.querySelector("video")!;
+      const mobile = matchMedia("(max-width:700px)");
+      const reduced = matchMedia("(prefers-reduced-motion:reduce)");
+      const controller = new AbortController();
+      const { signal } = controller;
+      let frame = 0,
+        desiredTime = 0,
+        visible = false,
+        loaded = false;
+      let pointer: { x: number; y: number } | null = null;
+      const seek = () => {
+        frame = 0;
+        if (
+          !visible ||
+          reduced.matches ||
+          mobile.matches ||
+          video.readyState < 2 ||
+          video.seeking ||
+          !Number.isFinite(video.duration)
+        )
+          return;
+        const target = Math.min(desiredTime, video.duration - 1 / 24);
+        if (Math.abs(video.currentTime - target) > 1 / 48)
+          video.currentTime = target;
+      };
+      const schedule = () => {
+        if (!frame) frame = requestAnimationFrame(seek);
+      };
+      const updateTarget = () => {
+        if (!pointer || !visible || reduced.matches || mobile.matches) return;
+        const angle = angleFromPointer(
+          pointer.x,
+          pointer.y,
+          video.getBoundingClientRect(),
+        );
+        if (angle !== null) {
+          desiredTime = timeForAngle(angle);
+          schedule();
+        }
+      };
+      const ready = () => {
+        video.loop = mobile.matches;
+        if (mobile.matches && visible && !reduced.matches)
+          void video.play().catch(() => {});
+        else {
+          video.pause();
+          updateTarget();
+          schedule();
+        }
+      };
+      const load = () => {
+        const src = mobile.matches
+          ? video.dataset.mobileSrc!
+          : video.dataset.desktopSrc!;
+        if (video.getAttribute("src") !== src) {
+          video.src = src;
+          video.load();
+        }
+        loaded = true;
+        ready();
+      };
+      const observer = new IntersectionObserver(
+        (entries) => {
+          visible = entries[0].isIntersecting;
+          if (visible && !loaded) load();
+          else ready();
+        },
+        { rootMargin: "100px" },
+      );
+      observer.observe(root);
+      if (root.dataset.priority === "true") load();
+      video.addEventListener("loadeddata", ready, { signal });
+      video.addEventListener("seeked", schedule, { signal });
+      window.addEventListener(
+        "pointermove",
+        (event) => {
+          pointer = { x: event.clientX, y: event.clientY };
+          updateTarget();
+        },
+        { passive: true, signal },
+      );
+      window.addEventListener("scroll", updateTarget, {
+        passive: true,
+        signal,
+      });
+      window.addEventListener("resize", updateTarget, {
+        passive: true,
+        signal,
+      });
+      mobile.addEventListener(
+        "change",
+        () => {
+          if (loaded) load();
+        },
+        { signal },
+      );
+      reduced.addEventListener("change", ready, { signal });
+      window.addEventListener(
+        "pagehide",
+        () => {
+          cancelAnimationFrame(frame);
+          video.pause();
+        },
+        { signal },
+      );
+      window.addEventListener("pageshow", ready, { signal });
+      document.addEventListener(
+        "astro:before-swap",
+        () => {
+          controller.abort();
+          observer.disconnect();
+          cancelAnimationFrame(frame);
+          video.pause();
+        },
+        { once: true },
+      );
+    });
+</script>

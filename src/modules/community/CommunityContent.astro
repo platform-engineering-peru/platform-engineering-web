@@ -1,14 +1,21 @@
 ---
-import Button from '@components/ui/Button.astro';
-import Icon from '@components/ui/Icon.astro';
-import LayerStripe from '@components/ui/LayerStripe.astro';
-import SpeakerCard from '@components/ui/SpeakerCard.astro';
-import type { IconName } from '@components/ui/icons';
-import { localizePath, pick, useTranslations, type Lang, type TranslationKey } from '@i18n/index';
-import { communityLinks, contactEmail, globalLinks } from '@data/site';
-import { organizers } from '@data/organizers';
+import AboutCommunity from "./AboutCommunity.astro";
+import GlobalNetwork from "./GlobalNetwork.astro";
+import Icon from "@components/ui/Icon.astro";
 
-interface Props { lang: Lang }
+import type { IconName } from "@components/ui/icons";
+import {
+  localizePath,
+  useTranslations,
+  type Lang,
+  type TranslationKey,
+} from "@i18n/index";
+import { communityLinks, globalLinks } from "@data/site";
+import OrganizerCarousel from "./OrganizerCarousel.astro";
+
+interface Props {
+  lang: Lang;
+}
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
@@ -23,121 +30,103 @@ type Way = {
 };
 
 const ways: Way[] = [
-  { icon: 'calendar', title: 'community.attend.title', body: 'community.attend.body', cta: 'community.attend.cta', href: localizePath(lang, '/events') },
-  { icon: 'mic', title: 'community.speak.title', body: 'community.speak.body', cta: 'community.speak.cta', href: communityLinks.cfp },
-  { icon: 'users', title: 'community.host.title', body: 'community.host.body', cta: 'community.host.cta', href: communityLinks.sponsor },
+  {
+    icon: "calendar",
+    title: "community.attend.title",
+    body: "community.attend.body",
+    cta: "community.attend.cta",
+    href: localizePath(lang, "/events"),
+  },
+  {
+    icon: "mic",
+    title: "community.speak.title",
+    body: "community.speak.body",
+    cta: "community.speak.cta",
+    href: communityLinks.cfp,
+  },
+  {
+    icon: "users",
+    title: "community.host.title",
+    body: "community.host.body",
+    cta: "community.host.cta",
+    href: communityLinks.sponsor,
+  },
 ];
+
+const en = lang === "en";
 ---
 
-<section class="blueprint">
-  <div class="container intro">
-    <div class="eyebrow">{t('community.eyebrow')}</div>
-    <h1 class="page-title intro__title">{t('community.title')}</h1>
-    <p class="lead">{t('community.lead')}</p>
-  </div>
-</section>
-
-<section class="container section">
-  <LayerStripe />
-  <h2 class="h2">{t('community.participate.title')}</h2>
-  <div class="grid-auto">
-    {ways.map((w) => (
-      <article class="way">
-        <span class="way__icon"><Icon name={w.icon} size={20} /></span>
-        <h3 class="way__title">{t(w.title)}</h3>
-        <p class="way__body">{t(w.body)}</p>
-        {w.href ? (
-          <a class="way__cta" href={w.href} {...(w.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{t(w.cta)}</a>
-        ) : (
-          <button type="button" class="way__cta way__cta--button" data-join-open>{t(w.cta)}</button>
-        )}
-      </article>
-    ))}
-  </div>
-</section>
-
-<section class="container section">
-  <div class="global">
-    <div class="global__text">
-      <div class="eyebrow">{t('community.global.eyebrow')}</div>
-      <h2 class="h2">{t('community.global.title')}</h2>
-      <p class="muted">{t('community.global.body')}</p>
+<div class="studio-page community-page">
+  <AboutCommunity lang={lang} />
+  <OrganizerCarousel lang={lang} />
+  <section class="ed-wrap contribution-section">
+    <div class="studio-toolbar">
+      <h2>{t("community.participate.title")}</h2>
+      <span class="studio-index">
+        {en ? "FIND YOUR WAY IN" : "ENCUENTRA TU ESPACIO"} ↙
+      </span>
     </div>
-    <div class="global__ctas">
-      <Button variant="secondary" href={globalLinks.home} external>
-        {t('community.global.site')}
-        <Icon slot="icon-right" name="arrow-up-right" size={16} />
-      </Button>
-      <Button variant="ghost" href={globalLinks.platformcon} external>
-        {t('community.global.platformcon')}
-        <Icon slot="icon-right" name="arrow-up-right" size={16} />
-      </Button>
+    <div class="contribution-list">
+      {ways.map((way, i) => (
+        <details class="contribution" open={i === 0}>
+          <summary>
+            <span>0{i + 1}</span>
+            <h3>{t(way.title)}</h3>
+            <Icon name={way.icon} size={32} />
+            <b aria-hidden="true">+</b>
+          </summary>
+          <div class="contribution__body">
+            <p>{t(way.body)}</p>
+            {way.href ? (
+              <a
+                class="ed-button ed-button--primary"
+                href={way.href}
+                {...(way.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
+                {t(way.cta)} ↗
+              </a>
+            ) : (
+              <button class="ed-button ed-button--primary" data-join-open>
+                {t(way.cta)} ↗
+              </button>
+            )}
+          </div>
+        </details>
+      ))}
     </div>
-  </div>
-</section>
-
-<section class="container section" id="team">
-  <div class="section-head">
-    <div class="section-head__text">
-      <div class="eyebrow">{t('community.team.eyebrow')}</div>
-      <h2 class="h2">{t('community.team.title')}</h2>
+  </section>
+  <section class="global-community ed-wrap">
+    <GlobalNetwork lang={lang} />
+    <div>
+      <p class="ed-kicker">{t("community.global.eyebrow")}</p>
+      <h2>{t("community.global.title")}</h2>
+      <p>{t("community.global.body")}</p>
+      <a
+        class="ed-button ed-button--primary"
+        href={globalLinks.home}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t("community.global.site")} ↗
+      </a>
+      <a
+        class="ed-text-link"
+        href={globalLinks.platformcon}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        PlatformCon ↗
+      </a>
     </div>
-    <a href={`mailto:${contactEmail}`} class="team__link">{t('community.team.body')}</a>
-  </div>
-  <div class="team">
-    {organizers.map((o) => (
-      <SpeakerCard name={o.name} role={o.role} company={o.company && pick(o.company, lang)} photo={o.photo} url={o.url} />
-    ))}
-  </div>
-</section>
-
-<section class="container section" id="code-of-conduct">
-  <div class="coc">
-    <h2 class="h2">{t('community.coc.title')}</h2>
-    <p>{t('community.coc.body')}</p>
-  </div>
-</section>
-
-<style>
-  .intro { padding-block: 96px 80px; display: flex; flex-direction: column; gap: 20px; }
-  .intro__title { max-width: 900px; }
-
-  .way {
-    display: flex; flex-direction: column; gap: 12px; padding: 24px;
-    border-radius: var(--radius-md); background: var(--bg-card); border: 1px solid var(--border-subtle);
-  }
-  .way__icon {
-    width: 40px; height: 40px; display: grid; place-items: center;
-    border-radius: var(--radius-sm); background: rgba(123, 97, 255, .16); color: var(--fg-accent);
-  }
-  .way__title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
-  .way__body { color: var(--fg-2); font-size: 15px; }
-  .way__cta { margin-top: auto; padding-top: 8px; font-weight: 600; align-self: flex-start; }
-  .way__cta--button {
-    background: none; border: none; padding: 8px 0 0; cursor: pointer;
-    font: inherit; font-weight: 600; color: var(--link);
-  }
-  .way__cta--button:hover { color: var(--link-hover); }
-
-  .global { display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: 32px; align-items: end; }
-  .global__text { display: flex; flex-direction: column; gap: 12px; }
-  .global__ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-
-  .team__link { max-width: 360px; font-size: 15px; color: var(--fg-2); }
-  .team__link:hover { color: var(--link-hover); }
-  .team { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
-  @media (max-width: 480px) { .team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
-
-  .coc {
-    padding: 32px; border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 12px;
-    background: rgba(18, 204, 122, .08); border: 1px solid rgba(18, 204, 122, .3);
-  }
-  .coc p { max-width: 72ch; color: var(--fg-2); }
-
-  @media (max-width: 860px) {
-    .global { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 640px) {
-    .intro { padding-block: 64px 56px; }
-  }
-</style>
+  </section>
+  <section class="ed-wrap conduct-section" id="code-of-conduct">
+    <span aria-hidden="true">♡</span>
+    <div>
+      <p class="ed-kicker">EVERYONE BELONGS HERE</p>
+      <h2>{t("community.coc.title")}</h2>
+      <p>{t("community.coc.body")}</p>
+    </div>
+  </section>
+</div>

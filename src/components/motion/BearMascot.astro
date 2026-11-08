@@ -1,0 +1,190 @@
+---
+import { asset } from "@lib/assets";
+import type { Lang } from "@i18n/config";
+interface Props {
+  lang: Lang;
+  class?: string;
+}
+const { lang, class: className } = Astro.props;
+---
+
+<div class:list={["bear-mascot", className]} data-bear>
+  <div class="bear-mascot__halo" aria-hidden="true"></div>
+  <div class="bear-mascot__pose" data-bear-pose>
+    <img
+      src={asset("illustrations/oso-platform.webp")}
+      width="1221"
+      height="1289"
+      loading="lazy"
+      decoding="async"
+      alt={
+        lang === "en"
+          ? "A fluffy Andean spectacled bear hugging a developer platform with a glowing cloud."
+          : "Un oso de anteojos de pelaje suave abraza una plataforma de desarrollo con una nube luminosa."
+      }
+    />
+    <svg class="bear-mascot__eyes" viewBox="0 0 1221 1289" aria-hidden="true">
+      <defs>
+        <radialGradient id="bear-iris">
+          <stop offset="0" stop-color="#17131a" />
+          <stop offset=".57" stop-color="#241c20" />
+          <stop offset=".73" stop-color="#684a38" />
+          <stop offset=".92" stop-color="#46302b" />
+          <stop offset="1" stop-color="#201923" />
+        </radialGradient>
+        <radialGradient id="bear-sclera">
+          <stop offset=".4" stop-color="#fff8fa" />
+          <stop offset="1" stop-color="#cfc3d6" />
+        </radialGradient>
+        <clipPath id="bear-left-eye">
+          <path d="M459 332C454 313 468 285 489 282C517 278 531 299 534 331C515 348 477 349 459 332Z" />
+        </clipPath>
+        <clipPath id="bear-right-eye">
+          <path d="M706 330C707 300 719 281 742 282C765 285 780 310 776 332C757 348 723 345 706 330Z" />
+        </clipPath>
+      </defs>
+      <g clip-path="url(#bear-left-eye)">
+        <path fill="url(#bear-sclera)" d="M450 275H540V350H450Z" />
+        <g data-bear-pupil>
+          <ellipse cx="504" cy="316" rx="27" ry="30" fill="url(#bear-iris)" />
+          <ellipse cx="506" cy="315" rx="16" ry="20" fill="#100f14" />
+          <circle cx="513" cy="302" r="7" fill="#fff" />
+          <circle cx="492" cy="326" r="2" fill="#fff" opacity=".25" />
+        </g>
+      </g>
+      <g clip-path="url(#bear-right-eye)">
+        <path fill="url(#bear-sclera)" d="M700 275H785V350H700Z" />
+        <g data-bear-pupil>
+          <ellipse cx="734" cy="315" rx="26" ry="30" fill="url(#bear-iris)" />
+          <ellipse cx="732" cy="313" rx="16" ry="20" fill="#100f14" />
+          <circle cx="727" cy="299" r="7" fill="#fff" />
+          <circle cx="746" cy="327" r="2" fill="#fff" opacity=".25" />
+        </g>
+      </g>
+    </svg>
+  </div>
+  <span class="bear-mascot__caption">
+    {lang === "en"
+      ? "GOOD PLATFORMS DESERVE A BEAR HUG."
+      : "LAS BUENAS PLATAFORMAS MERECEN UN ABRAZO."}
+  </span>
+</div>
+<script>
+  import { easePoint, gazeOffset, type Point } from "./pointer";
+  document.querySelectorAll<HTMLElement>("[data-bear]").forEach((root) => {
+    const pose = root.querySelector<HTMLElement>("[data-bear-pose]")!;
+    const pupils = root.querySelectorAll<SVGGElement>("[data-bear-pupil]");
+    const reduced = matchMedia("(prefers-reduced-motion:reduce)");
+    let visible = false,
+      frame = 0,
+      current: Point = { x: 0, y: 0 },
+      target: Point = { x: 0, y: 0 };
+    const draw = () => {
+      frame = 0;
+      current = easePoint(current, target, 0.12);
+      pupils.forEach((p) =>
+        p.setAttribute("transform", `translate(${current.x} ${current.y})`),
+      );
+      pose.style.transform = `perspective(900px) rotateY(${current.x * 0.35}deg) rotateX(${-current.y * 0.2}deg) rotateZ(${current.x * 0.11}deg)`;
+      if (Math.hypot(current.x - target.x, current.y - target.y) > 0.1)
+        frame = requestAnimationFrame(draw);
+    };
+    const reset = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      current = { x: 0, y: 0 };
+      target = { ...current };
+      pose.style.transform = "";
+      pupils.forEach((p) => p.removeAttribute("transform"));
+    };
+    const controller = new AbortController();
+    const { signal } = controller;
+    const observer = new IntersectionObserver((entries) => {
+      visible = entries[0].isIntersecting;
+      if (!visible) reset();
+    });
+    observer.observe(root);
+    window.addEventListener(
+      "pointermove",
+      (event) => {
+        if (!visible || reduced.matches || event.pointerType !== "mouse")
+          return;
+        const rect = pose.getBoundingClientRect();
+        target = gazeOffset(
+          event.clientX - (rect.left + rect.width * 0.505),
+          event.clientY - (rect.top + rect.height * 0.245),
+          9,
+        );
+        if (!frame) frame = requestAnimationFrame(draw);
+      },
+      { passive: true, signal },
+    );
+    document.documentElement.addEventListener("pointerleave", reset, {
+      signal,
+    });
+    reduced.addEventListener("change", reset, { signal });
+    document.addEventListener(
+      "visibilitychange",
+      () => {
+        if (document.hidden) reset();
+      },
+      { signal },
+    );
+    document.addEventListener(
+      "astro:before-swap",
+      () => {
+        reset();
+        observer.disconnect();
+        controller.abort();
+      },
+      { once: true },
+    );
+  });
+</script>
+<style>
+  .bear-mascot {
+    position: relative;
+    isolation: isolate;
+    pointer-events: none;
+  }
+  .bear-mascot__pose {
+    position: relative;
+    width: 100%;
+    transform-origin: 50% 80%;
+    will-change: transform;
+  }
+  .bear-mascot__pose > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+  }
+  .bear-mascot__eyes {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+  .bear-mascot__halo {
+    position: absolute;
+    inset: 15% -10% 2%;
+    background: radial-gradient(ellipse, #c8b0ed70, transparent 65%);
+    z-index: -1;
+  }
+  .bear-mascot__caption {
+    display: block;
+    font-size: 8px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: var(--ed-muted);
+    margin: 12px -30px 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bear-mascot__pose {
+      transform: none !important;
+      will-change: auto;
+    }
+  }
+</style>

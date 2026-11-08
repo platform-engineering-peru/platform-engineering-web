@@ -15,10 +15,13 @@ const t = useTranslations(Astro.props.lang);
 <script>
   // El tema inicial lo fija el script inline de BaseLayout (sin parpadeo).
   document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((btn) => {
+    btn.setAttribute('aria-pressed', String(document.documentElement.dataset.theme === 'dark'));
     btn.addEventListener('click', () => {
       const root = document.documentElement;
       const next = root.dataset.theme === 'light' ? 'dark' : 'light';
       root.dataset.theme = next;
+      btn.setAttribute('aria-pressed', String(next === 'dark'));
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', next === 'dark' ? '#191624' : '#f0eefa');
       try { localStorage.setItem('pe-theme', next); } catch {}
     });
   });

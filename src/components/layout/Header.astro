@@ -1,105 +1,372 @@
 ---
-import Logo from '@components/ui/Logo.astro';
-import Button from '@components/ui/Button.astro';
-import Icon from '@components/ui/Icon.astro';
-import LanguagePicker from '@components/ui/LanguagePicker.astro';
-import ThemeToggle from '@components/ui/ThemeToggle.astro';
-import { useTranslations, localizePath, type Lang } from '@i18n/index';
-import { navigation } from './navigation';
+import { asset } from "@lib/assets";
+import Button from "@components/ui/Button.astro";
+import Icon from "@components/ui/Icon.astro";
+import LanguagePicker from "@components/ui/LanguagePicker.astro";
+import ThemeToggle from "@components/ui/ThemeToggle.astro";
+import { useTranslations, localizePath, type Lang } from "@i18n/index";
+import "./mega-menu.css";
 
-interface Props { lang: Lang }
+interface Props {
+  lang: Lang;
+}
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const current = Astro.url.pathname;
+
 const home = localizePath(lang);
-// Una sección queda activa también en sus subpáginas (p. ej. detalle de evento).
-const isActive = (href: string) => (href === home ? current === href : current.startsWith(href));
+const en = lang === "en";
+const groups = [
+  {
+    label: en ? "Gatherings" : "Encuentros",
+    title: en ? "It happens together." : "Pasa en comunidad.",
+    body: en
+      ? "Meet. Share. Remember."
+      : "Nos encontramos. Compartimos. Recordamos.",
+    items: [
+      [
+        "/events",
+        en ? "Events" : "Eventos",
+        en
+          ? "Meetups, workshops and conversations"
+          : "Meetups, talleres y conversaciones",
+        "↗",
+        "#b5a1ff",
+      ],
+      [
+        "/memories",
+        "Memories",
+        en ? "The moments that connect us" : "Los momentos que nos conectan",
+        "▧",
+        "#6edac4",
+      ],
+      [
+        "/team",
+        en ? "The team" : "El equipo",
+        en ? "Meet the people behind it" : "Conoce a quienes lo hacen posible",
+        "⌘",
+        "#edabce",
+      ],
+      [
+        "/participate",
+        en ? "Get involved" : "Participa",
+        en
+          ? "Find your place in the community"
+          : "Encuentra tu lugar en la comunidad",
+        "+",
+        "#f1b46f",
+      ],
+    ],
+  },
+  {
+    label: en ? "Explore" : "Explora",
+    title: en ? "Your next chapter." : "Tu próximo capítulo.",
+    body: en
+      ? "Tools, ideas and new possibilities."
+      : "Herramientas, ideas y nuevas posibilidades.",
+    items: [
+      [
+        "/resources",
+        en ? "Resources" : "Recursos",
+        en
+          ? "A curated knowledge archive"
+          : "Un archivo de conocimiento curado",
+        "▤",
+        "#b5a1ff",
+      ],
+      [
+        "/opportunities",
+        en ? "Opportunities" : "Oportunidades",
+        en
+          ? "Discover your next professional challenge"
+          : "Descubre tu próximo reto profesional",
+        "↗",
+        "#6edac4",
+      ],
+      [
+        "/marketplace",
+        "Marketplace",
+        en ? "Community tools · Coming soon" : "Herramientas de la comunidad · Próximamente",
+        "◈",
+        "#edabce",
+      ],
+      [
+        "/golden-paths",
+        en ? "Golden paths" : "Golden paths",
+        en
+          ? "Ideas for better platforms"
+          : "Ideas para construir mejores plataformas",
+        "⌁",
+        "#f1b46f",
+      ],
+    ],
+  },
+  {
+    label: en ? "Community" : "Comunidad",
+    title: en ? "Built by people." : "Hecho de personas.",
+    body: en
+      ? "From Peru, for everyone who builds."
+      : "Desde Perú, para quienes construyen.",
+    items: [
+      [
+        "/community",
+        en ? "About us" : "Quiénes somos",
+        en ? "A shared way of building" : "Una forma compartida de construir",
+        "⊞",
+        "#b5a1ff",
+      ],
+      [
+        "/partners",
+        "Partners",
+        en ? "Building connections · Coming soon" : "Construyendo alianzas · Próximamente",
+        "⌘",
+        "#6edac4",
+      ],
+      [
+        "/mascot",
+        en ? "Meet Ukuku" : "Conoce a Ukuku",
+        en ? "Our ecosystem engineer" : "Nuestro ingeniero de ecosistemas",
+        "◈",
+        "#edabce",
+      ],
+      [
+        "/community#code-of-conduct",
+        en ? "Code of conduct" : "Código de conducta",
+        en
+          ? "A space where everyone belongs"
+          : "Un espacio donde todos pertenecemos",
+        "✓",
+        "#f1b46f",
+      ],
+    ],
+  },
+];
+const menuHref = (path: string) => {
+  const [page, hash] = path.split("#");
+  return localizePath(lang, page) + (hash ? "#" + hash : "");
+};
+
 ---
 
 <header class="header" data-header>
   <div class="container header__inner">
-    <a class="header__brand" href={home} aria-label={t('site.title')}>
-      <Logo height={44} alt={t('site.title')} />
+    <a class="header__brand" href={home} aria-label={t("site.title")}>
+      <img class="header-brand-mark" src={asset('brand/official/mark.png')} width="52" height="52" alt="" />
+      <span class="header-brand-name"><strong>Platform<br/>Engineering</strong><span>PERÚ <i aria-hidden="true"></i></span></span>
     </a>
 
-    <button type="button" class="header__menu" data-menu-toggle aria-expanded="false" aria-controls="site-nav" aria-label={t('nav.menu')}>
+    <button
+      type="button"
+      class="header__menu"
+      data-menu-toggle
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label={t("nav.menu")}
+    >
       <Icon name="menu" size={20} />
     </button>
 
     <div class="header__panel" id="site-nav">
-      <nav aria-label={t('nav.label')}>
+      <nav aria-label={t("nav.label")}>
         <ul class="header__nav">
-          {navigation.map((item) => {
-            const href = localizePath(lang, item.path);
-            return (
-              <li>
-                <a href={href} aria-current={isActive(href) ? 'page' : undefined}>{t(item.label)}</a>
-              </li>
-            );
-          })}
+          {groups.map((group, i) => (
+            <li>
+              <details class="mega" data-mega data-section={["gatherings", "explore", "community"][i]}>
+                <summary aria-controls={`mega-${i}`}>
+                  <Icon name={i === 0 ? "calendar" : i === 1 ? "layers" : "users"} size={15} />
+                  {group.label}
+                  <span aria-hidden="true">⌄</span>
+                </summary>
+                <div class="mega-panel" id={`mega-${i}`}>
+                  <div class="mega-panel__intro">
+                    <small>PLATFORM ENGINEERING / PERÚ</small>
+                    <h2>{group.title}</h2>
+                    <p>{group.body}</p>
+                  </div>
+                  <div class="mega-panel__links">
+                    {group.items.map(
+                      ([path, title, description, symbol, color]) => (
+                        <a href={menuHref(path)}>
+                          <span
+                            class="mega-symbol"
+                            style={`--symbol:${color}`}
+                            aria-hidden="true"
+                          >
+                            {symbol}
+                          </span>
+                          <span>
+                            <strong>{title}</strong>
+                            <small>{description}</small>
+                          </span>
+                        </a>
+                      ),
+                    )}
+                  </div>
+                </div>
+              </details>
+            </li>
+          ))}
         </ul>
       </nav>
       <div class="header__actions">
+        <button
+          class="header-search"
+          type="button"
+          data-search-open
+          aria-label={lang === "en" ? "Search the site" : "Buscar en el sitio"}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <circle cx="10.5" cy="10.5" r="6.5" />
+            <path d="m16 16 5 5" />
+          </svg>
+          <span>{lang === "en" ? "Search" : "Buscar"}</span>
+          <kbd>⌘K</kbd>
+        </button>
         <LanguagePicker lang={lang} />
         <ThemeToggle lang={lang} />
-        <Button size="sm" variant="green" data-join-open>{t('nav.join')}</Button>
+        <Button size="sm" variant="green" data-join-open>
+          {t("nav.join")}
+        </Button>
       </div>
     </div>
   </div>
 </header>
 
 <script>
-  const header = document.querySelector<HTMLElement>('[data-header]');
-  const toggle = header?.querySelector<HTMLButtonElement>('[data-menu-toggle]');
-  toggle?.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') !== 'true';
-    toggle.setAttribute('aria-expanded', String(open));
-    header!.classList.toggle('is-open', open);
+  import "./mega-menu";
+  const header = document.querySelector<HTMLElement>("[data-header]");
+  const toggle = header?.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") !== "true";
+    toggle.setAttribute("aria-expanded", String(open));
+    header!.classList.toggle("is-open", open);
+  });
+  header?.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      toggle?.getAttribute("aria-expanded") === "true"
+    ) {
+      toggle.setAttribute("aria-expanded", "false");
+      header.classList.remove("is-open");
+      toggle.focus();
+    }
   });
 </script>
 
 <style>
   .header {
-    position: sticky; top: 0; z-index: 10;
+    position: sticky;
+    top: 0;
+    z-index: 10;
     background: color-mix(in srgb, var(--bg-canvas) 78%, transparent);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-subtle);
   }
-  .header__inner { height: var(--nav-h); display: flex; align-items: center; gap: 32px; }
-  .header__brand { display: flex; flex: none; }
-  .header__brand :global(img) { height: 44px; width: auto; }
-
-  .header__panel { flex: 1; display: flex; align-items: center; gap: 16px; }
-  .header__panel nav { margin-left: auto; }
-  .header__nav { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
-  .header__nav a {
-    display: block; padding: 8px 14px; border-radius: 99px;
-    font-size: 15px; font-weight: 600; color: var(--fg-2);
+  .header__inner {
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    gap: 32px;
   }
-  .header__nav a:hover { color: var(--fg-1); background: var(--hover-wash); }
-  .header__nav a[aria-current='page'] { color: var(--fg-1); background: var(--hover-wash); }
-  .header__actions { display: flex; align-items: center; gap: 10px; }
+  .header__brand {
+    display: flex;
+    flex: none;
+  }
+  .header__brand :global(img) {
+    height: 44px;
+    width: auto;
+  }
+
+  .header__panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header__panel nav {
+    margin-left: auto;
+  }
+  .header__nav {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .header__nav a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 99px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--fg-2);
+  }
+  .header__nav a:hover {
+    color: var(--fg-1);
+    background: var(--hover-wash);
+  }
+  .header__nav a[aria-current="page"] {
+    color: var(--fg-1);
+    background: var(--hover-wash);
+  }
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
   .header__menu {
-    display: none; margin-left: auto; width: 40px; height: 40px; place-items: center;
-    border-radius: var(--radius-pill); border: 1px solid var(--border-default);
-    background: transparent; color: var(--fg-1); cursor: pointer;
+    display: none;
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-default);
+    background: transparent;
+    color: var(--fg-1);
+    cursor: pointer;
   }
 
   @media (max-width: 960px) {
-    .header__menu { display: inline-grid; }
+    .header__menu {
+      display: inline-grid;
+    }
     .header__panel {
-      display: none; position: absolute; inset: var(--nav-h) 0 auto 0;
-      flex-direction: column; align-items: stretch; gap: 20px;
+      display: none;
+      position: absolute;
+      inset: var(--nav-h) 0 auto 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 20px;
       padding: 16px var(--container-pad) 24px;
-      background: var(--bg-raised); border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-raised);
+      border-bottom: 1px solid var(--border-subtle);
       box-shadow: var(--shadow-md);
     }
-    .header.is-open .header__panel { display: flex; }
-    .header__panel nav { margin-left: 0; }
-    .header__nav { flex-direction: column; }
-    .header__nav a { padding: 12px 14px; border-radius: var(--radius-sm); font-size: 17px; }
-    .header__actions { justify-content: space-between; }
+    .header.is-open .header__panel {
+      display: flex;
+    }
+    .header__panel nav {
+      margin-left: 0;
+    }
+    .header__nav {
+      flex-direction: column;
+    }
+    .header__nav a {
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 17px;
+    }
+    .header__actions {
+      justify-content: space-between;
+    }
   }
 </style>

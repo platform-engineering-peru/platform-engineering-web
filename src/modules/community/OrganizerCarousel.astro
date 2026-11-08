@@ -1,0 +1,140 @@
+---
+import { organizers } from "@data/organizers";
+import { contactEmail } from "@data/site";
+import { pick, type Lang } from "@i18n/index";
+import "./organizers.css";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const en = lang === "en";
+---
+
+<section
+  class="organizer-section ed-wrap"
+  id="team"
+  aria-labelledby="team-title"
+>
+  <div class="studio-toolbar">
+    <div>
+      <p class="ed-kicker">
+        {en ? "THE PEOPLE BEHIND IT" : "LAS PERSONAS DETRÁS"}
+      </p>
+      <h2 id="team-title">
+        {en ? "Meet the organizers." : "Quiénes organizamos."}
+      </h2>
+    </div>
+    <a href={`mailto:${contactEmail}`}>
+      {en ? "Want to help make it happen?" : "¿Te sumas a hacerlo posible?"} ↗
+    </a>
+  </div>
+  <div
+    class="people-carousel"
+    data-people-carousel
+    role="region"
+    aria-roledescription={en ? "carousel" : "carrusel"}
+    aria-label={en ? "Organizing team" : "Equipo organizador"}
+    style={`--people-color:${organizers[0].color}`}
+  >
+    <div class="people-carousel__top">
+      <span>PE / THE BUILDERS</span>
+      <span data-people-count>01 / 03</span>
+    </div>
+    <div class="people-carousel__stage" data-people-stage>
+      <span class="people-carousel__ghost" data-people-ghost aria-hidden="true">
+        {organizers[0].shortName.toUpperCase()}
+      </span>
+      <div class="people-carousel__floor" aria-hidden="true"></div>
+      {organizers.map((o, i) => (
+        <button
+          type="button"
+          class="people-carousel__figure"
+          data-person={i}
+          data-role={i === 0 ? "center" : i === 1 ? "right" : "left"}
+          data-color={o.color}
+          data-short={o.shortName}
+          aria-pressed={i === 0}
+          aria-label={`${en ? "Show" : "Mostrar a"} ${o.name}`}
+        >
+          <img
+            src={o.figurine}
+            width="700"
+            height="1100"
+            alt={
+              en
+                ? `3D-style illustration of ${o.name}`
+                : `Ilustración de ${o.name} con estilo 3D`
+            }
+            loading="lazy"
+            draggable="false"
+          />
+        </button>
+      ))}
+    </div>
+    <div class="people-carousel__bottom">
+      <div class="people-carousel__profiles" aria-live="polite">
+        {organizers.map((o, i) => (
+          <div data-person-profile={i} hidden={i !== 0}>
+            <p class="people-carousel__label">
+              {en ? "COMMUNITY ORGANIZER" : "ORGANIZADOR DE COMUNIDAD"}
+            </p>
+            <h3>{o.name}</h3>
+            <p>{o.role}</p>
+            {o.company && <small>{pick(o.company, lang)}</small>}
+            <a
+              href={o.url}
+              {...(o.url.startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+            >
+              {o.url.startsWith("http")
+                ? en
+                  ? "Connect on LinkedIn"
+                  : "Conecta en LinkedIn"
+                : en
+                  ? "Contact the team"
+                  : "Contacta al equipo"}{" "}
+              ↗
+            </a>
+            {o.links?.map((link) => (
+              <a
+                class="person-extra-link"
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.label} ↗
+              </a>
+            ))}
+          </div>
+        ))}
+      </div>
+      <div class="people-carousel__controls">
+        <p>
+          {en
+            ? "Different paths. One community."
+            : "Distintos caminos. Una comunidad."}
+        </p>
+        <div>
+          <button
+            type="button"
+            data-people-prev
+            aria-label={en ? "Previous organizer" : "Organizador anterior"}
+          >
+            ←
+          </button>
+          <button
+            type="button"
+            data-people-next
+            aria-label={en ? "Next organizer" : "Siguiente organizador"}
+          >
+            →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  import "./organizer-controller";
+</script>

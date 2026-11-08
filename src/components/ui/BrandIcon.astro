@@ -1,0 +1,7 @@
+---
+import { asset } from '@lib/assets';
+interface Props { name: 'whatsapp' | 'meetup' | 'linkedin' }
+const { name } = Astro.props;
+---
+<img class="brand-icon" src={asset(`brand/social/${name}.svg`)} width="24" height="24" alt="" aria-hidden="true" />
+<style>.brand-icon { display: block; width: 24px; height: 24px; object-fit: contain; flex: none; }</style>

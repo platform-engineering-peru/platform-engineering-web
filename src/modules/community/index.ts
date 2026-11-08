@@ -1,1 +1,1 @@
-export { default as CommunityContent } from './CommunityContent.astro';
+export { default as CommunityContent } from "./CommunityContent.astro";
