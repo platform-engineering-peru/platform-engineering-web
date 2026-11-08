@@ -70,7 +70,7 @@ test("mega menu Escape closes and returns focus to its trigger", () => {
   assert.equal(menu.open, false);
   assert.equal(document.activeElement, menu.querySelector("summary"));
 });
-test("new pages exist in both languages with skip-link target and demo labels", async () => {
+test("new pages exist in both languages with skip-link targets and appropriate content labels", async () => {
   for (const lang of ["en", "es-pe"])
     for (const page of ["opportunities", "memories", "mascot"]) {
       const html = await readFile(
@@ -79,7 +79,11 @@ test("new pages exist in both languages with skip-link target and demo labels", 
       );
       assert.match(html, /id="main-content"/);
       assert.match(html, /data-mega/);
-      if (page !== "mascot") assert.match(html, /Demo|muestra/);
+      if (page === "opportunities") assert.match(html, /Demo|muestra/);
+      if (page === "memories") {
+        for (let i=1;i<=5;i++) assert.ok(html.includes(`memories/community-0${i}.jpg`));
+        assert.doesNotMatch(html, /Lorem ipsum|Demo gallery|Galería de muestra/);
+      }
     }
 });
 test("Oscar profile uses public personal links and coffee illustration", async () => {

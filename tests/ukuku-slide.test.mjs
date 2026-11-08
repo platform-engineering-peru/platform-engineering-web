@@ -15,3 +15,11 @@ test('Ukuku banks into each slide direction and straightens at rest',()=>{
  assert.equal(slideState(4).yaw,0);
  for(const boundary of [1,2,3])assert.ok(Math.abs(slideState(boundary-.001).rotation-slideState(boundary+.001).rotation)<1);
 });
+
+test('the story finale uses its own seated greeting pose',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=await readFile('src/modules/mascot/Mascot.astro','utf8');
+ assert.match(source,/class="ukuku-seated"[^>]*ukuku-seated-greeting\.webp/);
+ const footer=await readFile('src/components/motion/BearMascot.astro','utf8');
+ assert.ok(footer.includes('oso-platform.webp'));
+});

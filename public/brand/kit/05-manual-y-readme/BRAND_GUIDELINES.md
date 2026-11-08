@@ -17,6 +17,10 @@ The official mark combines three isometric layers with Ukuku, the community's sp
 
 Use theme-appropriate text variants to maintain contrast. The raw emerald and lavender colors are not suitable for every text-on-white combination. Theme changes must include surfaces, text, borders, and illustration treatments.
 
+## Approved site mark
+
+Use `public/brand/official/mark.png`, the restored transparent master. The compatibility SVG and horizontal signatures embed this same raster artwork. The original is preserved separately. Do not redraw the bear or flatten its three-dimensional layers.
+
 ## Asset inventory
 
 The downloadable kit organizes assets into:
@@ -38,3 +42,7 @@ Maintain recognizable cream eye markings, soft fur, and violet rim definition. V
 ## Use
 
 Choose the supplied light/dark logo variant for its background. Keep clear space around the mark, avoid stretching, and do not invent replacement symbols. Merchandise images illustrate brand applications and do not imply products are currently for sale. Consult community maintainers before introducing a new identity variant.
+
+## Logo restoration and transparency
+
+The site uses the restored transparent 1254 px master (`mark.png`). The unchanged original is retained as `mark-original.png`. The downloadable kit includes `01-avatars-icons/logo-transparent-hd.png` and transparent 32/64 px favicons with a tighter crop for small tabs. The isometric SVG files now embed the same raster master; they are SVG containers, not editable vector artwork. Do not trace or substitute the bear symbol.

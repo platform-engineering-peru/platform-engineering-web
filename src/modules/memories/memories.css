@@ -308,3 +308,16 @@
 }
 
 .memory-dialog { --ed-ink: #f2eef9; --fg-1: #f2eef9; }
+
+/* Preserve the complete group photographs in both gallery renderers. */
+.memory-art img { width:100%; height:100%; object-fit:contain; display:block; }
+.memory-art { background:#191625; }
+.memory-dialog__art { background:transparent; }
+.memory-dialog__art img { width:100%; height:100%; max-height:65vh; object-fit:contain; display:block; }
+
+/* Keep faces away from rounded clipping edges; let expanded photos size naturally. */
+.memory-art { padding: 12px; box-sizing: border-box; }
+.memory-tile { max-width: calc(100vw - 48px); background: var(--ed-paper); color: var(--ed-ink); }
+.memory-dialog { overflow-y: auto; }
+.memory-dialog__art { height: auto; min-height: 0; overflow: visible; }
+.memory-dialog__art img { width: auto; max-width: 100%; height: auto; max-height: 65dvh; margin-inline: auto; }

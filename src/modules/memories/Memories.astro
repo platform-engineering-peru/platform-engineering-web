@@ -1,20 +1,18 @@
 ---
+import {asset} from "@lib/assets";
 import type { Lang } from "@i18n/index";
 import "./memories.css";
 interface Props {
   lang: Lang;
 }
 const en = Astro.props.lang === "en";
-const colors = [
-  "#aa9ae9",
-  "#f1b493",
-  "#9dcbbd",
-  "#a2bde5",
-  "#dba9c3",
-  "#cfce93",
-  "#a2c7cd",
-  "#c3b6de",
-];
+const photos = [
+ ["KCD 2026", "KCD 2026", "Foto grupal de KCD 2026, con asistentes en el auditorio y participantes frente al escenario.", "KCD 2026 group photo, with attendees throughout the auditorium and participants in front of the stage.", "Un auditorio lleno de personas que comparten el interés por Kubernetes y Cloud Native. Un recuerdo de KCD 2026 y de la comunidad que lo hace posible.", "An auditorium filled with people who share an interest in Kubernetes and Cloud Native. A memory of KCD 2026 and the community behind it."],
+ ["Josua y su combo", "Josua and the crew", "Josua y su combo en una foto grupal junto a los asistentes de un encuentro tecnológico.", "Josua and the crew in a group photo with attendees at a technology gathering.", "Las personas que hacen que cada encuentro valga la pena. Josua y su combo, reunidos para compartir conocimiento y seguir haciendo comunidad.", "The people who make every gathering worthwhile. Josua and the crew, coming together to share knowledge and strengthen the community."],
+ ["Almuerzo con Ronald", "Lunch with Ronald", "Foto grupal durante un almuerzo con Ronald, alrededor de una mesa en un restaurante.", "Group photo during lunch with Ronald, gathered around a restaurant table.", "La conversación continúa fuera de las charlas. Un almuerzo con Ronald para compartir ideas, experiencias y un buen momento entre amigos de la comunidad.", "The conversation continues beyond the talks. Lunch with Ronald to exchange ideas, experiences and a good time with friends from the community."],
+ ["Kubefest", "Kubefest", "Asistentes de Kubefest escuchando una charla desde las filas de un auditorio.", "Kubefest attendees listening to a talk from the auditorium seats.", "Un momento de Kubefest: escuchar, aprender y descubrir otras formas de construir. El conocimiento crece cuando lo compartimos.", "A moment from Kubefest: listening, learning and discovering other ways to build. Knowledge grows when we share it."],
+ ["Comunidad PEP", "PEP community", "Foto grupal de la comunidad Platform Engineering Perú en un auditorio de la Universidad ESAN.", "Platform Engineering Perú community group photo in an auditorium at Universidad ESAN.", "Platform Engineering Perú, en una foto que reúne a quienes comparten la curiosidad por aprender y construir juntos. Distintas experiencias, una comunidad.", "Platform Engineering Perú, in a photo bringing together people who share the curiosity to learn and build together. Different experiences, one community."],
+].map(([es,english,altEs,altEn,descriptionEs,descriptionEn],i)=>({src:asset(`memories/community-${String(i+1).padStart(2,"0")}.jpg`),title:en?english:es,alt:en?altEn:altEs,description:en?descriptionEn:descriptionEs}));
 ---
 
 <section class="memories" data-memories>
@@ -33,8 +31,8 @@ const colors = [
       </span>
       <small>
         {en
-          ? "Demo gallery · sample content"
-          : "Galería de muestra · contenido provisional"}
+          ? "Moments from our community"
+          : "Momentos de nuestra comunidad"}
       </small>
     </div>
   </header>
@@ -51,20 +49,16 @@ const colors = [
   >
     <div class="memory-canvas" data-memory-canvas aria-hidden="true"></div>
     <div class="memory-fallback" data-memory-fallback>
-      {colors.map((color, i) => (
+      {photos.map((photo, i) => (
         <button
           class="memory-tile"
           data-memory-tile={i}
-          style={`--memory-color:${color}`}
+          data-title={photo.title}
+          data-description={photo.description}
         >
-          <span class="memory-art" aria-hidden="true">
-            <i></i>
-            <i></i>
-            <i></i>
-            <b>{String(i + 1).padStart(2, "0")}</b>
-          </span>
+          <span class="memory-art"><img src={photo.src} alt={photo.alt} loading="eager" /></span>
           <span class="memory-tile__caption">
-            <strong>Lorem ipsum / {String(i + 1).padStart(2, "0")}</strong>
+            <strong>{photo.title}</strong>
             <span>↗</span>
           </span>
         </button>
@@ -86,7 +80,7 @@ const colors = [
         ←
       </button>
       <span data-memory-count aria-live="polite">
-        01 / 08
+        01 / 05
       </span>
       <button
         data-memory-next
@@ -106,6 +100,7 @@ const colors = [
     class="memory-dialog"
     data-memory-dialog
     aria-labelledby="memory-dialog-title"
+    aria-describedby="memory-dialog-description"
   >
     <button
       data-memory-close
@@ -116,23 +111,9 @@ const colors = [
     <p>
       PE / MEMORIES / <span data-memory-id>01</span>
     </p>
-    <div class="memory-dialog__art" data-memory-art aria-hidden="true">
-      <span>
-        together
-        <br />
-        we build.
-      </span>
-    </div>
-    <h2 id="memory-dialog-title">Lorem ipsum dolor sit amet.</h2>
-    <p>
-      Consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud
-      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-    <small>
-      {en
-        ? "Sample artwork and text. Replace with community photos and videos."
-        : "Arte y texto de muestra. Se reemplazarán con fotos y videos de la comunidad."}
-    </small>
+    <div class="memory-dialog__art" data-memory-art><img data-memory-photo src={photos[0].src} alt={photos[0].alt}/></div>
+    <h2 id="memory-dialog-title">{photos[0].title}</h2>
+    <p id="memory-dialog-description">{photos[0].description}</p>
   </dialog>
 </section>
 <script>

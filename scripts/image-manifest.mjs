@@ -1,4 +1,5 @@
 export const imageSources = [
+ 'illustrations/ukuku-seated-greeting.png',
  'illustrations/ukuku-peek-atlas.png',
  'illustrations/ukuku-seated-slide-rim.png',
  'illustrations/platform-stack-light.png',

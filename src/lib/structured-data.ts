@@ -22,7 +22,7 @@ export function organizationLd(lang: Lang, site: URL, homeUrl: string): JsonLd[]
       '@type': 'Organization',
       name: t('site.title'),
       url: homeUrl,
-      logo: abs(asset('brand/official/mark.svg'), site),
+      logo: abs(asset('brand/official/mark.png'), site),
       description: t('site.description'),
       email: contactEmail,
       sameAs,

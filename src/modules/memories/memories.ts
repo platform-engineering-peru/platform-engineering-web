@@ -22,40 +22,30 @@ if (root) {
     oldOverflow = "",
     origin: HTMLElement | null = null;
   const vertex = `varying vec2 vUv; varying float vDepth; uniform float uCenter; uniform float uWidth; uniform float uVelocity; void main(){vUv=uv; vec3 p=position; p.x*=380.;p.y*=255.;p.x+=uCenter;float q=p.x/uWidth*3.2-.2;float curve=sin(q*3.14159)*exp(-q*q*.5);float depth=curve*(70.+abs(uVelocity)*18.);p.y+=depth*.43; p.y+=sin(q*2.)*p.y*.07;vDepth=curve;gl_Position=projectionMatrix*modelViewMatrix*vec4(p.x,p.y,-depth*1.8,1.);}`;
-  const fragment = `varying vec2 vUv;varying float vDepth;uniform sampler2D uTexture; void main(){vec2 p=abs(vUv-.5)-vec2(.47,.46);float d=length(max(p,0.))+min(max(p.x,p.y),0.)-.025;float a=1.-smoothstep(-.003,.003,d);vec3 c=texture2D(uTexture,vUv).rgb;c*=1.-max(0.,vDepth)*.48;gl_FragColor=vec4(c,a);}`;
+  const fragment = `varying vec2 vUv;varying float vDepth;uniform sampler2D uTexture; void main(){vec2 p=abs(vUv-.5)-vec2(.47,.46);float d=length(max(p,0.))+min(max(p.x,p.y),0.)-.025;float a=1.-smoothstep(-.003,.003,d);vec3 c=texture2D(uTexture,vUv).rgb;c*=1.-max(0.,vDepth)*.08;gl_FragColor=vec4(c,a);
+#include <colorspace_fragment>
+}`;
   function texture(tile: HTMLElement, i: number) {
     const canvas = document.createElement("canvas");
     canvas.width = 1000;
     canvas.height = 670;
     const c = canvas.getContext("2d")!;
-    const col = tile.style.getPropertyValue("--memory-color");
-    c.fillStyle = col;
-    c.fillRect(0, 0, 1000, 670);
-    const g = c.createLinearGradient(0, 0, 1000, 670);
-    g.addColorStop(0, "#ffffff99");
-    g.addColorStop(1, "#ffffff00");
-    c.fillStyle = g;
-    c.fillRect(0, 0, 1000, 670);
-    c.save();
-    c.translate(510, 310);
-    c.rotate(-0.3 + i * 0.09);
-    for (let k = 0; k < 7; k++) {
-      c.strokeStyle = `rgba(35,23,48,${0.5 - k * 0.045})`;
-      c.lineWidth = 2;
-      c.strokeRect(-160 + k * 18, -170 + k * 24, 310, 270);
-    }
-    c.restore();
-    c.fillStyle = "#ffffff65";
-    c.font = "500 260px sans-serif";
-    c.fillText(String(i + 1).padStart(2, "0"), 35, 500);
-    c.fillStyle = "#24182e";
-    c.font = "22px sans-serif";
-    c.fillText("PE / COLLECTIVE MEMORY", 45, 55);
-    c.font = "32px sans-serif";
-    c.fillText("Lorem ipsum / " + String(i + 1).padStart(2, "0"), 45, 610);
-    c.fillText("↗", 900, 610);
+    const img = tile.querySelector<HTMLImageElement>("img")!;
     const t = new THREE.CanvasTexture(canvas);
     t.colorSpace = THREE.SRGBColorSpace;
+    const paint = () => {
+      c.fillStyle = "#191625";
+      c.fillRect(0, 0, 1000, 670);
+      // Keep photograph edges inside the rounded shader mask.
+      const padding = 36;
+      const scale = Math.min((1000 - padding * 2) / img.naturalWidth, (670 - padding * 2) / img.naturalHeight);
+      const w = img.naturalWidth * scale, h = img.naturalHeight * scale;
+      c.drawImage(img, (1000-w)/2, (670-h)/2, w, h);
+      t.needsUpdate = true;
+      wake();
+    };
+    if(img.complete && img.naturalWidth) paint();
+    else img.addEventListener("load", paint, {once:true});
     return t;
   }
   const render = () => {
@@ -138,7 +128,7 @@ if (root) {
   const update = () => {
     index = wrapIndex(Math.round(target / 405), tiles.length);
     root.querySelector("[data-memory-count]")!.textContent =
-      String(index + 1).padStart(2, "0") + " / 08";
+      String(index + 1).padStart(2, "0") + " / " + String(tiles.length).padStart(2, "0");
   };
   const move = (delta: number, instant = false) => {
     target += delta * 405;
@@ -156,10 +146,12 @@ if (root) {
     root.querySelector("[data-memory-id]")!.textContent = String(
       index + 1,
     ).padStart(2, "0");
-    (root.querySelector("[data-memory-art]") as HTMLElement).style.setProperty(
-      "--memory-color",
-      tiles[index].style.getPropertyValue("--memory-color"),
-    );
+    const photo = tiles[index].querySelector<HTMLImageElement>("img")!;
+    const full = root.querySelector<HTMLImageElement>("[data-memory-photo]")!;
+    full.src = photo.src;
+    full.alt = photo.alt;
+    root.querySelector("#memory-dialog-title")!.textContent = tiles[index].dataset.title!;
+    root.querySelector("#memory-dialog-description")!.textContent = tiles[index].dataset.description!;
     origin = document.activeElement as HTMLElement;
     oldOverflow = document.documentElement.style.overflow;
     document.documentElement.style.overflow = "hidden";

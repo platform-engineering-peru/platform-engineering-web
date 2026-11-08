@@ -26,7 +26,8 @@ These instructions apply to the entire repository. Preserve the approved version
 - The logo is the home link; do not add a redundant Home navbar item. Branding belongs in the footer. Partners belongs under Community; Marketplace under Explore and remains WIP.
 - WIP is a section within the site, not a full-screen error page that removes navigation.
 - Light mode must update entire surfaces, illustrations, borders, text, and controls. A light navbar above hardcoded dark home sections is a regression.
-- Use official brand/social SVG assets. Do not invent replacement logos or brand icons. Retain original downloadable source assets.
+- The approved site mark is `public/brand/official/mark.png`, restored from the approved transparent PNG. The unchanged source is `mark-original.png`. The compatibility SVG embeds the raster master; it is not editable vector artwork. Preserve the original eye/nose contours and layer proportions.
+- Use official brand/social assets. Do not invent replacement logos or brand icons. Retain original downloadable source assets.
 - Josua Castro appears first among organizers. Oscar Lobaton Salas and Ronald Requena must retain their correct artwork and information.
 - Keep the removed home “Explore the platform / Reveal interior” console removed.
 
