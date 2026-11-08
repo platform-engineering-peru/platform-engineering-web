@@ -1,5 +1,6 @@
 ---
 import { pick, useTranslations, type Lang } from "@i18n/index";
+import {coverArt, coverArtKey} from "./cover-art";
 import type { Resource } from "@data/resources";
 interface Props {
   resource: Resource;
@@ -33,16 +34,7 @@ const palette = [
     stroke="currentColor"
     stroke-width="1.4"
   >
-    {[0, 1, 2, 3, 4].map((i) => (
-      <path
-        d={`M25 ${60 + i * 25} 120 ${20 + i * 25} 215 ${60 + i * 25} 120 ${100 + i * 25}Z`}
-      />
-    ))}
-    <path d="M25 60v100m190-100v100M120 20v180" stroke-dasharray="2 5" />
-    <path
-      d="m84 83-17 10 17 10m72-20 17 10-17 10m-45 7 18-38"
-      stroke-width="4"
-    />
+    {coverArt[coverArtKey(resource)].map(d => <path d={d} stroke-linecap="round" stroke-linejoin="round" />)}
   </svg>
   <div class="resource-cover__bottom">
     <span>{t(`resources.type.${resource.type}` as const)}</span>

@@ -25,7 +25,7 @@ test('favicon uses a transparent, tightly framed PNG with a versioned URL',async
  let visible=0;
  for(let i=3;i<data.length;i+=4) if(data[i]>128) visible++;
  assert.ok(visible>info.width*info.height*.35,'mark must remain readable at tab size');
- const layout=await readFile('src/layouts/BaseLayout.astro','utf8');
+ const layout=await readFile('src/components/meta/Favicons.astro','utf8');
  assert.ok(layout.includes('favicon-transparent.png'));
 });
 
@@ -34,4 +34,13 @@ test('downloadable HD master and compatibility SVG match the site master',async(
  assert.deepEqual(await readFile('public/brand/kit/01-avatars-icons/logo-transparent-hd.png'),master);
  const svg=await readFile('public/brand/kit/04-vectores-svg/logo-isometrico-3capas-ukuku-transparent.svg','utf8');
  assert.ok(svg.includes(master.toString('base64')));
+});
+
+
+test('favicon fallback includes three sizes and is declared on both entry layouts',async()=>{
+ const ico=await readFile('public/favicon.ico');
+ assert.equal(ico.readUInt16LE(2),1);
+ assert.equal(ico.readUInt16LE(4),3);
+ assert.deepEqual([ico[6],ico[22],ico[38]],[16,32,48]);
+ for(const path of ['src/pages/index.astro','src/layouts/BaseLayout.astro']) assert.ok((await readFile(path,'utf8')).includes('<Favicons />'));
 });
