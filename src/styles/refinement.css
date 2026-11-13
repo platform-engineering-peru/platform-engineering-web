@@ -519,3 +519,15 @@
     top: 72px;
   }
 }
+
+/* Distinguish the footer and expose clear contact targets on touch screens. */
+.site-editorial .living-footer{border-top:1px solid var(--ed-line);background:color-mix(in srgb,var(--ed-lilac) 48%,var(--ed-paper))}
+.site-editorial .living-footer__email,.site-editorial .living-footer__social{display:inline-flex;align-items:center;justify-content:center;gap:10px;vertical-align:middle;min-height:44px;width:auto;height:auto;padding:10px 14px;border:1px solid var(--ed-line);border-radius:10px;background:var(--ed-soft);color:var(--ed-ink);font-size:13px;box-sizing:border-box}
+.site-editorial .living-footer__social{margin-left:8px}
+.site-editorial .living-footer__social svg,.site-editorial .living-footer__social img{width:22px;height:22px}
+.site-editorial .global-community .ed-button{margin:0 10px 10px 0}
+@media(max-width:700px){
+ .site-editorial .living-footer{padding-top:48px}
+ .site-editorial .living-footer__right{border-top:1px solid var(--ed-line);padding-top:30px}
+ .site-editorial .living-footer__social{margin-left:0}
+}

@@ -4,4 +4,4 @@ import {getLangPaths, type Lang} from '@i18n/index';
 export const getStaticPaths=getLangPaths;
 const lang=Astro.params.lang as Lang;
 ---
-<WorkInProgress lang={lang} title={lang==='en'?'Marketplace':'Marketplace'} />
+<WorkInProgress description={lang==='en'?'Our community merch shop is coming soon: clothing, accessories and Ukuku collectibles.':'Pronto podrás comprar merch de la comunidad: ropa, accesorios y coleccionables de Ukuku.'} lang={lang} title={lang==='en'?'Marketplace':'Marketplace'} />
