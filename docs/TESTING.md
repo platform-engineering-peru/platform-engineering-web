@@ -37,3 +37,18 @@ For affected pages, inspect desktop (approximately 1280 px) and mobile (approxim
 - Branding previews load and original downloads work.
 
 Automated checks cannot certify artistic quality, browser GPU performance, or external link availability. Capture screenshots and describe any unverified behavior instead of reporting a blanket pass.
+
+## Dependency compatibility
+
+Dependabot groups Three.js with its type definitions and the Astro toolchain together.
+Validate dependency updates with Node 22, a clean `npm ci`, the full test suite,
+root and repository-subpath builds, and image/documentation checks. Three.js changes
+also require a browser review of Memories and its fallback; successful compilation
+alone does not establish rendering compatibility.
+
+TypeScript 7.x updates are temporarily excluded. The attempted 7.0.2 upgrade fails
+`npm ci` because `@astrojs/check` requires `typescript` in `^5.0.0 || ^6.0.0`.
+Keep TypeScript 6 and do not bypass this contract with `--force` or
+`--legacy-peer-deps`. Revisit the exclusion when Astro's checker supports the new
+compiler API. Microsoft documents the API transition in the
+[TypeScript 7 announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/).
