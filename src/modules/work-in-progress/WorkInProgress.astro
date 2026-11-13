@@ -2,8 +2,8 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import {asset} from '@lib/assets';
 import {localizePath,type Lang} from '@i18n/index';
-interface Props {lang:Lang; title:string}
-const {lang,title}=Astro.props;
+interface Props {lang:Lang; title:string; description?:string}
+const {lang,title,description}=Astro.props;
 const en=lang==='en';
 ---
 <BaseLayout lang={lang} title={title}>
@@ -13,7 +13,7 @@ const en=lang==='en';
     <div class="worksite-copy">
       <p class="worksite-status"><i></i>{en?'IN THE WORKSHOP':'EN EL TALLER'}</p>
       <h1>{en?'Good things':'Las buenas ideas'}<br/><em>{en?'take shape.':'toman forma.'}</em></h1>
-      <p class="worksite-description">{en?'We are building this part of the community. Ukuku is taking care of the details; we’ll share it when it’s ready.':'Estamos construyendo este espacio de la comunidad. Ukuku está afinando los detalles; lo compartiremos cuando esté listo.'}</p>
+      <p class="worksite-description">{description ?? (en?'We are building this part of the community. Ukuku is taking care of the details; we’ll share it when it’s ready.':'Estamos construyendo este espacio de la comunidad. Ukuku está afinando los detalles; lo compartiremos cuando esté listo.')}</p>
       <a class="worksite-link" href={localizePath(lang,'/community')}>{en?'Meanwhile, meet your community':'Mientras tanto, conoce a tu comunidad'} <span>↗</span></a>
     </div>
     <div class="worksite-scene">
