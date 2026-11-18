@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "manual:original-detail:6746069b77e7de24e1f4346d094160b4b5fbcaa8",
+  "slug": "vacancy-6746069b77e7de24e1f4346d094160b4b5fbcaa8",
+  "status": "active",
+  "title": "AWS Engineer [Zeal]",
+  "company": "Livefront / Zeal",
+  "sourceId": "original-detail",
+  "externalId": "6746069b77e7de24e1f4346d094160b4b5fbcaa8",
+  "sourceUrl": "https://job-boards.greenhouse.io/livefront/jobs/4377338009",
+  "applyUrl": "https://job-boards.greenhouse.io/livefront/jobs/4377338009",
+  "contentLanguage": "en",
+  "workplace": "remote",
+  "eligibility": "remote-peru",
+  "locations": [
+    "Remote (Peru)"
+  ],
+  "seniority": null,
+  "salary": null,
+  "summary": {
+    "en": "AWS infrastructure and observability engineering covering metrics, traces, alerts and reliability objectives alongside infrastructure as code. Remote role available in Peru.",
+    "es-pe": "Ingeniería de infraestructura AWS y observabilidad: métricas, trazas, alertas y objetivos de confiabilidad, junto con infraestructura como código. Puesto remoto disponible en Perú."
+  },
+  "tags": [
+    "AWS",
+    "OpenTelemetry",
+    "Terraform",
+    "observability"
+  ],
+  "sourcePublishedAt": null,
+  "firstSeenAt": "2026-11-18T08:23:16.687Z",
+  "lastSeenAt": "2026-11-18T08:23:16.687Z",
+  "lastVerifiedAt": "2026-11-18T08:23:16.687Z",
+  "expiresAt": null,
+  "closureReason": null,
+  "evidenceRunId": null
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "lever:lever-coderio:e2caacf4-484f-40af-8dae-13267ce3d782",
+  "slug": "lever-coderio-e2caacf4-484f-40af-8dae-13267ce3d782",
+  "status": "active",
+  "title": "Sr Devops Engineer",
+  "company": "Coderio",
+  "sourceId": "lever-coderio",
+  "externalId": "e2caacf4-484f-40af-8dae-13267ce3d782",
+  "sourceUrl": "https://jobs.lever.co/coderio/e2caacf4-484f-40af-8dae-13267ce3d782",
+  "applyUrl": "https://jobs.lever.co/coderio/e2caacf4-484f-40af-8dae-13267ce3d782/apply",
+  "contentLanguage": "en",
+  "workplace": "remote",
+  "eligibility": "peru",
+  "locations": [
+    "Argentina",
+    "Brazil",
+    "Colombia",
+    "México",
+    "Peru"
+  ],
+  "seniority": null,
+  "salary": null,
+  "summary": {
+    "en": "Design and maintain AWS infrastructure, Terraform automation and deployments using GitHub Actions and Kubernetes. Remote role with Peru included among eligible locations.",
+    "es-pe": "Diseño y mantenimiento de infraestructura AWS, automatización con Terraform y despliegues con GitHub Actions y Kubernetes. Puesto remoto con Perú incluido entre las ubicaciones admitidas."
+  },
+  "tags": [
+    "AWS",
+    "Terraform",
+    "GitHub Actions",
+    "Kubernetes"
+  ],
+  "sourcePublishedAt": "2026-11-12T17:56:34.961Z",
+  "firstSeenAt": "2026-11-18T06:49:44.501Z",
+  "lastSeenAt": "2026-11-18T08:23:12.407Z",
+  "lastVerifiedAt": "2026-11-18T08:23:12.407Z",
+  "expiresAt": null,
+  "closureReason": null,
+  "evidenceRunId": "5b1155c5-aa7a-4f3b-95a2-40f73d96bb00"
+}

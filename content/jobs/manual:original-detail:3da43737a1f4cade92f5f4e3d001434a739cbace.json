@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "manual:original-detail:3da43737a1f4cade92f5f4e3d001434a739cbace",
+  "slug": "vacancy-3da43737a1f4cade92f5f4e3d001434a739cbace",
+  "status": "active",
+  "title": "Credicorp - Security Platform Engineer",
+  "company": "Credicorp",
+  "sourceId": "original-detail",
+  "externalId": "3da43737a1f4cade92f5f4e3d001434a739cbace",
+  "sourceUrl": "https://credicorp.hirehive.com/credicorp-security-platform-engineer-lima-UATJ5X",
+  "applyUrl": "https://credicorp.hirehive.com/credicorp-security-platform-engineer-lima-UATJ5X",
+  "contentLanguage": "es-pe",
+  "workplace": "unknown",
+  "eligibility": "peru",
+  "locations": [
+    "Lima",
+    "PE"
+  ],
+  "seniority": null,
+  "salary": null,
+  "summary": {
+    "en": "Integrate security into an internal developer platform through policy as code, CI/CD controls and automated remediation. Lima role; the work arrangement is unconfirmed.",
+    "es-pe": "Integración de seguridad en una plataforma interna de desarrollo mediante policy-as-code, controles CI/CD y automatización de remediación. Puesto en Lima; la modalidad de trabajo no está confirmada."
+  },
+  "tags": [
+    "Platform Engineering",
+    "DevSecOps",
+    "policy-as-code",
+    "CI/CD",
+    "security"
+  ],
+  "sourcePublishedAt": "2026-11-04T00:00:00.000Z",
+  "firstSeenAt": "2026-11-18T05:23:12.749Z",
+  "lastSeenAt": "2026-11-18T05:23:12.749Z",
+  "lastVerifiedAt": "2026-11-18T05:23:12.749Z",
+  "expiresAt": "2026-12-16T00:00:00.000Z",
+  "closureReason": null,
+  "evidenceRunId": null
+}

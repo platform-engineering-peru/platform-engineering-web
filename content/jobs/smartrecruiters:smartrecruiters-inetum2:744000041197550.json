@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "smartrecruiters:smartrecruiters-inetum2:744000041197550",
+  "slug": "smartrecruiters-inetum2-744000041197550",
+  "status": "active",
+  "title": "Especialista DevSecOps",
+  "company": "Inetum",
+  "sourceId": "smartrecruiters-inetum2",
+  "externalId": "744000041197550",
+  "sourceUrl": "https://jobs.smartrecruiters.com/Inetum2/744000041197550-especialista-devsecops",
+  "applyUrl": "https://jobs.smartrecruiters.com/Inetum2/744000041197550-especialista-devsecops?oga=true",
+  "contentLanguage": "es-MX",
+  "workplace": "hybrid",
+  "eligibility": "peru",
+  "locations": [
+    "Lima, Callao Region, Peru"
+  ],
+  "seniority": null,
+  "salary": null,
+  "summary": {
+    "en": "Design and oversee continuous integration components and help define DevSecOps standards. Lima role with hybrid work stated in the description.",
+    "es-pe": "Diseño y supervisión de componentes de integración continua y definición de estándares DevSecOps. Puesto en Lima con modalidad híbrida indicada en la descripción."
+  },
+  "tags": [
+    "DevSecOps",
+    "CI/CD",
+    "security"
+  ],
+  "sourcePublishedAt": null,
+  "firstSeenAt": "2026-11-18T08:23:59.490Z",
+  "lastSeenAt": "2026-11-18T08:23:59.490Z",
+  "lastVerifiedAt": "2026-11-18T08:23:59.490Z",
+  "expiresAt": null,
+  "closureReason": null,
+  "evidenceRunId": "df13d957-36dc-40b6-bf58-9ed3e975b991"
+}

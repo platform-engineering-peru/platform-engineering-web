@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "smartrecruiters:smartrecruiters-inetum2:744000104342420",
+  "slug": "smartrecruiters-inetum2-744000104342420",
+  "status": "active",
+  "title": "DevSecOps Engineer",
+  "company": "Inetum",
+  "sourceId": "smartrecruiters-inetum2",
+  "externalId": "744000104342420",
+  "sourceUrl": "https://jobs.smartrecruiters.com/Inetum2/744000104342420-devsecops-engineer",
+  "applyUrl": "https://jobs.smartrecruiters.com/Inetum2/744000104342420-devsecops-engineer?oga=true",
+  "contentLanguage": "es",
+  "workplace": "hybrid",
+  "eligibility": "peru",
+  "locations": [
+    "Lima, Callao Region, Peru"
+  ],
+  "seniority": null,
+  "salary": null,
+  "summary": {
+    "en": "Automate deployments and secure development controls using Azure, CI/CD and infrastructure as code. Hybrid role in Lima; the source specifies attendance twice a week.",
+    "es-pe": "Automatización de despliegues y controles de desarrollo seguro con Azure, CI/CD e infraestructura como código. Puesto híbrido en Lima; la fuente indica asistencia dos veces por semana."
+  },
+  "tags": [
+    "DevSecOps",
+    "Azure",
+    "CI/CD",
+    "Terraform",
+    "Kubernetes"
+  ],
+  "sourcePublishedAt": null,
+  "firstSeenAt": "2026-11-18T08:23:59.490Z",
+  "lastSeenAt": "2026-11-18T08:23:59.490Z",
+  "lastVerifiedAt": "2026-11-18T08:23:59.490Z",
+  "expiresAt": null,
+  "closureReason": null,
+  "evidenceRunId": "df13d957-36dc-40b6-bf58-9ed3e975b991"
+}

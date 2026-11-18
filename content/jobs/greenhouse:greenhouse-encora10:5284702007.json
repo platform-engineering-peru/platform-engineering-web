@@ -1,1 +1,36 @@
-{"applyUrl":"https://job-boards.greenhouse.io/encora10/jobs/5284702007","closureReason":null,"company":"Coforge (bolsa heredada de Encora)","contentLanguage":"es","eligibility":"peru","evidenceRunId":"c33154fa-8e37-4062-8846-68241ec57f26","expiresAt":null,"externalId":"5284702007","firstSeenAt":"2026-11-18T05:18:21.476Z","id":"greenhouse:greenhouse-encora10:5284702007","lastSeenAt":"2026-11-18T05:34:37.301Z","lastVerifiedAt":"2026-11-18T05:34:37.301Z","locations":["Peru"],"salary":null,"schemaVersion":1,"seniority":null,"slug":"greenhouse-encora10-5284702007","sourceId":"greenhouse-encora10","sourcePublishedAt":null,"sourceUrl":"https://job-boards.greenhouse.io/encora10/jobs/5284702007","status":"active","summary":{"en":"Coforge is seeking a senior DevOps engineer with Azure, Kubernetes, CI/CD and infrastructure as code in Peru. Hybrid workplace. Check the source for requirements and application details.","es-pe":"Coforge busca un perfil senior de DevOps con Azure, Kubernetes, CI/CD e infraestructura como código en Perú. Modalidad híbrida. Consulta la fuente para requisitos y postulación."},"tags":["Azure","Kubernetes","CI/CD"],"title":"Senior DevOps Engineer","workplace":"hybrid"}
+{
+  "schemaVersion": 1,
+  "id": "greenhouse:greenhouse-encora10:5284702007",
+  "slug": "greenhouse-encora10-5284702007",
+  "status": "active",
+  "title": "Senior DevOps Engineer",
+  "company": "Coforge (bolsa heredada de Encora)",
+  "sourceId": "greenhouse-encora10",
+  "externalId": "5284702007",
+  "sourceUrl": "https://job-boards.greenhouse.io/encora10/jobs/5284702007",
+  "applyUrl": "https://job-boards.greenhouse.io/encora10/jobs/5284702007",
+  "contentLanguage": "es",
+  "workplace": "hybrid",
+  "eligibility": "peru",
+  "locations": [
+    "Peru"
+  ],
+  "seniority": null,
+  "salary": null,
+  "summary": {
+    "en": "Coforge is seeking a senior DevOps engineer with Azure, Kubernetes, CI/CD and infrastructure as code in Peru. Hybrid workplace. Check the source for requirements and application details.",
+    "es-pe": "Coforge busca un perfil senior de DevOps con Azure, Kubernetes, CI/CD e infraestructura como código en Perú. Modalidad híbrida. Consulta la fuente para requisitos y postulación."
+  },
+  "tags": [
+    "Azure",
+    "Kubernetes",
+    "CI/CD"
+  ],
+  "sourcePublishedAt": "2026-11-04T16:47:14.000Z",
+  "firstSeenAt": "2026-11-18T05:18:21.476Z",
+  "lastSeenAt": "2026-11-18T08:22:31.356Z",
+  "lastVerifiedAt": "2026-11-18T08:22:31.356Z",
+  "expiresAt": null,
+  "closureReason": null,
+  "evidenceRunId": "75116b48-884f-492f-8387-8b775d6a1448"
+}

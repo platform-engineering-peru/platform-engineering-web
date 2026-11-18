@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "greenhouse:greenhouse-livefront:4430022009",
+  "slug": "greenhouse-livefront-4430022009",
+  "status": "active",
+  "title": "DevOps Engineer [Zeal]",
+  "company": "Livefront / Zeal",
+  "sourceId": "greenhouse-livefront",
+  "externalId": "4430022009",
+  "sourceUrl": "https://job-boards.greenhouse.io/livefront/jobs/4430022009",
+  "applyUrl": "https://job-boards.greenhouse.io/livefront/jobs/4430022009",
+  "contentLanguage": "en",
+  "workplace": "remote",
+  "eligibility": "remote-peru",
+  "locations": [
+    "Remote (Peru)"
+  ],
+  "seniority": null,
+  "salary": null,
+  "summary": {
+    "en": "Deployment and infrastructure automation for Livefront/Zeal, using Terraform, Kubernetes and observability. Remote role open to candidates in Peru.",
+    "es-pe": "Automatización de despliegues e infraestructura para Livefront/Zeal, con Terraform, Kubernetes y observabilidad. Puesto remoto disponible para candidatos en Perú."
+  },
+  "tags": [
+    "CI/CD",
+    "Terraform",
+    "Kubernetes",
+    "observability"
+  ],
+  "sourcePublishedAt": "2026-10-01T18:59:01.000Z",
+  "firstSeenAt": "2026-11-18T06:49:46.505Z",
+  "lastSeenAt": "2026-11-18T08:22:34.349Z",
+  "lastVerifiedAt": "2026-11-18T08:22:34.349Z",
+  "expiresAt": null,
+  "closureReason": null,
+  "evidenceRunId": "bcc7294e-1698-4e92-9d71-f148ec750275"
+}

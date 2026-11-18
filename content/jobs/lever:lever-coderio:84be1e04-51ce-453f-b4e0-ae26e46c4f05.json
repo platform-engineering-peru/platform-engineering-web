@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "lever:lever-coderio:84be1e04-51ce-453f-b4e0-ae26e46c4f05",
+  "slug": "lever-coderio-84be1e04-51ce-453f-b4e0-ae26e46c4f05",
+  "status": "active",
+  "title": "Senior Devops Engineer",
+  "company": "Coderio",
+  "sourceId": "lever-coderio",
+  "externalId": "84be1e04-51ce-453f-b4e0-ae26e46c4f05",
+  "sourceUrl": "https://jobs.lever.co/coderio/84be1e04-51ce-453f-b4e0-ae26e46c4f05",
+  "applyUrl": "https://jobs.lever.co/coderio/84be1e04-51ce-453f-b4e0-ae26e46c4f05/apply",
+  "contentLanguage": "en",
+  "workplace": "remote",
+  "eligibility": "peru",
+  "locations": [
+    "Bogotá",
+    "Argentina",
+    "Uruguay",
+    "Chile",
+    "Peru",
+    "Asunción",
+    "Mérida"
+  ],
+  "seniority": null,
+  "salary": null,
+  "summary": {
+    "en": "Operate and automate AWS infrastructure, CI/CD pipelines and Datadog observability. Coderio includes Peru among the eligible locations for this remote role.",
+    "es-pe": "Operación y automatización de infraestructura AWS, pipelines CI/CD y observabilidad con Datadog. Coderio incluye Perú entre las ubicaciones admitidas para este puesto remoto."
+  },
+  "tags": [
+    "AWS",
+    "Terraform",
+    "CI/CD",
+    "Datadog"
+  ],
+  "sourcePublishedAt": "2026-07-20T22:09:02.337Z",
+  "firstSeenAt": "2026-11-18T06:49:44.501Z",
+  "lastSeenAt": "2026-11-18T08:23:12.407Z",
+  "lastVerifiedAt": "2026-11-18T08:23:12.407Z",
+  "expiresAt": null,
+  "closureReason": null,
+  "evidenceRunId": "5b1155c5-aa7a-4f3b-95a2-40f73d96bb00"
+}

@@ -1,1 +1,36 @@
-{"applyUrl":"https://job-boards.greenhouse.io/encora10/jobs/5252570007","closureReason":null,"company":"Coforge (bolsa heredada de Encora)","contentLanguage":"en","eligibility":"remote-peru","evidenceRunId":"c33154fa-8e37-4062-8846-68241ec57f26","expiresAt":null,"externalId":"5252570007","firstSeenAt":"2026-11-18T05:18:21.476Z","id":"greenhouse:greenhouse-encora10:5252570007","lastSeenAt":"2026-11-18T05:34:37.301Z","lastVerifiedAt":"2026-11-18T05:34:37.301Z","locations":["Peru"],"salary":null,"schemaVersion":1,"seniority":null,"slug":"greenhouse-encora10-5252570007","sourceId":"greenhouse-encora10","sourcePublishedAt":null,"sourceUrl":"https://job-boards.greenhouse.io/encora10/jobs/5252570007","status":"active","summary":{"en":"Coforge is seeking a senior SRE for application observability and operational readiness on Azure. Remote work includes Peru among the published locations. Check the source for requirements and application details.","es-pe":"Coforge busca un perfil senior de SRE para observabilidad y preparación operativa de aplicaciones en Azure. Trabajo remoto con Perú entre las ubicaciones publicadas. Consulta la fuente para requisitos y postulación."},"tags":["Azure","SRE","Observability"],"title":"Senior Site Reliability Engineer (SRE) – Application Observability & Readiness (Azure)","workplace":"remote"}
+{
+  "schemaVersion": 1,
+  "id": "greenhouse:greenhouse-encora10:5252570007",
+  "slug": "greenhouse-encora10-5252570007",
+  "status": "active",
+  "title": "Senior Site Reliability Engineer (SRE) – Application Observability & Readiness (Azure)",
+  "company": "Coforge (bolsa heredada de Encora)",
+  "sourceId": "greenhouse-encora10",
+  "externalId": "5252570007",
+  "sourceUrl": "https://job-boards.greenhouse.io/encora10/jobs/5252570007",
+  "applyUrl": "https://job-boards.greenhouse.io/encora10/jobs/5252570007",
+  "contentLanguage": "en",
+  "workplace": "remote",
+  "eligibility": "remote-peru",
+  "locations": [
+    "Peru"
+  ],
+  "seniority": null,
+  "salary": null,
+  "summary": {
+    "en": "Coforge is seeking a senior SRE for application observability and operational readiness on Azure. Remote work includes Peru among the published locations. Check the source for requirements and application details.",
+    "es-pe": "Coforge busca un perfil senior de SRE para observabilidad y preparación operativa de aplicaciones en Azure. Trabajo remoto con Perú entre las ubicaciones publicadas. Consulta la fuente para requisitos y postulación."
+  },
+  "tags": [
+    "Azure",
+    "SRE",
+    "Observability"
+  ],
+  "sourcePublishedAt": "2026-09-29T22:17:02.000Z",
+  "firstSeenAt": "2026-11-18T05:18:21.476Z",
+  "lastSeenAt": "2026-11-18T08:22:31.356Z",
+  "lastVerifiedAt": "2026-11-18T08:22:31.356Z",
+  "expiresAt": null,
+  "closureReason": null,
+  "evidenceRunId": "75116b48-884f-492f-8387-8b775d6a1448"
+}

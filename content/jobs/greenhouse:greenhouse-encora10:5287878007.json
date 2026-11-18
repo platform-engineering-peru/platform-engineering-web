@@ -1,1 +1,37 @@
-{"applyUrl":"https://job-boards.greenhouse.io/encora10/jobs/5287878007","closureReason":null,"company":"Coforge (bolsa heredada de Encora)","contentLanguage":"en","eligibility":"remote-peru","evidenceRunId":"c33154fa-8e37-4062-8846-68241ec57f26","expiresAt":null,"externalId":"5287878007","firstSeenAt":"2026-11-18T05:18:21.476Z","id":"greenhouse:greenhouse-encora10:5287878007","lastSeenAt":"2026-11-18T05:34:37.301Z","lastVerifiedAt":"2026-11-18T05:34:37.301Z","locations":["Peru"],"salary":null,"schemaVersion":1,"seniority":null,"slug":"greenhouse-encora10-5287878007","sourceId":"greenhouse-encora10","sourcePublishedAt":null,"sourceUrl":"https://job-boards.greenhouse.io/encora10/jobs/5287878007","status":"active","summary":{"en":"Coforge is seeking a senior Site Reliability Engineer with AWS, Terraform, Kubernetes and Datadog. Remote work explicitly includes Peru among eligible countries. Check the source for requirements and application details.","es-pe":"Coforge busca un perfil senior de Site Reliability Engineering con AWS, Terraform, Kubernetes y Datadog. Trabajo remoto con Perú entre los países admitidos. Consulta la fuente para requisitos y postulación."},"tags":["AWS","Terraform","Kubernetes","Datadog"],"title":"Senior Site Reliability Engineer (DevOps)","workplace":"remote"}
+{
+  "schemaVersion": 1,
+  "id": "greenhouse:greenhouse-encora10:5287878007",
+  "slug": "greenhouse-encora10-5287878007",
+  "status": "active",
+  "title": "Senior Site Reliability Engineer (DevOps)",
+  "company": "Coforge (bolsa heredada de Encora)",
+  "sourceId": "greenhouse-encora10",
+  "externalId": "5287878007",
+  "sourceUrl": "https://job-boards.greenhouse.io/encora10/jobs/5287878007",
+  "applyUrl": "https://job-boards.greenhouse.io/encora10/jobs/5287878007",
+  "contentLanguage": "en",
+  "workplace": "remote",
+  "eligibility": "remote-peru",
+  "locations": [
+    "Peru"
+  ],
+  "seniority": null,
+  "salary": null,
+  "summary": {
+    "en": "Coforge is seeking a senior Site Reliability Engineer with AWS, Terraform, Kubernetes and Datadog. Remote work explicitly includes Peru among eligible countries. Check the source for requirements and application details.",
+    "es-pe": "Coforge busca un perfil senior de Site Reliability Engineering con AWS, Terraform, Kubernetes y Datadog. Trabajo remoto con Perú entre los países admitidos. Consulta la fuente para requisitos y postulación."
+  },
+  "tags": [
+    "AWS",
+    "Terraform",
+    "Kubernetes",
+    "Datadog"
+  ],
+  "sourcePublishedAt": "2026-11-06T21:48:51.000Z",
+  "firstSeenAt": "2026-11-18T05:18:21.476Z",
+  "lastSeenAt": "2026-11-18T08:22:31.356Z",
+  "lastVerifiedAt": "2026-11-18T08:22:31.356Z",
+  "expiresAt": null,
+  "closureReason": null,
+  "evidenceRunId": "75116b48-884f-492f-8387-8b775d6a1448"
+}
