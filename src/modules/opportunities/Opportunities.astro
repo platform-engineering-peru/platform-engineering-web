@@ -14,6 +14,7 @@ const mode = (value: string) =>
     remote: en ? "Remote" : "Remoto",
     hybrid: en ? "Hybrid" : "Híbrido",
     onsite: en ? "On site" : "Presencial",
+    unknown: en ? "Work arrangement unconfirmed" : "Modalidad por confirmar",
   })[value] ?? "";
 const count = String(total).padStart(2, "0");
 ---
@@ -51,6 +52,9 @@ const count = String(total).padStart(2, "0");
           ["remote", en ? "Remote" : "Remoto"],
           ["hybrid", en ? "Hybrid" : "Híbrido"],
           ["onsite", en ? "On site" : "Presencial"],
+          ...(opportunities.some((job) => job.workplace === "unknown")
+            ? [["unknown", en ? "Unconfirmed" : "Por confirmar"]]
+            : []),
         ].map(([v, l]) => (
           <button
             data-job-filter={v}
@@ -203,7 +207,11 @@ const count = String(total).padStart(2, "0");
             <button data-job-list={i}>
               <span>{j.company}</span>
               <strong>{j.title}</strong>
-              <span>{j.seniority ?? mode(j.workplace)} ↗</span>
+              <span>
+                {j.workplace === "unknown"
+                  ? [j.seniority, mode(j.workplace)].filter(Boolean).join(" · ")
+                  : j.seniority ?? mode(j.workplace)} ↗
+              </span>
             </button>
           ))}
         </details>

@@ -67,11 +67,35 @@ test("public boundary rejects private fields, draft states, duplicate IDs/slugs,
   assert.throws(() => validatePublicJobs([job(), job()]));
 });
 
-test("public jobs accept only the five approved provider namespaces", () => {
-  for (const namespace of ["greenhouse", "lever", "manual", "hirehive", "globant"])
+test("public jobs accept only the approved provider namespaces", () => {
+  for (const namespace of ["greenhouse", "lever", "manual", "hirehive", "globant", "smartrecruiters"])
     assert.equal(validatePublicJobs([{ ...job(), id: `${namespace}:fixture:1` }])[0].id, `${namespace}:fixture:1`);
   for (const namespace of ["unknown", "custom", "Manual"])
     assert.throws(() => validatePublicJobs([{ ...job(), id: `${namespace}:fixture:1` }]));
-  assert.throws(() => validatePublicJobs([{ ...job(), workplace: "unknown" }]));
   assert.throws(() => validatePublicJobs([{ ...job(), provenance: "private" }]));
+});
+
+test("unconfirmed workplace stays explicit without weakening Peru eligibility or lifecycle rules", () => {
+  const now = new Date("2026-11-17T00:00:00Z");
+  const source = {
+    ...job(),
+    workplace: "unknown",
+    eligibility: "peru",
+    seniority: "Senior",
+  };
+  assert.deepEqual(validatePublicJobs([source]), [source]);
+  const [active] = activeOpportunities([source], now);
+  assert.equal(active.workplace, "unknown");
+  assert.equal(active.eligibility, "peru");
+  assert.equal(active.applyUrl, source.applyUrl);
+  assert.deepEqual(
+    activeOpportunities([{ ...source, expiresAt: now.toISOString() }], now),
+    [],
+  );
+  assert.deepEqual(activeOpportunities([{ ...source, status: "closed" }], now), []);
+  assert.throws(() => validatePublicJobs([{ ...source, eligibility: "unknown" }]));
+  for (const workplace of ["", "unconfirmed", "Remote", null])
+    assert.throws(() => validatePublicJobs([{ ...source, workplace }]));
+  for (const workplace of ["remote", "hybrid", "onsite"])
+    assert.equal(validatePublicJobs([{ ...source, workplace }])[0].workplace, workplace);
 });

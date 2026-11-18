@@ -13,7 +13,7 @@ export interface PublicJob {
   sourceUrl: string;
   applyUrl: string;
   contentLanguage: string;
-  workplace: "remote" | "hybrid" | "onsite";
+  workplace: "remote" | "hybrid" | "onsite" | "unknown";
   eligibility: "peru" | "remote-peru" | "remote-latam-confirmed";
   locations: string[];
   seniority: string | null;
