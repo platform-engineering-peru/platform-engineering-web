@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "2de8e2ee-1c70-8d36-952c-9e56faad948b",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "miguel-villa",
+  "name": "Miguel Villa",
+  "role": {
+    "es-pe": "OpenShift Specialist & Kubestronaut",
+    "en": "OpenShift Specialist & Kubestronaut"
+  },
+  "company": {
+    "es-pe": "",
+    "en": ""
+  },
+  "talk": {
+    "es-pe": "",
+    "en": ""
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190516607%2F442849417140%2F1%2Foriginal.20260807-025455?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&s=cfde8326f301ee4edde726168e99a036",
+  "url": "https://www.linkedin.com/in/miguelangelvila/",
+  "topics": [],
+  "displayOrder": 80
+}

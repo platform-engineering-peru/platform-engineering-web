@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "1a25f112-5c0e-4e85-bf37-9c813b18c975",
+  "slug": "pep-community",
+  "status": "published",
+  "title": {
+    "es-pe": "Comunidad PEP",
+    "en": "PEP community"
+  },
+  "description": {
+    "es-pe": "Platform Engineering Perú, en una foto que reúne a quienes comparten la curiosidad por aprender y construir juntos. Distintas experiencias, una comunidad.",
+    "en": "Platform Engineering Perú, in a photo bringing together people who share the curiosity to learn and build together. Different experiences, one community."
+  },
+  "eventId": null,
+  "capturedAt": null,
+  "captureYear": null,
+  "datePrecision": "unknown",
+  "media": [
+    {
+      "id": "0ea6d747-9147-46c9-b3fe-eed7db08347d",
+      "path": "memories/community-05.jpg",
+      "width": 1536,
+      "height": 1024,
+      "alt": {
+        "es-pe": "Foto grupal de la comunidad Platform Engineering Perú en un auditorio de la Universidad ESAN.",
+        "en": "Platform Engineering Perú community group photo in an auditorium at Universidad ESAN."
+      },
+      "fit": "contain",
+      "credit": null
+    }
+  ],
+  "tags": [],
+  "displayOrder": 50,
+  "updatedAt": null
+}

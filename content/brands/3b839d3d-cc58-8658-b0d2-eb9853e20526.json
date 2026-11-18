@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "3b839d3d-cc58-8658-b0d2-eb9853e20526",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-163cd0d05f5a9f07",
+  "title": {
+    "es-pe": "hero-560.webp",
+    "en": "hero-560.webp"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 230,
+  "path": "brand/hero-560.webp",
+  "originalPath": "brand/hero-560.webp",
+  "previewPath": "brand/hero-560.webp",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "bcb6191b-de3a-85c3-9195-3f89465e1c71",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-e93d618f5f1c896a",
+  "title": {
+    "es-pe": "logo-horizontal-dark.svg",
+    "en": "logo-horizontal-dark.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 500,
+  "path": "brand/official/logo-horizontal-dark.svg",
+  "originalPath": "brand/official/logo-horizontal-dark.svg",
+  "previewPath": "brand/official/logo-horizontal-dark.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

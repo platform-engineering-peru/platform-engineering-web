@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "7eaa27b2-cada-8fed-807e-891d012e5a48",
+  "status": "published",
+  "updatedAt": null,
+  "type": "article",
+  "topic": "devex",
+  "contentLang": "en",
+  "href": "https://platformengineering.org/blog/the-platform-scorecard-a-practical-way-to-provevalue-and-what-to-measure-first",
+  "title": {
+    "es-pe": "Platform scorecard: qué medir primero",
+    "en": "The platform scorecard: what to measure first"
+  },
+  "description": {
+    "es-pe": "Una forma práctica de demostrar el valor de la plataforma.",
+    "en": "A practical way to prove platform value."
+  },
+  "slug": "the-platform-scorecard-what-to-measure-first",
+  "coverArtKey": "devex:score",
+  "tags": [],
+  "displayOrder": 60
+}

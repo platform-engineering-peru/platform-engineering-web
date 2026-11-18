@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "caafc46c-7c92-8ea6-9385-296c8e97355e",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "site",
+  "contactEmail": "info@platformengineering.pe",
+  "communityLinks": {
+    "whatsapp": null,
+    "meetup": null,
+    "linkedin": "https://www.linkedin.com/company/platformengineeringperu",
+    "youtube": null,
+    "cfp": "https://sessionize.com/platform-engineering-peru",
+    "sponsor": "mailto:info@platformengineering.pe"
+  },
+  "globalLinks": {
+    "home": "https://platformengineering.org/",
+    "whatIs": "https://platformengineering.org/blog/what-is-platform-engineering",
+    "blog": "https://platformengineering.org/blog",
+    "tooling": "https://platformengineering.org/platform-tooling",
+    "reports": "https://platformengineering.org/reports",
+    "university": "https://university.platformengineering.org/",
+    "introCourse": "https://university.platformengineering.org/introduction-to-platform-engineering",
+    "platformcon": "https://platformcon.com/",
+    "platformWeekly": "https://platformweekly.com/"
+  },
+  "displayOrder": 0
+}

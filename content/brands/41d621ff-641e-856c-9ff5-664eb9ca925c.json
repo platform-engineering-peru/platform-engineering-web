@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "41d621ff-641e-856c-9ff5-664eb9ca925c",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-7b17a968ca92dc16",
+  "title": {
+    "es-pe": "whatsapp.svg",
+    "en": "whatsapp.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 610,
+  "path": "brand/social/whatsapp.svg",
+  "originalPath": "brand/social/whatsapp.svg",
+  "previewPath": "brand/social/whatsapp.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

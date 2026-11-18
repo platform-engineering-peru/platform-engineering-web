@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "7d2b2c8c-c4d3-82d5-9e59-521811c14e45",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "kubefest-03",
+  "date": "2026-10-24",
+  "time": "14:00",
+  "endTime": "17:00",
+  "city": {
+    "es-pe": "Lima",
+    "en": "Lima"
+  },
+  "venue": "Auditorio de la Facultad de Ciencias e Ingeniería, PUCP",
+  "address": "Av. Universitaria 1801, San Miguel",
+  "registerUrl": "https://luma.com/cctyrftv",
+  "title": {
+    "es-pe": "KubeFest #3",
+    "en": "KubeFest #3"
+  },
+  "description": {
+    "es-pe": "Cuatro voces, cuatro perspectivas y un mismo ecosistema: Cloud Native. Una tarde organizada por la comunidad para aprender, compartir experiencias y seguir impulsando la participación de más mujeres en tecnología, con charlas sobre operación inteligente de clústers con IA, escalado justo a tiempo con Karpenter, GitOps con ArgoCD y los primeros pasos del contenedor al clúster.",
+    "en": "Four voices, four perspectives and one ecosystem: Cloud Native. A community-run afternoon to learn, share experiences and keep encouraging more women in tech, with talks on AI-driven cluster operations, just-in-time scaling with Karpenter, GitOps with ArgoCD and the first steps from a container to your first cluster."
+  },
+  "online": false,
+  "eventStatus": "free",
+  "organizer": "",
+  "recording": "",
+  "timeZone": "America/Lima",
+  "speakerIds": [
+    "24a7f296-5ad8-8ed9-ac08-51398c4eda05",
+    "c4acc251-ff95-8eec-bb7d-1e8d55f308d6",
+    "8e118a29-12d0-8289-9c7e-738cac1b9aa6",
+    "185a88bd-3d0f-8fa3-a6ff-d90189e6a35b"
+  ],
+  "displayOrder": 10
+}

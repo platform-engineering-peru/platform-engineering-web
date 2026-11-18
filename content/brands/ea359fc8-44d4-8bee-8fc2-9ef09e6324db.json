@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "ea359fc8-44d4-8bee-8fc2-9ef09e6324db",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-2744cb9d38fc3333",
+  "title": {
+    "es-pe": "Explorando juntos",
+    "en": "Exploring together"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 150,
+  "path": "illustrations/ukuku-flight.webp",
+  "originalPath": "illustrations/ukuku-flight.webp",
+  "previewPath": "illustrations/ukuku-flight.webp",
+  "dimensionsLabel": "",
+  "usage": "ukuku",
+  "kind": "other",
+  "approved": true
+}

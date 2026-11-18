@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "dcd85e6d-e9a3-8f90-b0ff-254bf6ce4228",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-0a723d98409f50fb",
+  "title": {
+    "es-pe": "Botella, vaso y taza",
+    "en": "Bottle, tumbler & mug"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 70,
+  "path": "brand/applications/drinkware.png",
+  "originalPath": "brand/applications/drinkware.png",
+  "previewPath": "brand/applications/drinkware.webp",
+  "dimensionsLabel": "",
+  "usage": "application",
+  "kind": "merchandise",
+  "approved": true
+}

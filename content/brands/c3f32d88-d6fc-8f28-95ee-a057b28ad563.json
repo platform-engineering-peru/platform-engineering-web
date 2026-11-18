@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "c3f32d88-d6fc-8f28-95ee-a057b28ad563",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-73a1e94282e8b91a",
+  "title": {
+    "es-pe": "event-identity.webp",
+    "en": "event-identity.webp"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 180,
+  "path": "brand/applications/event-identity.webp",
+  "originalPath": "brand/applications/event-identity.webp",
+  "previewPath": "brand/applications/event-identity.webp",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

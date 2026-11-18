@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "9ab71f99-2547-866b-8e61-9422ed824c90",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "kubefest-01",
+  "date": "2026-06-13",
+  "time": "09:00",
+  "endTime": "13:00",
+  "city": {
+    "es-pe": "Lima",
+    "en": "Lima"
+  },
+  "venue": "Universidad Ricardo Palma",
+  "address": "Av. Alfredo Benavides 5540, Santiago de Surco",
+  "organizer": "Cloud Native Lima",
+  "registerUrl": "https://ocgroups.dev/cncf/group/nmmzkrs/event/tu52ja4",
+  "title": {
+    "es-pe": "KubeFest #1",
+    "en": "KubeFest #1"
+  },
+  "description": {
+    "es-pe": "Tecnologías cloud native que están transformando el mundo: una mañana de charlas prácticas y networking para profesionales, estudiantes y entusiastas de Cloud Native y Kubernetes. Comunidades cloud native en el Perú, IA generativa con LLMs y RAG desde cero, Zero Trust en Kubernetes y Platform Engineering con Crossplane para infraestructura self-service.",
+    "en": "Cloud native technologies transforming the world: a morning of hands-on talks and networking for Cloud Native and Kubernetes professionals, students and enthusiasts. Cloud native communities in Peru, generative AI with LLMs and RAG from scratch, Zero Trust on Kubernetes and Platform Engineering with Crossplane for self-service infrastructure."
+  },
+  "online": false,
+  "eventStatus": "soldout",
+  "recording": "",
+  "timeZone": "America/Lima",
+  "speakerIds": [
+    "ab9bcc13-52b7-82c3-9062-2a971766b652",
+    "c4e06366-648b-8a3b-9ea0-4b3dd4c026c0",
+    "83ba8b96-6f40-8170-b14c-eea29c8f604c",
+    "ac613a04-497e-8443-8b3a-6b2e6b6d67fb",
+    "61190505-389a-8452-b31a-dfd29551cc6e"
+  ],
+  "displayOrder": 20
+}

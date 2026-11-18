@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "20bf7488-8ebe-8115-9ea0-8222cda259fb",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-b338aa747555a015",
+  "title": {
+    "es-pe": "discord-slack-avatar-256x256.png",
+    "en": "discord-slack-avatar-256x256.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 260,
+  "path": "brand/kit/01-avatars-icons/discord-slack-avatar-256x256.png",
+  "originalPath": "brand/kit/01-avatars-icons/discord-slack-avatar-256x256.png",
+  "previewPath": "brand/kit/01-avatars-icons/discord-slack-avatar-256x256.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

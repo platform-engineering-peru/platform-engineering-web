@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "e0eb11e1-c435-83bb-aa2f-2273b1e8529d",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-bfccf31e34c78574",
+  "title": {
+    "es-pe": "logo-oficial-platform-engineering-peru.jpg",
+    "en": "logo-oficial-platform-engineering-peru.jpg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 450,
+  "path": "brand/kit/logo-oficial-platform-engineering-peru.jpg",
+  "originalPath": "brand/kit/logo-oficial-platform-engineering-peru.jpg",
+  "previewPath": "brand/kit/logo-oficial-platform-engineering-peru.jpg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

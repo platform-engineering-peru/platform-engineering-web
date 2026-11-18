@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "274597f4-ad26-8ce6-bb91-df00a73bca26",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-b3a9bd40b3a4dd1a",
+  "title": {
+    "es-pe": "platform-engineering-peru-brand-kit.zip",
+    "en": "platform-engineering-peru-brand-kit.zip"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 570,
+  "path": "brand/platform-engineering-peru-brand-kit.zip",
+  "originalPath": "brand/platform-engineering-peru-brand-kit.zip",
+  "previewPath": "brand/platform-engineering-peru-brand-kit.zip",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "source",
+  "approved": true
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "4d9d483c-8413-8a97-8057-f26971c177be",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-36f69343a4cd5b3e",
+  "title": {
+    "es-pe": "logo-web-dark.svg",
+    "en": "logo-web-dark.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 520,
+  "path": "brand/official/logo-web-dark.svg",
+  "originalPath": "brand/official/logo-web-dark.svg",
+  "previewPath": "brand/official/logo-web-dark.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

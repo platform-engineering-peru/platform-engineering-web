@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "1bd1feb2-fd73-8020-b71d-70f92e3f035e",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-092b6f8bd49d5a4d",
+  "title": {
+    "es-pe": "github-social-preview-1280x640.svg",
+    "en": "github-social-preview-1280x640.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 340,
+  "path": "brand/kit/02-banners-social/github-social-preview-1280x640.svg",
+  "originalPath": "brand/kit/02-banners-social/github-social-preview-1280x640.svg",
+  "previewPath": "brand/kit/02-banners-social/github-social-preview-1280x640.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

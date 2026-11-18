@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "41d618f1-96fa-8808-9e63-7a83e9ef5b31",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-177d924a0fb60ce0",
+  "title": {
+    "es-pe": "Fondo oscuro",
+    "en": "Dark background"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 20,
+  "path": "brand/kit/03-logotipos-horizontales/logo-horizontal-dark.svg",
+  "originalPath": "brand/kit/03-logotipos-horizontales/logo-horizontal-dark.png",
+  "previewPath": "brand/kit/03-logotipos-horizontales/logo-horizontal-dark.svg",
+  "dimensionsLabel": "",
+  "usage": "logo-dark",
+  "kind": "logo",
+  "approved": true
+}

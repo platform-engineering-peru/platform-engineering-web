@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "1d1be259-fa43-864b-9888-ddfe98c1ee66",
+  "status": "published",
+  "updatedAt": null,
+  "type": "tool",
+  "topic": "idp",
+  "contentLang": "en",
+  "href": "https://platformengineering.org/platform-tooling",
+  "title": {
+    "es-pe": "Landscape de herramientas de plataforma",
+    "en": "Platform tooling landscape"
+  },
+  "description": {
+    "es-pe": "El ecosistema por capas y cómo combinar las piezas.",
+    "en": "The ecosystem by layer and how to combine the pieces."
+  },
+  "slug": "platform-tooling-landscape",
+  "coverArtKey": "idp:tool",
+  "tags": [],
+  "displayOrder": 110
+}

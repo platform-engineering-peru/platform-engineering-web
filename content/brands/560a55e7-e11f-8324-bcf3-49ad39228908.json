@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "560a55e7-e11f-8324-bcf3-49ad39228908",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-63e5bd24f4a11d81",
+  "title": {
+    "es-pe": "logo-isometrico-3capas-ukuku-dark.svg",
+    "en": "logo-isometrico-3capas-ukuku-dark.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 410,
+  "path": "brand/kit/04-vectores-svg/logo-isometrico-3capas-ukuku-dark.svg",
+  "originalPath": "brand/kit/04-vectores-svg/logo-isometrico-3capas-ukuku-dark.svg",
+  "previewPath": "brand/kit/04-vectores-svg/logo-isometrico-3capas-ukuku-dark.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

@@ -1,0 +1,41 @@
+{
+  "referenceCommit": "b1942d77408355c959489dc1e1d553fc6d4882a6",
+  "reason": "Preserve the five approved original JPEG paths and identities. Original editorial timestamps are unknown; updatedAt stays null until a meaningful editorial change. Capture dates are unknown; event titles and filenames are not verified capture metadata.",
+  "records": [
+    {
+      "id": "0740b1d5-8c1b-4106-90b4-174875399c5b",
+      "mediaId": "28583256-2133-466c-a0d9-7fcc791bba45",
+      "path": "memories/community-01.jpg",
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "id": "a968d849-f357-46a0-b2af-1d6f88cb57fe",
+      "mediaId": "97e4dab6-633c-4a86-87d4-87a6f529e494",
+      "path": "memories/community-02.jpg",
+      "width": 1320,
+      "height": 708
+    },
+    {
+      "id": "310b2300-7391-45fa-b39c-aed53994aee9",
+      "mediaId": "0d4fc427-2171-442f-9f56-9c3a33b8d174",
+      "path": "memories/community-03.jpg",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "id": "b831baa4-318c-4c25-9d59-e551d6d07665",
+      "mediaId": "d0bed723-0c1f-4e9b-a05a-c2723506578d",
+      "path": "memories/community-04.jpg",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "1a25f112-5c0e-4e85-bf37-9c813b18c975",
+      "mediaId": "0ea6d747-9147-46c9-b3fe-eed7db08347d",
+      "path": "memories/community-05.jpg",
+      "width": 1536,
+      "height": 1024
+    }
+  ]
+}

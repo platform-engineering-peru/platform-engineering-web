@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "50d04491-a1ea-85b5-84f5-deed3b3a244a",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-e9d74ec833a102e8",
+  "title": {
+    "es-pe": "pins-keychain.webp",
+    "en": "pins-keychain.webp"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 200,
+  "path": "brand/applications/pins-keychain.webp",
+  "originalPath": "brand/applications/pins-keychain.webp",
+  "previewPath": "brand/applications/pins-keychain.webp",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

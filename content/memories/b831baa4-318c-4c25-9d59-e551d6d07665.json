@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "b831baa4-318c-4c25-9d59-e551d6d07665",
+  "slug": "kubefest",
+  "status": "published",
+  "title": {
+    "es-pe": "Kubefest",
+    "en": "Kubefest"
+  },
+  "description": {
+    "es-pe": "Un momento de Kubefest: escuchar, aprender y descubrir otras formas de construir. El conocimiento crece cuando lo compartimos.",
+    "en": "A moment from Kubefest: listening, learning and discovering other ways to build. Knowledge grows when we share it."
+  },
+  "eventId": null,
+  "capturedAt": null,
+  "captureYear": null,
+  "datePrecision": "unknown",
+  "media": [
+    {
+      "id": "d0bed723-0c1f-4e9b-a05a-c2723506578d",
+      "path": "memories/community-04.jpg",
+      "width": 1536,
+      "height": 1024,
+      "alt": {
+        "es-pe": "Asistentes de Kubefest escuchando una charla desde las filas de un auditorio.",
+        "en": "Kubefest attendees listening to a talk from the auditorium seats."
+      },
+      "fit": "contain",
+      "credit": null
+    }
+  ],
+  "tags": [],
+  "displayOrder": 40,
+  "updatedAt": null
+}

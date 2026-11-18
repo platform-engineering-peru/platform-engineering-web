@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "5ce99713-e53b-851e-b89a-f9276457f62b",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-d0a482242ac25cb7",
+  "title": {
+    "es-pe": "LinkedIn avatar",
+    "en": "LinkedIn avatar"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 100,
+  "path": "brand/kit/01-avatars-icons/linkedin-avatar-800x800.png",
+  "originalPath": "brand/kit/01-avatars-icons/linkedin-avatar-800x800.png",
+  "previewPath": "brand/kit/01-avatars-icons/linkedin-avatar-800x800.png",
+  "dimensionsLabel": "800 × 800",
+  "usage": "social",
+  "kind": "social",
+  "approved": true
+}

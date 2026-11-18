@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "types": {
+    "events": {
+      "schemaPath": "content/schemas/events-v1.schema.json",
+      "schemaSha256": "1f0cbde7c51ec046829789d4c00a7b463111273a423ae1601c6b0ccc735e70f1",
+      "requiredFiles": {
+        "src/data/events.ts": "8134f26dad2d3f2870cea3dd73a7ebf0df5b93807894770602e0acf2ff5cc94b",
+        "src/data/public-content.ts": "1d0c0dfe2d596be6c824b929e165aa950045e344d6ce29a811c112d9dd4aec26",
+        "src/data/speakers.ts": "317b5719f1f6a991a64b9a2975eb21a024a841f8e091d4b0943aaafd53703504"
+      }
+    },
+    "speakers": {
+      "schemaPath": "content/schemas/speakers-v1.schema.json",
+      "schemaSha256": "d7ec15a5a8fab447ba1b4311dc3ce51f65a6e122aa4a4b573505f75ae102d1f4",
+      "requiredFiles": {
+        "src/data/public-content.ts": "1d0c0dfe2d596be6c824b929e165aa950045e344d6ce29a811c112d9dd4aec26",
+        "src/data/speakers.ts": "317b5719f1f6a991a64b9a2975eb21a024a841f8e091d4b0943aaafd53703504"
+      }
+    },
+    "organizers": {
+      "schemaPath": "content/schemas/organizers-v1.schema.json",
+      "schemaSha256": "2a0969f951bec0c0969797ec1b824043cae25bbd5243c1354f62b746c4e958fe",
+      "requiredFiles": {
+        "src/data/organizers.ts": "2aa56e50081c4e2e9dd7b652769581c6b17f3edfb3305d9a3d11355042aea825",
+        "src/data/public-content.ts": "1d0c0dfe2d596be6c824b929e165aa950045e344d6ce29a811c112d9dd4aec26"
+      }
+    },
+    "resources": {
+      "schemaPath": "content/schemas/resources-v1.schema.json",
+      "schemaSha256": "d214ccbba641c32b9ec9b470dbdaf0dab73c184070e426438c6b96a38fe551cd",
+      "requiredFiles": {
+        "src/data/public-content.ts": "1d0c0dfe2d596be6c824b929e165aa950045e344d6ce29a811c112d9dd4aec26",
+        "src/data/resources.ts": "b3ba0b9f46f7c6dc43105895794fa42790e8b81bee385fbdf467930af0affef2"
+      }
+    },
+    "courses": {
+      "schemaPath": "content/schemas/courses-v1.schema.json",
+      "schemaSha256": "beb1832f4b6f26a26a8d5fa141fd77bd03de87dabe7d142a607223263a6fec04",
+      "requiredFiles": {
+        "src/data/public-content.ts": "1d0c0dfe2d596be6c824b929e165aa950045e344d6ce29a811c112d9dd4aec26",
+        "src/data/resources.ts": "b3ba0b9f46f7c6dc43105895794fa42790e8b81bee385fbdf467930af0affef2"
+      }
+    },
+    "settings": {
+      "schemaPath": "content/schemas/settings-v1.schema.json",
+      "schemaSha256": "5b8b82ff6c3712ccc4d63870dee15ff9dfb855aed07f233776e72f003a8d398c",
+      "requiredFiles": {
+        "src/data/public-content.ts": "1d0c0dfe2d596be6c824b929e165aa950045e344d6ce29a811c112d9dd4aec26",
+        "src/data/site.ts": "6baedbc23b0405552b463c71bfa44123fc785902bcb8cd30bfc6d6df3b1a4151"
+      }
+    },
+    "brands": {
+      "schemaPath": "content/schemas/brands-v1.schema.json",
+      "schemaSha256": "68f73719c1c9ef44db8ad4702f5945341e0be7909ca459cbf56de199ef417e6d",
+      "requiredFiles": {
+        "src/data/public-content.ts": "1d0c0dfe2d596be6c824b929e165aa950045e344d6ce29a811c112d9dd4aec26",
+        "src/modules/branding/Branding.astro": "c6a997b6f8746e172c3f225292bb6229bcf709ec10546d904dc4c421d5893b30"
+      }
+    },
+    "memories": {
+      "schemaPath": "content/schemas/memory-v1.schema.json",
+      "schemaSha256": "4560310e015d13fdf0c8fde70eea1a6bcd419d6a3cdcb597053380453c1589be",
+      "requiredFiles": {
+        "content/memories-legacy.json": "2e3878affec3c06fcd18d0bd43f1c7bed469eb80e5d9b70aea8b9bf467e25061",
+        "content/schema-version.json": "60b085f30419fd596a37b82180d853c427074ec82b32b2d3eb1ab36af8a3a7b4",
+        "src/data/events.ts": "8134f26dad2d3f2870cea3dd73a7ebf0df5b93807894770602e0acf2ff5cc94b",
+        "src/data/memories-contract.ts": "299f798f5d10e0f8c3b79eb41c8ea5901c6cd7a67bc264257fae6033ce869909",
+        "src/data/memories.ts": "ef717b70d94f8675fe1598ff1df408b3ee4fa3b08f463b47eafc8f61e2e6e00d",
+        "src/data/public-content.ts": "1d0c0dfe2d596be6c824b929e165aa950045e344d6ce29a811c112d9dd4aec26",
+        "src/data/speakers.ts": "317b5719f1f6a991a64b9a2975eb21a024a841f8e091d4b0943aaafd53703504",
+        "src/modules/memories/Memories.astro": "021be6f93dcc9f89457555ecb5e9346d47d5e92df4e65903d73f71ebb8669793"
+      }
+    }
+  }
+}

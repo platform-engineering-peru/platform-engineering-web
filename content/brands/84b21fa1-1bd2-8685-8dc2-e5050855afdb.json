@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "84b21fa1-1bd2-8685-8dc2-e5050855afdb",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-d4bf8b1821deaf16",
+  "title": {
+    "es-pe": "Pines y llavero",
+    "en": "Pins & keychain"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 30,
+  "path": "brand/applications/pins-keychain.png",
+  "originalPath": "brand/applications/pins-keychain.png",
+  "previewPath": "brand/applications/pins-keychain.webp",
+  "dimensionsLabel": "",
+  "usage": "application",
+  "kind": "merchandise",
+  "approved": true
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "75f61c22-e8ba-82e0-9971-f0b01d66866c",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-804f12722c6ce68d",
+  "title": {
+    "es-pe": "apparel-collection.webp",
+    "en": "apparel-collection.webp"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 160,
+  "path": "brand/applications/apparel-collection.webp",
+  "originalPath": "brand/applications/apparel-collection.webp",
+  "previewPath": "brand/applications/apparel-collection.webp",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

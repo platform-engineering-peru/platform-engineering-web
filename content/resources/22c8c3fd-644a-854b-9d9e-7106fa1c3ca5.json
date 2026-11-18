@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "22c8c3fd-644a-854b-9d9e-7106fa1c3ca5",
+  "status": "published",
+  "updatedAt": null,
+  "type": "article",
+  "topic": "ai",
+  "contentLang": "en",
+  "href": "https://platformengineering.org/blog/ai-and-platform-engineering",
+  "title": {
+    "es-pe": "IA y platform engineering",
+    "en": "AI and platform engineering"
+  },
+  "description": {
+    "es-pe": "Cómo cambia la plataforma interna con agentes y herramientas de IA.",
+    "en": "How the internal platform changes with AI agents and tools."
+  },
+  "slug": "ai-and-platform-engineering",
+  "coverArtKey": "ai:article",
+  "tags": [],
+  "displayOrder": 90
+}

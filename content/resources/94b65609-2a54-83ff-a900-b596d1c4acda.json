@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "94b65609-2a54-83ff-a900-b596d1c4acda",
+  "status": "published",
+  "updatedAt": null,
+  "type": "guide",
+  "topic": "fundamentals",
+  "contentLang": "en",
+  "href": "https://platformengineering.org/blog/what-is-platform-engineering",
+  "title": {
+    "es-pe": "¿Qué es platform engineering?",
+    "en": "What is platform engineering?"
+  },
+  "description": {
+    "es-pe": "La definición, el porqué y cómo se relaciona con DevOps y SRE.",
+    "en": "The definition, the why and how it relates to DevOps and SRE."
+  },
+  "slug": "what-is-platform-engineering",
+  "coverArtKey": "fundamentals:guide",
+  "tags": [],
+  "displayOrder": 10
+}

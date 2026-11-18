@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "5124b3a9-4145-8cef-8773-01e6a73b9419",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-c56018919ce4f3c1",
+  "title": {
+    "es-pe": "BRAND_GUIDELINES.md",
+    "en": "BRAND_GUIDELINES.md"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 430,
+  "path": "brand/kit/05-manual-y-readme/BRAND_GUIDELINES.md",
+  "originalPath": "brand/kit/05-manual-y-readme/BRAND_GUIDELINES.md",
+  "previewPath": "brand/kit/05-manual-y-readme/BRAND_GUIDELINES.md",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "source",
+  "approved": true
+}

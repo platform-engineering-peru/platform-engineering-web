@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "6f2ecae7-3d92-8fb0-92bb-26ae3d7fde54",
+  "status": "published",
+  "updatedAt": null,
+  "name": "Oscar Lobaton Salas",
+  "shortName": "Oscar",
+  "figurine": "team/oscar-coffee.webp",
+  "color": "#cec8e8",
+  "role": {
+    "es-pe": "SRE & FDE · DevOps Institute Ambassador · International Speaker",
+    "en": "SRE & FDE · DevOps Institute Ambassador · International Speaker"
+  },
+  "company": {
+    "es-pe": "Cobre",
+    "en": "Cobre"
+  },
+  "photo": "team/oscar-coffee.webp",
+  "url": "https://www.linkedin.com/in/oscarlobatons/",
+  "links": [
+    {
+      "label": "0vas.com",
+      "href": "https://0vas.com"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/0vas"
+    }
+  ],
+  "slug": "oscar-lobaton-salas",
+  "photoAssetId": "9f8d1a8a-85b1-815d-8554-55c5007f586d",
+  "figurineAssetId": "9f8d1a8a-85b1-815d-8554-55c5007f586d",
+  "displayOrder": 20
+}

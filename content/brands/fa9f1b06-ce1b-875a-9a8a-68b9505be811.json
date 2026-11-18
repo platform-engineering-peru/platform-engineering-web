@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "fa9f1b06-ce1b-875a-9a8a-68b9505be811",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-7be2713cdbf89fae",
+  "title": {
+    "es-pe": "linkedin.svg",
+    "en": "linkedin.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 580,
+  "path": "brand/social/linkedin.svg",
+  "originalPath": "brand/social/linkedin.svg",
+  "previewPath": "brand/social/linkedin.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

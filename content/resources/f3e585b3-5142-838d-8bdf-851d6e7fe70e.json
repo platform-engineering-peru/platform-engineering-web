@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "f3e585b3-5142-838d-8bdf-851d6e7fe70e",
+  "status": "published",
+  "updatedAt": null,
+  "type": "article",
+  "topic": "idp",
+  "contentLang": "en",
+  "href": "https://platformengineering.org/blog/golden-cage-syndrome-why-internal-developer-platforms-fail",
+  "title": {
+    "es-pe": "Golden cage: por qué fallan las IDP",
+    "en": "Golden cage syndrome: why IDPs fail"
+  },
+  "description": {
+    "es-pe": "Cuando la plataforma restringe en lugar de habilitar.",
+    "en": "When the platform restricts instead of enabling."
+  },
+  "slug": "golden-cage-syndrome-why-idps-fail",
+  "coverArtKey": "idp:cage",
+  "tags": [],
+  "displayOrder": 40
+}

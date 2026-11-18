@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "29e0d687-0fe7-8be6-8ede-ec41fd251cf2",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-a680915be62d88fd",
+  "title": {
+    "es-pe": "logo-web-light.svg",
+    "en": "logo-web-light.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 530,
+  "path": "brand/official/logo-web-light.svg",
+  "originalPath": "brand/official/logo-web-light.svg",
+  "previewPath": "brand/official/logo-web-light.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

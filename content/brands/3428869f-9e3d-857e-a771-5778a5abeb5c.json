@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "3428869f-9e3d-857e-a771-5778a5abeb5c",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-62255bdae88f8602",
+  "title": {
+    "es-pe": "isotipo-ukuku-monolinea-blanco.svg",
+    "en": "isotipo-ukuku-monolinea-blanco.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 390,
+  "path": "brand/kit/04-vectores-svg/isotipo-ukuku-monolinea-blanco.svg",
+  "originalPath": "brand/kit/04-vectores-svg/isotipo-ukuku-monolinea-blanco.svg",
+  "previewPath": "brand/kit/04-vectores-svg/isotipo-ukuku-monolinea-blanco.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

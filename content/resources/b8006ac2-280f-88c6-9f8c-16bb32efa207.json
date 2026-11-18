@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "b8006ac2-280f-88c6-9f8c-16bb32efa207",
+  "status": "published",
+  "updatedAt": null,
+  "type": "article",
+  "topic": "teams",
+  "contentLang": "en",
+  "href": "https://platformengineering.org/blog/how-to-build-your-platform-engineering-team",
+  "title": {
+    "es-pe": "Cómo armar tu equipo de plataforma",
+    "en": "How to build your platform engineering team"
+  },
+  "description": {
+    "es-pe": "Roles, tamaño y cuándo dar el primer paso.",
+    "en": "Roles, size and when to take the first step."
+  },
+  "slug": "how-to-build-your-platform-engineering-team",
+  "coverArtKey": "teams:article",
+  "tags": [],
+  "displayOrder": 80
+}

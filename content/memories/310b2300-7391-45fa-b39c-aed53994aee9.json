@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "310b2300-7391-45fa-b39c-aed53994aee9",
+  "slug": "lunch-with-ronald",
+  "status": "published",
+  "title": {
+    "es-pe": "Almuerzo con Ronald",
+    "en": "Lunch with Ronald"
+  },
+  "description": {
+    "es-pe": "La conversación continúa fuera de las charlas. Un almuerzo con Ronald para compartir ideas, experiencias y un buen momento entre amigos de la comunidad.",
+    "en": "The conversation continues beyond the talks. Lunch with Ronald to exchange ideas, experiences and a good time with friends from the community."
+  },
+  "eventId": null,
+  "capturedAt": null,
+  "captureYear": null,
+  "datePrecision": "unknown",
+  "media": [
+    {
+      "id": "0d4fc427-2171-442f-9f56-9c3a33b8d174",
+      "path": "memories/community-03.jpg",
+      "width": 1600,
+      "height": 1200,
+      "alt": {
+        "es-pe": "Foto grupal durante un almuerzo con Ronald, alrededor de una mesa en un restaurante.",
+        "en": "Group photo during lunch with Ronald, gathered around a restaurant table."
+      },
+      "fit": "contain",
+      "credit": null
+    }
+  ],
+  "tags": [],
+  "displayOrder": 30,
+  "updatedAt": null
+}

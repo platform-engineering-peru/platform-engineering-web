@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "33a441e7-a116-884e-9b47-00f2eed4f75e",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-cf9638524170e991",
+  "title": {
+    "es-pe": "logo-horizontal-dark.png",
+    "en": "logo-horizontal-dark.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 360,
+  "path": "brand/kit/03-logotipos-horizontales/logo-horizontal-dark.png",
+  "originalPath": "brand/kit/03-logotipos-horizontales/logo-horizontal-dark.png",
+  "previewPath": "brand/kit/03-logotipos-horizontales/logo-horizontal-dark.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

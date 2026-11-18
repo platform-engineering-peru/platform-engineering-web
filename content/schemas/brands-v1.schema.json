@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "status",
+    "updatedAt",
+    "slug",
+    "title",
+    "description",
+    "displayOrder",
+    "path",
+    "previewPath",
+    "dimensionsLabel",
+    "usage",
+    "originalPath",
+    "kind",
+    "approved"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "enum": [
+        "published",
+        "archived"
+      ]
+    },
+    "updatedAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-z0-9]*(?:-[a-z0-9]+)*$"
+    },
+    "title": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 120
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "displayOrder": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "path": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "previewPath": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "dimensionsLabel": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "usage": {
+      "type": "string",
+      "enum": [
+        "inventory",
+        "logo-light",
+        "logo-dark",
+        "application",
+        "social",
+        "ukuku"
+      ]
+    },
+    "originalPath": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "logo",
+        "source",
+        "merchandise",
+        "social",
+        "other"
+      ]
+    },
+    "approved": {
+      "type": "boolean"
+    }
+  }
+}

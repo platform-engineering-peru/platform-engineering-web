@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "e2a0936a-9263-8711-aa61-5b4e7d7acfb5",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-9c346702bc655933",
+  "title": {
+    "es-pe": "favicon-64x64.png",
+    "en": "favicon-64x64.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 280,
+  "path": "brand/kit/01-avatars-icons/favicon-64x64.png",
+  "originalPath": "brand/kit/01-avatars-icons/favicon-64x64.png",
+  "previewPath": "brand/kit/01-avatars-icons/favicon-64x64.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

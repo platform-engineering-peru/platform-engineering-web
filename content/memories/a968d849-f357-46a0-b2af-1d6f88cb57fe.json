@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "a968d849-f357-46a0-b2af-1d6f88cb57fe",
+  "slug": "josua-and-the-crew",
+  "status": "published",
+  "title": {
+    "es-pe": "Josua y su combo",
+    "en": "Josua and the crew"
+  },
+  "description": {
+    "es-pe": "Las personas que hacen que cada encuentro valga la pena. Josua y su combo, reunidos para compartir conocimiento y seguir haciendo comunidad.",
+    "en": "The people who make every gathering worthwhile. Josua and the crew, coming together to share knowledge and strengthen the community."
+  },
+  "eventId": null,
+  "capturedAt": null,
+  "captureYear": null,
+  "datePrecision": "unknown",
+  "media": [
+    {
+      "id": "97e4dab6-633c-4a86-87d4-87a6f529e494",
+      "path": "memories/community-02.jpg",
+      "width": 1320,
+      "height": 708,
+      "alt": {
+        "es-pe": "Josua y su combo en una foto grupal junto a los asistentes de un encuentro tecnológico.",
+        "en": "Josua and the crew in a group photo with attendees at a technology gathering."
+      },
+      "fit": "contain",
+      "credit": null
+    }
+  ],
+  "tags": [],
+  "displayOrder": 20,
+  "updatedAt": null
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "ab9bcc13-52b7-82c3-9062-2a971766b652",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "carlos-ortiz",
+  "name": "Carlos Ortiz",
+  "role": {
+    "es-pe": "Community leader CNCF - Cloud Engineer",
+    "en": "Community leader CNCF - Cloud Engineer"
+  },
+  "company": {
+    "es-pe": "",
+    "en": ""
+  },
+  "talk": {
+    "es-pe": "Comunidades Cloud Native en Perú",
+    "en": "Comunidades Cloud Native en Perú"
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190512544%2F442849417140%2F1%2Foriginal.20260807-012037?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C200%2C200&s=3c61061f626ec46a8300efc6962aed83",
+  "url": "https://www.linkedin.com/in/carlos-ortiz-alberca/",
+  "topics": [],
+  "displayOrder": 50
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "24a7f296-5ad8-8ed9-ac08-51398c4eda05",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "danielle-nascimento",
+  "name": "Danielle Nascimento",
+  "role": {
+    "es-pe": "Analista de sistemas",
+    "en": "Analista de sistemas"
+  },
+  "company": {
+    "es-pe": "",
+    "en": ""
+  },
+  "talk": {
+    "es-pe": "Clústers que piensan: operación inteligente con IA",
+    "en": "Clusters that think: AI-driven operations"
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "speakers/danielle-nascimento.jpg",
+  "url": "https://www.linkedin.com/in/daniellenascimentodn/",
+  "topics": [],
+  "displayOrder": 10
+}

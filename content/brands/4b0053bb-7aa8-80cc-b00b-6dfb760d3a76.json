@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "4b0053bb-7aa8-80cc-b00b-6dfb760d3a76",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-17bcfe5a6823ca08",
+  "title": {
+    "es-pe": "hero-1120.webp",
+    "en": "hero-1120.webp"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 220,
+  "path": "brand/hero-1120.webp",
+  "originalPath": "brand/hero-1120.webp",
+  "previewPath": "brand/hero-1120.webp",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

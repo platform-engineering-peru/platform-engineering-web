@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "55173b0f-709c-881b-baf8-3e8555bb7329",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-4ab81983854240c5",
+  "title": {
+    "es-pe": "logo-transparent-hd.png",
+    "en": "logo-transparent-hd.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 310,
+  "path": "brand/kit/01-avatars-icons/logo-transparent-hd.png",
+  "originalPath": "brand/kit/01-avatars-icons/logo-transparent-hd.png",
+  "previewPath": "brand/kit/01-avatars-icons/logo-transparent-hd.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

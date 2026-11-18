@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "9cae61a8-dc00-8b12-a0c2-53e32d7bd80c",
+  "status": "published",
+  "updatedAt": null,
+  "name": "Josua Castro",
+  "shortName": "Josua",
+  "figurine": "team/josua-3d.webp",
+  "color": "#c9d9bd",
+  "role": {
+    "es-pe": "Platform Engineer - Golden Kubestronaut - KCD Lima Organizer",
+    "en": "Platform Engineer - Golden Kubestronaut - KCD Lima Organizer"
+  },
+  "company": {
+    "es-pe": "Banco de Crédito del Perú",
+    "en": "Banco de Crédito del Perú"
+  },
+  "photo": "team/josua-castro.jpg",
+  "url": "https://www.linkedin.com/in/josuacvga/",
+  "slug": "josua-castro",
+  "photoAssetId": "d2421d0d-172e-850d-bb69-4bf31cef4d85",
+  "figurineAssetId": "e4cfb5a2-97cf-8f26-8b20-3bff4883f661",
+  "links": [],
+  "displayOrder": 10
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "8e118a29-12d0-8289-9c7e-738cac1b9aa6",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "michelle-luna",
+  "name": "Michelle Luna",
+  "role": {
+    "es-pe": "Cloud & DevOps Engineer - AWS Instructor",
+    "en": "Cloud & DevOps Engineer - AWS Instructor"
+  },
+  "company": {
+    "es-pe": "Whitestack",
+    "en": "Whitestack"
+  },
+  "talk": {
+    "es-pe": "Git como fuente de verdad: despliegues en piloto automático con ArgoCD",
+    "en": "Git as the source of truth: autopilot deployments with ArgoCD"
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "speakers/michelle-luna.jpg",
+  "url": "https://www.linkedin.com/in/milunadev/",
+  "topics": [],
+  "displayOrder": 30
+}

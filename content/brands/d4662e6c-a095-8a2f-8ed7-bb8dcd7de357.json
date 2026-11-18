@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "d4662e6c-a095-8a2f-8ed7-bb8dcd7de357",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-97a9faa067f25135",
+  "title": {
+    "es-pe": "hoodie-shirt.webp",
+    "en": "hoodie-shirt.webp"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 190,
+  "path": "brand/applications/hoodie-shirt.webp",
+  "originalPath": "brand/applications/hoodie-shirt.webp",
+  "previewPath": "brand/applications/hoodie-shirt.webp",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "ac613a04-497e-8443-8b3a-6b2e6b6d67fb",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "gerson-escarcena",
+  "name": "Gerson Escarcena",
+  "role": {
+    "es-pe": "AI Engineer - Cloud / DevOps",
+    "en": "AI Engineer - Cloud / DevOps"
+  },
+  "company": {
+    "es-pe": "",
+    "en": ""
+  },
+  "talk": {
+    "es-pe": "Zero Trust en Kubernetes: del caos al control",
+    "en": "Zero Trust on Kubernetes: from chaos to control"
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "speakers/gerson-escarcena.jpg",
+  "url": "https://www.linkedin.com/in/gerson-e-88148b32a/",
+  "topics": [],
+  "displayOrder": 120
+}

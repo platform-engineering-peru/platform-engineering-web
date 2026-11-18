@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "574b7801-39a7-8685-9cd2-355a85121a26",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-05864f32c26274dd",
+  "title": {
+    "es-pe": "Fondo claro",
+    "en": "Light background"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 10,
+  "path": "brand/kit/03-logotipos-horizontales/logo-horizontal-light.svg",
+  "originalPath": "brand/kit/03-logotipos-horizontales/logo-horizontal-light.png",
+  "previewPath": "brand/kit/03-logotipos-horizontales/logo-horizontal-light.svg",
+  "dimensionsLabel": "",
+  "usage": "logo-light",
+  "kind": "logo",
+  "approved": true
+}

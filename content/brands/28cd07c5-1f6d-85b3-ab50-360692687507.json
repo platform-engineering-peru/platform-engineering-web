@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "28cd07c5-1f6d-85b3-ab50-360692687507",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-21e6d13bbf6e1c3e",
+  "title": {
+    "es-pe": "logo-mark-dark.png",
+    "en": "logo-mark-dark.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 480,
+  "path": "brand/logo-mark-dark.png",
+  "originalPath": "brand/logo-mark-dark.png",
+  "previewPath": "brand/logo-mark-dark.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}
