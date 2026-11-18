@@ -1,11 +1,16 @@
 import { wrapIndex } from "../resources/archive-geometry";
-const root = document.querySelector<HTMLElement>("[data-jobs]");
-if (root) {
+export function initOpportunities(root: HTMLElement) {
+  if (!root.querySelector("[data-job-stage]")) return;
   root.classList.add("is-enhanced");
   const stage = root.querySelector<HTMLElement>("[data-job-stage]")!,
     cards = [...root.querySelectorAll<HTMLButtonElement>("[data-job]")];
   const dialog = root.querySelector<HTMLDialogElement>("[data-job-dialog]")!,
     reduced = matchMedia("(prefers-reduced-motion: reduce)");
+  let filter = "all",
+    expiryTimer = 0;
+  let openCard: HTMLButtonElement | undefined;
+  const unexpired = (card: HTMLButtonElement) =>
+    !card.dataset.expiresAt || Date.parse(card.dataset.expiresAt) > Date.now();
   let shown = cards,
     target = 0,
     current = 0,
@@ -15,24 +20,82 @@ if (root) {
     x = 0,
     y = 0,
     visible = false;
-  let paused = reduced.matches, hovering = false, lastFrame = 0, lastInteraction = 0;
-  const motionButton = root.querySelector<HTMLButtonElement>('[data-job-motion]')!;
+  let paused = reduced.matches,
+    hovering = false,
+    lastFrame = 0,
+    lastInteraction = 0;
+  const motionButton =
+    root.querySelector<HTMLButtonElement>("[data-job-motion]")!;
   const syncMotion = () => {
-    motionButton.setAttribute('aria-pressed', String(paused));
-    motionButton.textContent = paused ? '▶ ' + (document.documentElement.lang.startsWith('en') ? 'Play' : 'Reanudar') : 'Ⅱ ' + (document.documentElement.lang.startsWith('en') ? 'Pause' : 'Pausar');
-    motionButton.setAttribute('aria-label', document.documentElement.lang.startsWith('en') ? (paused ? 'Resume automatic movement' : 'Pause automatic movement') : (paused ? 'Reanudar movimiento automático' : 'Pausar movimiento automático'));
+    motionButton.setAttribute("aria-pressed", String(paused));
+    motionButton.textContent = paused
+      ? "▶ " +
+        (document.documentElement.lang.startsWith("en") ? "Play" : "Reanudar")
+      : "Ⅱ " +
+        (document.documentElement.lang.startsWith("en") ? "Pause" : "Pausar");
+    motionButton.setAttribute(
+      "aria-label",
+      document.documentElement.lang.startsWith("en")
+        ? paused
+          ? "Resume automatic movement"
+          : "Pause automatic movement"
+        : paused
+          ? "Reanudar movimiento automático"
+          : "Pausar movimiento automático",
+    );
   };
-  const canAuto = () => !paused && !reduced.matches && !hovering && !dialog.open && !root.contains(document.activeElement) && performance.now() - lastInteraction > 2200;
-  motionButton.addEventListener('click', () => { paused = !paused; syncMotion(); wake(); });
-  root.addEventListener('pointerenter', () => { hovering = true; });
-  root.addEventListener('pointerleave', () => { hovering = false; wake(); });
-  root.addEventListener('focusout', () => { lastInteraction = performance.now(); wake(); });
-  root.addEventListener('pointerdown', () => { lastInteraction = performance.now(); });
+  const canAuto = () =>
+    shown.length > 1 &&
+    !paused &&
+    !reduced.matches &&
+    !hovering &&
+    !dialog.open &&
+    !root.contains(document.activeElement) &&
+    performance.now() - lastInteraction > 2200;
+  motionButton.addEventListener("click", () => {
+    paused = !paused;
+    syncMotion();
+    wake();
+  });
+  root.addEventListener("pointerenter", () => {
+    hovering = true;
+  });
+  root.addEventListener("pointerleave", () => {
+    hovering = false;
+    wake();
+  });
+  root.addEventListener("focusout", () => {
+    lastInteraction = performance.now();
+    wake();
+  });
+  root.addEventListener("pointerdown", () => {
+    lastInteraction = performance.now();
+  });
   const title = root.querySelector("[data-job-title]")!,
     position = root.querySelector("[data-job-position]")!;
   let lastActive: HTMLButtonElement | undefined;
   const update = () => {
     const i = wrapIndex(Math.round(target), shown.length);
+    const empty = shown.length === 0;
+    root
+      .querySelector<HTMLElement>("[data-job-filter-empty]")
+      ?.toggleAttribute("hidden", !empty);
+    root
+      .querySelectorAll<HTMLButtonElement>(
+        "[data-job-prev], [data-job-next], [data-job-open], [data-job-motion]",
+      )
+      .forEach(
+        (button) =>
+          (button.disabled =
+            empty ||
+            (button.hasAttribute("data-job-open") ? false : shown.length < 2)),
+      );
+    if (empty) {
+      title.textContent = "";
+      position.textContent = "00 / 00";
+      lastActive = undefined;
+      return;
+    }
     if (lastActive === shown[i]) return;
     lastActive = shown[i];
     title.textContent = shown[i].querySelector("strong")!.textContent;
@@ -43,10 +106,13 @@ if (root) {
   };
   const render = (timestamp = performance.now()) => {
     raf = 0;
-    if (!visible || document.hidden) return;
+    if (!visible || document.hidden || !shown.length) return;
     const elapsed = Math.min(50, lastFrame ? timestamp - lastFrame : 0);
     lastFrame = timestamp;
-    if (canAuto()) { target += elapsed / 6500; update(); }
+    if (canAuto()) {
+      target += elapsed / 6500;
+      update();
+    }
     current += (target - current) * (reduced.matches ? 1 : 0.13);
     x += (tx - x) * 0.12;
     y += (ty - y) * 0.12;
@@ -61,11 +127,14 @@ if (root) {
       card.style.transform = `translate(-50%,-50%) translate3d(${px}px,${Math.sin(angle) * -20}px,${pz}px) rotateY(${-angle * 45 + x * 7}deg) rotateX(${-y * 5}deg)`;
       card.style.zIndex = String(10 - Math.round(Math.abs(d) * 2));
       // Opacity on the 3D parent flattens its faces and exposes the back through the front.
-      card.style.setProperty('--card-shade', String(Math.min(0.36, Math.abs(d) * 0.14)));
+      card.style.setProperty(
+        "--card-shade",
+        String(Math.min(0.36, Math.abs(d) * 0.14)),
+      );
       card.tabIndex = Math.abs(d) < 0.51 ? 0 : -1;
     });
     if (
-      (!paused && !reduced.matches && !hovering && !dialog.open && !root.contains(document.activeElement)) ||
+      canAuto() ||
       Math.abs(target - current) > 0.001 ||
       Math.abs(tx - x) + Math.abs(ty - y) > 0.005
     )
@@ -90,20 +159,34 @@ if (root) {
     .addEventListener("click", (e) => move(1, (e as MouseEvent).detail === 0));
 
   // Vertical wheel still scrolls the page; horizontal gestures control the cylinder.
-  stage.addEventListener('wheel', (event) => {
-    if (event.ctrlKey) return;
-    const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
-    if (horizontal) event.preventDefault();
-    lastInteraction = performance.now();
-    const delta = horizontal ? event.deltaX : event.deltaY;
-    const pixels = delta * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? stage.clientHeight : 1);
-    target += Math.max(-160, Math.min(160, pixels)) / 380;
-    if (reduced.matches) current = target;
-    update(); wake();
-  }, {passive:false});
+  stage.addEventListener(
+    "wheel",
+    (event) => {
+      if (event.ctrlKey) return;
+      const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+      if (horizontal) event.preventDefault();
+      lastInteraction = performance.now();
+      const delta = horizontal ? event.deltaX : event.deltaY;
+      const pixels =
+        delta *
+        (event.deltaMode === 1
+          ? 16
+          : event.deltaMode === 2
+            ? stage.clientHeight
+            : 1);
+      target += Math.max(-160, Math.min(160, pixels)) / 380;
+      if (reduced.matches) current = target;
+      update();
+      wake();
+    },
+    { passive: false },
+  );
   let origin: HTMLElement | null = null,
     oldOverflow = "";
-  const open = (card: HTMLButtonElement) => {
+  const open = (card: HTMLButtonElement | undefined) => {
+    refreshAvailability();
+    if (!card || card.hidden || !unexpired(card)) return;
+    openCard = card;
     origin = document.activeElement as HTMLElement;
     const template = root.querySelector<HTMLTemplateElement>(
       `[data-job-template="${card.dataset.job}"]`,
@@ -140,9 +223,27 @@ if (root) {
   root
     .querySelector("[data-job-close]")!
     .addEventListener("click", () => dialog.close());
+  dialog.addEventListener(
+    "click",
+    (event) => {
+      if (
+        openCard &&
+        !unexpired(openCard) &&
+        (event.target as HTMLElement).closest("a")
+      ) {
+        event.preventDefault();
+        refreshAvailability();
+      }
+    },
+    true,
+  );
   dialog.addEventListener("close", () => {
     document.documentElement.style.overflow = oldOverflow;
-    origin?.focus({ preventScroll: true });
+    (origin && !origin.hidden && !origin.closest("[hidden]")
+      ? origin
+      : stage
+    ).focus({ preventScroll: true });
+    openCard = undefined;
   });
   stage.addEventListener("keydown", (e) => {
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
@@ -186,27 +287,72 @@ if (root) {
       move(dx < 0 ? 1 : -1);
     }
   });
+  function refreshAvailability(reset = false) {
+    const previous = reset
+      ? undefined
+      : shown[wrapIndex(Math.round(target), shown.length)];
+    shown = cards.filter(
+      (c) => unexpired(c) && (filter === "all" || c.dataset.mode === filter),
+    );
+    cards.forEach((c) => {
+      c.hidden = !shown.includes(c);
+      if (c.hidden) {
+        c.tabIndex = -1;
+        c.setAttribute("aria-pressed", "false");
+      }
+    });
+    root
+      .querySelectorAll<HTMLButtonElement>("[data-job-list]")
+      .forEach(
+        (button) =>
+          (button.hidden = !shown.includes(
+            cards[Number(button.dataset.jobList)],
+          )),
+      );
+    if (openCard && !unexpired(openCard)) {
+      dialog.close();
+      root.querySelector("[data-job-content]")?.replaceChildren();
+      openCard = undefined;
+    }
+    const nextIndex = previous ? shown.indexOf(previous) : -1;
+    target = current = Math.max(0, nextIndex);
+    lastActive = undefined;
+    root.querySelector("[data-job-count]")!.textContent =
+      String(shown.length).padStart(2, "0") +
+      " / " +
+      (document.documentElement.lang.startsWith("en")
+        ? "OPPORTUNITIES"
+        : "OPORTUNIDADES");
+    const emptyMessage = root.querySelector<HTMLElement>(
+      "[data-job-filter-empty]",
+    );
+    if (emptyMessage)
+      emptyMessage.textContent = cards.some(unexpired)
+        ? document.documentElement.lang.startsWith("en")
+          ? "No opportunities match this work arrangement."
+          : "No hay oportunidades con esta modalidad de trabajo."
+        : document.documentElement.lang.startsWith("en")
+          ? "No reviewed, unexpired opportunities are available right now."
+          : "No hay oportunidades revisadas y vigentes en este momento.";
+    update();
+    wake();
+    window.clearTimeout(expiryTimer);
+    const future = cards
+      .map((c) => Date.parse(c.dataset.expiresAt ?? ""))
+      .filter((time) => time > Date.now());
+    if (future.length)
+      expiryTimer = window.setTimeout(
+        refreshAvailability,
+        Math.min(2147483647, Math.max(1, Math.min(...future) - Date.now() + 1)),
+      );
+  }
   root.querySelectorAll<HTMLButtonElement>("[data-job-filter]").forEach((b) =>
     b.addEventListener("click", () => {
-      shown = cards.filter(
-        (c) =>
-          b.dataset.jobFilter === "all" ||
-          c.dataset.mode === b.dataset.jobFilter,
-      );
-      cards.forEach((c) => (c.hidden = !shown.includes(c)));
+      filter = b.dataset.jobFilter ?? "all";
       root
         .querySelectorAll("[data-job-filter]")
         .forEach((f) => f.setAttribute("aria-pressed", String(f === b)));
-      lastActive = undefined;
-      target = current = 0;
-      root.querySelector("[data-job-count]")!.textContent =
-        String(shown.length).padStart(2, "0") +
-        " / " +
-        (document.documentElement.lang.startsWith("en")
-          ? "OPPORTUNITIES"
-          : "OPORTUNIDADES");
-      update();
-      wake();
+      refreshAvailability(true);
     }),
   );
   new ResizeObserver(wake).observe(stage);
@@ -219,14 +365,21 @@ if (root) {
       raf = 0;
     }
   }).observe(stage);
-  document.addEventListener("visibilitychange", wake);
+  document.addEventListener("visibilitychange", () => {
+    refreshAvailability();
+  });
+  window.addEventListener("pageshow", () => refreshAvailability());
   reduced.addEventListener("change", () => {
-    paused = reduced.matches; syncMotion();
+    paused = reduced.matches;
+    syncMotion();
     tx = ty = x = y = 0;
     current = target;
     wake();
   });
   syncMotion();
-  update();
-  wake();
+  refreshAvailability();
 }
+
+document
+  .querySelectorAll<HTMLElement>("[data-jobs]")
+  .forEach(initOpportunities);

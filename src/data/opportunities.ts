@@ -1,53 +1,14 @@
-/** Demo content requested by the site owner. No active vacancies or applications. */
-export const opportunities = [
-  {
-    id: "01",
-    title: "Senior Platform Engineer",
-    company: "Lorem Labs",
-    mode: "remote",
-    level: "Senior",
-    tags: ["Kubernetes", "Terraform", "Go"],
-    color: "#b5a4ff",
-    salary: "USD 4,000–6,000",
-  },
-  {
-    id: "02",
-    title: "Site Reliability Engineer",
-    company: "Ipsum Cloud",
-    mode: "hybrid",
-    level: "Mid",
-    tags: ["Observability", "Linux", "Python"],
-    color: "#93ddcd",
-    salary: "USD 3,000–4,500",
-  },
-  {
-    id: "03",
-    title: "Developer Experience Engineer",
-    company: "Dolor Studio",
-    mode: "remote",
-    level: "Senior",
-    tags: ["Backstage", "TypeScript", "CI/CD"],
-    color: "#f1b9ce",
-    salary: "USD 4,000–5,500",
-  },
-  {
-    id: "04",
-    title: "Cloud Infrastructure Engineer",
-    company: "Amet Systems",
-    mode: "hybrid",
-    level: "Mid",
-    tags: ["AWS", "GitOps", "Crossplane"],
-    color: "#f1c18d",
-    salary: "USD 3,000–5,000",
-  },
-  {
-    id: "05",
-    title: "Platform Product Lead",
-    company: "Consectetur",
-    mode: "remote",
-    level: "Lead",
-    tags: ["Product", "DevEx", "Strategy"],
-    color: "#a7c8ef",
-    salary: "USD 5,000–7,000",
-  },
-] as const;
+import { activeOpportunities } from "./opportunities-contract";
+const canonical = import.meta.glob("../../content/jobs/*.json", {
+  eager: true,
+  import: "default",
+});
+for (const [path, value] of Object.entries(canonical)) {
+  const record = value as { id?: string };
+  if (!path.endsWith(`/${record.id}.json`))
+    throw new Error(
+      `Public job filename must match its stable identity: ${path}`,
+    );
+}
+/** Static website reads approved canonical exports only; no admin database or demonstration vacancies. */
+export const opportunities = activeOpportunities(Object.values(canonical));
