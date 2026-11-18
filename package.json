@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.12",
-    "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.4.8",
+    "@astrojs/sitemap": "^3.7.5",
+    "astro": "^7.4.12",
     "hls.js": "^1.7.4",
     "three": "^0.187.0",
     "typescript": "^6.0.3",
