@@ -13,6 +13,7 @@ import { createApp } from "../src/server/app";
 import { privateStorage } from "../src/server/storage";
 import { stableUuid } from "../src/server/import-site";
 import { entityDefinitions } from "../src/shared/product-contract";
+import { recordCoverSource } from "../src/web/record-cover";
 assert.ok(process.env.DATABASE_URL);
 const site = resolve(process.env.WEBSITE_CHECKOUT ?? ".."),
   schema = "test_cover_browser_" + randomUUID().replaceAll("-", ""),
@@ -147,12 +148,45 @@ try {
   await dialog.getByRole("searchbox").fill("Marca");
   await dialog.getByRole("button", { name: /^Marca/ }).click();
   const input = page.getByRole("searchbox", { name: "Buscar", exact: true });
+  async function searchBrands(term: string, afterInput?: () => Promise<void>) {
+    const responsePromise = page.waitForResponse((response) => {
+      const url = new URL(response.url());
+      return (
+        url.pathname === "/api/records" &&
+        url.searchParams.get("type") === "brands" &&
+        url.searchParams.get("q") === term
+      );
+    });
+    await input.fill(term);
+    await afterInput?.();
+    const response = await responsePromise;
+    assert.equal(response.status(), 200);
+    const result = await response.json();
+    const expected = result.items
+      .map(recordCoverSource)
+      .filter((src: string | null) => src !== null);
+    assert.ok(
+      expected.length > 0,
+      "The brand fixture must expose actual preview images",
+    );
+    // A still-visible image from the previous query is not proof that this response rendered.
+    await page.waitForFunction(
+      (sources) =>
+        JSON.stringify(
+          [...document.querySelectorAll(".record-cover img")].map((image) =>
+            image.getAttribute("src"),
+          ),
+        ) === JSON.stringify(sources),
+      expected,
+    );
+    return expected;
+  }
   for (const term of [
     "linkedin-cover-1584x396.svg",
     "logo-isometrico-3capas-ukuku-transparent.svg",
     "meetup.svg",
   ]) {
-    await input.fill(term);
+    await searchBrands(term);
     await page.waitForFunction(() => {
       const imgs = [
         ...document.querySelectorAll<HTMLImageElement>(".record-cover img"),
@@ -167,8 +201,37 @@ try {
     assert.equal(response.status(), 200);
     assert.match(response.headers()["content-type"], /^image\/svg\+xml/);
   }
-  await input.fill("");
-  await page.locator(".record-cover img").first().waitFor();
+  // Hold the real unfiltered response to reproduce a slow CI list replacement.
+  let releaseList!: () => void;
+  const listGate = new Promise<void>((done) => {
+    releaseList = done;
+  });
+  await page.route("**/api/records?**", async (route) => {
+    const url = new URL(route.request().url());
+    if (
+      url.searchParams.get("type") === "brands" &&
+      url.searchParams.get("q") === ""
+    ) {
+      const response = await route.fetch();
+      await listGate;
+      await route.fulfill({ response });
+    } else await route.continue();
+  });
+  const previousSources = await page
+    .locator(".record-cover img")
+    .evaluateAll((images) => images.map((image) => image.getAttribute("src")));
+  await searchBrands("", async () => {
+    assert.deepEqual(
+      await page
+        .locator(".record-cover img")
+        .evaluateAll((images) =>
+          images.map((image) => image.getAttribute("src")),
+        ),
+      previousSources,
+      "The delayed response leaves only the previous query visible",
+    );
+    releaseList();
+  });
   for (const width of [1440, 390])
     for (const theme of ["light", "dark"]) {
       await page.setViewportSize({
@@ -217,6 +280,24 @@ try {
       2,
     ),
   );
+} catch (error) {
+  console.error(
+    "ASSET_IMAGE_STATE",
+    JSON.stringify(
+      await page.locator(".record-cover img").evaluateAll((images) =>
+        images.map((image) => {
+          const img = image as HTMLImageElement;
+          return {
+            src: img.getAttribute("src"),
+            loading: img.loading,
+            complete: img.complete,
+            naturalWidth: img.naturalWidth,
+          };
+        }),
+      ),
+    ),
+  );
+  throw error;
 } finally {
   await browser.close();
   await new Promise<void>((done) => server.close(() => done()));

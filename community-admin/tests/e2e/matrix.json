@@ -5625,12 +5625,15 @@
     },
     "asset-preview-product-browser.ts": {
       "path": "community-admin/tests/asset-preview-product-browser.ts",
-      "sha256": "a5706559722c08de37d5aebdf180f5febfd9c6db3c20e6dbc3e9e73fb0862f9e",
+      "sha256": "77ab574d1d5bb92eafdae88c403a7ca76cbe1825436c3344f17d6729f1ec4d1e",
       "level": "browser-real-api-pg",
       "compiledServer": false,
       "sourceApi": true,
       "providerLiveProof": false,
-      "assertionAnchors": [],
+      "assertionAnchors": [
+        "The delayed response leaves only the previous query visible",
+        "A still-visible image from the previous query is not proof that this response rendered."
+      ],
       "execution": "not-run-for-this-task",
       "caveat": "Built web client served with source createApp and real disposable PostgreSQL; provider boundaries are fixtures, not live delivery. Inspect per-scenario browser interception."
     },
