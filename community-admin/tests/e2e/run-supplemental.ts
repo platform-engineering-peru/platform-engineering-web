@@ -1,3 +1,4 @@
+import { withBrowserTemporary } from "./browser-temporary";
 import { speakerFixtures } from "./speaker-fixtures";
 import { rewriteLegacyEntry } from "./legacy-entry";
 import {
@@ -22,19 +23,30 @@ import {
   type JourneyResult,
 } from "./safety";
 import type { supplementalScenarios } from "./supplemental";
+type SupplementalOptions = {
+  repository: string;
+  temporary: string;
+  artifacts: string;
+  databaseURL: string;
+  web: string;
+  serverModule?: string;
+  signal?: AbortSignal;
+  log(text: string): void;
+};
 export async function runSupplemental(
   scenario: (typeof supplementalScenarios)[number],
   requirements: string[],
-  options: {
-    repository: string;
-    temporary: string;
-    artifacts: string;
-    databaseURL: string;
-    web: string;
-    serverModule?: string;
-    signal?: AbortSignal;
-    log(text: string): void;
-  },
+  options: SupplementalOptions,
+): Promise<JourneyResult & { executionLayer: string; skipped?: string[] }> {
+  return withBrowserTemporary((browserTemporary) =>
+    runWithBrowserTemporary(scenario, requirements, options, browserTemporary),
+  );
+}
+async function runWithBrowserTemporary(
+  scenario: (typeof supplementalScenarios)[number],
+  requirements: string[],
+  options: SupplementalOptions,
+  browserTemporary: string,
 ): Promise<JourneyResult & { executionLayer: string; skipped?: string[] }> {
   const started = performance.now(),
     scenarioTemporary = resolve(options.temporary, scenario.id),
@@ -117,8 +129,8 @@ export async function runSupplemental(
             SPEAKER_IMAGE_CACHE_DIR: speakerAssets.images,
           }
         : {}),
-      TMPDIR: join(temporary, "tmp"),
-      TEMP: join(temporary, "tmp"),
+      TMPDIR: browserTemporary,
+      TEMP: browserTemporary,
       NODE_OPTIONS:
         scenario.file === "safety"
           ? "--import=tsx"

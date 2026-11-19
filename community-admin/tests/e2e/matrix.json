@@ -5812,7 +5812,7 @@
     },
     "e2e-harness.test.ts": {
       "path": "community-admin/tests/e2e-harness.test.ts",
-      "sha256": "118d941575c4a4f91fae6a9efea3bf39ca655193ac394db0c829b58d7467c8d9",
+      "sha256": "116df45eb1ef9c76484c33dc81b78958bce17f4b4daf65aa45f962a9c149a7f7",
       "level": "api-pg-integration-or-unit",
       "compiledServer": false,
       "sourceApi": false,
@@ -5821,7 +5821,8 @@
         "E2E database target is explicit, dedicated, loopback and has no schema/connection-option escape",
         "runner environment never inherits database, provider credentials, auth or loader configuration",
         "cleanup attempts all owned resources and surfaces every failure",
-        "coverage distinguishes executed real E2E, synthetic providers and missing requirements"
+        "coverage distinguishes executed real E2E, synthetic providers and missing requirements",
+        "browser temporaries stay short and private despite long inherited TMPDIR and are removed on success or failure"
       ],
       "execution": "not-run-for-this-task"
     },

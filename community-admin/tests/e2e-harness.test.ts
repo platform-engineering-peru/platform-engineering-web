@@ -348,3 +348,58 @@ test("source provenance includes the website files copied into supplemental sand
     await rm(root, { recursive: true, force: true });
   }
 });
+
+test("browser temporaries stay short and private despite long inherited TMPDIR and are removed on success or failure", async () => {
+  const { withBrowserTemporary } = await import("./e2e/browser-temporary");
+  const { mkdtemp, mkdir, stat, access, writeFile, rm } =
+    await import("node:fs/promises");
+  const { join } = await import("node:path");
+  const { tmpdir } = await import("node:os");
+  const inherited = process.env.TMPDIR;
+  const root = await mkdtemp(join(tmpdir(), "browser-path-test-"));
+  const long = join(root, "nested-workspace-".repeat(12));
+  const paths: string[] = [];
+  try {
+    await mkdir(long, { recursive: true });
+    process.env.TMPDIR = long;
+    assert.ok(
+      Buffer.byteLength(
+        join(long, "org.chromium.Chromium.123456/SingletonSocket"),
+      ) > 107,
+    );
+    for (const fails of [false, true]) {
+      const run = withBrowserTemporary(async (directory: string) => {
+        paths.push(directory);
+        if (process.platform !== "win32") {
+          assert.equal((await stat(directory)).mode & 0o777, 0o700);
+          const profile = join(directory, "org.chromium.Chromium.123456");
+          await mkdir(profile);
+          const socket = join(profile, "SingletonSocket");
+          assert.ok(Buffer.byteLength(socket) < 104, socket);
+          const server = (await import("node:net")).createServer();
+          await new Promise<void>((done, reject) => {
+            server.once("error", reject);
+            server.listen(socket, done);
+          });
+          await new Promise<void>((done, reject) =>
+            server.close((error) => (error ? reject(error) : done())),
+          );
+        }
+        await writeFile(
+          join(directory, "private-browser-fixture"),
+          "synthetic",
+        );
+        if (fails) throw Error("synthetic browser launch failure");
+        return "passed";
+      });
+      if (fails) await assert.rejects(run, /synthetic browser launch failure/);
+      else assert.equal(await run, "passed");
+      await assert.rejects(access(paths.at(-1)!), { code: "ENOENT" });
+    }
+    assert.notEqual(paths[0], paths[1]);
+  } finally {
+    if (inherited === undefined) delete process.env.TMPDIR;
+    else process.env.TMPDIR = inherited;
+    await rm(root, { recursive: true, force: true });
+  }
+});
