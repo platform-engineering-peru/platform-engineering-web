@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "ee7da233-015c-800c-9322-4f3a0df39eec",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-75b53cec2b39aca9",
+  "title": {
+    "es-pe": "mark.svg",
+    "en": "mark.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 560,
+  "path": "brand/official/mark.svg",
+  "originalPath": "brand/official/mark.svg",
+  "previewPath": "brand/official/mark.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

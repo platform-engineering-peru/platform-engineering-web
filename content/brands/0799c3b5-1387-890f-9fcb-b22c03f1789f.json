@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "0799c3b5-1387-890f-9fcb-b22c03f1789f",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-ef37e87e222f2ca5",
+  "title": {
+    "es-pe": "logo-isometrico-3capas-ukuku-transparent.svg",
+    "en": "logo-isometrico-3capas-ukuku-transparent.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 420,
+  "path": "brand/kit/04-vectores-svg/logo-isometrico-3capas-ukuku-transparent.svg",
+  "originalPath": "brand/kit/04-vectores-svg/logo-isometrico-3capas-ukuku-transparent.svg",
+  "previewPath": "brand/kit/04-vectores-svg/logo-isometrico-3capas-ukuku-transparent.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

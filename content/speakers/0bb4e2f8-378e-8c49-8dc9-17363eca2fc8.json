@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "0bb4e2f8-378e-8c49-8dc9-17363eca2fc8",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "jose-luis-buga",
+  "name": "Jose Luis Buga",
+  "role": {
+    "es-pe": "Principal Solutions Architect",
+    "en": "Principal Solutions Architect"
+  },
+  "company": {
+    "es-pe": "Red Hat",
+    "en": "Red Hat"
+  },
+  "talk": {
+    "es-pe": "",
+    "en": ""
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190512658%2F442849417140%2F1%2Foriginal.20260807-012333?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C400%2C400&s=39ce462fdf6c3acee997c00f1ea20faf",
+  "url": "https://www.linkedin.com/in/joselbugarin/",
+  "topics": [],
+  "displayOrder": 90
+}

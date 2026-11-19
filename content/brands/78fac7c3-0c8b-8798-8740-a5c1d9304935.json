@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "78fac7c3-0c8b-8798-8740-a5c1d9304935",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-7131a210fe5c47d2",
+  "title": {
+    "es-pe": "Colección de prendas",
+    "en": "Apparel collection"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 50,
+  "path": "brand/applications/apparel-collection.png",
+  "originalPath": "brand/applications/apparel-collection.png",
+  "previewPath": "brand/applications/apparel-collection.webp",
+  "dimensionsLabel": "",
+  "usage": "application",
+  "kind": "merchandise",
+  "approved": true
+}

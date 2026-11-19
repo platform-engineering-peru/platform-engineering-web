@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "status",
+    "updatedAt",
+    "slug",
+    "name",
+    "role",
+    "company",
+    "talk",
+    "bio",
+    "photo",
+    "url",
+    "topics",
+    "displayOrder"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "enum": [
+        "published",
+        "archived"
+      ]
+    },
+    "updatedAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-z0-9]*(?:-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "role": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "company": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "talk": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "bio": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "photo": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "url": {
+      "type": "string",
+      "maxLength": 2048,
+      "anyOf": [
+        {
+          "const": ""
+        },
+        {
+          "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
+          "format": "uri"
+        }
+      ]
+    },
+    "topics": {
+      "maxItems": 100,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "displayOrder": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    }
+  }
+}

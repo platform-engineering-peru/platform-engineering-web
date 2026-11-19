@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "dd90cc57-ad88-87be-9e56-e0b028bac7ac",
+  "status": "published",
+  "updatedAt": null,
+  "type": "report",
+  "topic": "fundamentals",
+  "contentLang": "en",
+  "href": "https://platformengineering.org/reports",
+  "title": {
+    "es-pe": "Reportes de la industria",
+    "en": "Industry reports"
+  },
+  "description": {
+    "es-pe": "El estado de platform engineering con datos de miles de equipos.",
+    "en": "The state of platform engineering with data from thousands of teams."
+  },
+  "slug": "industry-reports",
+  "coverArtKey": "fundamentals:report",
+  "tags": [],
+  "displayOrder": 120
+}

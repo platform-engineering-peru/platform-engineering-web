@@ -1,0 +1,62 @@
+{
+  "name": "community-admin-local",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0 <23"
+  },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env --import tsx src/server/main.ts",
+    "migrate": "node --env-file-if-exists=.env --import tsx scripts/migrate.ts",
+    "test": "node --env-file-if-exists=.env --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && vite build && tsup src/server/main.ts --format esm --platform node --out-dir dist/server --external sharp --external pg --external vite",
+    "start": "SERVE_BUILD=1 node --env-file-if-exists=.env dist/server/main.js",
+    "verify:media": "tsx scripts/verify-media.ts",
+    "test:browser": "node --env-file-if-exists=.env --import tsx tests/browser-smoke.ts",
+    "format:check": "prettier --check src tests scripts vite.config.ts package.json tsconfig.json README.md",
+    "test:product-browser": "node --env-file-if-exists=.env --import tsx tests/product-browser.ts",
+    "recovery": "node --env-file-if-exists=.env --import tsx scripts/recovery.ts",
+    "export:schemas": "tsx scripts/export-schemas.ts",
+    "test:editorial-browser": "node --import tsx tests/editorial-browser.ts",
+    "test:editorial-product-browser": "node --env-file-if-exists=.env --import tsx tests/editorial-product-browser.ts",
+    "test:editorial-built-browser": "EDITORIAL_BROWSER_BUILT=1 node --import tsx tests/editorial-browser.ts",
+    "test:e2e": "node --import tsx scripts/test-e2e.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "3.1164.0",
+    "@aws-sdk/s3-request-presigner": "3.1164.0",
+    "@js-temporal/polyfill": "0.5.1",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "csv-parse": "7.0.3",
+    "express": "5.3.0",
+    "lucide-react": "1.73.0",
+    "multer": "2.5.0",
+    "pg": "8.23.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "sharp": "0.35.5",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/multer": "2.3.0",
+    "@types/node": "22.20.5",
+    "@types/pg": "8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/supertest": "6.0.3",
+    "playwright": "1.65.0",
+    "prettier": "3.9.10",
+    "supertest": "7.3.2",
+    "tsup": "8.5.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "7.3.7"
+  },
+  "overrides": {
+    "esbuild": "0.28.2"
+  }
+}

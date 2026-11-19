@@ -1,4 +1,5 @@
 ---
+import {publicRecords} from '@data/public-content';
 import {asset} from '@lib/assets';
 import {localizePath,type Lang} from '@i18n/index';
 import './branding.css';
@@ -6,10 +7,12 @@ interface Props{lang:Lang}
 const {lang}=Astro.props;const en=lang==='en';
 const kit=(path:string)=>asset(`brand/kit/${path}`);
 const palette=[['Electric Violet','#5B2EFF','DevEx'],['Andean Emerald','#00D96E','Platform'],['Cloud Lavender','#C4B5FD','Infrastructure'],['Peru Crimson','#E61530','Perú'],['Pure White','#FFFFFF','Ukuku'],['Deep Cosmos Navy','#090C20','Cloud']];
-const logos=[['logo-horizontal-light','03-logotipos-horizontales',en?'Light background':'Fondo claro','light'],['logo-horizontal-dark','03-logotipos-horizontales',en?'Dark background':'Fondo oscuro','dark']];
-const bears=[['oso-platform.webp',en?'A platform to embrace':'Una plataforma para abrazar'],['ukuku-seated-slide-rim.png',en?'Opening new paths':'Abriendo nuevos caminos'],['ukuku-flight.webp',en?'Exploring together':'Explorando juntos']];
-const applications=[['pins-keychain','Pines y llavero','Pins & keychain'],['ukuku-plush','Ukuku de peluche','Ukuku plush'],['apparel-collection','Colección de prendas','Apparel collection'],['hoodie-shirt','Polera y polo','Hoodie & T-shirt'],['drinkware','Botella, vaso y taza','Bottle, tumbler & mug'],['event-identity','Identidad para encuentros','Event identity']];
-const social=[['01-avatars-icons/github-avatar-500x500.png','GitHub avatar','500 × 500'],['01-avatars-icons/linkedin-avatar-800x800.png','LinkedIn avatar','800 × 800'],['02-banners-social/linkedin-cover-1584x396.png','LinkedIn cover','1584 × 396'],['02-banners-social/github-social-preview-1280x640.png','GitHub social preview','1280 × 640']];
+const inventory=publicRecords('brands').filter(r=>r.approved);
+const logos=inventory.filter(r=>r.usage==='logo-light'||r.usage==='logo-dark').map(r=>[r.path.split('/').pop().replace(/\.svg$/,''),r.path.split('/').at(-2),r.title[lang],r.usage==='logo-light'?'light':'dark']);
+const bears=inventory.filter(r=>r.usage==='ukuku').map(r=>[r.originalPath.replace('illustrations/',''),r.title[lang]]);
+const applications=inventory.filter(r=>r.usage==='application').map(r=>[r.path.split('/').pop().replace(/\.png$/,''),r.title['es-pe'],r.title.en]);
+const social=inventory.filter(r=>r.usage==='social').map(r=>[r.path.replace('brand/kit/',''),r.title[lang],r.dimensionsLabel]);
+
 ---
 <div class="brand-library">
  <header class="brand-hero ed-wrap">

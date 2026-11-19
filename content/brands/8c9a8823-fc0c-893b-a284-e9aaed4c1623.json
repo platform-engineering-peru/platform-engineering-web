@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "8c9a8823-fc0c-893b-a284-e9aaed4c1623",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-36ee2faac9b0531f",
+  "title": {
+    "es-pe": "logo-full-dark.png",
+    "en": "logo-full-dark.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 460,
+  "path": "brand/logo-full-dark.png",
+  "originalPath": "brand/logo-full-dark.png",
+  "previewPath": "brand/logo-full-dark.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

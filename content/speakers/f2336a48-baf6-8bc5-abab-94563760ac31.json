@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "f2336a48-baf6-8bc5-abab-94563760ac31",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "henry-tarazona",
+  "name": "Henry Tarazona",
+  "role": {
+    "es-pe": "Software & AI Agent Engineer",
+    "en": "Software & AI Agent Engineer"
+  },
+  "company": {
+    "es-pe": "Interbank",
+    "en": "Interbank"
+  },
+  "talk": {
+    "es-pe": "Un desarrollador Java con superpoderes: Quarkus + OpenShift",
+    "en": "Un desarrollador Java con superpoderes: Quarkus + OpenShift"
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190516559%2F442849417140%2F1%2Foriginal.20260807-025403?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=4%2C14%2C255%2C255&s=ddcc28ffae3f71d3f1ef3a9afce4caaf",
+  "url": "https://www.linkedin.com/in/keniding/",
+  "topics": [],
+  "displayOrder": 70
+}

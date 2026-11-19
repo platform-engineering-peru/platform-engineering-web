@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "d4fe4662-b137-849a-aa3e-a0f95b1db9c6",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-0ca3d2511731bce8",
+  "title": {
+    "es-pe": "apple-touch-icon-180x180.png",
+    "en": "apple-touch-icon-180x180.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 250,
+  "path": "brand/kit/01-avatars-icons/apple-touch-icon-180x180.png",
+  "originalPath": "brand/kit/01-avatars-icons/apple-touch-icon-180x180.png",
+  "previewPath": "brand/kit/01-avatars-icons/apple-touch-icon-180x180.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

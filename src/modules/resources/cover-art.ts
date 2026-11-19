@@ -13,7 +13,8 @@ export const coverArt = {
  'idp:tool': ['M30 35h50v50H30Z M95 35h50v50H95Z M160 35h50v50h-50Z M30 120h50v50H30Z M95 120h50v50H95Z M160 120h50v50h-50Z', 'M55 85v35 M120 85v35 M185 85v35 M80 60h15 M145 60h15 M80 145h15 M145 145h15'],
  'fundamentals:report': ['M45 25h110l40 40v120H45Z M155 25v40h40 M65 150v-30h20v30 M100 150V95h20v55 M135 150V80h20v70', 'M65 50h60 M65 65h45 M65 165h110'],
 };
-export function coverArtKey(resource: {topic:string;type:string;href:string}): keyof typeof coverArt {
+export function coverArtKey(resource: {topic:string;type:string;href:string;coverArtKey?:string}): keyof typeof coverArt {
+ if(resource.coverArtKey && resource.coverArtKey in coverArt)return resource.coverArtKey as keyof typeof coverArt;
  if(resource.href.includes('golden-cage')) return 'idp:cage';
  if(resource.href.includes('scorecard')) return 'devex:score';
  const key=`${resource.topic}:${resource.type}` as keyof typeof coverArt;

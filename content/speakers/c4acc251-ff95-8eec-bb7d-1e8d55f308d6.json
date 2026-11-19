@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "c4acc251-ff95-8eec-bb7d-1e8d55f308d6",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "bianca-torres",
+  "name": "Bianca Torres",
+  "role": {
+    "es-pe": "DevOps Engineer - AWS Community Builder",
+    "en": "DevOps Engineer - AWS Community Builder"
+  },
+  "company": {
+    "es-pe": "Paramo Technologies",
+    "en": "Paramo Technologies"
+  },
+  "talk": {
+    "es-pe": "Escala sin pagar de más: nodos justo a tiempo con Karpenter",
+    "en": "Scale without overpaying: just-in-time nodes with Karpenter"
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "speakers/bianca-torres.jpg",
+  "url": "https://www.linkedin.com/in/bianca-torres-chumbes/",
+  "topics": [],
+  "displayOrder": 20
+}

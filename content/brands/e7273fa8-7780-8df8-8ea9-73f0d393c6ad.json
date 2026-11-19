@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "e7273fa8-7780-8df8-8ea9-73f0d393c6ad",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-c08f0060803f8c6a",
+  "title": {
+    "es-pe": "GitHub avatar",
+    "en": "GitHub avatar"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 90,
+  "path": "brand/kit/01-avatars-icons/github-avatar-500x500.png",
+  "originalPath": "brand/kit/01-avatars-icons/github-avatar-500x500.png",
+  "previewPath": "brand/kit/01-avatars-icons/github-avatar-500x500.png",
+  "dimensionsLabel": "500 × 500",
+  "usage": "social",
+  "kind": "social",
+  "approved": true
+}

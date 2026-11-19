@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "kind": "public-original-photo-cache",
+  "freshAvailabilityVerified": false,
+  "images": [
+    {
+      "id": "0bb4e2f8-378e-8c49-8dc9-17363eca2fc8",
+      "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190512658%2F442849417140%2F1%2Foriginal.20260807-012333?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C400%2C400&s=39ce462fdf6c3acee997c00f1ea20faf",
+      "file": "0bb4e2f8-378e-8c49-8dc9-17363eca2fc8.img",
+      "sha256": "9ca2eb6828ea0dc73c402da75e193ddb20532532c08c7fc532413fb05daed9cc",
+      "width": 294,
+      "height": 294,
+      "mime": "image/jpeg",
+      "provenance": "Exact original bytes retained from the prior approved website speaker-photo verification; no new network request or image generation."
+    },
+    {
+      "id": "2de8e2ee-1c70-8d36-952c-9e56faad948b",
+      "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190516607%2F442849417140%2F1%2Foriginal.20260807-025455?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&s=cfde8326f301ee4edde726168e99a036",
+      "file": "2de8e2ee-1c70-8d36-952c-9e56faad948b.img",
+      "sha256": "94c1e204ea656bfb66008d07785c66f37342b6550ad81c4d08f42ca28e3c86a4",
+      "width": 294,
+      "height": 294,
+      "mime": "image/jpeg",
+      "provenance": "Exact original bytes retained from the prior approved website speaker-photo verification; no new network request or image generation."
+    },
+    {
+      "id": "35280654-183a-877d-9947-2cb96a4dafa8",
+      "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190516451%2F442849417140%2F1%2Foriginal.20260807-025142?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=91%2C69%2C255%2C255&s=91218ead3a10764593ea7de8564e2458",
+      "file": "35280654-183a-877d-9947-2cb96a4dafa8.img",
+      "sha256": "32f4f5d906dc813d02ce9ca11d2362d0f1c306c484e8f3b7a5dd836b5352c9c8",
+      "width": 294,
+      "height": 294,
+      "mime": "image/jpeg",
+      "provenance": "Exact original bytes retained from the prior approved website speaker-photo verification; no new network request or image generation."
+    },
+    {
+      "id": "ab9bcc13-52b7-82c3-9062-2a971766b652",
+      "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190512544%2F442849417140%2F1%2Foriginal.20260807-012037?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C200%2C200&s=3c61061f626ec46a8300efc6962aed83",
+      "file": "ab9bcc13-52b7-82c3-9062-2a971766b652.img",
+      "sha256": "7ce7ed0cd323d37050ae10b6814078d97380c5b51a3c015b3319fe5032be4387",
+      "width": 294,
+      "height": 294,
+      "mime": "image/jpeg",
+      "provenance": "Exact original bytes retained from the prior approved website speaker-photo verification; no new network request or image generation."
+    },
+    {
+      "id": "f2336a48-baf6-8bc5-abab-94563760ac31",
+      "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190516559%2F442849417140%2F1%2Foriginal.20260807-025403?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=4%2C14%2C255%2C255&s=ddcc28ffae3f71d3f1ef3a9afce4caaf",
+      "file": "f2336a48-baf6-8bc5-abab-94563760ac31.img",
+      "sha256": "a978dcbbf9eb64411d10b88f31ad6fc2139a1e5d46a76d9842abaa40582f0c99",
+      "width": 294,
+      "height": 294,
+      "mime": "image/jpeg",
+      "provenance": "Exact original bytes retained from the prior approved website speaker-photo verification; no new network request or image generation."
+    }
+  ]
+}

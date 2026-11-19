@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "733b5ebf-4509-851a-8a11-292f7abe9ffc",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-0a28c14df2354d27",
+  "title": {
+    "es-pe": "logo-horizontal-light.png",
+    "en": "logo-horizontal-light.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 370,
+  "path": "brand/kit/03-logotipos-horizontales/logo-horizontal-light.png",
+  "originalPath": "brand/kit/03-logotipos-horizontales/logo-horizontal-light.png",
+  "previewPath": "brand/kit/03-logotipos-horizontales/logo-horizontal-light.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

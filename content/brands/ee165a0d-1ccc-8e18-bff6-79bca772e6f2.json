@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "ee165a0d-1ccc-8e18-bff6-79bca772e6f2",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-de721a054b3a2f29",
+  "title": {
+    "es-pe": "Identidad para encuentros",
+    "en": "Event identity"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 80,
+  "path": "brand/applications/event-identity.png",
+  "originalPath": "brand/applications/event-identity.png",
+  "previewPath": "brand/applications/event-identity.webp",
+  "dimensionsLabel": "",
+  "usage": "application",
+  "kind": "merchandise",
+  "approved": true
+}

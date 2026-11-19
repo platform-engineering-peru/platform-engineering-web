@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "0836db38-a1a4-8424-ba88-f545e97cc6e7",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-342afa4bf0c56e22",
+  "title": {
+    "es-pe": "meetup.svg",
+    "en": "meetup.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 590,
+  "path": "brand/social/meetup.svg",
+  "originalPath": "brand/social/meetup.svg",
+  "previewPath": "brand/social/meetup.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

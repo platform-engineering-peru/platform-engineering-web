@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "types": {
+    "events": {
+      "schemaPath": "content/schemas/events-v1.schema.json",
+      "schemaSha256": "6fa622a21490120ffab2edc5b673d9cb3f88758888952b988a3b5703ce3cede8",
+      "requiredFiles": {
+        "src/data/events.ts": "7ed5e998cf1840d69f29b18d2e280a4f4fe26fb5d8258b908d5c88878812ea8c",
+        "src/data/public-content.ts": "80cec93c0679a029bebf1de656b85d63d2f658a8ad2e25747e5dbec112d51399",
+        "src/data/speakers.ts": "b286a6c80be557d984edbe31e54d36e9841e8a37d8af8246d36c7eb394c5b8f5",
+        "src/modules/calendar/Calendar.astro": "29ab9e5672f2690a358c0e903e78880f2f4361eaea979ff382ef16f586064d3b",
+        "src/modules/calendar/calendar.css": "90b5bb2c463478080f2da4a44ca91af89ba469e3cac8cc8fe023bd1fe6199016",
+        "src/modules/calendar/controller.ts": "2bc2632ea28015f4744b6e7a55d5a94fcf873df9548dc19106b50bba19c318d8",
+        "src/modules/calendar/model.ts": "15389d50d1ecc21f1bc49a600f469ebc98cfb4702dbc10dfb7a7afd21239671a",
+        "src/modules/calendar/view.ts": "5943806b0bdbc6876452f3a5ad01a507eebaeece2932ee60eaef43ba114df38b",
+        "src/modules/events/view.ts": "abb6746880f30c33f9fe7ffd0eae89fe1ee32e654713361aa00e437c8a3b1e86",
+        "src/pages/[lang]/calendar/index.astro": "cbfbf47dd162972e6bdf7c83058fa66d77430fae459903272e5dafa5ed273490",
+        "src/components/layout/Header.astro": "0ed3f961c46a609d1c376cf217f667086036f25299b18ab1a92783933b1468cb",
+        "src/i18n/locales/es-pe.json": "b6fb13962915b3a44eaba03fe87a1c32245258fa4c3c4f990d3cc313a033c88c",
+        "src/i18n/locales/en.json": "7cb9fd16e8659bbaf8cda51ca2f2dc29101dc5ab82c450ea7c26cd775ed3caa4"
+      }
+    },
+    "speakers": {
+      "schemaPath": "content/schemas/speakers-v1.schema.json",
+      "schemaSha256": "d7ec15a5a8fab447ba1b4311dc3ce51f65a6e122aa4a4b573505f75ae102d1f4",
+      "requiredFiles": {
+        "src/data/public-content.ts": "80cec93c0679a029bebf1de656b85d63d2f658a8ad2e25747e5dbec112d51399",
+        "src/data/speakers.ts": "b286a6c80be557d984edbe31e54d36e9841e8a37d8af8246d36c7eb394c5b8f5"
+      }
+    },
+    "organizers": {
+      "schemaPath": "content/schemas/organizers-v1.schema.json",
+      "schemaSha256": "2a0969f951bec0c0969797ec1b824043cae25bbd5243c1354f62b746c4e958fe",
+      "requiredFiles": {
+        "src/data/organizers.ts": "2aa56e50081c4e2e9dd7b652769581c6b17f3edfb3305d9a3d11355042aea825",
+        "src/data/public-content.ts": "80cec93c0679a029bebf1de656b85d63d2f658a8ad2e25747e5dbec112d51399"
+      }
+    },
+    "resources": {
+      "schemaPath": "content/schemas/resources-v1.schema.json",
+      "schemaSha256": "d214ccbba641c32b9ec9b470dbdaf0dab73c184070e426438c6b96a38fe551cd",
+      "requiredFiles": {
+        "src/data/public-content.ts": "80cec93c0679a029bebf1de656b85d63d2f658a8ad2e25747e5dbec112d51399",
+        "src/data/resources.ts": "b3ba0b9f46f7c6dc43105895794fa42790e8b81bee385fbdf467930af0affef2"
+      }
+    },
+    "courses": {
+      "schemaPath": "content/schemas/courses-v1.schema.json",
+      "schemaSha256": "beb1832f4b6f26a26a8d5fa141fd77bd03de87dabe7d142a607223263a6fec04",
+      "requiredFiles": {
+        "src/data/public-content.ts": "80cec93c0679a029bebf1de656b85d63d2f658a8ad2e25747e5dbec112d51399",
+        "src/data/resources.ts": "b3ba0b9f46f7c6dc43105895794fa42790e8b81bee385fbdf467930af0affef2"
+      }
+    },
+    "settings": {
+      "schemaPath": "content/schemas/settings-v1.schema.json",
+      "schemaSha256": "5b8b82ff6c3712ccc4d63870dee15ff9dfb855aed07f233776e72f003a8d398c",
+      "requiredFiles": {
+        "src/data/public-content.ts": "80cec93c0679a029bebf1de656b85d63d2f658a8ad2e25747e5dbec112d51399",
+        "src/data/site.ts": "6baedbc23b0405552b463c71bfa44123fc785902bcb8cd30bfc6d6df3b1a4151"
+      }
+    },
+    "brands": {
+      "schemaPath": "content/schemas/brands-v1.schema.json",
+      "schemaSha256": "68f73719c1c9ef44db8ad4702f5945341e0be7909ca459cbf56de199ef417e6d",
+      "requiredFiles": {
+        "src/data/public-content.ts": "80cec93c0679a029bebf1de656b85d63d2f658a8ad2e25747e5dbec112d51399",
+        "src/modules/branding/Branding.astro": "c6a997b6f8746e172c3f225292bb6229bcf709ec10546d904dc4c421d5893b30"
+      }
+    },
+    "memories": {
+      "schemaPath": "content/schemas/memory-v1.schema.json",
+      "schemaSha256": "4560310e015d13fdf0c8fde70eea1a6bcd419d6a3cdcb597053380453c1589be",
+      "requiredFiles": {
+        "content/memories-legacy.json": "2e3878affec3c06fcd18d0bd43f1c7bed469eb80e5d9b70aea8b9bf467e25061",
+        "content/schema-version.json": "60b085f30419fd596a37b82180d853c427074ec82b32b2d3eb1ab36af8a3a7b4",
+        "src/data/events.ts": "7ed5e998cf1840d69f29b18d2e280a4f4fe26fb5d8258b908d5c88878812ea8c",
+        "src/data/memories-contract.ts": "299f798f5d10e0f8c3b79eb41c8ea5901c6cd7a67bc264257fae6033ce869909",
+        "src/data/memories.ts": "ef717b70d94f8675fe1598ff1df408b3ee4fa3b08f463b47eafc8f61e2e6e00d",
+        "src/data/public-content.ts": "80cec93c0679a029bebf1de656b85d63d2f658a8ad2e25747e5dbec112d51399",
+        "src/data/speakers.ts": "b286a6c80be557d984edbe31e54d36e9841e8a37d8af8246d36c7eb394c5b8f5",
+        "src/modules/memories/Memories.astro": "021be6f93dcc9f89457555ecb5e9346d47d5e92df4e65903d73f71ebb8669793"
+      }
+    },
+    "blog": {
+      "schemaPath": "content/schemas/blog-v1.schema.json",
+      "schemaSha256": "e2bac4c536a304a549a08602f9276f9c9d20ce6133a9f7723c233ecc4d722c05",
+      "requiredFiles": {
+        "src/data/public-content.ts": "80cec93c0679a029bebf1de656b85d63d2f658a8ad2e25747e5dbec112d51399",
+        "src/data/blog.ts": "a5ed560fb46ebca2d6f3064012b096c4725002442dc9b28eba20d1b41ad31373",
+        "src/data/blog-model.ts": "c143dfe30492f60c7b8ff544b81d1443ed057860889e945f88e5bbbf4730b2f9",
+        "src/modules/blog/BlogDetail.astro": "e9b4ad413b9e298b51b8217b5f9f01db93edc623da33d9fcfd30b5f2491cf029",
+        "src/modules/blog/BlogList.astro": "c8d763d51a4f0972f315067d1dfa302097d00e0486b793b78636229015534373",
+        "src/modules/blog/blog.css": "0396794fb77bdb41ace890ae081d11750a5f9a16e60589076cbbb36c8a2d9f9a",
+        "src/pages/[lang]/blog/index.astro": "1f3aa396c47dab94ba33f4dda9caabd921f80aba7223cf817cb4741779f88cde",
+        "src/pages/[lang]/blog/[slug].astro": "f75d0dd88101cfbd547c0ccf1f9a9da788e34bfeeea2e61336605f395e19553c",
+        "src/components/layout/Header.astro": "0ed3f961c46a609d1c376cf217f667086036f25299b18ab1a92783933b1468cb",
+        "src/i18n/locales/es-pe.json": "b6fb13962915b3a44eaba03fe87a1c32245258fa4c3c4f990d3cc313a033c88c",
+        "src/i18n/locales/en.json": "7cb9fd16e8659bbaf8cda51ca2f2dc29101dc5ab82c450ea7c26cd775ed3caa4"
+      }
+    }
+  }
+}

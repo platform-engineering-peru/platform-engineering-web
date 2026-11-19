@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "83ba8b96-6f40-8170-b14c-eea29c8f604c",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "paul-escarcena",
+  "name": "Paul Escarcena",
+  "role": {
+    "es-pe": "Cloud, DevOps & Full-Stack Engineer",
+    "en": "Cloud, DevOps & Full-Stack Engineer"
+  },
+  "company": {
+    "es-pe": "Banco de Crédito del Perú",
+    "en": "Banco de Crédito del Perú"
+  },
+  "talk": {
+    "es-pe": "Zero Trust en Kubernetes: del caos al control",
+    "en": "Zero Trust on Kubernetes: from chaos to control"
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "speakers/paul-escarcena.jpg",
+  "url": "https://www.linkedin.com/in/pescarcena/",
+  "topics": [],
+  "displayOrder": 110
+}

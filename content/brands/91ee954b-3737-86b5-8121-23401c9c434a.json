@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "91ee954b-3737-86b5-8121-23401c9c434a",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-cf14c7b1733fe729",
+  "title": {
+    "es-pe": "drinkware.webp",
+    "en": "drinkware.webp"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 170,
+  "path": "brand/applications/drinkware.webp",
+  "originalPath": "brand/applications/drinkware.webp",
+  "previewPath": "brand/applications/drinkware.webp",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

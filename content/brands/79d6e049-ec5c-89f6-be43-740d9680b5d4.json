@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "79d6e049-ec5c-89f6-be43-740d9680b5d4",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-ac21070a942a9027",
+  "title": {
+    "es-pe": "Una plataforma para abrazar",
+    "en": "A platform to embrace"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 130,
+  "path": "illustrations/oso-platform.webp",
+  "originalPath": "illustrations/oso-platform.webp",
+  "previewPath": "illustrations/oso-platform.webp",
+  "dimensionsLabel": "",
+  "usage": "ukuku",
+  "kind": "other",
+  "approved": true
+}

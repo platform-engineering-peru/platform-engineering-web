@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "0740b1d5-8c1b-4106-90b4-174875399c5b",
+  "slug": "kcd-2026",
+  "status": "published",
+  "title": {
+    "es-pe": "KCD 2026",
+    "en": "KCD 2026"
+  },
+  "description": {
+    "es-pe": "Un auditorio lleno de personas que comparten el interés por Kubernetes y Cloud Native. Un recuerdo de KCD 2026 y de la comunidad que lo hace posible.",
+    "en": "An auditorium filled with people who share an interest in Kubernetes and Cloud Native. A memory of KCD 2026 and the community behind it."
+  },
+  "eventId": null,
+  "capturedAt": null,
+  "captureYear": null,
+  "datePrecision": "unknown",
+  "media": [
+    {
+      "id": "28583256-2133-466c-a0d9-7fcc791bba45",
+      "path": "memories/community-01.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": {
+        "es-pe": "Foto grupal de KCD 2026, con asistentes en el auditorio y participantes frente al escenario.",
+        "en": "KCD 2026 group photo, with attendees throughout the auditorium and participants in front of the stage."
+      },
+      "fit": "contain",
+      "credit": null
+    }
+  ],
+  "tags": [],
+  "displayOrder": 10,
+  "updatedAt": null
+}

@@ -1,0 +1,85 @@
+.named-confirmation {
+  width: min(560px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text);
+  overflow: auto;
+}
+.named-confirmation::backdrop {
+  background: rgb(9 12 32 / 65%);
+}
+.named-confirmation h2 {
+  font-size: 22px;
+  overflow-wrap: anywhere;
+}
+.named-confirmation label {
+  display: grid;
+  gap: 8px;
+}
+.named-confirmation textarea {
+  width: 100%;
+  min-height: 100px;
+  box-sizing: border-box;
+}
+.named-confirmation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.named-confirmation-actions > button {
+  flex: 1 1 180px;
+}
+.named-confirmation-actions .danger {
+  border-color: #e61530;
+}
+.lifecycle-actions {
+  min-width: 0;
+}
+.lifecycle-actions-content {
+  display: grid;
+  gap: 12px;
+  padding-block: 12px;
+  max-width: 100%;
+}
+.lifecycle-action {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  overflow-wrap: anywhere;
+}
+.lifecycle-action > button {
+  max-width: 100%;
+}
+.lifecycle-retention {
+  border-left: 2px solid var(--line);
+  padding-left: 12px;
+}
+.library-asset-card {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+.library-asset-card > .library-asset {
+  width: 100%;
+}
+.library-asset-card > button:not(.library-asset) {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.library-asset-card[data-cleanup-pending="true"] {
+  grid-column: 1 / -1;
+}
+.library-asset-card[data-cleanup-pending="true"] .library-asset {
+  text-align: left;
+}
+.library-asset-card[data-cleanup-pending="true"] .library-asset > strong {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+}

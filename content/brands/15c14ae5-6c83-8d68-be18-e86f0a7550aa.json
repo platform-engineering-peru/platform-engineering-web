@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "15c14ae5-6c83-8d68-be18-e86f0a7550aa",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-923a6e1d7de13745",
+  "title": {
+    "es-pe": "ukuku-plush.webp",
+    "en": "ukuku-plush.webp"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 210,
+  "path": "brand/applications/ukuku-plush.webp",
+  "originalPath": "brand/applications/ukuku-plush.webp",
+  "previewPath": "brand/applications/ukuku-plush.webp",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "status",
+    "updatedAt",
+    "slug",
+    "name",
+    "shortName",
+    "role",
+    "company",
+    "photoAssetId",
+    "figurineAssetId",
+    "color",
+    "url",
+    "links",
+    "displayOrder",
+    "photo",
+    "figurine"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "enum": [
+        "published",
+        "archived"
+      ]
+    },
+    "updatedAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-z0-9]*(?:-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "shortName": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "role": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "company": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "photoAssetId": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "figurineAssetId": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "color": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "url": {
+      "type": "string",
+      "maxLength": 2048,
+      "anyOf": [
+        {
+          "const": ""
+        },
+        {
+          "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
+          "format": "uri"
+        }
+      ]
+    },
+    "links": {
+      "maxItems": 20,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "href": {
+            "type": "string",
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "label",
+          "href"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "displayOrder": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "photo": {
+      "type": "string"
+    },
+    "figurine": {
+      "type": "string"
+    }
+  }
+}

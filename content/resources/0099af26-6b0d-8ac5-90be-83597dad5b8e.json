@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "0099af26-6b0d-8ac5-90be-83597dad5b8e",
+  "status": "published",
+  "updatedAt": null,
+  "type": "article",
+  "topic": "devex",
+  "contentLang": "en",
+  "href": "https://platformengineering.org/blog/the-empathy-gap-why-your-platform-needs-ux-not-just-apis",
+  "title": {
+    "es-pe": "Tu plataforma necesita UX, no solo APIs",
+    "en": "Your platform needs UX, not just APIs"
+  },
+  "description": {
+    "es-pe": "La brecha de empatía entre el equipo de plataforma y sus usuarios.",
+    "en": "The empathy gap between platform teams and their users."
+  },
+  "slug": "your-platform-needs-ux-not-just-apis",
+  "coverArtKey": "devex:article",
+  "tags": [],
+  "displayOrder": 70
+}

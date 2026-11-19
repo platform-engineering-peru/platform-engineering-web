@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "5673acd2-fbb5-8fea-b207-d0b2f24fdfa9",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-a296ad4f61fca59f",
+  "title": {
+    "es-pe": "LinkedIn cover",
+    "en": "LinkedIn cover"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 110,
+  "path": "brand/kit/02-banners-social/linkedin-cover-1584x396.png",
+  "originalPath": "brand/kit/02-banners-social/linkedin-cover-1584x396.png",
+  "previewPath": "brand/kit/02-banners-social/linkedin-cover-1584x396.png",
+  "dimensionsLabel": "1584 × 396",
+  "usage": "social",
+  "kind": "social",
+  "approved": true
+}

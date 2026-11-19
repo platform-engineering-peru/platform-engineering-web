@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "32e387e2-4d8f-8083-b647-f7c4676528c4",
+  "status": "published",
+  "updatedAt": null,
+  "type": "article",
+  "topic": "career",
+  "contentLang": "en",
+  "href": "https://platformengineering.org/blog/job-interview-platform-engineering-role",
+  "title": {
+    "es-pe": "Prepárate para una entrevista de platform engineer",
+    "en": "Preparing for a platform engineering interview"
+  },
+  "description": {
+    "es-pe": "Qué preguntan y cómo contar tu experiencia.",
+    "en": "What they ask and how to present your experience."
+  },
+  "slug": "preparing-for-a-platform-engineering-interview",
+  "coverArtKey": "career:article",
+  "tags": [],
+  "displayOrder": 100
+}

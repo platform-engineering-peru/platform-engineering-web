@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "91691382-2950-84f2-85db-3729b773e372",
+  "status": "published",
+  "updatedAt": null,
+  "type": "article",
+  "topic": "golden-paths",
+  "contentLang": "en",
+  "href": "https://platformengineering.org/blog/building-your-golden-path-lessons-from-the-trenches",
+  "title": {
+    "es-pe": "Construye tu golden path: lecciones de campo",
+    "en": "Building your golden path: lessons from the trenches"
+  },
+  "description": {
+    "es-pe": "Qué funciona al diseñar caminos dorados que los equipos adoptan.",
+    "en": "What works when designing golden paths teams adopt."
+  },
+  "slug": "building-your-golden-path-lessons-from-the-trenches",
+  "coverArtKey": "golden-paths:article",
+  "tags": [],
+  "displayOrder": 50
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "77924b1c-e25e-86fb-8113-8d47411469e1",
+  "status": "published",
+  "updatedAt": null,
+  "type": "course",
+  "topic": "fundamentals",
+  "contentLang": "en",
+  "href": "https://university.platformengineering.org/introduction-to-platform-engineering",
+  "title": {
+    "es-pe": "Curso gratuito: introducción a platform engineering",
+    "en": "Free course: introduction to platform engineering"
+  },
+  "description": {
+    "es-pe": "El punto de partida recomendado de Platform Engineering University.",
+    "en": "The recommended starting point from Platform Engineering University."
+  },
+  "slug": "free-course-introduction-to-platform-engineering",
+  "coverArtKey": "fundamentals:course",
+  "tags": [],
+  "provider": "",
+  "level": "unknown",
+  "durationMinutes": null,
+  "format": "unknown",
+  "priceModel": "free",
+  "amount": "",
+  "currency": "",
+  "certificate": "unknown",
+  "prerequisites": {
+    "es-pe": "",
+    "en": ""
+  },
+  "displayOrder": 20
+}

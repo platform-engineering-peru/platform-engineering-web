@@ -55,8 +55,8 @@ export function eventLd(event: CommunityEvent, lang: Lang, site: URL, pageUrl: s
     description: pick(event.description, lang),
     url: pageUrl,
     inLanguage: langCode(lang),
-    startDate: at(event.time),
-    ...(event.endTime ? { endDate: at(event.endTime) } : {}),
+    startDate: event.startDate ?? at(event.time),
+    ...(event.endTime ? { endDate: event.endDate ?? at(event.endTime) } : {}),
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: event.online
       ? 'https://schema.org/OnlineEventAttendanceMode'

@@ -1,0 +1,490 @@
+{
+  "organizers": [
+    {
+      "name": "Josua Castro",
+      "shortName": "Josua",
+      "figurine": "team/josua-3d.webp",
+      "color": "#c9d9bd",
+      "role": "Platform Engineer - Golden Kubestronaut - KCD Lima Organizer",
+      "company": {
+        "es-pe": "Banco de Crédito del Perú",
+        "en": "Banco de Crédito del Perú"
+      },
+      "photo": "team/josua-castro.jpg",
+      "url": "https://www.linkedin.com/in/josuacvga/"
+    },
+    {
+      "name": "Oscar Lobaton Salas",
+      "shortName": "Oscar",
+      "figurine": "team/oscar-coffee.webp",
+      "color": "#cec8e8",
+      "role": "SRE & FDE · DevOps Institute Ambassador · International Speaker",
+      "company": {
+        "es-pe": "Cobre",
+        "en": "Cobre"
+      },
+      "photo": "team/oscar-coffee.webp",
+      "url": "https://www.linkedin.com/in/oscarlobatons/",
+      "links": [
+        {
+          "label": "0vas.com",
+          "href": "https://0vas.com"
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/0vas"
+        }
+      ]
+    },
+    {
+      "name": "Ronald Requena",
+      "shortName": "Ronald",
+      "figurine": "team/ronald-3d.webp",
+      "color": "#e5c6b3",
+      "role": "CTO - CNCF Ambassador",
+      "company": {
+        "es-pe": "Rumbo",
+        "en": "Rumbo"
+      },
+      "photo": "team/ronald-requena.jpg",
+      "url": "https://www.linkedin.com/in/rcronald/"
+    }
+  ],
+  "resources": [
+    {
+      "type": "guide",
+      "topic": "fundamentals",
+      "contentLang": "en",
+      "href": "https://platformengineering.org/blog/what-is-platform-engineering",
+      "title": {
+        "es-pe": "¿Qué es platform engineering?",
+        "en": "What is platform engineering?"
+      },
+      "description": {
+        "es-pe": "La definición, el porqué y cómo se relaciona con DevOps y SRE.",
+        "en": "The definition, the why and how it relates to DevOps and SRE."
+      }
+    },
+    {
+      "type": "course",
+      "topic": "fundamentals",
+      "contentLang": "en",
+      "href": "https://university.platformengineering.org/introduction-to-platform-engineering",
+      "title": {
+        "es-pe": "Curso gratuito: introducción a platform engineering",
+        "en": "Free course: introduction to platform engineering"
+      },
+      "description": {
+        "es-pe": "El punto de partida recomendado de Platform Engineering University.",
+        "en": "The recommended starting point from Platform Engineering University."
+      }
+    },
+    {
+      "type": "article",
+      "topic": "idp",
+      "contentLang": "en",
+      "href": "https://platformengineering.org/blog/what-is-a-minimum-viable-platform-mvp",
+      "title": {
+        "es-pe": "¿Qué es una minimum viable platform?",
+        "en": "What is a minimum viable platform?"
+      },
+      "description": {
+        "es-pe": "Cómo empezar una IDP pequeña que resuelva un problema real.",
+        "en": "How to start a small IDP that solves a real problem."
+      }
+    },
+    {
+      "type": "article",
+      "topic": "idp",
+      "contentLang": "en",
+      "href": "https://platformengineering.org/blog/golden-cage-syndrome-why-internal-developer-platforms-fail",
+      "title": {
+        "es-pe": "Golden cage: por qué fallan las IDP",
+        "en": "Golden cage syndrome: why IDPs fail"
+      },
+      "description": {
+        "es-pe": "Cuando la plataforma restringe en lugar de habilitar.",
+        "en": "When the platform restricts instead of enabling."
+      }
+    },
+    {
+      "type": "article",
+      "topic": "golden-paths",
+      "contentLang": "en",
+      "href": "https://platformengineering.org/blog/building-your-golden-path-lessons-from-the-trenches",
+      "title": {
+        "es-pe": "Construye tu golden path: lecciones de campo",
+        "en": "Building your golden path: lessons from the trenches"
+      },
+      "description": {
+        "es-pe": "Qué funciona al diseñar caminos dorados que los equipos adoptan.",
+        "en": "What works when designing golden paths teams adopt."
+      }
+    },
+    {
+      "type": "article",
+      "topic": "devex",
+      "contentLang": "en",
+      "href": "https://platformengineering.org/blog/the-platform-scorecard-a-practical-way-to-provevalue-and-what-to-measure-first",
+      "title": {
+        "es-pe": "Platform scorecard: qué medir primero",
+        "en": "The platform scorecard: what to measure first"
+      },
+      "description": {
+        "es-pe": "Una forma práctica de demostrar el valor de la plataforma.",
+        "en": "A practical way to prove platform value."
+      }
+    },
+    {
+      "type": "article",
+      "topic": "devex",
+      "contentLang": "en",
+      "href": "https://platformengineering.org/blog/the-empathy-gap-why-your-platform-needs-ux-not-just-apis",
+      "title": {
+        "es-pe": "Tu plataforma necesita UX, no solo APIs",
+        "en": "Your platform needs UX, not just APIs"
+      },
+      "description": {
+        "es-pe": "La brecha de empatía entre el equipo de plataforma y sus usuarios.",
+        "en": "The empathy gap between platform teams and their users."
+      }
+    },
+    {
+      "type": "article",
+      "topic": "teams",
+      "contentLang": "en",
+      "href": "https://platformengineering.org/blog/how-to-build-your-platform-engineering-team",
+      "title": {
+        "es-pe": "Cómo armar tu equipo de plataforma",
+        "en": "How to build your platform engineering team"
+      },
+      "description": {
+        "es-pe": "Roles, tamaño y cuándo dar el primer paso.",
+        "en": "Roles, size and when to take the first step."
+      }
+    },
+    {
+      "type": "article",
+      "topic": "ai",
+      "contentLang": "en",
+      "href": "https://platformengineering.org/blog/ai-and-platform-engineering",
+      "title": {
+        "es-pe": "IA y platform engineering",
+        "en": "AI and platform engineering"
+      },
+      "description": {
+        "es-pe": "Cómo cambia la plataforma interna con agentes y herramientas de IA.",
+        "en": "How the internal platform changes with AI agents and tools."
+      }
+    },
+    {
+      "type": "article",
+      "topic": "career",
+      "contentLang": "en",
+      "href": "https://platformengineering.org/blog/job-interview-platform-engineering-role",
+      "title": {
+        "es-pe": "Prepárate para una entrevista de platform engineer",
+        "en": "Preparing for a platform engineering interview"
+      },
+      "description": {
+        "es-pe": "Qué preguntan y cómo contar tu experiencia.",
+        "en": "What they ask and how to present your experience."
+      }
+    },
+    {
+      "type": "tool",
+      "topic": "idp",
+      "contentLang": "en",
+      "href": "https://platformengineering.org/platform-tooling",
+      "title": {
+        "es-pe": "Landscape de herramientas de plataforma",
+        "en": "Platform tooling landscape"
+      },
+      "description": {
+        "es-pe": "El ecosistema por capas y cómo combinar las piezas.",
+        "en": "The ecosystem by layer and how to combine the pieces."
+      }
+    },
+    {
+      "type": "report",
+      "topic": "fundamentals",
+      "contentLang": "en",
+      "href": "https://platformengineering.org/reports",
+      "title": {
+        "es-pe": "Reportes de la industria",
+        "en": "Industry reports"
+      },
+      "description": {
+        "es-pe": "El estado de platform engineering con datos de miles de equipos.",
+        "en": "The state of platform engineering with data from thousands of teams."
+      }
+    }
+  ],
+  "speakers": [
+    {
+      "name": "Danielle Nascimento",
+      "role": "Analista de sistemas",
+      "talk": {
+        "es-pe": "Clústers que piensan: operación inteligente con IA",
+        "en": "Clusters that think: AI-driven operations"
+      },
+      "photo": "speakers/danielle-nascimento.jpg",
+      "url": "https://www.linkedin.com/in/daniellenascimentodn/"
+    },
+    {
+      "name": "Bianca Torres",
+      "role": "DevOps Engineer - AWS Community Builder",
+      "company": {
+        "es-pe": "Paramo Technologies",
+        "en": "Paramo Technologies"
+      },
+      "talk": {
+        "es-pe": "Escala sin pagar de más: nodos justo a tiempo con Karpenter",
+        "en": "Scale without overpaying: just-in-time nodes with Karpenter"
+      },
+      "photo": "speakers/bianca-torres.jpg",
+      "url": "https://www.linkedin.com/in/bianca-torres-chumbes/"
+    },
+    {
+      "name": "Michelle Luna",
+      "role": "Cloud & DevOps Engineer - AWS Instructor",
+      "company": {
+        "es-pe": "Whitestack",
+        "en": "Whitestack"
+      },
+      "talk": {
+        "es-pe": "Git como fuente de verdad: despliegues en piloto automático con ArgoCD",
+        "en": "Git as the source of truth: autopilot deployments with ArgoCD"
+      },
+      "photo": "speakers/michelle-luna.jpg",
+      "url": "https://www.linkedin.com/in/milunadev/"
+    },
+    {
+      "name": "Grecia Vargas",
+      "role": "Consultant",
+      "company": {
+        "es-pe": "OS Enterprise",
+        "en": "OS Enterprise"
+      },
+      "talk": {
+        "es-pe": "Del contenedor a tu primer clúster",
+        "en": "From a container to your first cluster"
+      },
+      "photo": "speakers/grecia-vargas.jpg",
+      "url": "https://www.linkedin.com/in/grecia-vargas-rivera-/"
+    },
+    {
+      "name": "Carlos Ortiz",
+      "role": "Community leader CNCF - Cloud Engineer",
+      "talk": {
+        "es-pe": "Comunidades Cloud Native en Perú",
+        "en": "Comunidades Cloud Native en Perú"
+      },
+      "photo": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190512544%2F442849417140%2F1%2Foriginal.20260807-012037?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C200%2C200&s=3c61061f626ec46a8300efc6962aed83",
+      "url": "https://www.linkedin.com/in/carlos-ortiz-alberca/"
+    },
+    {
+      "name": "Diego Del Castillo & Cristhian Vargas",
+      "role": "Architecture DevOps & Cloud",
+      "talk": {
+        "es-pe": "KubeEdge: procesamiento local y gestión",
+        "en": "KubeEdge: procesamiento local y gestión"
+      },
+      "photo": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190516451%2F442849417140%2F1%2Foriginal.20260807-025142?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=91%2C69%2C255%2C255&s=91218ead3a10764593ea7de8564e2458"
+    },
+    {
+      "name": "Henry Tarazona",
+      "role": "Software & AI Agent Engineer",
+      "company": {
+        "es-pe": "Interbank",
+        "en": "Interbank"
+      },
+      "talk": {
+        "es-pe": "Un desarrollador Java con superpoderes: Quarkus + OpenShift",
+        "en": "Un desarrollador Java con superpoderes: Quarkus + OpenShift"
+      },
+      "photo": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190516559%2F442849417140%2F1%2Foriginal.20260807-025403?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=4%2C14%2C255%2C255&s=ddcc28ffae3f71d3f1ef3a9afce4caaf",
+      "url": "https://www.linkedin.com/in/keniding/"
+    },
+    {
+      "name": "Miguel Villa",
+      "role": "OpenShift Specialist & Kubestronaut",
+      "photo": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190516607%2F442849417140%2F1%2Foriginal.20260807-025455?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&s=cfde8326f301ee4edde726168e99a036",
+      "url": "https://www.linkedin.com/in/miguelangelvila/"
+    },
+    {
+      "name": "Jose Luis Buga",
+      "role": "Principal Solutions Architect",
+      "company": {
+        "es-pe": "Red Hat",
+        "en": "Red Hat"
+      },
+      "photo": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190512658%2F442849417140%2F1%2Foriginal.20260807-012333?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C400%2C400&s=39ce462fdf6c3acee997c00f1ea20faf",
+      "url": "https://www.linkedin.com/in/joselbugarin/"
+    },
+    {
+      "name": "Anthony Mogrovejo",
+      "role": "Team Lead Chapter Cloud Networking",
+      "company": {
+        "es-pe": "Banco de Crédito del Perú",
+        "en": "Banco de Crédito del Perú"
+      },
+      "talk": {
+        "es-pe": "IA generativa, LLMs y RAG desde cero",
+        "en": "Generative AI, LLMs and RAG from scratch"
+      },
+      "photo": "speakers/anthony-mogrovejo.jpg",
+      "url": "https://www.linkedin.com/in/amogrovejo/"
+    },
+    {
+      "name": "Paul Escarcena",
+      "role": "Cloud, DevOps & Full-Stack Engineer",
+      "company": {
+        "es-pe": "Banco de Crédito del Perú",
+        "en": "Banco de Crédito del Perú"
+      },
+      "talk": {
+        "es-pe": "Zero Trust en Kubernetes: del caos al control",
+        "en": "Zero Trust on Kubernetes: from chaos to control"
+      },
+      "photo": "speakers/paul-escarcena.jpg",
+      "url": "https://www.linkedin.com/in/pescarcena/"
+    },
+    {
+      "name": "Gerson Escarcena",
+      "role": "AI Engineer - Cloud / DevOps",
+      "talk": {
+        "es-pe": "Zero Trust en Kubernetes: del caos al control",
+        "en": "Zero Trust on Kubernetes: from chaos to control"
+      },
+      "photo": "speakers/gerson-escarcena.jpg",
+      "url": "https://www.linkedin.com/in/gerson-e-88148b32a/"
+    },
+    {
+      "name": "Josua Castro",
+      "role": "Technology Engineer",
+      "company": {
+        "es-pe": "Banco de Crédito del Perú",
+        "en": "Banco de Crédito del Perú"
+      },
+      "talk": {
+        "es-pe": "Platform Engineering + Crossplane: el futuro del self-service IaC",
+        "en": "Platform Engineering + Crossplane: the future of self-service IaC"
+      },
+      "photo": "speakers/josua-castro.jpg",
+      "url": "https://www.linkedin.com/in/josuacvga/"
+    }
+  ],
+  "events": [
+    {
+      "slug": "kubefest-03",
+      "date": "2026-10-24",
+      "time": "14:00",
+      "endTime": "17:00",
+      "city": {
+        "es-pe": "Lima",
+        "en": "Lima"
+      },
+      "venue": "Auditorio de la Facultad de Ciencias e Ingeniería, PUCP",
+      "address": "Av. Universitaria 1801, San Miguel",
+      "status": "free",
+      "registerUrl": "https://luma.com/cctyrftv",
+      "title": {
+        "es-pe": "KubeFest #3",
+        "en": "KubeFest #3"
+      },
+      "description": {
+        "es-pe": "Cuatro voces, cuatro perspectivas y un mismo ecosistema: Cloud Native. Una tarde organizada por la comunidad para aprender, compartir experiencias y seguir impulsando la participación de más mujeres en tecnología, con charlas sobre operación inteligente de clústers con IA, escalado justo a tiempo con Karpenter, GitOps con ArgoCD y los primeros pasos del contenedor al clúster.",
+        "en": "Four voices, four perspectives and one ecosystem: Cloud Native. A community-run afternoon to learn, share experiences and keep encouraging more women in tech, with talks on AI-driven cluster operations, just-in-time scaling with Karpenter, GitOps with ArgoCD and the first steps from a container to your first cluster."
+      },
+      "speakers": [
+        "Danielle Nascimento",
+        "Bianca Torres",
+        "Michelle Luna",
+        "Grecia Vargas"
+      ]
+    },
+    {
+      "slug": "kubefest-01",
+      "date": "2026-06-13",
+      "time": "09:00",
+      "endTime": "13:00",
+      "city": {
+        "es-pe": "Lima",
+        "en": "Lima"
+      },
+      "venue": "Universidad Ricardo Palma",
+      "address": "Av. Alfredo Benavides 5540, Santiago de Surco",
+      "status": "soldout",
+      "organizer": "Cloud Native Lima",
+      "registerUrl": "https://ocgroups.dev/cncf/group/nmmzkrs/event/tu52ja4",
+      "title": {
+        "es-pe": "KubeFest #1",
+        "en": "KubeFest #1"
+      },
+      "description": {
+        "es-pe": "Tecnologías cloud native que están transformando el mundo: una mañana de charlas prácticas y networking para profesionales, estudiantes y entusiastas de Cloud Native y Kubernetes. Comunidades cloud native en el Perú, IA generativa con LLMs y RAG desde cero, Zero Trust en Kubernetes y Platform Engineering con Crossplane para infraestructura self-service.",
+        "en": "Cloud native technologies transforming the world: a morning of hands-on talks and networking for Cloud Native and Kubernetes professionals, students and enthusiasts. Cloud native communities in Peru, generative AI with LLMs and RAG from scratch, Zero Trust on Kubernetes and Platform Engineering with Crossplane for self-service infrastructure."
+      },
+      "speakers": [
+        "Carlos Ortiz",
+        "Anthony Mogrovejo",
+        "Paul Escarcena",
+        "Gerson Escarcena",
+        "Josua Castro"
+      ]
+    },
+    {
+      "slug": "kubefest-02",
+      "date": "2026-09-26",
+      "time": "09:00",
+      "endTime": "13:00",
+      "city": {
+        "es-pe": "Lima",
+        "en": "Lima"
+      },
+      "venue": "Universidad ESAN",
+      "address": "Jr. Alonso de Molina 1652, Santiago de Surco",
+      "status": "soldout",
+      "organizer": "KubeFest",
+      "registerUrl": "https://www.eventbrite.co/e/kubefest-02-tickets-1997093130313?aff=ebdssbdestsearch",
+      "title": {
+        "es-pe": "KubeFest #02",
+        "en": "KubeFest #02"
+      },
+      "description": {
+        "es-pe": "Una mañana de charlas técnicas sobre las tecnologías cloud native que están transformando la industria: comunidades cloud native en el Perú, procesamiento en el borde con KubeEdge, Java con Quarkus y OpenShift, Model Context Protocol para interactuar con Kubernetes y desarrollo de aplicaciones con IA sobre Kubernetes.",
+        "en": "A morning of technical talks on the cloud native technologies transforming the industry: cloud native communities in Peru, edge processing with KubeEdge, Java with Quarkus and OpenShift, the Model Context Protocol for interacting with Kubernetes and AI application development on Kubernetes."
+      },
+      "speakers": [
+        "Carlos Ortiz",
+        "Diego Del Castillo & Cristhian Vargas",
+        "Henry Tarazona",
+        "Miguel Villa",
+        "Jose Luis Buga"
+      ]
+    }
+  ],
+  "site": {
+    "contactEmail": "info@platformengineering.pe",
+    "communityLinks": {
+      "whatsapp": null,
+      "meetup": null,
+      "linkedin": "https://www.linkedin.com/company/platformengineeringperu",
+      "youtube": null,
+      "cfp": "https://sessionize.com/platform-engineering-peru",
+      "sponsor": "mailto:info@platformengineering.pe"
+    },
+    "globalLinks": {
+      "home": "https://platformengineering.org/",
+      "whatIs": "https://platformengineering.org/blog/what-is-platform-engineering",
+      "blog": "https://platformengineering.org/blog",
+      "tooling": "https://platformengineering.org/platform-tooling",
+      "reports": "https://platformengineering.org/reports",
+      "university": "https://university.platformengineering.org/",
+      "introCourse": "https://university.platformengineering.org/introduction-to-platform-engineering",
+      "platformcon": "https://platformcon.com/",
+      "platformWeekly": "https://platformweekly.com/"
+    }
+  }
+}

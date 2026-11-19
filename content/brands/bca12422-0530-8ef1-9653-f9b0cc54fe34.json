@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "bca12422-0530-8ef1-9653-f9b0cc54fe34",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-759690687f42756a",
+  "title": {
+    "es-pe": "Ukuku de peluche",
+    "en": "Ukuku plush"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 40,
+  "path": "brand/applications/ukuku-plush.png",
+  "originalPath": "brand/applications/ukuku-plush.png",
+  "previewPath": "brand/applications/ukuku-plush.webp",
+  "dimensionsLabel": "",
+  "usage": "application",
+  "kind": "merchandise",
+  "approved": true
+}

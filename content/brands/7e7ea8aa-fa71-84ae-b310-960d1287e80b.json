@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "7e7ea8aa-fa71-84ae-b310-960d1287e80b",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-192cd2f85aab69a7",
+  "title": {
+    "es-pe": "isotipo-ukuku-monolinea-violeta.svg",
+    "en": "isotipo-ukuku-monolinea-violeta.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 400,
+  "path": "brand/kit/04-vectores-svg/isotipo-ukuku-monolinea-violeta.svg",
+  "originalPath": "brand/kit/04-vectores-svg/isotipo-ukuku-monolinea-violeta.svg",
+  "previewPath": "brand/kit/04-vectores-svg/isotipo-ukuku-monolinea-violeta.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

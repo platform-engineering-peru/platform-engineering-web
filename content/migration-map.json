@@ -1,0 +1,470 @@
+{
+  "referenceCommit": "b1942d77408355c959489dc1e1d553fc6d4882a6",
+  "records": [
+    {
+      "type": "speakers",
+      "id": "24a7f296-5ad8-8ed9-ac08-51398c4eda05",
+      "sourceKey": "speakers:Danielle Nascimento"
+    },
+    {
+      "type": "speakers",
+      "id": "c4acc251-ff95-8eec-bb7d-1e8d55f308d6",
+      "sourceKey": "speakers:Bianca Torres"
+    },
+    {
+      "type": "speakers",
+      "id": "8e118a29-12d0-8289-9c7e-738cac1b9aa6",
+      "sourceKey": "speakers:Michelle Luna"
+    },
+    {
+      "type": "speakers",
+      "id": "185a88bd-3d0f-8fa3-a6ff-d90189e6a35b",
+      "sourceKey": "speakers:Grecia Vargas"
+    },
+    {
+      "type": "speakers",
+      "id": "ab9bcc13-52b7-82c3-9062-2a971766b652",
+      "sourceKey": "speakers:Carlos Ortiz"
+    },
+    {
+      "type": "speakers",
+      "id": "35280654-183a-877d-9947-2cb96a4dafa8",
+      "sourceKey": "speakers:Diego Del Castillo & Cristhian Vargas"
+    },
+    {
+      "type": "speakers",
+      "id": "f2336a48-baf6-8bc5-abab-94563760ac31",
+      "sourceKey": "speakers:Henry Tarazona"
+    },
+    {
+      "type": "speakers",
+      "id": "2de8e2ee-1c70-8d36-952c-9e56faad948b",
+      "sourceKey": "speakers:Miguel Villa"
+    },
+    {
+      "type": "speakers",
+      "id": "0bb4e2f8-378e-8c49-8dc9-17363eca2fc8",
+      "sourceKey": "speakers:Jose Luis Buga"
+    },
+    {
+      "type": "speakers",
+      "id": "c4e06366-648b-8a3b-9ea0-4b3dd4c026c0",
+      "sourceKey": "speakers:Anthony Mogrovejo"
+    },
+    {
+      "type": "speakers",
+      "id": "83ba8b96-6f40-8170-b14c-eea29c8f604c",
+      "sourceKey": "speakers:Paul Escarcena"
+    },
+    {
+      "type": "speakers",
+      "id": "ac613a04-497e-8443-8b3a-6b2e6b6d67fb",
+      "sourceKey": "speakers:Gerson Escarcena"
+    },
+    {
+      "type": "speakers",
+      "id": "61190505-389a-8452-b31a-dfd29551cc6e",
+      "sourceKey": "speakers:Josua Castro"
+    },
+    {
+      "type": "events",
+      "id": "7d2b2c8c-c4d3-82d5-9e59-521811c14e45",
+      "sourceKey": "events:kubefest-03"
+    },
+    {
+      "type": "events",
+      "id": "9ab71f99-2547-866b-8e61-9422ed824c90",
+      "sourceKey": "events:kubefest-01"
+    },
+    {
+      "type": "events",
+      "id": "76e65e7d-b40f-86f4-a9e0-098df515cb45",
+      "sourceKey": "events:kubefest-02"
+    },
+    {
+      "type": "organizers",
+      "id": "9cae61a8-dc00-8b12-a0c2-53e32d7bd80c",
+      "sourceKey": "organizers:Josua Castro"
+    },
+    {
+      "type": "organizers",
+      "id": "6f2ecae7-3d92-8fb0-92bb-26ae3d7fde54",
+      "sourceKey": "organizers:Oscar Lobaton Salas"
+    },
+    {
+      "type": "organizers",
+      "id": "fb676643-5ede-8748-9c89-06f41ec63011",
+      "sourceKey": "organizers:Ronald Requena"
+    },
+    {
+      "type": "resources",
+      "id": "94b65609-2a54-83ff-a900-b596d1c4acda",
+      "sourceKey": "resources:https://platformengineering.org/blog/what-is-platform-engineering"
+    },
+    {
+      "type": "courses",
+      "id": "77924b1c-e25e-86fb-8113-8d47411469e1",
+      "sourceKey": "courses:https://university.platformengineering.org/introduction-to-platform-engineering"
+    },
+    {
+      "type": "resources",
+      "id": "3b31ef3c-1b82-88d8-953a-29cfbfbe159a",
+      "sourceKey": "resources:https://platformengineering.org/blog/what-is-a-minimum-viable-platform-mvp"
+    },
+    {
+      "type": "resources",
+      "id": "f3e585b3-5142-838d-8bdf-851d6e7fe70e",
+      "sourceKey": "resources:https://platformengineering.org/blog/golden-cage-syndrome-why-internal-developer-platforms-fail"
+    },
+    {
+      "type": "resources",
+      "id": "91691382-2950-84f2-85db-3729b773e372",
+      "sourceKey": "resources:https://platformengineering.org/blog/building-your-golden-path-lessons-from-the-trenches"
+    },
+    {
+      "type": "resources",
+      "id": "7eaa27b2-cada-8fed-807e-891d012e5a48",
+      "sourceKey": "resources:https://platformengineering.org/blog/the-platform-scorecard-a-practical-way-to-provevalue-and-what-to-measure-first"
+    },
+    {
+      "type": "resources",
+      "id": "0099af26-6b0d-8ac5-90be-83597dad5b8e",
+      "sourceKey": "resources:https://platformengineering.org/blog/the-empathy-gap-why-your-platform-needs-ux-not-just-apis"
+    },
+    {
+      "type": "resources",
+      "id": "b8006ac2-280f-88c6-9f8c-16bb32efa207",
+      "sourceKey": "resources:https://platformengineering.org/blog/how-to-build-your-platform-engineering-team"
+    },
+    {
+      "type": "resources",
+      "id": "22c8c3fd-644a-854b-9d9e-7106fa1c3ca5",
+      "sourceKey": "resources:https://platformengineering.org/blog/ai-and-platform-engineering"
+    },
+    {
+      "type": "resources",
+      "id": "32e387e2-4d8f-8083-b647-f7c4676528c4",
+      "sourceKey": "resources:https://platformengineering.org/blog/job-interview-platform-engineering-role"
+    },
+    {
+      "type": "resources",
+      "id": "1d1be259-fa43-864b-9888-ddfe98c1ee66",
+      "sourceKey": "resources:https://platformengineering.org/platform-tooling"
+    },
+    {
+      "type": "resources",
+      "id": "dd90cc57-ad88-87be-9e56-e0b028bac7ac",
+      "sourceKey": "resources:https://platformengineering.org/reports"
+    },
+    {
+      "type": "settings",
+      "id": "caafc46c-7c92-8ea6-9385-296c8e97355e",
+      "sourceKey": "settings:site"
+    },
+    {
+      "type": "brands",
+      "id": "058c3836-3bc2-8d25-84f7-8517396b53ea",
+      "sourceKey": "brands:brand/kit/02-banners-social/linkedin-cover-1584x396.svg"
+    },
+    {
+      "type": "brands",
+      "id": "0799c3b5-1387-890f-9fcb-b22c03f1789f",
+      "sourceKey": "brands:brand/kit/04-vectores-svg/logo-isometrico-3capas-ukuku-transparent.svg"
+    },
+    {
+      "type": "brands",
+      "id": "0836db38-a1a4-8424-ba88-f545e97cc6e7",
+      "sourceKey": "brands:brand/social/meetup.svg"
+    },
+    {
+      "type": "brands",
+      "id": "15c14ae5-6c83-8d68-be18-e86f0a7550aa",
+      "sourceKey": "brands:brand/applications/ukuku-plush.webp"
+    },
+    {
+      "type": "brands",
+      "id": "1bd1feb2-fd73-8020-b71d-70f92e3f035e",
+      "sourceKey": "brands:brand/kit/02-banners-social/github-social-preview-1280x640.svg"
+    },
+    {
+      "type": "brands",
+      "id": "20bf7488-8ebe-8115-9ea0-8222cda259fb",
+      "sourceKey": "brands:brand/kit/01-avatars-icons/discord-slack-avatar-256x256.png"
+    },
+    {
+      "type": "brands",
+      "id": "270c0fe6-0e07-8c2e-b851-bdc6f3da3036",
+      "sourceKey": "brands:brand/kit/01-avatars-icons/logo-transparent-1024x1024.png"
+    },
+    {
+      "type": "brands",
+      "id": "274597f4-ad26-8ce6-bb91-df00a73bca26",
+      "sourceKey": "brands:brand/platform-engineering-peru-brand-kit.zip"
+    },
+    {
+      "type": "brands",
+      "id": "28cd07c5-1f6d-85b3-ab50-360692687507",
+      "sourceKey": "brands:brand/logo-mark-dark.png"
+    },
+    {
+      "type": "brands",
+      "id": "29e0d687-0fe7-8be6-8ede-ec41fd251cf2",
+      "sourceKey": "brands:brand/official/logo-web-light.svg"
+    },
+    {
+      "type": "brands",
+      "id": "33a441e7-a116-884e-9b47-00f2eed4f75e",
+      "sourceKey": "brands:brand/kit/03-logotipos-horizontales/logo-horizontal-dark.png"
+    },
+    {
+      "type": "brands",
+      "id": "3428869f-9e3d-857e-a771-5778a5abeb5c",
+      "sourceKey": "brands:brand/kit/04-vectores-svg/isotipo-ukuku-monolinea-blanco.svg"
+    },
+    {
+      "type": "brands",
+      "id": "3b839d3d-cc58-8658-b0d2-eb9853e20526",
+      "sourceKey": "brands:brand/hero-560.webp"
+    },
+    {
+      "type": "brands",
+      "id": "3d203b7a-0d86-8784-8201-c4c8cc96db15",
+      "sourceKey": "brands:brand/official/logo-horizontal-light.svg"
+    },
+    {
+      "type": "brands",
+      "id": "41d618f1-96fa-8808-9e63-7a83e9ef5b31",
+      "sourceKey": "brands:brand/kit/03-logotipos-horizontales/logo-horizontal-dark.svg"
+    },
+    {
+      "type": "brands",
+      "id": "41d621ff-641e-856c-9ff5-664eb9ca925c",
+      "sourceKey": "brands:brand/social/whatsapp.svg"
+    },
+    {
+      "type": "brands",
+      "id": "4b0053bb-7aa8-80cc-b00b-6dfb760d3a76",
+      "sourceKey": "brands:brand/hero-1120.webp"
+    },
+    {
+      "type": "brands",
+      "id": "4d9d483c-8413-8a97-8057-f26971c177be",
+      "sourceKey": "brands:brand/official/logo-web-dark.svg"
+    },
+    {
+      "type": "brands",
+      "id": "50d04491-a1ea-85b5-84f5-deed3b3a244a",
+      "sourceKey": "brands:brand/applications/pins-keychain.webp"
+    },
+    {
+      "type": "brands",
+      "id": "5124b3a9-4145-8cef-8773-01e6a73b9419",
+      "sourceKey": "brands:brand/kit/05-manual-y-readme/BRAND_GUIDELINES.md"
+    },
+    {
+      "type": "brands",
+      "id": "518118f9-9c5e-8141-89d8-db5b7805c790",
+      "sourceKey": "brands:brand/social/sources.json"
+    },
+    {
+      "type": "brands",
+      "id": "55173b0f-709c-881b-baf8-3e8555bb7329",
+      "sourceKey": "brands:brand/kit/01-avatars-icons/logo-transparent-hd.png"
+    },
+    {
+      "type": "brands",
+      "id": "560a55e7-e11f-8324-bcf3-49ad39228908",
+      "sourceKey": "brands:brand/kit/04-vectores-svg/logo-isometrico-3capas-ukuku-dark.svg"
+    },
+    {
+      "type": "brands",
+      "id": "5673acd2-fbb5-8fea-b207-d0b2f24fdfa9",
+      "sourceKey": "brands:brand/kit/02-banners-social/linkedin-cover-1584x396.png"
+    },
+    {
+      "type": "brands",
+      "id": "574b7801-39a7-8685-9cd2-355a85121a26",
+      "sourceKey": "brands:brand/kit/03-logotipos-horizontales/logo-horizontal-light.svg"
+    },
+    {
+      "type": "brands",
+      "id": "5ce99713-e53b-851e-b89a-f9276457f62b",
+      "sourceKey": "brands:brand/kit/01-avatars-icons/linkedin-avatar-800x800.png"
+    },
+    {
+      "type": "brands",
+      "id": "733b5ebf-4509-851a-8a11-292f7abe9ffc",
+      "sourceKey": "brands:brand/kit/03-logotipos-horizontales/logo-horizontal-light.png"
+    },
+    {
+      "type": "brands",
+      "id": "75f61c22-e8ba-82e0-9971-f0b01d66866c",
+      "sourceKey": "brands:brand/applications/apparel-collection.webp"
+    },
+    {
+      "type": "brands",
+      "id": "78fac7c3-0c8b-8798-8740-a5c1d9304935",
+      "sourceKey": "brands:brand/applications/apparel-collection.png"
+    },
+    {
+      "type": "brands",
+      "id": "79d6e049-ec5c-89f6-be43-740d9680b5d4",
+      "sourceKey": "brands:illustrations/oso-platform.webp"
+    },
+    {
+      "type": "brands",
+      "id": "7a491354-69ea-8e4a-bace-dbc04cafc71c",
+      "sourceKey": "brands:brand/kit/01-avatars-icons/favicon-32x32.png"
+    },
+    {
+      "type": "brands",
+      "id": "7e7ea8aa-fa71-84ae-b310-960d1287e80b",
+      "sourceKey": "brands:brand/kit/04-vectores-svg/isotipo-ukuku-monolinea-violeta.svg"
+    },
+    {
+      "type": "brands",
+      "id": "7e86a927-9735-8538-b39b-67a64cfe1b45",
+      "sourceKey": "brands:brand/kit/01-avatars-icons/github-avatar-1024x1024.png"
+    },
+    {
+      "type": "brands",
+      "id": "84b21fa1-1bd2-8685-8dc2-e5050855afdb",
+      "sourceKey": "brands:brand/applications/pins-keychain.png"
+    },
+    {
+      "type": "brands",
+      "id": "8c9a8823-fc0c-893b-a284-e9aaed4c1623",
+      "sourceKey": "brands:brand/logo-full-dark.png"
+    },
+    {
+      "type": "brands",
+      "id": "91c7b54e-317c-8e3a-aec1-0d4683a24775",
+      "sourceKey": "brands:brand/kit/02-banners-social/github-readme-banner-1600x450.svg"
+    },
+    {
+      "type": "brands",
+      "id": "91ee954b-3737-86b5-8121-23401c9c434a",
+      "sourceKey": "brands:brand/applications/drinkware.webp"
+    },
+    {
+      "type": "brands",
+      "id": "ab43baf1-ebb0-84b7-8960-fc5ba3c1731a",
+      "sourceKey": "brands:brand/kit/02-banners-social/github-social-preview-1280x640.png"
+    },
+    {
+      "type": "brands",
+      "id": "b17c4e03-9d43-8570-9f6f-b218d79de919",
+      "sourceKey": "brands:brand/logo-full.png"
+    },
+    {
+      "type": "brands",
+      "id": "bca12422-0530-8ef1-9653-f9b0cc54fe34",
+      "sourceKey": "brands:brand/applications/ukuku-plush.png"
+    },
+    {
+      "type": "brands",
+      "id": "bcb6191b-de3a-85c3-9195-3f89465e1c71",
+      "sourceKey": "brands:brand/official/logo-horizontal-dark.svg"
+    },
+    {
+      "type": "brands",
+      "id": "c3f32d88-d6fc-8f28-95ee-a057b28ad563",
+      "sourceKey": "brands:brand/applications/event-identity.webp"
+    },
+    {
+      "type": "brands",
+      "id": "c75978c0-a9e5-8be6-8a5b-abd86f2fc85a",
+      "sourceKey": "brands:brand/kit/02-banners-social/github-readme-banner-1600x450.png"
+    },
+    {
+      "type": "brands",
+      "id": "c8b40947-8ee9-8d23-8e76-286b96d23142",
+      "sourceKey": "brands:illustrations/ukuku-seated-slide-rim.png"
+    },
+    {
+      "type": "brands",
+      "id": "d4662e6c-a095-8a2f-8ed7-bb8dcd7de357",
+      "sourceKey": "brands:brand/applications/hoodie-shirt.webp"
+    },
+    {
+      "type": "brands",
+      "id": "d4fe4662-b137-849a-aa3e-a0f95b1db9c6",
+      "sourceKey": "brands:brand/kit/01-avatars-icons/apple-touch-icon-180x180.png"
+    },
+    {
+      "type": "brands",
+      "id": "d78bc9ac-b36d-8c72-9f28-7ca2531c2606",
+      "sourceKey": "brands:brand/kit/.DS_Store"
+    },
+    {
+      "type": "brands",
+      "id": "dbb632e0-90b6-8bf6-845c-5aa885a9f1ef",
+      "sourceKey": "brands:brand/applications/hoodie-shirt.png"
+    },
+    {
+      "type": "brands",
+      "id": "dcd85e6d-e9a3-8f90-b0ff-254bf6ce4228",
+      "sourceKey": "brands:brand/applications/drinkware.png"
+    },
+    {
+      "type": "brands",
+      "id": "dfd001b0-8574-865e-8890-c8db46a779ef",
+      "sourceKey": "brands:brand/official/apple-touch-icon.png"
+    },
+    {
+      "type": "brands",
+      "id": "e0eb11e1-c435-83bb-aa2f-2273b1e8529d",
+      "sourceKey": "brands:brand/kit/logo-oficial-platform-engineering-peru.jpg"
+    },
+    {
+      "type": "brands",
+      "id": "e2a0936a-9263-8711-aa61-5b4e7d7acfb5",
+      "sourceKey": "brands:brand/kit/01-avatars-icons/favicon-64x64.png"
+    },
+    {
+      "type": "brands",
+      "id": "e6b3bd3f-dcde-8195-a520-ab092b450219",
+      "sourceKey": "brands:brand/official/mark.png"
+    },
+    {
+      "type": "brands",
+      "id": "e7273fa8-7780-8df8-8ea9-73f0d393c6ad",
+      "sourceKey": "brands:brand/kit/01-avatars-icons/github-avatar-500x500.png"
+    },
+    {
+      "type": "brands",
+      "id": "e8adf21d-4770-84bc-9db6-bda5c36cb8a0",
+      "sourceKey": "brands:brand/kit/04-vectores-svg/isotipo-ukuku-badge-appicon.svg"
+    },
+    {
+      "type": "brands",
+      "id": "e99c6fe2-6e69-837d-8d7b-8ffd73f528d5",
+      "sourceKey": "brands:brand/official/mark-original.png"
+    },
+    {
+      "type": "brands",
+      "id": "ea359fc8-44d4-8bee-8fc2-9ef09e6324db",
+      "sourceKey": "brands:illustrations/ukuku-flight.webp"
+    },
+    {
+      "type": "brands",
+      "id": "ee165a0d-1ccc-8e18-bff6-79bca772e6f2",
+      "sourceKey": "brands:brand/applications/event-identity.png"
+    },
+    {
+      "type": "brands",
+      "id": "ee7da233-015c-800c-9322-4f3a0df39eec",
+      "sourceKey": "brands:brand/official/mark.svg"
+    },
+    {
+      "type": "brands",
+      "id": "fa9f1b06-ce1b-875a-9a8a-68b9505be811",
+      "sourceKey": "brands:brand/social/linkedin.svg"
+    },
+    {
+      "type": "brands",
+      "id": "fab255d3-0007-8136-aab0-07ee5046b50b",
+      "sourceKey": "brands:brand/kit/05-manual-y-readme/README.md"
+    }
+  ]
+}

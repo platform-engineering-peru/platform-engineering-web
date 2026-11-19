@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "058c3836-3bc2-8d25-84f7-8517396b53ea",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-8035e9305a8c74b6",
+  "title": {
+    "es-pe": "linkedin-cover-1584x396.svg",
+    "en": "linkedin-cover-1584x396.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 350,
+  "path": "brand/kit/02-banners-social/linkedin-cover-1584x396.svg",
+  "originalPath": "brand/kit/02-banners-social/linkedin-cover-1584x396.svg",
+  "previewPath": "brand/kit/02-banners-social/linkedin-cover-1584x396.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

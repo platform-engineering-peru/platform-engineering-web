@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "3b31ef3c-1b82-88d8-953a-29cfbfbe159a",
+  "status": "published",
+  "updatedAt": null,
+  "type": "article",
+  "topic": "idp",
+  "contentLang": "en",
+  "href": "https://platformengineering.org/blog/what-is-a-minimum-viable-platform-mvp",
+  "title": {
+    "es-pe": "¿Qué es una minimum viable platform?",
+    "en": "What is a minimum viable platform?"
+  },
+  "description": {
+    "es-pe": "Cómo empezar una IDP pequeña que resuelva un problema real.",
+    "en": "How to start a small IDP that solves a real problem."
+  },
+  "slug": "what-is-a-minimum-viable-platform",
+  "coverArtKey": "idp:article",
+  "tags": [],
+  "displayOrder": 30
+}

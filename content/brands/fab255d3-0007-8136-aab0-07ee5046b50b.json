@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "fab255d3-0007-8136-aab0-07ee5046b50b",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-6f1796ea64ad3f3f",
+  "title": {
+    "es-pe": "README.md",
+    "en": "README.md"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 440,
+  "path": "brand/kit/05-manual-y-readme/README.md",
+  "originalPath": "brand/kit/05-manual-y-readme/README.md",
+  "previewPath": "brand/kit/05-manual-y-readme/README.md",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "source",
+  "approved": true
+}

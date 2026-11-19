@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "35280654-183a-877d-9947-2cb96a4dafa8",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "diego-del-castillo-cristhian-vargas",
+  "name": "Diego Del Castillo & Cristhian Vargas",
+  "role": {
+    "es-pe": "Architecture DevOps & Cloud",
+    "en": "Architecture DevOps & Cloud"
+  },
+  "company": {
+    "es-pe": "",
+    "en": ""
+  },
+  "talk": {
+    "es-pe": "KubeEdge: procesamiento local y gestión",
+    "en": "KubeEdge: procesamiento local y gestión"
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190516451%2F442849417140%2F1%2Foriginal.20260807-025142?h=294&w=294&auto=format%2Ccompress&q=75&sharp=10&rect=91%2C69%2C255%2C255&s=91218ead3a10764593ea7de8564e2458",
+  "url": "",
+  "topics": [],
+  "displayOrder": 60
+}

@@ -1,0 +1,273 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Reviewed public job v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "slug",
+    "status",
+    "title",
+    "company",
+    "sourceId",
+    "externalId",
+    "sourceUrl",
+    "applyUrl",
+    "contentLanguage",
+    "workplace",
+    "eligibility",
+    "locations",
+    "seniority",
+    "salary",
+    "summary",
+    "tags",
+    "sourcePublishedAt",
+    "firstSeenAt",
+    "lastSeenAt",
+    "lastVerifiedAt",
+    "expiresAt",
+    "closureReason",
+    "evidenceRunId"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^(greenhouse|lever|manual|hirehive|globant|smartrecruiters):[a-z0-9_-]+:[A-Za-z0-9_-]+$",
+      "maxLength": 400
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 400
+    },
+    "status": {
+      "enum": [
+        "active",
+        "stale",
+        "closed"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "company": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "sourceId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "externalId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "sourceUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$"
+    },
+    "applyUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$"
+    },
+    "contentLanguage": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30
+    },
+    "workplace": {
+      "enum": [
+        "remote",
+        "hybrid",
+        "onsite",
+        "unknown"
+      ]
+    },
+    "eligibility": {
+      "enum": [
+        "peru",
+        "remote-peru",
+        "remote-latam-confirmed"
+      ]
+    },
+    "locations": {
+      "type": "array",
+      "maxItems": 40,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      }
+    },
+    "seniority": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "salary": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "currency",
+            "min",
+            "max",
+            "unit",
+            "sourceUrl"
+          ],
+          "properties": {
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            },
+            "min": {
+              "anyOf": [
+                {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "max": {
+              "anyOf": [
+                {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 30
+            },
+            "sourceUrl": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$"
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "maxItems": 40,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "sourcePublishedAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "firstSeenAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastSeenAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastVerifiedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "closureReason": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidenceRunId": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

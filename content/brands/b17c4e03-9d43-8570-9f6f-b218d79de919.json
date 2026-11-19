@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "b17c4e03-9d43-8570-9f6f-b218d79de919",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-d3627a855d3cc32d",
+  "title": {
+    "es-pe": "logo-full.png",
+    "en": "logo-full.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 470,
+  "path": "brand/logo-full.png",
+  "originalPath": "brand/logo-full.png",
+  "previewPath": "brand/logo-full.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

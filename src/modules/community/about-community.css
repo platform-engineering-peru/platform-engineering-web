@@ -20,3 +20,5 @@
 
 /* Positive contributions use the official green with a high-contrast glyph. */
 .community-contributions li svg { color:#090C20;stroke:currentColor;background:#00D96E;border-color:#00D96E;box-shadow:0 0 0 4px #00D96E12; }
+
+.community-value-actions button{display:inline-flex;align-items:center;gap:24px}.community-value-actions button span{margin:0;font-size:24px;line-height:1}

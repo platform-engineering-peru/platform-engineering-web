@@ -1,0 +1,18 @@
+[
+  {
+    "id": "20000000-0000-4000-8000-000000000001",
+    "path": "media/98534e1d613e120d/synthetic-1.png",
+    "sha256": "98534e1d613e120ddd7da9620526de9766c0bc38246d8d74843bd8d1682d5ddd",
+    "width": 800,
+    "height": 520,
+    "label": "Encuentro sintético · horizontal"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000002",
+    "path": "media/b74a5e2e91bcd38a/synthetic-2.png",
+    "sha256": "b74a5e2e91bcd38a86f69600f3ee7b89bff2cc2c3e59bd807504336748e7da2f",
+    "width": 520,
+    "height": 760,
+    "label": "Encuentro sintético · vertical"
+  }
+]

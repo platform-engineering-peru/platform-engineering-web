@@ -1,0 +1,26 @@
+---
+import { blog } from '@data/blog';
+import { networkLabel } from '@data/blog-model';
+import { localizePath, pick, useTranslations, langCode, type Lang } from '@i18n/index';
+import './blog.css';
+interface Props { lang: Lang }
+const {lang}=Astro.props;
+const t=useTranslations(lang);
+const date=(value:string)=>new Intl.DateTimeFormat(langCode(lang),{dateStyle:'long',timeZone:'America/Lima'}).format(new Date(value));
+---
+<div class="studio-page blog-page">
+  <header class="studio-hero ed-wrap">
+    <p class="ed-kicker"><span class="ed-dot"></span>{t('blog.kicker')}</p>
+    <div class="studio-hero__row"><h1>{t('blog.title')}<br/><em>{t('blog.titleAccent')}</em></h1></div>
+    <div class="studio-hero__bottom"><p>{t('blog.lead')}</p><span class="studio-index">PE / BLOG</span></div>
+  </header>
+  <section class="ed-wrap blog-archive" aria-label={t('blog.posts')}>
+    {blog.length ? <div class="blog-grid">{blog.map(post=><article class="blog-card">
+      <div class="blog-meta"><span>{networkLabel(post)}</span><time datetime={post.sourcePublishedAt}>{date(post.sourcePublishedAt)}</time></div>
+      <h2><a href={localizePath(lang,`/blog/${post.slug}`)}>{pick(post.title,lang)} <span aria-hidden="true">↗</span></a></h2>
+      <p>{pick(post.description,lang)}</p>
+      <div class="blog-tags">{post.tags.map(tag=><span>{tag}</span>)}</div>
+      <a class="blog-source" href={post.sourceUrl} rel="noopener noreferrer">{t('blog.original')} · {networkLabel(post)} ↗</a>
+    </article>)}</div> : <div class="blog-empty"><span class="ed-kicker">01 / BLOG</span><h2>{t('blog.emptyTitle')}</h2><p>{t('blog.emptyBody')}</p><a class="ed-button" href={localizePath(lang,'/calendar')}>{t('blog.calendar')} ↗</a></div>}
+  </section>
+</div>

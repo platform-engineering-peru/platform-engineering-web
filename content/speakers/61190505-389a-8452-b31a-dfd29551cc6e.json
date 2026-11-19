@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "61190505-389a-8452-b31a-dfd29551cc6e",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "josua-castro",
+  "name": "Josua Castro",
+  "role": {
+    "es-pe": "Technology Engineer",
+    "en": "Technology Engineer"
+  },
+  "company": {
+    "es-pe": "Banco de Crédito del Perú",
+    "en": "Banco de Crédito del Perú"
+  },
+  "talk": {
+    "es-pe": "Platform Engineering + Crossplane: el futuro del self-service IaC",
+    "en": "Platform Engineering + Crossplane: the future of self-service IaC"
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "speakers/josua-castro.jpg",
+  "url": "https://www.linkedin.com/in/josuacvga/",
+  "topics": [],
+  "displayOrder": 130
+}

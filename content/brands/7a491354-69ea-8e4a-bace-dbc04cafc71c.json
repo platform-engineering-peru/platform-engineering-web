@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "7a491354-69ea-8e4a-bace-dbc04cafc71c",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-ea838c3558e5b9b5",
+  "title": {
+    "es-pe": "favicon-32x32.png",
+    "en": "favicon-32x32.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 270,
+  "path": "brand/kit/01-avatars-icons/favicon-32x32.png",
+  "originalPath": "brand/kit/01-avatars-icons/favicon-32x32.png",
+  "previewPath": "brand/kit/01-avatars-icons/favicon-32x32.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

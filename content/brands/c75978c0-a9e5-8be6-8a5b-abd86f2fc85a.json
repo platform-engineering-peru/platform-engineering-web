@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "c75978c0-a9e5-8be6-8a5b-abd86f2fc85a",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-b2d7841f646e165b",
+  "title": {
+    "es-pe": "github-readme-banner-1600x450.png",
+    "en": "github-readme-banner-1600x450.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 320,
+  "path": "brand/kit/02-banners-social/github-readme-banner-1600x450.png",
+  "originalPath": "brand/kit/02-banners-social/github-readme-banner-1600x450.png",
+  "previewPath": "brand/kit/02-banners-social/github-readme-banner-1600x450.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "3d203b7a-0d86-8784-8201-c4c8cc96db15",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-d160d9c12d97c179",
+  "title": {
+    "es-pe": "logo-horizontal-light.svg",
+    "en": "logo-horizontal-light.svg"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 510,
+  "path": "brand/official/logo-horizontal-light.svg",
+  "originalPath": "brand/official/logo-horizontal-light.svg",
+  "previewPath": "brand/official/logo-horizontal-light.svg",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "c8b40947-8ee9-8d23-8e76-286b96d23142",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-4173edb0de79a0d9",
+  "title": {
+    "es-pe": "Abriendo nuevos caminos",
+    "en": "Opening new paths"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 140,
+  "path": "illustrations/ukuku-seated-slide-rim.png",
+  "originalPath": "illustrations/ukuku-seated-slide-rim.png",
+  "previewPath": "illustrations/ukuku-seated-slide-rim.webp",
+  "dimensionsLabel": "",
+  "usage": "ukuku",
+  "kind": "other",
+  "approved": true
+}

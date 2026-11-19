@@ -103,7 +103,7 @@ const chapters = en
         <span class="ukuku-large-number" aria-hidden="true">{n}</span>
       </section>
     ))}
-    <div class="ukuku-progress"><span data-chapter-label>00 / UKUKU</span><div><i data-progress></i></div><button type="button" data-motion aria-pressed="false" aria-label={en ? "Pause animation" : "Pausar animación"}>Ⅱ</button></div>
+    <div class="ukuku-progress"><button type="button" data-story-prev aria-label={en ? "Previous chapter" : "Capítulo anterior"} disabled>←</button><span data-chapter-label>00 / UKUKU</span><div><i data-progress></i></div><button type="button" data-story-next aria-label={en ? "Next chapter" : "Siguiente capítulo"}>→</button><button type="button" data-motion aria-pressed="false" aria-label={en ? "Pause animation" : "Pausar animación"}>Ⅱ</button></div>
   </div>
   <div class="ukuku-note ed-wrap">
     <div>

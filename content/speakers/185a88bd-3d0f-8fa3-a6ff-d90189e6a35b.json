@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "185a88bd-3d0f-8fa3-a6ff-d90189e6a35b",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "grecia-vargas",
+  "name": "Grecia Vargas",
+  "role": {
+    "es-pe": "Consultant",
+    "en": "Consultant"
+  },
+  "company": {
+    "es-pe": "OS Enterprise",
+    "en": "OS Enterprise"
+  },
+  "talk": {
+    "es-pe": "Del contenedor a tu primer clúster",
+    "en": "From a container to your first cluster"
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "speakers/grecia-vargas.jpg",
+  "url": "https://www.linkedin.com/in/grecia-vargas-rivera-/",
+  "topics": [],
+  "displayOrder": 40
+}

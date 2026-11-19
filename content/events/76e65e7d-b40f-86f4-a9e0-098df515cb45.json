@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "76e65e7d-b40f-86f4-a9e0-098df515cb45",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "kubefest-02",
+  "date": "2026-09-26",
+  "time": "09:00",
+  "endTime": "13:00",
+  "city": {
+    "es-pe": "Lima",
+    "en": "Lima"
+  },
+  "venue": "Universidad ESAN",
+  "address": "Jr. Alonso de Molina 1652, Santiago de Surco",
+  "organizer": "KubeFest",
+  "registerUrl": "https://www.eventbrite.co/e/kubefest-02-tickets-1997093130313?aff=ebdssbdestsearch",
+  "title": {
+    "es-pe": "KubeFest #02",
+    "en": "KubeFest #02"
+  },
+  "description": {
+    "es-pe": "Una mañana de charlas técnicas sobre las tecnologías cloud native que están transformando la industria: comunidades cloud native en el Perú, procesamiento en el borde con KubeEdge, Java con Quarkus y OpenShift, Model Context Protocol para interactuar con Kubernetes y desarrollo de aplicaciones con IA sobre Kubernetes.",
+    "en": "A morning of technical talks on the cloud native technologies transforming the industry: cloud native communities in Peru, edge processing with KubeEdge, Java with Quarkus and OpenShift, the Model Context Protocol for interacting with Kubernetes and AI application development on Kubernetes."
+  },
+  "online": false,
+  "eventStatus": "soldout",
+  "recording": "",
+  "timeZone": "America/Lima",
+  "speakerIds": [
+    "ab9bcc13-52b7-82c3-9062-2a971766b652",
+    "35280654-183a-877d-9947-2cb96a4dafa8",
+    "f2336a48-baf6-8bc5-abab-94563760ac31",
+    "2de8e2ee-1c70-8d36-952c-9e56faad948b",
+    "0bb4e2f8-378e-8c49-8dc9-17363eca2fc8"
+  ],
+  "displayOrder": 30
+}

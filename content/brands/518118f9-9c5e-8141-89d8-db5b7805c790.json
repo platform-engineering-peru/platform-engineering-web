@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "518118f9-9c5e-8141-89d8-db5b7805c790",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-2f685cd33dbd1ab0",
+  "title": {
+    "es-pe": "sources.json",
+    "en": "sources.json"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 600,
+  "path": "brand/social/sources.json",
+  "originalPath": "brand/social/sources.json",
+  "previewPath": "brand/social/sources.json",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

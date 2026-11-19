@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "e6b3bd3f-dcde-8195-a520-ab092b450219",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-cb0063705c7eb152",
+  "title": {
+    "es-pe": "mark.png",
+    "en": "mark.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 550,
+  "path": "brand/official/mark.png",
+  "originalPath": "brand/official/mark.png",
+  "previewPath": "brand/official/mark.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

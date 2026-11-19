@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "dbb632e0-90b6-8bf6-845c-5aa885a9f1ef",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-05f06526130dba71",
+  "title": {
+    "es-pe": "Polera y polo",
+    "en": "Hoodie & T-shirt"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 60,
+  "path": "brand/applications/hoodie-shirt.png",
+  "originalPath": "brand/applications/hoodie-shirt.png",
+  "previewPath": "brand/applications/hoodie-shirt.webp",
+  "dimensionsLabel": "",
+  "usage": "application",
+  "kind": "merchandise",
+  "approved": true
+}

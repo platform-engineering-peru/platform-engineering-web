@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "dfd001b0-8574-865e-8890-c8db46a779ef",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-fd5fa172348d07cf",
+  "title": {
+    "es-pe": "apple-touch-icon.png",
+    "en": "apple-touch-icon.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 490,
+  "path": "brand/official/apple-touch-icon.png",
+  "originalPath": "brand/official/apple-touch-icon.png",
+  "previewPath": "brand/official/apple-touch-icon.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "7e86a927-9735-8538-b39b-67a64cfe1b45",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-b5c8f40ac14120cd",
+  "title": {
+    "es-pe": "github-avatar-1024x1024.png",
+    "en": "github-avatar-1024x1024.png"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 290,
+  "path": "brand/kit/01-avatars-icons/github-avatar-1024x1024.png",
+  "originalPath": "brand/kit/01-avatars-icons/github-avatar-1024x1024.png",
+  "previewPath": "brand/kit/01-avatars-icons/github-avatar-1024x1024.png",
+  "dimensionsLabel": "",
+  "usage": "inventory",
+  "kind": "other",
+  "approved": true
+}

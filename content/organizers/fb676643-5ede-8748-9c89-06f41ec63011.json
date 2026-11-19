@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "fb676643-5ede-8748-9c89-06f41ec63011",
+  "status": "published",
+  "updatedAt": null,
+  "name": "Ronald Requena",
+  "shortName": "Ronald",
+  "figurine": "team/ronald-3d.webp",
+  "color": "#e5c6b3",
+  "role": {
+    "es-pe": "CTO - CNCF Ambassador",
+    "en": "CTO - CNCF Ambassador"
+  },
+  "company": {
+    "es-pe": "Rumbo",
+    "en": "Rumbo"
+  },
+  "photo": "team/ronald-requena.jpg",
+  "url": "https://www.linkedin.com/in/rcronald/",
+  "slug": "ronald-requena",
+  "photoAssetId": "9b52a8c2-827d-82b8-a51e-f56dc06dc514",
+  "figurineAssetId": "ac9d4dfc-bc70-8338-9cc3-298db33a2d09",
+  "links": [],
+  "displayOrder": 30
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "ab43baf1-ebb0-84b7-8960-fc5ba3c1731a",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "asset-65ed8231f41ec518",
+  "title": {
+    "es-pe": "GitHub social preview",
+    "en": "GitHub social preview"
+  },
+  "description": {
+    "es-pe": "Archivo oficial existente; fuente preservada.",
+    "en": "Existing official file; original source preserved."
+  },
+  "displayOrder": 120,
+  "path": "brand/kit/02-banners-social/github-social-preview-1280x640.png",
+  "originalPath": "brand/kit/02-banners-social/github-social-preview-1280x640.png",
+  "previewPath": "brand/kit/02-banners-social/github-social-preview-1280x640.png",
+  "dimensionsLabel": "1280 × 640",
+  "usage": "social",
+  "kind": "social",
+  "approved": true
+}

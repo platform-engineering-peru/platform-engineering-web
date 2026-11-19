@@ -6,14 +6,24 @@ export function initUkuku(){
  const bar=root.querySelector<HTMLElement>('[data-progress]')!,label=root.querySelector<HTMLElement>('[data-chapter-label]')!;
  const button=root.querySelector<HTMLButtonElement>('[data-motion]')!;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- let paused=reduced.matches,frame=0,last=0,current=0,time=0;
- button.addEventListener('click',()=>{paused=!paused;button.setAttribute('aria-pressed',String(paused));button.textContent=paused?'▷':'Ⅱ';button.setAttribute('aria-label',paused?'Reanudar movimiento':'Pausar movimiento')});
+ let paused=reduced.matches,frame=0,last=0,current=0,time=0,active=0;
+ const previous=root.querySelector<HTMLButtonElement>('[data-story-prev]')!;
+ const next=root.querySelector<HTMLButtonElement>('[data-story-next]')!;
+ const en=document.documentElement.lang.startsWith('en');
+ const navigate=(direction:number)=>{
+  const destination=scenes[Math.max(0,Math.min(scenes.length-1,active+direction))];
+  window.scrollTo({top:window.scrollY+destination.getBoundingClientRect().top-innerHeight*.12+1,behavior:reduced.matches?'instant':'smooth'});
+ };
+ previous.addEventListener('click',()=>navigate(-1));
+ next.addEventListener('click',()=>navigate(1));
+ button.addEventListener('click',()=>{paused=!paused;button.setAttribute('aria-pressed',String(paused));button.textContent=paused?'▷':'Ⅱ';button.setAttribute('aria-label',en?(paused?'Resume motion':'Pause motion'):(paused?'Reanudar movimiento':'Pausar movimiento'))});
  const update=(now:number)=>{
   const dt=Math.min((now-last)/1000,.05);last=now;
   const rect=root.getBoundingClientRect();
   if(rect.bottom>0&&rect.top<innerHeight){
    const tops=scenes.map(s=>s.getBoundingClientRect().top);let i=0;
    while(i<tops.length-1&&tops[i+1]<innerHeight*.12)i++;
+   active=i;previous.disabled=i===0;next.disabled=i===scenes.length-1;
    const fraction=i===4?0:Math.max(0,Math.min(1,(innerHeight*.12-tops[i])/(tops[i+1]-tops[i])));
    const target=i+fraction;
    current=reduced.matches?target:current+(target-current)*(1-Math.exp(-dt*9));

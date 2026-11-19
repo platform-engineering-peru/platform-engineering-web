@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "c4e06366-648b-8a3b-9ea0-4b3dd4c026c0",
+  "status": "published",
+  "updatedAt": null,
+  "slug": "anthony-mogrovejo",
+  "name": "Anthony Mogrovejo",
+  "role": {
+    "es-pe": "Team Lead Chapter Cloud Networking",
+    "en": "Team Lead Chapter Cloud Networking"
+  },
+  "company": {
+    "es-pe": "Banco de Crédito del Perú",
+    "en": "Banco de Crédito del Perú"
+  },
+  "talk": {
+    "es-pe": "IA generativa, LLMs y RAG desde cero",
+    "en": "Generative AI, LLMs and RAG from scratch"
+  },
+  "bio": {
+    "es-pe": "",
+    "en": ""
+  },
+  "photo": "speakers/anthony-mogrovejo.jpg",
+  "url": "https://www.linkedin.com/in/amogrovejo/",
+  "topics": [],
+  "displayOrder": 100
+}
