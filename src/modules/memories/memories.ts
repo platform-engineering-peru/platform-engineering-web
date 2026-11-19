@@ -38,9 +38,13 @@ if (root) {
       c.fillRect(0, 0, 1000, 670);
       // Keep photograph edges inside the rounded shader mask.
       const padding = 36;
-      const scale = Math.min((1000 - padding * 2) / img.naturalWidth, (670 - padding * 2) / img.naturalHeight);
+      const cover=tile.dataset.fit==="cover";
+      const scale = (cover?Math.max:Math.min)((1000 - padding * 2) / img.naturalWidth, (670 - padding * 2) / img.naturalHeight);
       const w = img.naturalWidth * scale, h = img.naturalHeight * scale;
-      c.drawImage(img, (1000-w)/2, (670-h)/2, w, h);
+      c.save();
+      if(cover){c.beginPath();c.rect(padding,padding,1000-padding*2,670-padding*2);c.clip();}
+      c.drawImage(img,(1000-w)*(cover?Number(tile.dataset.focalX??0.5):0.5),(670-h)*(cover?Number(tile.dataset.focalY??0.5):0.5),w,h);
+      c.restore();
       t.needsUpdate = true;
       wake();
     };

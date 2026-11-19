@@ -1,0 +1,9 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Calendar from '@modules/calendar/Calendar.astro';
+import {getLangPaths,useTranslations,type Lang} from '@i18n/index';
+export const getStaticPaths=getLangPaths;
+const lang=Astro.params.lang as Lang;
+const t=useTranslations(lang);
+---
+<BaseLayout lang={lang} title={t('calendar.pageTitle')} description={t('calendar.lead')}><Calendar lang={lang}/></BaseLayout>

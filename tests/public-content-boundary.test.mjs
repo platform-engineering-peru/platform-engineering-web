@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,readdirSync} from 'node:fs';
 import {validatePublicContent} from '../src/data/public-content.ts';
 const types=['events','speakers','organizers','resources','courses','settings','brands'];
-const source=()=>Object.fromEntries(types.map(type=>[type,readdirSync(new URL(`../content/${type}/`,import.meta.url)).map(file=>JSON.parse(readFileSync(new URL(`../content/${type}/${file}`,import.meta.url))))]));
+const source=()=>({blog:[],...Object.fromEntries(types.map(type=>[type,readdirSync(new URL(`../content/${type}/`,import.meta.url)).map(file=>JSON.parse(readFileSync(new URL(`../content/${type}/${file}`,import.meta.url))))]))});
 test('canonical baseline validates and content changes remain data driven',()=>{
  const input=source(); assert.equal(validatePublicContent(input).speakers.length,13);
  input.events[0].title.en='A revised event'; assert.equal(validatePublicContent(input).events.find(r=>r.id===input.events[0].id).title.en,'A revised event');
@@ -23,7 +23,7 @@ test('empty and fully archived collections do not restore hardcoded content',()=
 test('renderer compatibility manifest pins the actual reader and schema bytes for each type',async()=>{
  const {createHash}=await import('node:crypto');
  const manifest=JSON.parse(readFileSync(new URL('../content/publication-compatibility.json',import.meta.url)));
- assert.equal(manifest.schemaVersion,1);assert.deepEqual(Object.keys(manifest.types).sort(),[...types,'memories'].sort());
+ assert.equal(manifest.schemaVersion,1);assert.deepEqual(Object.keys(manifest.types).sort(),[...types,'memories','blog'].sort());
  for(const entry of Object.values(manifest.types))for(const file of [...Object.entries(entry.requiredFiles).map(([path,sha256])=>({path,sha256})),{path:entry.schemaPath,sha256:entry.schemaSha256}]){
   assert.match(file.path,/^(src|content)\//);assert.ok(!file.path.includes('..'));
   assert.equal(createHash('sha256').update(readFileSync(new URL('../'+file.path,import.meta.url))).digest('hex'),file.sha256,file.path);

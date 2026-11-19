@@ -1,7 +1,6 @@
 {
   "site.title": "Platform Engineering Perú",
   "site.description": "La comunidad peruana de platform engineering: meetups, talleres y recursos en español para quienes construyen plataformas internas de desarrollo.",
-
   "nav.label": "Principal",
   "nav.home": "Inicio",
   "nav.events": "Eventos",
@@ -13,19 +12,16 @@
   "theme.toggle": "Cambiar entre tema claro y oscuro",
   "chapter.badge": "Capítulo Perú",
   "link.soon": "Próximamente",
-
   "home.hero.pre": "La comunidad peruana de ",
   "home.hero.post": ".",
   "home.hero.subtitle": "Meetups, talleres y recursos en español para quienes construyen plataformas internas de desarrollo en el Perú.",
   "home.hero.join": "Únete a la comunidad",
   "home.hero.events": "Ver eventos",
   "home.hero.imageAlt": "Ilustración isométrica: andenes incas con la bandera del Perú sobre los que se conectan servicios de una plataforma interna (Kubernetes, base de datos, configuración y nube).",
-
   "home.next.eyebrow": "Próximo meetup",
   "home.next.title": "Nos vemos pronto",
   "home.next.all": "Todos los eventos →",
   "home.next.empty": "Estamos preparando el próximo meetup. Únete a la comunidad para enterarte primero.",
-
   "home.pillars.title": "Aprende, comparte y construye mejores plataformas.",
   "home.pillars.meetups.eyebrow": "Meetups",
   "home.pillars.meetups.title": "Charlas mensuales",
@@ -37,7 +33,6 @@
   "home.pillars.resources.title": "Conocimiento en español",
   "home.pillars.resources.body": "Guías, cursos y artículos curados de la comunidad global, con resumen en español.",
   "home.pillars.resources.cta": "Explorar →",
-
   "home.what.eyebrow": "Platform engineering 101",
   "home.what.title": "¿Qué es platform engineering?",
   "home.what.body": "Es la disciplina de diseñar y construir plataformas internas de autoservicio para que los equipos de desarrollo entreguen software con menos fricción. Una plataforma bien hecha reduce la carga cognitiva, estandariza lo repetitivo y deja a cada equipo enfocarse en su producto.",
@@ -50,23 +45,19 @@
   "home.what.devops.title": "DevOps que escala",
   "home.what.devops.body": "No reemplaza a DevOps: lo hace sostenible cuando la organización crece y se multiplican los equipos.",
   "home.what.cta": "Leer la guía completa",
-
   "home.university.eyebrow": "Certifícate",
   "home.university.title": "Aprende con Platform Engineering University",
   "home.university.body": "Cursos gratuitos y certificaciones con instructor de la comunidad global. Empieza por la introducción y arma tu grupo de estudio con la comunidad en Perú.",
   "home.university.cta": "Ver cursos gratuitos",
   "home.university.secondary": "Ir a la universidad",
-
   "home.speakers.eyebrow": "Speakers recientes",
   "home.speakers.cta": "Ver el evento →",
-
   "cfp.title": "¿Quieres dar una charla?",
   "cfp.body": "Nuestro call for speakers está abierto todo el año en Sessionize. Buscamos historias reales de plataformas internas, no demos de producto.",
   "cfp.point1": "Charlas de 25 a 30 minutos o lightning talks de 10 minutos, en español o inglés.",
   "cfp.point2": "Todos los niveles son bienvenidos. Si es tu primera charla, te ayudamos a prepararla.",
   "cfp.point3": "Revisamos las propuestas de forma continua y las programamos en las próximas ediciones en Lima.",
   "cfp.cta": "Postular en Sessionize",
-
   "events.eyebrow": "Eventos",
   "events.title": "Meetups y talleres",
   "events.lead": "Charlas mensuales en Lima, talleres en regiones y sesiones remotas para toda la comunidad.",
@@ -77,7 +68,6 @@
   "events.recording": "Grabación",
   "events.empty.upcoming": "No hay eventos programados por ahora. Únete a la comunidad para enterarte primero.",
   "events.empty.past": "Todavía no hay eventos pasados.",
-
   "event.status.open": "Inscripciones abiertas",
   "event.status.limited": "Cupos limitados",
   "event.status.free": "Gratis",
@@ -92,7 +82,6 @@
   "event.past.note": "Este evento ya pasó.",
   "event.cfp": "¿Quieres dar una charla en un próximo evento? Postula en Sessionize →",
   "event.hours": "h",
-
   "resources.eyebrow": "Recursos",
   "resources.title": "Aprende platform engineering",
   "resources.lead": "Una selección curada de la comunidad global. La mayoría del contenido está en inglés; te dejamos el resumen en español.",
@@ -108,7 +97,6 @@
   "resources.more.body": "El blog de platformengineering.org publica artículos nuevos cada semana, y Platform Weekly los resume en tu correo.",
   "resources.more.blog": "Ir al blog",
   "resources.more.newsletter": "Suscribirme a Platform Weekly",
-
   "community.eyebrow": "Comunidad",
   "community.title": "Somos el capítulo peruano de platform engineering",
   "community.lead": "Una comunidad abierta de ingenieras e ingenieros de plataforma, SRE, DevOps y líderes técnicos que comparten lo que aprenden construyendo plataformas internas en el Perú.",
@@ -132,7 +120,6 @@
   "community.team.body": "La comunidad la impulsa un equipo voluntario. Si quieres sumarte a organizar, escríbenos.",
   "community.coc.title": "Código de conducta",
   "community.coc.body": "Queremos un espacio seguro y respetuoso para todas las personas, sin importar su experiencia, género, origen o forma de pensar. No toleramos el acoso en ninguna de sus formas, ni en eventos ni en nuestros canales. Si ves algo que no está bien, escríbele al equipo organizador.",
-
   "join.title": "Únete a la comunidad",
   "join.body": "Elige por dónde quieres enterarte de los próximos meetups y conversar con la comunidad.",
   "join.whatsapp.title": "Grupo de WhatsApp",
@@ -142,7 +129,6 @@
   "join.linkedin.title": "LinkedIn",
   "join.linkedin.body": "Novedades, grabaciones y ofertas de trabajo.",
   "join.close": "Cerrar",
-
   "footer.tagline": "Capítulo peruano de la comunidad global de platform engineering.",
   "footer.community": "Comunidad",
   "footer.resources": "Recursos",
@@ -152,8 +138,35 @@
   "footer.blog": "Blog global",
   "footer.newsletter": "Platform Weekly",
   "footer.made": "Hecho en Lima, Perú",
-
   "notfound.title": "Página no encontrada",
   "notfound.body": "La página que buscas no existe o cambió de lugar.",
-  "notfound.back": "Volver al inicio"
+  "notfound.back": "Volver al inicio",
+  "blog.pageTitle": "Blog de la comunidad",
+  "blog.kicker": "IDEAS QUE SE COMPARTEN",
+  "blog.title": "Lo compartimos.",
+  "blog.titleAccent": "Lo conservamos.",
+  "blog.lead": "Publicaciones de nuestra comunidad, reunidas con su fuente original para seguir aprendiendo y conversando.",
+  "blog.posts": "Publicaciones de la comunidad",
+  "blog.original": "Ver publicación original",
+  "blog.emptyTitle": "La próxima conversación empieza aquí.",
+  "blog.emptyBody": "Todavía no hay publicaciones confirmadas en este archivo. Mientras tanto, encuentra nuestro próximo encuentro en el calendario.",
+  "blog.calendar": "Explorar el calendario",
+  "blog.back": "Volver al blog",
+  "blog.sourceNote": "Esta entrada recoge una publicación de la comunidad. Su fuente original se conserva en el enlace.",
+  "blog.sourceLanguage": "Idioma de la fuente",
+  "blog.languageUnknown": "Sin confirmar",
+  "calendar.pageTitle": "Calendario tecnológico",
+  "calendar.kicker": "ENCUENTROS PROPIOS Y COMUNIDADES INVITADAS",
+  "calendar.title": "Hagamos espacio",
+  "calendar.titleAccent": "para encontrarnos.",
+  "calendar.lead": "Meetups, talleres y conversaciones de nuestra comunidad y comunidades invitadas, en un solo calendario.",
+  "calendar.previous": "Mes anterior",
+  "calendar.next": "Mes siguiente",
+  "calendar.today": "Hoy",
+  "calendar.zone": "Todas las horas se muestran en Lima (UTC−5).",
+  "calendar.keyboard": "Usa las flechas para cambiar de día, Inicio/Fin para la semana y RePág/AvPág para cambiar de mes.",
+  "calendar.agenda": "Agenda del mes",
+  "calendar.empty": "No hay actividades programadas para estas fechas.",
+  "calendar.note": "La información y las inscripciones pertenecen a cada actividad.",
+  "calendar.events": "Ver todos los eventos"
 }

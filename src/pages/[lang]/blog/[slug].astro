@@ -1,0 +1,11 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BlogDetail from '@modules/blog/BlogDetail.astro';
+import {blog} from '@data/blog';
+import type {BlogEntry} from '@data/blog-model';
+import {locales,pick,type Lang} from '@i18n/index';
+export function getStaticPaths(){return locales.flatMap(lang=>blog.map(post=>({params:{lang,slug:post.slug},props:{post}})));}
+const lang=Astro.params.lang as Lang;
+const {post}=Astro.props as {post:BlogEntry};
+---
+<BaseLayout lang={lang} title={pick(post.title,lang)} description={pick(post.description,lang)}><BlogDetail lang={lang} post={post}/></BaseLayout>

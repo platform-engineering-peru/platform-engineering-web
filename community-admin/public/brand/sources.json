@@ -1,0 +1,33 @@
+{
+  "pep": {
+    "source": "public/brand/official/mark.png",
+    "note": "Unchanged approved raster master"
+  },
+  "fonts": {
+    "source": "public/fonts/",
+    "note": "Unchanged DM Sans and Epilogue plus OFL licenses used by current editorial website"
+  },
+  "linkedin": {
+    "source": "https://brand.linkedin.com/downloads",
+    "note": "Unchanged existing site official icons.svg app-linkedin-bug-color-icon"
+  },
+  "github": {
+    "source": "https://brand.github.com/GitHub_Logos.zip",
+    "note": "Unchanged GitHub_Invertocat_Black.svg and White.svg"
+  },
+  "youtube": {
+    "source": "https://brand.youtube/youtube-icon",
+    "note": "Exact video-youtube-red SVG symbol paths/viewBox from official brand page. Core download inspected: https://www.gstatic.com/marketing-cms/78/29/3e68a1414bb28d0b7e47b44c3c91/youtube-icon.zip (EPS/AI/PNG, no SVG). No redrawing."
+  },
+  "sha256": {
+    "mark.png": "1e8095749552d3d3a1ed4dc3cb6c151fe3bd337709783eb04126ad8a17182516",
+    "providers/github-white.svg": "ccd84c89b1056345608fc3489357f8acc7397e49a3cdc2d418b6c8016911d47b",
+    "providers/youtube.svg": "0f2ba466dab86483488c424787bd075bc2bda26568d70450dc0faea1329cecb7",
+    "providers/github-black.svg": "693d7abe6f899646cc2e96856723b45e95f71885a54910b2749f6decdf7e1ee1",
+    "providers/linkedin.svg": "20d2715a91a6ad299b4a554d71d044f3d77925d6de596d3d8aa2a68a5f132edd",
+    "fonts/epilogue-OFL.txt": "95ebd6a2e4035b8398c83928fb85297b48441f27f405398c29b59aae899fc747",
+    "fonts/epilogue-variable.ttf": "012f651b45f47c10c7714cb7e3f2f7d9ccb7f235a2cc72c6b273ddc735705c67",
+    "fonts/dmsans-OFL.txt": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1",
+    "fonts/dm-sans-variable.ttf": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d"
+  }
+}

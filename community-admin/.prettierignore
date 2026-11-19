@@ -1,0 +1,6 @@
+.local/
+dist/
+node_modules/
+contracts/
+public/
+package-lock.json
