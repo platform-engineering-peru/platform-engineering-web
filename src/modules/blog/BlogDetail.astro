@@ -1,0 +1,15 @@
+---
+import { bodyParagraphs, networkLabel, type BlogEntry } from '@data/blog-model';
+import { localizePath, pick, useTranslations, langCode, type Lang } from '@i18n/index';
+import './blog.css';
+interface Props {lang:Lang;post:BlogEntry}
+const {lang,post}=Astro.props;
+const t=useTranslations(lang);
+const published=new Intl.DateTimeFormat(langCode(lang),{dateStyle:'long',timeZone:'America/Lima'}).format(new Date(post.sourcePublishedAt));
+---
+<article class="studio-page blog-detail ed-wrap">
+  <a class="detail-back" href={localizePath(lang,'/blog')}>← {t('blog.back')}</a>
+  <header><p class="ed-kicker">{networkLabel(post)} / <time datetime={post.sourcePublishedAt}>{published}</time></p><h1>{pick(post.title,lang)}</h1><p class="blog-description">{pick(post.description,lang)}</p></header>
+  <div class="blog-prose">{bodyParagraphs(pick(post.body,lang)).map(paragraph=><p>{paragraph}</p>)}</div>
+  <footer class="blog-attribution"><div class="blog-tags">{post.tags.map(tag=><span>{tag}</span>)}</div><p>{t('blog.sourceNote')}</p><a class="ed-button ed-button--primary" href={post.sourceUrl} rel="noopener noreferrer">{t('blog.original')} · {networkLabel(post)} ↗</a><p class="blog-language">{t('blog.sourceLanguage')}: {post.sourceLanguage==='und'?t('blog.languageUnknown'):post.sourceLanguage==='en'?'English':'Español (Perú)'}</p></footer>
+</article>

@@ -7,8 +7,9 @@ import resourcesSchema from '../../content/schemas/resources-v1.schema.json';
 import coursesSchema from '../../content/schemas/courses-v1.schema.json';
 import settingsSchema from '../../content/schemas/settings-v1.schema.json';
 import brandsSchema from '../../content/schemas/brands-v1.schema.json';
+import blogSchema from '../../content/schemas/blog-v1.schema.json';
 
-const schemas = {events:eventsSchema,speakers:speakersSchema,organizers:organizersSchema,resources:resourcesSchema,courses:coursesSchema,settings:settingsSchema,brands:brandsSchema};
+const schemas = {events:eventsSchema,speakers:speakersSchema,organizers:organizersSchema,resources:resourcesSchema,courses:coursesSchema,settings:settingsSchema,brands:brandsSchema,blog:blogSchema};
 export type PublicType = keyof typeof schemas;
 export interface PublicRecord {
   schemaVersion: 1;
@@ -55,7 +56,7 @@ let snapshot: PublicCollections | undefined;
 export function publicRecords(type: PublicType): PublicRecord[] {
   if (!snapshot) {
     const files=import.meta.glob('../../content/**/*.json',{eager:true,import:'default'});
-    const input: Record<PublicType,unknown[]>={events:[],speakers:[],organizers:[],resources:[],courses:[],settings:[],brands:[]};
+    const input: Record<PublicType,unknown[]>={events:[],speakers:[],organizers:[],resources:[],courses:[],settings:[],brands:[],blog:[]};
     for (const [path,value] of Object.entries(files)) {
       const match=path.match(/^\.\.\/\.\.\/content\/([^/]+)\/([^/]+)\.json$/);
       if (!match||!(match[1] in schemas)) continue;

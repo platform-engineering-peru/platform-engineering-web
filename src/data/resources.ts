@@ -1,5 +1,5 @@
-import { publicRecords } from './public-content';
 import type { Localized } from '@i18n/utils';
+import { publicRecords } from './public-content';
 
 export type ResourceType = 'guide' | 'article' | 'course' | 'report' | 'tool';
 export type Topic = 'fundamentals' | 'idp' | 'golden-paths' | 'devex' | 'teams' | 'ai' | 'career';
@@ -12,6 +12,7 @@ export interface Resource {
   href: string;
   /** Idioma del contenido enlazado. */
   contentLang: 'es' | 'en';
+  coverArtKey?: string;
 }
 
 export const topics: { id: Topic; label: Localized }[] = [
@@ -24,6 +25,5 @@ export const topics: { id: Topic; label: Localized }[] = [
   { id: 'career', label: { 'es-pe': 'Carrera', en: 'Career' } },
 ];
 
-
-/** Selección curada de la comunidad global, con resumen en español. */
-export const resources: Resource[] = [...publicRecords('resources'),...publicRecords('courses')].sort((a,b)=>a.displayOrder-b.displayOrder).map(r=>({type:r.type,topic:r.topic,title:r.title,description:r.description,href:r.href,contentLang:r.contentLang}));
+/** Public resources and courses share editorial ordering and explicit artwork identity. */
+export const resources: Resource[] = [...publicRecords('resources'),...publicRecords('courses')].sort((a,b)=>a.displayOrder-b.displayOrder).map(r=>({type:r.type,topic:r.topic,title:r.title,description:r.description,href:r.href,contentLang:r.contentLang,coverArtKey:r.coverArtKey}));

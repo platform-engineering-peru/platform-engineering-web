@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "status",
+    "updatedAt",
+    "slug",
+    "title",
+    "description",
+    "displayOrder",
+    "href",
+    "type",
+    "topic",
+    "contentLang",
+    "coverArtKey",
+    "tags"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "enum": [
+        "published",
+        "archived"
+      ]
+    },
+    "updatedAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-z0-9]*(?:-[a-z0-9]+)*$"
+    },
+    "title": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 120
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "displayOrder": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "href": {
+      "type": "string",
+      "maxLength": 2048,
+      "anyOf": [
+        {
+          "const": ""
+        },
+        {
+          "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
+          "format": "uri"
+        }
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "guide",
+        "article",
+        "course",
+        "report",
+        "tool"
+      ]
+    },
+    "topic": {
+      "type": "string",
+      "enum": [
+        "fundamentals",
+        "idp",
+        "golden-paths",
+        "devex",
+        "teams",
+        "ai",
+        "career"
+      ]
+    },
+    "contentLang": {
+      "type": "string",
+      "enum": [
+        "es",
+        "en"
+      ]
+    },
+    "coverArtKey": {
+      "type": "string",
+      "enum": [
+        "fundamentals:guide",
+        "fundamentals:course",
+        "idp:article",
+        "idp:cage",
+        "golden-paths:article",
+        "devex:score",
+        "devex:article",
+        "teams:article",
+        "ai:article",
+        "career:article",
+        "idp:tool",
+        "fundamentals:report"
+      ]
+    },
+    "tags": {
+      "maxItems": 100,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    }
+  }
+}

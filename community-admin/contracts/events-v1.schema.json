@@ -1,0 +1,320 @@
+{
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "communityKind": {
+            "const": "guest"
+          }
+        },
+        "required": [
+          "communityKind"
+        ]
+      },
+      "then": {
+        "required": [
+          "communityName",
+          "communityUrl"
+        ],
+        "properties": {
+          "communityName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "communityUrl": {
+            "type": "string",
+            "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "status",
+    "updatedAt",
+    "slug",
+    "title",
+    "description",
+    "displayOrder",
+    "date",
+    "time",
+    "endTime",
+    "timeZone",
+    "city",
+    "venue",
+    "address",
+    "online",
+    "eventStatus",
+    "organizer",
+    "registerUrl",
+    "speakerIds",
+    "recording"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "enum": [
+        "published",
+        "archived"
+      ]
+    },
+    "updatedAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-z0-9]*(?:-[a-z0-9]+)*$"
+    },
+    "title": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 120
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "displayOrder": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "date": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "time": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "endTime": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "timeZone": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "city": {
+      "type": "object",
+      "properties": {
+        "es-pe": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "en": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "es-pe",
+        "en"
+      ],
+      "additionalProperties": false
+    },
+    "venue": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "address": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "online": {
+      "type": "boolean"
+    },
+    "eventStatus": {
+      "type": "string",
+      "enum": [
+        "open",
+        "limited",
+        "free",
+        "soldout"
+      ]
+    },
+    "organizer": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "registerUrl": {
+      "type": "string",
+      "maxLength": 2048,
+      "anyOf": [
+        {
+          "const": ""
+        },
+        {
+          "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
+          "format": "uri"
+        }
+      ]
+    },
+    "speakerIds": {
+      "maxItems": 100,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+      }
+    },
+    "recording": {
+      "type": "string",
+      "maxLength": 2048,
+      "anyOf": [
+        {
+          "const": ""
+        },
+        {
+          "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
+          "format": "uri"
+        }
+      ]
+    },
+    "communityKind": {
+      "type": "string",
+      "enum": [
+        "own",
+        "guest"
+      ]
+    },
+    "communityName": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "communityUrl": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "maxLength": 2048,
+          "anyOf": [
+            {
+              "const": ""
+            },
+            {
+              "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
+              "format": "uri"
+            }
+          ]
+        }
+      ]
+    },
+    "activityUrl": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "maxLength": 2048,
+          "anyOf": [
+            {
+              "const": ""
+            },
+            {
+              "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
+              "format": "uri"
+            }
+          ]
+        }
+      ]
+    },
+    "startsAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "endsAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "startDate": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "endDate": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

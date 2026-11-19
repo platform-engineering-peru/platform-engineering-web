@@ -1,7 +1,6 @@
 {
   "site.title": "Platform Engineering Peru",
   "site.description": "The Peruvian platform engineering community: meetups, workshops and resources for people building internal developer platforms.",
-
   "nav.label": "Main",
   "nav.home": "Home",
   "nav.events": "Events",
@@ -13,19 +12,16 @@
   "theme.toggle": "Switch between light and dark theme",
   "chapter.badge": "Peru chapter",
   "link.soon": "Coming soon",
-
   "home.hero.pre": "The Peruvian ",
   "home.hero.post": " community.",
   "home.hero.subtitle": "Meetups, workshops and resources for people building internal developer platforms in Peru.",
   "home.hero.join": "Join the community",
   "home.hero.events": "See events",
   "home.hero.imageAlt": "Isometric illustration: Inca terraces with the Peruvian flag, where internal platform services (Kubernetes, database, configuration and cloud) connect.",
-
   "home.next.eyebrow": "Next meetup",
   "home.next.title": "See you soon",
   "home.next.all": "All events →",
   "home.next.empty": "We're preparing the next meetup. Join the community to hear about it first.",
-
   "home.pillars.title": "Learn, share and build better platforms.",
   "home.pillars.meetups.eyebrow": "Meetups",
   "home.pillars.meetups.title": "Monthly talks",
@@ -37,7 +33,6 @@
   "home.pillars.resources.title": "Curated knowledge",
   "home.pillars.resources.body": "Guides, courses and articles from the global community, with Spanish summaries.",
   "home.pillars.resources.cta": "Explore →",
-
   "home.what.eyebrow": "Platform engineering 101",
   "home.what.title": "What is platform engineering?",
   "home.what.body": "It's the discipline of designing and building self-service internal platforms so development teams can ship software with less friction. A good platform reduces cognitive load, standardizes the repetitive work and lets each team focus on its product.",
@@ -50,23 +45,19 @@
   "home.what.devops.title": "DevOps that scales",
   "home.what.devops.body": "It doesn't replace DevOps: it makes it sustainable as the organization and the number of teams grow.",
   "home.what.cta": "Read the full guide",
-
   "home.university.eyebrow": "Get certified",
   "home.university.title": "Learn with Platform Engineering University",
   "home.university.body": "Free courses and trainer-led certifications from the global community. Start with the introduction and build a study group with the community in Peru.",
   "home.university.cta": "See free courses",
   "home.university.secondary": "Go to University",
-
   "home.speakers.eyebrow": "Recent speakers",
   "home.speakers.cta": "See the event →",
-
   "cfp.title": "Want to give a talk?",
   "cfp.body": "Our call for speakers is open all year on Sessionize. We look for real stories about internal platforms, not product demos.",
   "cfp.point1": "25 to 30 minute talks or 10 minute lightning talks, in Spanish or English.",
   "cfp.point2": "All levels are welcome. If it is your first talk, we help you prepare it.",
   "cfp.point3": "We review proposals on a rolling basis and schedule them for upcoming editions in Lima.",
   "cfp.cta": "Apply on Sessionize",
-
   "events.eyebrow": "Events",
   "events.title": "Meetups and workshops",
   "events.lead": "Monthly talks in Lima, workshops in the regions and remote sessions for the whole community.",
@@ -77,7 +68,6 @@
   "events.recording": "Recording",
   "events.empty.upcoming": "No events scheduled right now. Join the community to hear about the next one first.",
   "events.empty.past": "No past events yet.",
-
   "event.status.open": "Registration open",
   "event.status.limited": "Limited spots",
   "event.status.free": "Free",
@@ -92,7 +82,6 @@
   "event.past.note": "This event has already taken place.",
   "event.cfp": "Want to give a talk at an upcoming event? Apply on Sessionize →",
   "event.hours": "h",
-
   "resources.eyebrow": "Resources",
   "resources.title": "Learn platform engineering",
   "resources.lead": "A curated selection from the global community, with short summaries.",
@@ -108,7 +97,6 @@
   "resources.more.body": "The platformengineering.org blog publishes new articles every week, and Platform Weekly sums them up in your inbox.",
   "resources.more.blog": "Go to the blog",
   "resources.more.newsletter": "Subscribe to Platform Weekly",
-
   "community.eyebrow": "Community",
   "community.title": "We are the Peruvian platform engineering chapter",
   "community.lead": "An open community of platform engineers, SREs, DevOps practitioners and tech leads sharing what they learn building internal platforms in Peru.",
@@ -132,7 +120,6 @@
   "community.team.body": "The community is run by a volunteer team. If you want to help organize, get in touch.",
   "community.coc.title": "Code of conduct",
   "community.coc.body": "We want a safe and respectful space for everyone, regardless of experience, gender, background or way of thinking. We do not tolerate harassment in any form, at events or in our channels. If you see something wrong, reach out to the organizers.",
-
   "join.title": "Join the community",
   "join.body": "Choose where you want to hear about upcoming meetups and talk with the community.",
   "join.whatsapp.title": "WhatsApp group",
@@ -142,7 +129,6 @@
   "join.linkedin.title": "LinkedIn",
   "join.linkedin.body": "News, recordings and job openings.",
   "join.close": "Close",
-
   "footer.tagline": "Peruvian chapter of the global platform engineering community.",
   "footer.community": "Community",
   "footer.resources": "Resources",
@@ -152,8 +138,35 @@
   "footer.blog": "Global blog",
   "footer.newsletter": "Platform Weekly",
   "footer.made": "Made in Lima, Peru",
-
   "notfound.title": "Page not found",
   "notfound.body": "The page you're looking for doesn't exist or has moved.",
-  "notfound.back": "Back to home"
+  "notfound.back": "Back to home",
+  "blog.pageTitle": "Community blog",
+  "blog.kicker": "IDEAS WORTH SHARING",
+  "blog.title": "Shared together.",
+  "blog.titleAccent": "Kept here.",
+  "blog.lead": "Posts from our community, collected with their original sources so we can keep learning and talking.",
+  "blog.posts": "Community posts",
+  "blog.original": "View original post",
+  "blog.emptyTitle": "The next conversation starts here.",
+  "blog.emptyBody": "There are no confirmed posts in this archive yet. In the meantime, find our next gathering in the calendar.",
+  "blog.calendar": "Explore the calendar",
+  "blog.back": "Back to the blog",
+  "blog.sourceNote": "This entry collects a community post. Its original source is preserved in the link.",
+  "blog.sourceLanguage": "Source language",
+  "blog.languageUnknown": "Unconfirmed",
+  "calendar.pageTitle": "Tech calendar",
+  "calendar.kicker": "OUR GATHERINGS AND INVITED COMMUNITIES",
+  "calendar.title": "Make room",
+  "calendar.titleAccent": "to meet.",
+  "calendar.lead": "Meetups, workshops and conversations from our community and invited communities, together in one calendar.",
+  "calendar.previous": "Previous month",
+  "calendar.next": "Next month",
+  "calendar.today": "Today",
+  "calendar.zone": "All times are shown in Lima (UTC−5).",
+  "calendar.keyboard": "Use arrow keys to change day, Home/End for the week and Page Up/Page Down to change month.",
+  "calendar.agenda": "Month agenda",
+  "calendar.empty": "No activities scheduled for these dates.",
+  "calendar.note": "Each activity maintains its own information and registration.",
+  "calendar.events": "View all events"
 }

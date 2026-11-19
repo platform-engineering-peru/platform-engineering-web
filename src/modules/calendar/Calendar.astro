@@ -1,0 +1,32 @@
+---
+import {events} from '@data/events';
+import {localizePath,useTranslations,langCode,type Lang} from '@i18n/index';
+import {limaDay,monthActivities} from './model';
+import {calendarView} from './view';
+import './calendar.css';
+interface Props {lang:Lang}
+const {lang}=Astro.props;
+const t=useTranslations(lang);
+const today=limaDay(new Date());
+const month=today.slice(0,7);
+const activities=events.map(event=>calendarView(event,lang));
+const current=monthActivities(activities,month);
+const label=new Intl.DateTimeFormat(langCode(lang),{month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(month+'-01T12:00:00Z'));
+---
+<div class="studio-page calendar-page">
+  <header class="studio-hero ed-wrap"><p class="ed-kicker"><span class="ed-dot"></span>{t('calendar.kicker')}</p><div class="studio-hero__row"><h1>{t('calendar.title')}<br/><em>{t('calendar.titleAccent')}</em></h1></div><div class="studio-hero__bottom"><p>{t('calendar.lead')}</p><span class="studio-index">PE / CALENDAR</span></div></header>
+  <section class="ed-wrap tech-calendar" data-tech-calendar data-lang={lang} data-today={today} data-activities={JSON.stringify(activities)}>
+    <div class="calendar-toolbar"><h2 id="calendar-month" data-month-label aria-live="polite">{label}</h2><div class="calendar-controls" data-calendar-controls hidden><button type="button" data-month-step="-1" aria-label={t('calendar.previous')}>←</button><button type="button" data-calendar-today>{t('calendar.today')}</button><button type="button" data-month-step="1" aria-label={t('calendar.next')}>→</button></div></div>
+    <p class="calendar-zone">{t('calendar.zone')}</p>
+    <div class="calendar-layout" data-month-view hidden>
+      <div><p class="calendar-help">{t('calendar.keyboard')}</p><div role="grid" aria-labelledby="calendar-month" class="calendar-grid" data-calendar-grid></div></div>
+      <section class="calendar-day-detail" aria-labelledby="calendar-day-title"><h3 id="calendar-day-title" data-day-label></h3><div data-day-activities aria-live="polite"></div></section>
+    </div>
+    <section class="calendar-agenda" aria-labelledby="calendar-agenda-title"><h3 id="calendar-agenda-title">{t('calendar.agenda')}</h3><div data-month-activities>{current.length?current.map(activity=><article class="calendar-activity"><time datetime={activity.startsAt}>{limaDay(activity.startsAt)} · {activity.time}</time><h4><a href={activity.href}>{activity.title} ↗</a></h4>{activity.community&&<p>{activity.community}</p>}<p>{activity.venue}</p></article>):<p class="calendar-empty">{t('calendar.empty')}</p>}</div></section>
+    <p class="calendar-footnote">{t('calendar.note')} <a href={localizePath(lang,'/events')}>{t('calendar.events')} ↗</a></p>
+  </section>
+</div>
+<script>
+  import {initializeCalendars} from './controller';
+  initializeCalendars();
+</script>

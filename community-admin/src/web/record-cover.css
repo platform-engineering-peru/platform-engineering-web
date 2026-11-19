@@ -1,0 +1,15 @@
+.record-cover-unavailable {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  text-align: center;
+}
+.record-cover-unavailable small {
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+.manager-workspace[data-view="list"] .record-cover-unavailable small {
+  display: none;
+}

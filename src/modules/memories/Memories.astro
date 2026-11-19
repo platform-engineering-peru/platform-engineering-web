@@ -1,5 +1,5 @@
 ---
-import {getMemoryPhotos} from "@data/memories";
+import { getMemoryPhotos } from "@data/memories";
 import type { Lang } from "@i18n/index";
 import "./memories.css";
 interface Props {
@@ -48,6 +48,9 @@ const photos = getMemoryPhotos(Astro.props.lang);
         <button
           class="memory-tile"
           data-memory-tile={i}
+          data-fit={photo.fit}
+          data-focal-x={photo.focalPoint?.x}
+          data-focal-y={photo.focalPoint?.y}
           data-title={photo.title}
           data-description={photo.description}
         >
@@ -75,7 +78,7 @@ const photos = getMemoryPhotos(Astro.props.lang);
         ←
       </button>
       <span data-memory-count aria-live="polite">
-        01 / {String(photos.length).padStart(2,"0")}
+        {`01 / ${String(photos.length).padStart(2, "0")}`}
       </span>
       <button
         data-memory-next

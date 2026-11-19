@@ -1,4 +1,36 @@
 {
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "communityKind": {
+            "const": "guest"
+          }
+        },
+        "required": [
+          "communityKind"
+        ]
+      },
+      "then": {
+        "required": [
+          "communityName",
+          "communityUrl"
+        ],
+        "properties": {
+          "communityName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "communityUrl": {
+            "type": "string",
+            "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  ],
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "additionalProperties": false,
@@ -186,6 +218,57 @@
         {
           "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
           "format": "uri"
+        }
+      ]
+    },
+    "communityKind": {
+      "type": "string",
+      "enum": [
+        "own",
+        "guest"
+      ]
+    },
+    "communityName": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "communityUrl": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "maxLength": 2048,
+          "anyOf": [
+            {
+              "const": ""
+            },
+            {
+              "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
+              "format": "uri"
+            }
+          ]
+        }
+      ]
+    },
+    "activityUrl": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "maxLength": 2048,
+          "anyOf": [
+            {
+              "const": ""
+            },
+            {
+              "pattern": "^https://(?![^/]*@)(?!localhost(?::|/|$)|[^/]*\\.(?:localhost|local|internal)(?::|/|$)|\\[|[0-9]{1,3}(?:\\.[0-9]{1,3}){3}(?::|/|$))[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?(?::443)?(?:[/?#][^\\s]*)?$",
+              "format": "uri"
+            }
+          ]
         }
       ]
     },

@@ -25,7 +25,7 @@ const facts: { icon: IconName; text: string; detail?: string }[] = [
   { icon: "calendar", text: longDate(event.date, lang) },
   {
     icon: "clock",
-    text: `${event.time}${event.endTime ? ` – ${event.endTime}` : ""} ${t("event.hours")}`,
+    text: `${event.time}${event.endTime ? ` – ${event.endTime}` : ""} ${event.timeZone && event.timeZone !== "America/Lima" ? event.timeZone : t("event.hours")}`,
   },
   {
     icon: "map-pin",
