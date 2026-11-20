@@ -10,7 +10,7 @@
   "id": "a0a0d599-6c3a-4480-bd85-191237e99a38",
   "schemaVersion": 1,
   "slug": "prueba-temporal-github-20261119-a0a0d599",
-  "status": "published",
+  "status": "archived",
   "tags": [],
   "title": {
     "en": "TEMPORARY TEST · GitHub add and remove · 2026-11-19",
@@ -18,5 +18,5 @@
   },
   "topic": "fundamentals",
   "type": "guide",
-  "updatedAt": "2026-11-19T15:32:24.267Z"
+  "updatedAt": "2026-11-20T01:34:54.024Z"
 }
