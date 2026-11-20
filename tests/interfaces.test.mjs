@@ -1,8 +1,14 @@
-import test, { before, after } from "node:test";
+import test, { before, beforeEach, after } from "node:test";
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { Window } from "happy-dom";
 let window, document;
+const resourceRecords = (await Promise.all(["resources", "courses"].map(async (type) => {
+  const directory = new URL(`../content/${type}/`, import.meta.url);
+  return Promise.all((await readdir(directory)).filter(name => name.endsWith(".json"))
+    .map(async name => JSON.parse(await readFile(new URL(name, directory), "utf8"))));
+}))).flat().filter(record => record.status === "published")
+  .sort((a, b) => a.displayOrder - b.displayOrder);
 const q = (s) => document.querySelector(s);
 const input = (selector, value) => {
   q(selector).value = value;
@@ -67,10 +73,18 @@ before(async () => {
   await import("../src/modules/community/organizer-controller.ts");
 });
 after(() => window.happyDOM.abort());
+beforeEach(() => {
+  document.querySelectorAll("dialog[open]").forEach(dialog => dialog.close());
+  q("[data-archive-reset]").click();
+});
+test("the built shelf includes every published resource and course in editorial order", () => {
+  assert.deepEqual([...document.querySelectorAll("[data-tape]")].map(tape => tape.dataset.title),
+    resourceRecords.map(record => record.title["es-pe"]));
+});
 test("archive filters empty results, resets, and handles one resource", () => {
   assert.equal(
     document.querySelectorAll("[data-tape]:not([hidden])").length,
-    12,
+    resourceRecords.length,
   );
   input("[data-archive-search]", "no existe este recurso");
   assert.equal(q("[data-archive-empty]").hidden, false);
@@ -78,9 +92,10 @@ test("archive filters empty results, resets, and handles one resource", () => {
   q("[data-archive-reset]").click();
   assert.equal(
     document.querySelectorAll("[data-tape]:not([hidden])").length,
-    12,
+    resourceRecords.length,
   );
   q('[data-archive-filters] [data-topic="ai"]').click();
+  input("[data-archive-search]", resourceRecords.find(record => record.topic === "ai").title["es-pe"]);
   assert.equal(
     document.querySelectorAll("[data-tape]:not([hidden])").length,
     1,
@@ -93,19 +108,24 @@ test("archive filters empty results, resets, and handles one resource", () => {
   q("[data-archive-reset]").click();
 });
 test("range and keyboard keep the cover and caption synchronized", () => {
-  input("[data-archive-range]", "3");
+  const minimum = resourceRecords.findIndex(record => record.href.includes("what-is-a-minimum-viable-platform"));
+  assert.ok(minimum >= 0);
+  input("[data-archive-range]", String(minimum + 1));
   assert.match(q("[data-active-title]").textContent, /minimum viable/);
   q("[data-archive-shelf]").dispatchEvent(
     new window.KeyboardEvent("keydown", { key: "End", bubbles: true }),
   );
-  assert.match(q("[data-active-title]").textContent, /Reportes/);
-  assert.equal(q("[data-archive-range]").value, "12");
+  assert.equal(q("[data-active-title]").textContent, resourceRecords.at(-1).title["es-pe"]);
+  assert.equal(q("[data-archive-range]").value, String(resourceRecords.length));
   q("[data-archive-shelf]").dispatchEvent(
     new window.KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true }),
   );
   assert.equal(q("[data-archive-range]").value, "1");
 });
 test("resource detail opens the correct original link and restores scrolling", () => {
+  const original = resourceRecords.findIndex(record => record.href.endsWith("/what-is-platform-engineering"));
+  assert.ok(original >= 0);
+  input("[data-archive-range]", String(original + 1));
   q("[data-archive-shelf]").focus();
   q("[data-archive-open]").click();
   assert.equal(q("[data-archive-detail]").open, true);
@@ -177,4 +197,18 @@ test('vertical swipes do not change the shelf selection',()=>{
  shelf.dispatchEvent(new window.PointerEvent('pointerdown',{pointerId:1,isPrimary:true,button:0,clientX:150,clientY:100,bubbles:true}));
  shelf.dispatchEvent(new window.PointerEvent('pointermove',{pointerId:1,isPrimary:true,clientX:153,clientY:150,bubbles:true}));
  shelf.dispatchEvent(new window.PointerEvent('pointerup',{pointerId:1,isPrimary:true,clientX:153,clientY:150,bubbles:true}));assert.equal(q('[data-archive-range]').value,'1');
+});
+
+test("every resource retains its detail destination and is discoverable in global search", () => {
+  for (const [index, record] of resourceRecords.entries()) {
+    input("[data-archive-range]", String(index + 1));
+    q("[data-archive-open]").click();
+    assert.equal(q(".archive-detail__visit").href, record.href);
+    q("[data-archive-close]").click();
+    q("[data-search-open]").click();
+    input("[data-site-query]", record.title["es-pe"]);
+    assert.ok([...document.querySelectorAll("[data-site-results] a")]
+      .some(link => link.href === record.href), record.title["es-pe"]);
+    q("[data-search-close]").click();
+  }
 });
